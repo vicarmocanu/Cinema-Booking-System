@@ -18,23 +18,39 @@ namespace Cinema.ModelLayer
         private String password;
 
         //simple customer (no registration required) builder - phone number only
-        public Customer(String custFirstName, String custLastName, String custPhoneNo)
+        public Customer(String fName, String lName, String phoneNo)
         {
-            fName = custFirstName;
-            lName = custLastName;
-            phoneNo = custPhoneNo;;
+            fName = fName;
+            lName = lName;
+            phoneNo = phoneNo;
         }
 
         //simple customer (no registratio required) builder - email only
-        public Customer(String custFirstName, String custLastName, String custPhoneNo)
+        public Customer(String fName, String lName, String email)
         {
-            fName = custFirstName;
-            lName = custLastName;
-            phoneNo = custPhoneNo;
+            fName = fName;
+            lName = lName;
+            email = email;
         }
 
         //complete customer builder
+        public Customer(String fName, String lName, String city, String address, String email, String phoneNo, String username, String password)
+        {
+            fName = fName;
+            lName = lName;
+            city = city;
+            address = address;
+            email = email;
+            phoneNo = phoneNo;
+            username = username;
+            password = password;
+        }
 
+        //empty customer builder
+        public Customer(){}
+        
+
+        //getters and setters
 
         public String CustomerFirstName
         {
@@ -48,10 +64,89 @@ namespace Cinema.ModelLayer
             }
         }
 
+        public String CustomerLastName
+        {
+            get
+            {
+                return lName;
+            }
+            set
+            {
+                lName = value;
+            }
+        }
+
+        public String CustomerCity
+        {
+            get
+            {
+                return city;
+            }
+            set
+            {
+                city = value;
+            }
+        }
+
+        public String CustomerAddress
+        {
+            get
+            {
+                return address;
+            }
+            set
+            {
+                address = value;
+            }
+        }
+
+        public String CustomerEmail
+        {
+            get
+            {
+                return email;
+            }
+            set
+            {
+                email = value;
+            }
+        }
+
+        public String CustomerPhoneNo
+        {
+            get
+            {
+                return phoneNo;
+            }
+            set
+            {
+                phoneNo = value;
+            }
+        }
+
+        public String CustomerUsername
+        {
+            get
+            {
+                return username;
+            }
+            set
+            {
+                username = value;
+            }
+        }
 
 
-
-        
-
+        public String CustomerPassword
+        {
+            get
+            {
+                return password;
+            }
+            set
+            {
+                password = value;
+            }
+        }
     }
 }
