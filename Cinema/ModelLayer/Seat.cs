@@ -8,5 +8,11 @@ namespace Cinema.ModelLayer
 {
     class Seat
     {
+        private int seatNumber;
+        private int rowNumber;
+        private Room room;
+        private String status;
+
+
     }
 }
