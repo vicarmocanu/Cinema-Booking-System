@@ -8,5 +8,41 @@ namespace Cinema.ModelLayer
 {
     class Room
     {
+        private int roomNumber;
+        private int numberOfSeats;
+
+        //constructors
+        public Room(int roomNumber, int numberOfSeats)
+        {
+            roomNumber = roomNumber;
+            numberOfSeats = numberOfSeats;
+        }
+
+        public Room() { }
+
+        //getters and setters
+        private int RoomNumber
+        {
+            get
+            {
+                return roomNumber;
+            }
+            set
+            {
+                roomNumber = value;
+            }
+        }
+
+        private int NumberOfSeats
+        {
+            get
+            {
+                return numberOfSeats;
+            }
+            set
+            {
+                numberOfSeats = value;
+            }
+        }
     }
 }
