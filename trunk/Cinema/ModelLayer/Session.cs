@@ -53,7 +53,7 @@ namespace Cinema.ModelLayer
 
       
         
-        public void seatFillUp
+        public void seatFillUp()
         {
             seats = new object[6][];
 
