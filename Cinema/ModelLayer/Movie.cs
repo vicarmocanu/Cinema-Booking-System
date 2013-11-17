@@ -9,35 +9,34 @@ namespace Cinema.ModelLayer
     class Movie
     {
         private int movieId;
-
         public int MovieId
         {
             get { return movieId; }
             set { movieId = value; }
         }
-        private String name;
 
+        private String name;
         public String Name
         {
             get { return name; }
             set { name = value; }
         }
-        private String genre;
 
+        private String genre;
         public String Genre
         {
             get { return genre; }
             set { genre = value; }
         }
-        private int ageLimit;
 
+        private int ageLimit;
         public int AgeLimit
         {
             get { return ageLimit; }
             set { ageLimit = value; }
         }
-        private String lenght;
 
+        private String lenght;
         public String Lenght
         {
             get { return lenght; }

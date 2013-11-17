@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Cinema.ModelLayer
 {
@@ -15,15 +16,15 @@ namespace Cinema.ModelLayer
             set { reservationId = value; }
         }
 
-        private List<Customer> customer;
-        public List<Customer> Customer
+        private Customer customer;
+        internal Customer Customer
         {
             get { return customer; }
             set { customer = value; }
         }
 
-        private List<Session> session;
-        public List<Session> Session
+        private Session session;
+        internal Session Session
         {
             get { return session; }
             set { session = value; }
@@ -36,8 +37,8 @@ namespace Cinema.ModelLayer
             set { noOfSeats = value; }
         }
 
-        private List<Seat> reservedSeats;
-        public List<Seat> ReservationSeats
+        private LinkedList<Seat> reservedSeats;
+        internal LinkedList<Seat> ReservedSeats
         {
             get { return reservedSeats; }
             set { reservedSeats = value; }
@@ -50,8 +51,8 @@ namespace Cinema.ModelLayer
             set { price = value; }
         }
 
-        private DateTime date;
-        public DateTime Date
+        private String date;
+        public String Date
         {
             get { return date; }
             set { date = value; }
@@ -64,19 +65,17 @@ namespace Cinema.ModelLayer
             set { status = value; }
         }
 
-        public Reservation(int reservationId, List<Customer> customer, 
-            List<Session> session, int noOfSeats, List<Seat> reservedSeats, 
-            int price, DateTime date, String status)
+        public Reservation(int reservationId, Customer customer, Session session, int noOfSeats, LinkedList<Seat> reservedSeats, int price, String date, String status)
         {
-            reservationId = reservationId;
-            customer = customer;
-            session = session;
-            noOfSeats = noOfSeats;
-            reservedSeats = reservedSeats;
-            price = price;
-            date = date;
-            status = status;
-        }
+            this.reservationId = reservationId;
+            this.customer = customer;
+            this.session = session;
+            this.noOfSeats = noOfSeats;
+            this.reservedSeats = reservedSeats;
+            this.price = price;
+            this.date = date;
+            this.status = status;
+        }       
 
         public Reservation()
         {
