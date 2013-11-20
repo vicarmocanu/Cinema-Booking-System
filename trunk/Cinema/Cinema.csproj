@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBLayer\DbConnection.cs" />
     <Compile Include="ModelLayer\Customer.cs" />
     <Compile Include="ModelLayer\Movie.cs" />
     <Compile Include="ModelLayer\Reservation.cs" />
@@ -48,9 +49,7 @@
     <Compile Include="ModelLayer\TimeTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DBLayer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
