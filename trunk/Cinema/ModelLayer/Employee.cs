@@ -36,5 +36,7 @@ namespace Cinema.ModelLayer
             get { return password; }
             set { password = value; }
         }
+
+        public Employee() { }
     }
 }
