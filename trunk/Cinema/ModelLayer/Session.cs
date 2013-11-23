@@ -44,25 +44,20 @@ namespace Cinema.ModelLayer
             set { exitTime = value; }
         }
 
-        private object[][] seats;
-        public object[][] Seats
+        private Seat[][] seats;
+        public Seat[][] Seats
         {
             get { return seats; }
             set { seats = value; }
         }
-
-      
         
-        public void seatFillUp()
+        public void seatFillUp(LinkedList<Seat> seatsList)
         {
-            seats = new object[6][];
-            seats[0] = new object[5];
-            seats[1] = new object[5];
-            seats[2] = new object[5];
-            seats[3] = new object[5];
-            seats[4] = new object[5];
-            seats[5] = new object[5];
-
+            seats = new Seat[6][];
+            for (int i = 0; i < 6; i++)
+            {
+                seats[i] = new Seat[5];
+            }
             
         }
 
