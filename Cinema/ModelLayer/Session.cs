@@ -50,33 +50,17 @@ namespace Cinema.ModelLayer
             get { return seats; }
             set { seats = value; }
         }
-        
-        public void seatFillUp(LinkedList<Seat> seatsList)
+
+        public Session(int sessionId, Movie movie, Room room, String enterTime, String exitTime, Seat[][] seats)
         {
-            seats = new Seat[6][];
-            for (int i = 0; i < 6; i++)
-            {
-                seats[i] = new Seat[5];
-            }
-            
+            this.sessionId = sessionId;
+            this.movie = movie;
+            this.room = room;
+            this.enterTime = enterTime;
+            this.exitTime = exitTime;
+            this.seats = seats;
         }
 
-
-
-        
-
-
-        
-      
-
-
-
         public Session() { }
-
-        
-
-        
-
-
     }
 }
