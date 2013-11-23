@@ -17,35 +17,6 @@ namespace Cinema.ModelLayer
         private String username;
         private String password;
 
-        //simple customer (no registration required) builder - phone number only
-        public Customer(String fName, String lName, String phoneNo)
-        {
-            fName = fName;
-            lName = lName;
-            phoneNo = phoneNo;
-        }
-
-        //simple customer (no registratio required) builder - email only
-        public Customer(String fName, String lName, String email)
-        {
-            fName = fName;
-            lName = lName;
-            email = email;
-        }
-
-        //complete customer builder
-        public Customer(String fName, String lName, String city, String address, String email, String phoneNo, String username, String password)
-        {
-            fName = fName;
-            lName = lName;
-            city = city;
-            address = address;
-            email = email;
-            phoneNo = phoneNo;
-            username = username;
-            password = password;
-        }
-
         //empty customer builder
         public Customer(){}
         
