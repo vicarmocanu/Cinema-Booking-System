@@ -8,23 +8,30 @@ namespace Cinema.ModelLayer
 {
     class Seat
     {
+        private int seatId;       
         private int seatNumber;
         private int rowNumber;
         private Room room;
         private String status;
 
         //constructors
-        public Seat(int seatNumber, int rowNumber, Room room, String status)
+        public Seat(int seatID, int seatNumber, int rowNumber, Room room, String status)
         {
-            seatNumber = seatNumber;
-            rowNumber = rowNumber;
-            room = room;
-            status = status;
+            this.seatNumber = seatNumber;
+            this.rowNumber = rowNumber;
+            this.room = room;
+            this.status = status;
         }
 
         public Seat() { }
 
         //getters and setters
+        public int SeatId
+        {
+            get { return seatId; }
+            set { seatId = value; }
+        }
+
         public int SeatNumber
         {
             get

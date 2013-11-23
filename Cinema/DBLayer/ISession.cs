@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.DBLayer
 {
-    interface ISeassion
+    interface ISession
     {
     }
 }
