@@ -19,13 +19,13 @@ namespace Cinema.DBLayer
         {
             Room room = new Room();
 
-            room.RoomNumber = (int)dbReader["roomNumber"];
-            room.NumberOfSeats = (int)dbReader["numberOfSeats"];
+            room.RoomNumber = Convert.ToInt32(dbReader["roomNumber"].ToString());
+            room.NumberOfSeats = Convert.ToInt32(dbReader["numberOfSeats"].ToString());
            
             return room;
         }
 
-        public int insertCustomer(Room room)
+        public int insertRoom(Room room)
         {
             int result = -1;
             string sqlQuery = "INSERT INTO Room VALUES " +
@@ -43,7 +43,7 @@ namespace Cinema.DBLayer
             return result;
         }
 
-        public List<Room> getCustomers()
+        public List<Room> getRooms()
         {
             List<Room> returnList = new List<Room>();
 
@@ -66,14 +66,36 @@ namespace Cinema.DBLayer
             return returnList;
         }
 
+        public Room getRoomByNumber(int number)
+        {
+            string sqlQuery = "SELECT * FROM Room WHERE roomNumber= '" + number + "'";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            IDataReader dbReader;
+            dbReader = dbCmd.ExecuteReader();
+
+            Room room;
+            if (dbReader.Read())
+            {
+                room = createRoom(dbReader);
+            }
+            else
+            {
+                room = null;
+            }
+
+            AccessDbSQLClient.Close();
+
+            return room;
+        }
+
         public int updateRoom(Room room)
         {
             int result = -1;
 
             string sqlQuery = "UPDATE Room SET " +
-                "roomNumber='" + room.RoomNumber + "', " +
-                "noOfSeats='" + room.NumberOfSeats + "', " + "'";
-
+                "noOfSeats='" + room.NumberOfSeats + "' " + 
+                "WHERE roomNumber='" + room.RoomNumber + "'";
             try
             {
                 SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);

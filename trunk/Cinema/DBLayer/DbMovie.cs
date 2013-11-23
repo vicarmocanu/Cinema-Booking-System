@@ -19,12 +19,11 @@ namespace Cinema.DBLayer
         {
             Movie mov  = new Movie();
 
-            mov.MovieId = (int)dbReader["movieId"];
+            mov.MovieId = Convert.ToInt32(dbReader["movieId"].ToString());
             mov.Name = dbReader["name"].ToString();
             mov.Genre = dbReader["genre"].ToString();
-            mov.AgeLimit = (int)dbReader["ageLimit"];
+            mov.AgeLimit = Convert.ToInt32(dbReader["ageLimit"].ToString());
             mov.Lenght = dbReader["lenght"].ToString();
-       
 
             return mov;
         }
@@ -73,16 +72,39 @@ namespace Cinema.DBLayer
             return returnList;
         }
 
+        public Movie getMovieByID(int id)
+        {
+            string sqlQuery = "SELECT * FROM Movie WHERE movieId= '" + id + "'";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            IDataReader dbReader;
+            dbReader = dbCmd.ExecuteReader();
+
+            Movie movie;
+            if (dbReader.Read())
+            {
+                movie = createMovie(dbReader);
+            }
+            else
+            {
+                movie = null;                
+            }
+
+            AccessDbSQLClient.Close();
+
+            return movie;
+        }
+
         public int updateMovie(Movie mov)
         {
             int result = -1;
 
             string sqlQuery = "UPDATE Movie SET " +
-                "movieId='" + mov.MovieId + "', " +
                 "name='" + mov.Name + "', " +
                 "genre='" + mov.Genre + "', " +
                 "ageLimit='" + mov.AgeLimit + "', " +
-                "lenght='" + mov.Lenght + "', " + "'";
+                "lenght='" + mov.Lenght + "' WHERE " +
+                "movieId='" + mov.MovieId + "'";
 
             try
             {
