@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Text;
+using System.Data;
 
 namespace Cinema.DBLayer
 {
-    class DbConnection
+    class AccessDBSQLClient
     {
-        public static readonly string connectionString = @"Data Source=;Initial Catalog=;Trusted_Connection=True";
+        public static readonly string connectionString = @"Data Server=balder.ucn.dk;Initial Catalog=dmae0912_7;User id=dmae0912_7;Password=IsAllowed;Integrated Security=True";
         public static readonly SqlConnection dbconn = new SqlConnection(connectionString);
 
         private static SqlCommand dbCmd;
