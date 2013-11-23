@@ -4,7 +4,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace Controller
+namespace Cinema.DBLayer
 {
     public class AccessDbSQLClient
     {
