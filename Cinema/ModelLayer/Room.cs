@@ -21,7 +21,7 @@ namespace Cinema.ModelLayer
         public Room() { }
 
         //getters and setters
-        private int RoomNumber
+        public int RoomNumber
         {
             get
             {
@@ -33,7 +33,7 @@ namespace Cinema.ModelLayer
             }
         }
 
-        private int NumberOfSeats
+        public int NumberOfSeats
         {
             get
             {
