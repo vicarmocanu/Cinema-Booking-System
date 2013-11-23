@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBLayer\DbConnection.cs" />
+    <Compile Include="DBLayer\AccessDbSQLClient.cs" />
     <Compile Include="DBLayer\DbCustomer.cs" />
     <Compile Include="DBLayer\DbMovie.cs" />
     <Compile Include="DBLayer\DbReservation.cs" />
