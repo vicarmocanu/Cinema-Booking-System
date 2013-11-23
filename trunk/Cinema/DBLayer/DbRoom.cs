@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 
 namespace Cinema.DBLayer
 {
-    class DbRoom
+    class DbRoom: IRoom
     {
         private static SqlCommand dbCmd = null;
 

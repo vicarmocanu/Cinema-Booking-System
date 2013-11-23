@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.DBLayer
 {
-    class DbSeat
+    class DbSeat:ISeat
     {
     }
 }

@@ -9,7 +9,7 @@ using Cinema.ModelLayer;
 
 namespace Cinema.DBLayer
 {
-    class DbEmployee
+    class DbEmployee: IEmployee
     {
         private static SqlCommand dbCmd = null;
 
