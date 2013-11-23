@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 
 namespace Cinema.DBLayer
 {
-    class DbMovie
+    class DbMovie: IMovie
     {
         private static SqlCommand dbCmd = null; 
 

@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 
 namespace Cinema.DBLayer
 {
-    class DbCustomer
+    class DbCustomer : ICustomer
     {
         private static SqlCommand dbCmd = null;
 
