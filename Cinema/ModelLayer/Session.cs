@@ -58,8 +58,9 @@ namespace Cinema.ModelLayer
             get { return seats; }
             set { seats = value; }
         }
-        
-        public Session() { }
+
+        public Session()
+        { }           
 
         public DateTime convertTime(String time)
         {

@@ -23,6 +23,7 @@ namespace Cinema.DBLayer
             seat.SeatNumber = Convert.ToInt32(dbReader["seatNumber"].ToString());
             seat.Room = dbRoom.getRoomByNumber(Convert.ToInt32(dbReader["roomNumber"].ToString()));
             seat.RowNumber = Convert.ToInt32(Convert.ToInt32(dbReader["rowNumber"].ToString()));
+            seat.Status = "E";
 
             return seat;
         }
@@ -33,8 +34,8 @@ namespace Cinema.DBLayer
             int result = -1;
             string sqlQuery = "INSERT INTO Seat VALUES " +
                 "('" + seat.SeatId +
-                "','" + seat.SeatNumber + 
-                "','" + seat.Room.RoomNumber + 
+                "','" + seat.SeatNumber +
+                "','" + seat.Room.RoomNumber +
                 "','" + seat.RowNumber + "')";
             
             try
@@ -43,7 +44,7 @@ namespace Cinema.DBLayer
                 result = cmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
-            catch (SqlException sqlEx)
+            catch (SqlException)
             { }
 
             return result;
