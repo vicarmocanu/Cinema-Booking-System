@@ -45,7 +45,7 @@
     <Compile Include="DBLayer\DbMovie.cs" />
     <Compile Include="DBLayer\DbReservation.cs" />
     <Compile Include="DBLayer\DbRoom.cs" />
-    <Compile Include="DBLayer\DbSeassion.cs" />
+    <Compile Include="DBLayer\DbSession.cs" />
     <Compile Include="DBLayer\DbSeat.cs" />
     <Compile Include="DBLayer\DbTimeTable.cs" />
     <Compile Include="DBLayer\ICustomer.cs" />
