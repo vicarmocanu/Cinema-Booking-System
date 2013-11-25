@@ -13,7 +13,6 @@ namespace Cinema.DBLayer
 {
     class DbReservation: IReservation
     {
-        private static SqlCommand dbCmd = null;
         private static DbCustomer dbCustomer = new DbCustomer();
         private static DbSession dbSession = new DbSession();
 
