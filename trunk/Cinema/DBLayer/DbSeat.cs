@@ -28,6 +28,31 @@ namespace Cinema.DBLayer
             return seat;
         }
 
+        //insert the seats for a room
+        public List<int> insertSeatMatrix(int rows, int columns, int roomNumber)
+        {
+            List<int> results = new List<int>();
+            Room room = new Room();
+            room = dbRoom.getRoomByNumber(roomNumber);
+            int requiredNoOfSeats = room.NumberOfSeats;
+            int noOfSeats = rows * columns;
+            if (noOfSeats == requiredNoOfSeats)
+            {
+                for (int i = 1; i <= rows; i++)
+                {
+                    for (int j = 1; j < columns; j++)
+                    {
+                        
+                    }
+                }
+
+            }
+
+
+            return results;
+        }
+
+
         //create a seat
         public int insertSeat(Seat seat)
         {
@@ -48,6 +73,30 @@ namespace Cinema.DBLayer
             { }
 
             return result;
+        }
+
+        //get all seats from a room
+        public List<Seat> getRoomSeats(int roomNumber)
+        {
+            List<Seat> returnList = new List<Seat>();
+
+            string sqlQuery = "SELECT * FROM Seat WHERE roomNumber= '" + roomNumber + "'";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            IDataReader dbReader;
+            dbReader = dbCmd.ExecuteReader();
+
+            Seat seat;
+
+            while (dbReader.Read())
+            {
+                seat = createSeat(dbReader);
+                returnList.Add(seat);
+            }
+
+            AccessDbSQLClient.Close();
+
+            return returnList;
         }
 
         //get all seats
@@ -115,7 +164,7 @@ namespace Cinema.DBLayer
                 result = cmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
-            catch (SqlException sqlEx)
+            catch (SqlException)
             { }
 
             return result;
