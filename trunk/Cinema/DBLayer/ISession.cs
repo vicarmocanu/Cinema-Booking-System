@@ -16,6 +16,9 @@ namespace Cinema.DBLayer
         int getColumnCount(int sessionId, int rowNumber);
         Seat[][] getSeatsForJaggedArray(int sessionId);
         List<Seat> getScheduledSeatsFromRow(int sessionId, int rowNumber);
-
+        List<Session> getSessions();
+        Session getSession(int sessionId);
+        int updateSession(Session session);
+        int updateSeatSchedule(int sessionId, int seatId, String status);
     }
 }
