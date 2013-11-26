@@ -9,6 +9,7 @@ namespace Cinema.DBLayer
 {
     interface ISeat
     {
+        List<int> insertSeatMatrix(int rows, int columns, int roomNumber, int seatId);
         int insertSeat(Seat seat);
         List<Seat> getSeats();
         Seat getSeatById(int id);
