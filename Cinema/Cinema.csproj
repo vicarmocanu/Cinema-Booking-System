@@ -39,6 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlLayer\CustomerCtr.cs" />
+    <Compile Include="ControlLayer\EmployeeCtr.cs" />
+    <Compile Include="ControlLayer\MovieCtr.cs" />
+    <Compile Include="ControlLayer\ReservationCtr.cs" />
+    <Compile Include="ControlLayer\RoomCtr.cs" />
+    <Compile Include="ControlLayer\SeassionCtr.cs" />
+    <Compile Include="ControlLayer\SeatCtr.cs" />
+    <Compile Include="ControlLayer\TimeTableCtr.cs" />
     <Compile Include="DBLayer\AccessDbSQLClient.cs" />
     <Compile Include="DBLayer\DbCustomer.cs" />
     <Compile Include="DBLayer\DbEmployee.cs" />
