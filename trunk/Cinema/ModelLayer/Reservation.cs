@@ -37,8 +37,8 @@ namespace Cinema.ModelLayer
             set { noOfSeats = value; }
         }
 
-        private LinkedList<Seat> reservedSeats;
-        internal LinkedList<Seat> ReservedSeats
+        private List<Seat> reservedSeats;
+        internal List<Seat> ReservedSeats
         {
             get { return reservedSeats; }
             set { reservedSeats = value; }
@@ -65,21 +65,7 @@ namespace Cinema.ModelLayer
             set { status = value; }
         }
 
-        public Reservation(int reservationId, Customer customer, Session session, int noOfSeats, LinkedList<Seat> reservedSeats, int price, String date, String status)
-        {
-            this.reservationId = reservationId;
-            this.customer = customer;
-            this.session = session;
-            this.noOfSeats = noOfSeats;
-            this.reservedSeats = reservedSeats;
-            this.price = price;
-            this.date = date;
-            this.status = status;
-        }       
-
         public Reservation()
-        {
- 
-        }
+        { }
     }
 }

@@ -12,7 +12,6 @@ namespace Cinema.DBLayer
     class DbSession :ISession
     {
         private static SqlCommand dbCmd = null;
-        private static Session session = new Session();
         private static DbMovie dbMovie = new DbMovie();
         private static DbRoom dbRoom = new DbRoom();
 
@@ -164,6 +163,8 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
+            Session session = new Session();
+
             while (dbReader.Read())
             {
                 session.SessionId = Convert.ToInt32(dbReader["sessionId"].ToString());
@@ -182,7 +183,7 @@ namespace Cinema.DBLayer
         }
 
         //get a particular session
-        public Session getSession(int sessionId)
+        public Session getSessionById(int sessionId)
         {
             string sqlQuery = "SELECT Session.sessionId, Session.movieId, Session.date, " +
                 "Session.enterTime, Session.exitTime, SeatSchedule.seatId, Seat.roomNumber " +
@@ -192,6 +193,8 @@ namespace Cinema.DBLayer
 
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
+
+            Session session = new Session();
 
             if (dbReader.Read())
             {

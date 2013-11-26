@@ -70,7 +70,7 @@ namespace Cinema.ControlLayer
         public Session getSession(int sessionId)
         {
             ISession _dbSession = new DbSession();
-            return _dbSession.getSession(sessionId);
+            return _dbSession.getSessionById(sessionId);
         }
 
         public int updateSession(Session session)
