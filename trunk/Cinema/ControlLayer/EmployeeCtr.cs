@@ -56,7 +56,20 @@ namespace Cinema.ControlLayer
             return returnList;
         }
 
-        public Employee 
+        public Employee getEmployeeByUserName(String username)
+        {
+            IEmployee _dbEmployee = new DbEmployee();
+
+            return _dbEmployee.getEmployeeByUsername(username);
+        }
+
+        public int updateEmployee(Employee employee)
+        {
+            IEmployee _dbEmployee = new DbEmployee();
+
+            return _dbEmployee.updateEmployee(employee);
+
+        }
 
 
 
