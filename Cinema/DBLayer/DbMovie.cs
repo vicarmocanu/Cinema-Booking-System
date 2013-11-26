@@ -32,7 +32,7 @@ namespace Cinema.DBLayer
         {
             int result = -1;
             string sqlQuery = "INSERT INTO Movie VALUES " +
-                "('" + mov.MovieId +
+                "('" + mov.MovieId +//get max
                 "','" + mov.Name +
                 "','" + mov.Genre +
                 "','" + mov.AgeLimit +
