@@ -12,12 +12,16 @@ namespace Cinema.DBLayer
     class DbSession :ISession
     {
         private static SqlCommand dbCmd = null;
+        private static Session session = new Session();
+        private static DbMovie dbMovie = new DbMovie();
+        private static DbRoom dbRoom = new DbRoom();
 
+        //insert into the Session table
         public int insertSession(Session session)
         {
             int result = -1;
             string sqlQuery = "INSERT INTO Session VALUES " +
-                "('" + session.SessionId +
+                "('" + session.SessionId +//get max here
                 "','" + session.Movie.MovieId +
                 "','" + session.convertTime(session.EnterTime) +
                 "','" + session.convertTime(session.ExitTime) + 
@@ -33,6 +37,7 @@ namespace Cinema.DBLayer
             return result;
         }
 
+        //insert into the SeatSchedule table
         public List<int> insertSeatSchedule(Session session, List<Seat> sessionSeats)
         {            
             List<int> results = new List<int>();
@@ -55,6 +60,7 @@ namespace Cinema.DBLayer
             return results;
         }
 
+        //get the number of rows from the seats in a session
         public int getRowCount(int sessionId)
         {
             int count = 0;
@@ -73,6 +79,7 @@ namespace Cinema.DBLayer
             return count;
         }
 
+        //get the number of columns from the seats in a session
         public int getColumnCount(int sessionId, int rowNumber)
         {
             int count = 0;
@@ -93,6 +100,7 @@ namespace Cinema.DBLayer
             return count;
         }
 
+        //create the seats jagged array
         public Seat[][] getSeatsForJaggedArray(int sessionId)
         {
             int rowCount = 0;
@@ -113,6 +121,7 @@ namespace Cinema.DBLayer
             return seats;
         }
 
+        //get a row of seats from the scheduled seats for a session
         public List<Seat> getScheduledSeatsFromRow(int sessionId, int rowNumber)
         {
             List<Seat> returnList = new List<Seat>();
@@ -124,8 +133,6 @@ namespace Cinema.DBLayer
 
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
-
-            DbRoom dbRoom = new DbRoom();
 
             while (dbReader.Read())
             {
@@ -157,10 +164,6 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Session session = new Session();
-            DbMovie dbMovie = new DbMovie();
-            DbRoom dbRoom = new DbRoom();
-
             while (dbReader.Read())
             {
                 session.SessionId = Convert.ToInt32(dbReader["sessionId"].ToString());
@@ -189,10 +192,6 @@ namespace Cinema.DBLayer
 
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
-
-            Session session = new Session();
-            DbMovie dbMovie = new DbMovie();
-            DbRoom dbRoom = new DbRoom();
 
             if (dbReader.Read())
             {

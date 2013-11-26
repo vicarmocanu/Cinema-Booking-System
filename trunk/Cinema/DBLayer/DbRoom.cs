@@ -29,7 +29,7 @@ namespace Cinema.DBLayer
         {
             int result = -1;
             string sqlQuery = "INSERT INTO Room VALUES " +
-                "('" + room.RoomNumber +
+                "('" + room.RoomNumber + //get max
                 "','" + room.NumberOfSeats +"')";
             try
             {
