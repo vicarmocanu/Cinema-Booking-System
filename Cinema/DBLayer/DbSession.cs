@@ -105,7 +105,7 @@ namespace Cinema.DBLayer
                 seats[i] = new Seat[columnCount];
                 int j = 0;
                 int k = 0;
-                while (j < columnCount && k < 0)
+                while (j < columnCount && k < columnCount)
                 {
                     seats[i][j] = scheduledRow[k];
                     k++; j++;
@@ -143,17 +143,119 @@ namespace Cinema.DBLayer
 
             return returnList;
         }
-
-
-       
-
+        
         //get all sessions
         public List<Session> getSessions()
         {
-            //TO_DO
+            List<Session> returnList = new List<Session>();
+
+            string sqlQuery = "SELECT Session.sessionId, Session.movieId, Session.date, " +
+                "Session.enterTime, Session.exitTime, SeatSchedule.seatId, Seat.roomNumber " + 
+                "FROM Session JOIN SeatSchedule ON Session.sessionId = SeatSchedule.sessionId " + 
+                "JOIN Seat ON SeatSchedule.seatId = Seat.seatId";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            IDataReader dbReader;
+            dbReader = dbCmd.ExecuteReader();
+
+            Session session = new Session();
+            DbMovie dbMovie = new DbMovie();
+            DbRoom dbRoom = new DbRoom();
+
+            while (dbReader.Read())
+            {
+                session.SessionId = Convert.ToInt32(dbReader["sessionId"].ToString());
+                session.Movie = dbMovie.getMovieByID(Convert.ToInt32(dbReader["movieId"].ToString()));
+                session.Room = dbRoom.getRoomByNumber(Convert.ToInt32(dbReader["movieId"].ToString()));
+                session.Date = dbReader["date"].ToString();
+                session.EnterTime = session.suitableTime(dbReader["enterTime"].ToString());
+                session.ExitTime = session.suitableTime(dbReader["exitTime"].ToString());
+
+                returnList.Add(session);
+            }
+
+            AccessDbSQLClient.Close();
+
+            return returnList;
         }
 
+        //get a particular session
+        public Session getSession(int sessionId)
+        {
+            string sqlQuery = "SELECT Session.sessionId, Session.movieId, Session.date, " +
+                "Session.enterTime, Session.exitTime, SeatSchedule.seatId, Seat.roomNumber " +
+                "FROM Session JOIN SeatSchedule ON Session.sessionId = SeatSchedule.sessionId " +
+                "JOIN Seat ON SeatSchedule.seatId = Seat.seatId WHERE Session.sessionId = '" + sessionId + "'";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
 
-       
+            IDataReader dbReader;
+            dbReader = dbCmd.ExecuteReader();
+
+            Session session = new Session();
+            DbMovie dbMovie = new DbMovie();
+            DbRoom dbRoom = new DbRoom();
+
+            if (dbReader.Read())
+            {
+                session.SessionId = Convert.ToInt32(dbReader["sessionId"].ToString());
+                session.Movie = dbMovie.getMovieByID(Convert.ToInt32(dbReader["movieId"].ToString()));
+                session.Room = dbRoom.getRoomByNumber(Convert.ToInt32(dbReader["movieId"].ToString()));
+                session.Date = dbReader["date"].ToString();
+                session.EnterTime = session.suitableTime(dbReader["enterTime"].ToString());
+                session.ExitTime = session.suitableTime(dbReader["exitTime"].ToString());
+            }
+            else
+            {
+                session = null;
+            }
+
+            return session;
+        }
+
+        //update a session
+        public int updateSession(Session session)
+        {
+            int result = -1;
+
+            string sqlQuery = "UPDATE Session SET " +
+                "movieId='" + session.Movie.MovieId + "', " +
+                "date='" + session.Date + "', " +
+                "enterTime='" + session.EnterTime + "', " +
+                "exitTime='" + session.ExitTime + "' " +
+                "WHERE sessionId='" + session.SessionId + "'";
+
+            try
+            {
+                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                result = cmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
+            }
+            catch (SqlException)
+            { }
+
+            return result;
+        }
+
+        //update seat schedule
+        public int updateSeatSchedule(int sessionId, int seatId, String status)
+        {
+            int result = -1;
+
+            string sqlQuery = "UPDATE SeatSchedule SET " +
+                "status = '" + status + "' " +
+                "WHERE sessionId = '" + sessionId + "' " +
+                "AND seatId = '" + seatId + "'";
+
+            try
+            {
+                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                result = cmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
+            }
+            catch (SqlException)
+            { }
+
+            return result;
+        }
     }
 }

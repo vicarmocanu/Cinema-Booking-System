@@ -89,13 +89,6 @@ namespace Cinema.ModelLayer
             String suitableTime = "default";
             suitableTime = time.Substring(0, 8);
             return suitableTime;
-        }
-
-        public String suitableDate(DateTime date)
-        {
-            String suitableDate = "default";
-            suitableDate = date.ToString("YYYY-MM-DD");
-            return suitableDate;
-        }           
+        } 
     }
 }
