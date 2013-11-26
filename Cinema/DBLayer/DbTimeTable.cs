@@ -8,5 +8,6 @@ namespace Cinema.DBLayer
 {
     class DbTimeTable:ITimeTable
     {
+
     }
 }
