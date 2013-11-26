@@ -103,12 +103,11 @@ namespace Cinema.DBLayer
                 List<Seat> scheduledRow = getScheduledSeatsFromRow(sessionId, i+1);
                 int columnCount = scheduledRow.Count();
                 seats[i] = new Seat[columnCount];
-                int j = 0;
-                int k = 0;
-                while (j < columnCount && k < columnCount)
+                int j = 0;               
+                while (j < columnCount)
                 {
-                    seats[i][j] = scheduledRow[k];
-                    k++; j++;
+                    seats[i][j] = scheduledRow[j];
+                    j++;
                 }
             }
             return seats;
