@@ -44,8 +44,6 @@ namespace Cinema.ControlLayer
      
         }
 
-
-
         public List<Employee> GetEmployees()
         {
             List<Employee> returnList = new List<Employee>();
