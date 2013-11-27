@@ -47,7 +47,47 @@ namespace Cinema.ControlLayer
             return _dbSession.getSessionById(sessionId);
         }
 
+        public int insertSession(int movieId, String EnterTime, String ExitTime, String Date, Double Price)
+        { 
+            ISession _dbSession = new DbSession();
+            Movie mov= new Movie();
+            Session ses = new Session();
 
+            mov.MovieId = movieId;
+            ses.Movie = mov;
+            ses.EnterTime = EnterTime;
+            ses.ExitTime = ExitTime;
+            ses.Date = Date;
+
+            ses.Price = Price;
+
+            return _dbSession.insertSession(ses);
+
+        }
+
+        public List<int> insertSeatSchedule(Session session, List<Seat> sessionSeats)
+        {
+            ISession _dbSession = new DbSession();
+            return _dbSession.insertSeatSchedule(session, sessionSeats);
+        }
+
+        public int updateSession(int MovieId, String Date, String EnterTime, String ExitTime, Double Price, int SessionId)
+        {
+            ISession _dbSession = new DbSession();
+            Movie mov = new Movie();
+            Session ses = new Session();
+
+            mov.MovieId = MovieId;
+            ses.Movie = mov;
+            ses.Date = Date;
+            ses.EnterTime = EnterTime;
+            ses.ExitTime = ExitTime;
+            ses.Price = Price;
+            ses.SessionId = SessionId;
+
+            return _dbSession.updateSession(ses);
+
+        }
 
 
 
