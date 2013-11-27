@@ -15,6 +15,7 @@ namespace Cinema.DBLayer
     {
         private static SqlCommand dbCmd = null; 
 
+        //create a movie object from the data reader
         private static Movie createMovie(IDataReader dbReader)
         {
             Movie mov  = new Movie();
@@ -28,11 +29,18 @@ namespace Cinema.DBLayer
             return mov;
         }
 
+        //insert a movie into the table
         public int insertMovie(Movie mov)
         {
             int result = -1;
+
+            String attrib = "movieId";
+            String table = "Movie";
+            int max = GetMax.getMax(attrib, table);
+            int id = max + 1;
+            
             string sqlQuery = "INSERT INTO Movie VALUES " +
-                "('" + mov.MovieId +//get max
+                "('" + id + 
                 "','" + mov.Name +
                 "','" + mov.Genre +
                 "','" + mov.AgeLimit +
@@ -43,12 +51,13 @@ namespace Cinema.DBLayer
                 result = cmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
-            catch (SqlException sqlEx)
+            catch (SqlException)
             { }
 
             return result;
         }
-
+        
+        //get all movies
         public List<Movie> getMovies()
         {
             List<Movie> returnList = new List<Movie>();
@@ -59,7 +68,7 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Movie mov;
+            Movie mov = new Movie();
 
             while (dbReader.Read())
             {
@@ -72,6 +81,7 @@ namespace Cinema.DBLayer
             return returnList;
         }
 
+        //get a movie based on its id
         public Movie getMovieByID(int id)
         {
             string sqlQuery = "SELECT * FROM Movie WHERE movieId= '" + id + "'";
@@ -80,7 +90,8 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Movie movie;
+            Movie movie = new Movie();
+
             if (dbReader.Read())
             {
                 movie = createMovie(dbReader);
@@ -95,6 +106,7 @@ namespace Cinema.DBLayer
             return movie;
         }
 
+        //update a movie based on its id
         public int updateMovie(Movie mov)
         {
             int result = -1;
@@ -112,7 +124,7 @@ namespace Cinema.DBLayer
                 result = cmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
-            catch (SqlException sqlEx)
+            catch (SqlException)
             { }
 
             return result;

@@ -28,9 +28,14 @@ namespace Cinema.DBLayer
         }
 
         //insert the seats for a room
-        public List<int> insertSeatMatrix(int rows, int columns, int roomNumber, int seatId)//last atribute needs to be removed....getMax is used inside the method
+        public List<int> insertSeatMatrix(int rows, int columns, int roomNumber)
         {
             List<int> results = new List<int>();
+
+            string attrib = "seatId";
+            string table = "Seat";
+            int max = 0;
+            int id = 0;
 
             Room room = new Room();
             room = dbRoom.getRoomByNumber(roomNumber);
@@ -45,14 +50,16 @@ namespace Cinema.DBLayer
                     for (int j = 1; j <= columns; j++)
                     {
                         int result = -1;
+
+                        max = GetMax.getMax(attrib, table);
+                        id = max + 1;
+
                         int seatNumber = (i * columns) - (columns - j);
                         string sqlQuery = "INSERT INTO Seat VALUES " +
-                            //get max needed here
-                            "('" + seatId +
+                            "('" + id +
                             "','" + seatNumber +
                             "','" + roomNumber +
                             "','" + i + "')";
-
                         try
                         {
                             SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
@@ -70,16 +77,21 @@ namespace Cinema.DBLayer
             return results;
         }
 
-        //create a seat
+        //insert a seat into the table
         public int insertSeat(Seat seat)
         {
             int result = -1;
+
+            string attrib = "seatId";
+            string table = "Seat";
+            int max = GetMax.getMax(attrib, table);
+            int id = max + 1;
+
             string sqlQuery = "INSERT INTO Seat VALUES " +
-                "('" + seat.SeatId + //get max here
+                "('" + id +
                 "','" + seat.SeatNumber +
                 "','" + seat.Room.RoomNumber +
-                "','" + seat.RowNumber + "')";
-            
+                "','" + seat.RowNumber + "')";            
             try
             {
                 SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
@@ -103,7 +115,7 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Seat seat;
+            Seat seat = new Seat();
 
             while (dbReader.Read())
             {
@@ -127,7 +139,7 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Seat seat;
+            Seat seat = new Seat();
 
             while (dbReader.Read())
             {
@@ -149,7 +161,8 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Seat seat;
+            Seat seat = new Seat();
+
             if (dbReader.Read())
             {
                 seat = createSeat(dbReader);
@@ -174,7 +187,6 @@ namespace Cinema.DBLayer
                 "roomNumber='" + seat.Room.RoomNumber + "', " +
                 "rowNumber='" + seat.RowNumber + "' " +
                 "WHERE seatId='" + seat.SeatId + "'";
-
             try
             {
                 SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);

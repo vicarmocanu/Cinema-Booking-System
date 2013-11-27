@@ -15,6 +15,7 @@ namespace Cinema.DBLayer
     {
         private static SqlCommand dbCmd = null;
 
+        //create a room object based on the data reader
         private static Room createRoom(IDataReader dbReader)
         {
             Room room = new Room();
@@ -25,11 +26,18 @@ namespace Cinema.DBLayer
             return room;
         }
 
+        //insert a room into the table
         public int insertRoom(Room room)
         {
             int result = -1;
+
+            string attrib = "roomNumber";
+            string table = "Room";
+            int max = GetMax.getMax(attrib, table);
+            int id = max + 1;
+
             string sqlQuery = "INSERT INTO Room VALUES " +
-                "('" + room.RoomNumber + //get max
+                "('" + id + 
                 "','" + room.NumberOfSeats +"')";
             try
             {
@@ -37,12 +45,13 @@ namespace Cinema.DBLayer
                 result = cmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
-            catch (SqlException sqlEx)
+            catch (SqlException)
             { }
 
             return result;
         }
 
+        //get all rooms
         public List<Room> getRooms()
         {
             List<Room> returnList = new List<Room>();
@@ -53,7 +62,7 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Room room;
+            Room room = new Room();
 
             while (dbReader.Read())
             {
@@ -66,6 +75,7 @@ namespace Cinema.DBLayer
             return returnList;
         }
 
+        //get a room based on its number
         public Room getRoomByNumber(int number)
         {
             string sqlQuery = "SELECT * FROM Room WHERE roomNumber= '" + number + "'";
@@ -74,7 +84,8 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Room room;
+            Room room = new Room();
+
             if (dbReader.Read())
             {
                 room = createRoom(dbReader);
@@ -89,6 +100,7 @@ namespace Cinema.DBLayer
             return room;
         }
 
+        //update a room based on its number
         public int updateRoom(Room room)
         {
             int result = -1;
@@ -102,7 +114,7 @@ namespace Cinema.DBLayer
                 result = cmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
-            catch (SqlException sqlEx)
+            catch (SqlException)
             { }
 
             return result;

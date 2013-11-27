@@ -13,7 +13,7 @@ namespace Cinema.DBLayer
     {
         private static SqlCommand dbCmd = null;
 
-        //build a customer object based on the db reader
+        //build an employee object based on the db reader
         private static Employee createEmployee(IDataReader dbReader)
         {
             Employee employee = new Employee();
@@ -22,14 +22,15 @@ namespace Cinema.DBLayer
             employee.LName = dbReader["lName"].ToString();
             employee.Username = dbReader["userName"].ToString();
             employee.Password = dbReader["password"].ToString();
-            
 
             return employee;
         }
 
+        //insert and employee object into the database
         public int insertEmployee(Employee employee)
         {
             int result = -1;
+
             string sqlQuery = "INSERT INTO Employee VALUES " +
                 "('" + employee.FName +
                 "','" + employee.LName +
@@ -41,12 +42,13 @@ namespace Cinema.DBLayer
                 result = cmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
-            catch (SqlException sqlEx)
+            catch (SqlException)
             { }
 
             return result;
         }
 
+        //get all employees
         public List<Employee> getEmployees()
         {
             List<Employee> returnList = new List<Employee>();
@@ -57,7 +59,7 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Employee employee;
+            Employee employee = new Employee();
 
             while (dbReader.Read())
             {
@@ -70,6 +72,7 @@ namespace Cinema.DBLayer
             return returnList;
         }
 
+        //get an employee based on his username
         public Employee getEmployeeByUsername(String username)
         {
             string sqlQuery = "SELECT * FROM Employee WHERE userName= '" + username + "'";
@@ -78,7 +81,7 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Employee employee;
+            Employee employee = new Employee();
             if (dbReader.Read())
             {
                 employee = createEmployee(dbReader);
@@ -93,6 +96,7 @@ namespace Cinema.DBLayer
             return employee;
         }
 
+        //update an employee based on his username
         public int updateEmployee(Employee employee)
         {
             int result = -1;

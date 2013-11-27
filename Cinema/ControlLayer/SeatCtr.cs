@@ -81,7 +81,7 @@ namespace Cinema.ControlLayer
 
         public List<Seat> getRoomSeats(int roomNumber)
         {
-            List<Seat> returnList = new List<Seat>;
+            List<Seat> returnList = new List<Seat>();
             ISeat _dbSeat = new DbSeat();
             returnList = _dbSeat.getRoomSeats(roomNumber);
             return returnList;
@@ -90,7 +90,7 @@ namespace Cinema.ControlLayer
 
         public List<int> insertSeatMatrix(int rows, int columns, int roomNumber, int seatId)
         { 
-            List<int> returnList = new List<int>;
+            List<int> returnList = new List<int>();
             ISeat _dbSeat = new DbSeat();
             returnList = _dbSeat.insertSeatMatrix(rows,columns,roomNumber,seatId);
             return returnList;
