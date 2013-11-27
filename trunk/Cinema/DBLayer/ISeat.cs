@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cinema.ModelLayer;
+using Cinema.DBLayer;
 
 namespace Cinema.DBLayer
 {
     interface ISeat
     {
-        List<int> insertSeatMatrix(int rows, int columns, int roomNumber, int seatId);
+        List<int> insertSeatMatrix(int rows, int columns, int roomNumber);
         int insertSeat(Seat seat);
         List<Seat> getSeats();
         Seat getSeatById(int id);

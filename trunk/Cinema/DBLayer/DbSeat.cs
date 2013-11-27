@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.DBLayer
 {
-    class DbSeat:ISeat
+    class DbSeat: ISeat
     {
         private static SqlCommand dbCmd = null;
         private static DbRoom dbRoom = new DbRoom();
