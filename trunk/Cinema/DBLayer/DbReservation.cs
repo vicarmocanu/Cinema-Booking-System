@@ -146,8 +146,6 @@ namespace Cinema.DBLayer
             { }
 
             return result;
-        }
-
-       
+        }      
     }
 }
