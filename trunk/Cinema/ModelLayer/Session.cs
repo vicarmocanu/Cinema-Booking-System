@@ -17,7 +17,8 @@ namespace Cinema.ModelLayer
         private String enterTime;
         private String exitTime;
         private Seat[][] seats;
-
+        private float price;
+        
         //constructor
         public Session() { }  
 
@@ -108,7 +109,19 @@ namespace Cinema.ModelLayer
             { 
                 seats = value;
             }
-        } 
+        }
+
+        public float Price
+        {
+            get 
+            { 
+                return price;
+            }
+            set 
+            { 
+                price = value; 
+            }
+        }
 
         //own methods
 

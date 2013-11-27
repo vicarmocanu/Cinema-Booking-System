@@ -19,12 +19,19 @@ namespace Cinema.DBLayer
         public int insertSession(Session session)
         {
             int result = -1;
+
+            String attrib = "sessionId";
+            String table = "Session";
+            int max = GetMax.getMax(attrib, table);
+            int id = max + 1;
+
             string sqlQuery = "INSERT INTO Session VALUES " +
-                "('" + session.SessionId +//get max here
+                "('" + id +
                 "','" + session.Movie.MovieId +
-                "','" + session.convertTime(session.EnterTime) +
-                "','" + session.convertTime(session.ExitTime) + 
-                "','" + session.convertDate(session.Date) + "')";
+                "','" + session.EnterTime +
+                "','" + session.ExitTime +
+                "','" + session.Date +
+                "','" + session.Price + "')";
             try
             {
                 SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
