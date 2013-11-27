@@ -10,59 +10,61 @@ namespace Cinema.ModelLayer
 {
     class Session
     {
-
-       
-
         private int sessionId;
+        private Movie movie;
+        private Room room;
+        private String date;
+        private String enterTime;
+        private String exitTime;
+        private Seat[][] seats;
+
+        //constructor
+        public Session() { }  
+
+        //getters and setters
 
         public int SessionId
         {
-
             get 
-            { 
+            {
                 return sessionId;
             }
-            set
-            { 
+            set 
+            {
                 sessionId = value;
             }
         }
-
-        private Movie movie;
-
+        
         internal Movie Movie
         {
-            get
-            {
+            get 
+            { 
                 return movie;
             }
-            set
+            set 
             {
                 movie = value;
             }
         }
 
-        private Room room;
-
+       
         internal Room Room
         {
-            get
+            get 
             {
                 return room;
             }
-            set
+            set 
             { 
-                room = value;
+                room = value; 
             }
         }
-
-        private String date;
-
+        
         public String Date
         {
             get
-            {
-                return date; 
+            { 
+                return date;
             }
             set 
             { 
@@ -70,81 +72,53 @@ namespace Cinema.ModelLayer
             }
         }
 
-        private String enterTime;
-
+        
         public String EnterTime
         {
-            get {
+            get 
+            { 
                 return enterTime;
-            }
-            set 
-            { 
-                enterTime = value;
-            }
-        }
-
-        private String exitTime;
-
-        public String ExitTime
-        {
-            get
-            { 
-                return exitTime;
-            }
-            set 
-            { 
-                exitTime = value;
-            }
-        }
-
-        private Seat[][] seats;
-
-        public Seat[][] Seats
-        {
-            get
-            { 
-                return seats;
             }
             set
             { 
+                enterTime = value; 
+            }
+        }
+        
+        public String ExitTime
+        {
+            get 
+            { 
+                return exitTime;
+            }
+            set
+            { 
+                exitTime = value; 
+            }
+        }
+
+        
+        public Seat[][] Seats
+        {
+            get 
+            {
+                return seats; 
+            }
+            set 
+            { 
                 seats = value;
             }
-        }
+        } 
 
-        public Session() { }           
+        //own methods
 
-        public DateTime convertTime(String time)
-        {
-            DateTime HH_mm_ss = new DateTime();
-
-            try
-            {
-                HH_mm_ss = DateTime.ParseExact(time, "HH:mm:ss", CultureInfo.InvariantCulture);
-            }
-            catch (Exception) { }
-
-            return HH_mm_ss;
-        }
-
-        public DateTime convertDate(String date)
-        {
-            DateTime YYYY_MM_DD = new DateTime();
-            try
-            {
-                YYYY_MM_DD = DateTime.ParseExact(date, "YYYY-MM-DD", CultureInfo.InvariantCulture);
-            }
-            catch (Exception) { }
-
-            return YYYY_MM_DD;
-        }
-
+        //make a suitable 00:00:00 time from a time
+        //used when creating a session object from the database
         public String suitableTime(String time)
         {
             String suitableTime = "default";
             suitableTime = time.Substring(0, 8);
-
             return suitableTime;
-        }
-
+        } 
     }
 }
