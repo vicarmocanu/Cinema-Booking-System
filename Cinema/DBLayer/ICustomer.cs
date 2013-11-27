@@ -10,7 +10,7 @@ namespace Cinema.DBLayer
 {
     interface ICustomer
     {
-       static Customer createCustomer(IDataReader dbReader);
+       
        int insertCustomer(Customer customer);
        List<Customer> getCustomers();
        Customer getCustomerByName(String fName, String lName);

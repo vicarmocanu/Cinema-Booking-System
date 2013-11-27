@@ -11,7 +11,7 @@ namespace Cinema.DBLayer
     interface IEmployee
     {
 
-        static Employee createEmployee(IDataReader dbReader);
+        
         int insertEmployee(Employee employee);
         List<Employee> getEmployees();
         Employee getEmployeeByUsername(String username);

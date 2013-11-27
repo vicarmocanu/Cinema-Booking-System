@@ -10,7 +10,7 @@ namespace Cinema.DBLayer
 {
     interface IRoom
     {
-        static Room createRoom(IDataReader dbReader);
+        
         int insertRoom(Room room);
         List<Room> getRooms();
         Room getRoomByNumber(int number);
