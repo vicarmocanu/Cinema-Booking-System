@@ -4,68 +4,138 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Globalization;
 
 namespace Cinema.ModelLayer
 {
     class Reservation
     {
         private int reservationId;
+        private Customer customer;
+        private Session session;
+        private int noOfSeats;
+        private List<Seat> reservedSeats;
+        private int price;
+        private String date;
+        private String status;
+
+        //constructor
+        public Reservation() { }
+
+        //getters and setters
+
         public int ReservationId
         {
-            get { return reservationId; }
-            set { reservationId = value; }
+            get 
+            {
+                return reservationId; 
+            }
+            set
+            {
+                reservationId = value; 
+            }
         }
-
-        private Customer customer;
+       
         internal Customer Customer
         {
-            get { return customer; }
-            set { customer = value; }
+            get 
+            { 
+                return customer; 
+            }
+            set 
+            { 
+                customer = value; 
+            }
         }
-
-        private Session session;
+        
         internal Session Session
         {
-            get { return session; }
-            set { session = value; }
+            get
+            {
+                return session;
+            }
+            set 
+            { 
+                session = value;
+            }
         }
 
-        private int noOfSeats;
         public int NoOfSeats
         {
-            get { return noOfSeats; }
-            set { noOfSeats = value; }
+            get
+            {
+                return noOfSeats;
+            }
+            set
+            {
+                noOfSeats = value;
+            }
         }
-
-        private List<Seat> reservedSeats;
+        
         internal List<Seat> ReservedSeats
         {
-            get { return reservedSeats; }
-            set { reservedSeats = value; }
+            get 
+            { 
+                return reservedSeats;
+            }
+            set 
+            { 
+                reservedSeats = value; 
+            }
         }
-
-        private int price;
+  
         public int Price
         {
-            get { return price; }
-            set { price = value; }
+            get 
+            { 
+                return price;
+            }
+            set 
+            {
+                price = value;
+            }
         }
-
-        private String date;
+        
         public String Date
         {
-            get { return date; }
-            set { date = value; }
+            get
+            { 
+                return date; 
+            }
+            set 
+            { 
+                date = value;
+            }
         }
-
-        private String status;
+        
         public String Status
         {
-            get { return status; }
-            set { status = value; }
+            get 
+            {
+                return status;
+            }
+            set
+            { 
+                status = value;
+            }
         }
 
-        public Reservation()
-        { }
+        //own methods
+
+        //get the current date
+        public String getCurrentDate()
+        {
+            DateTime currentDate = DateTime.Now;
+            String format = "YYYY-MM-DD";
+            String formattedDate = "1900-01-01";
+
+            try
+            {
+                formattedDate = DateTime.ParseExact(date, format, CultureInfo.InvariantCulture).ToString();
+            }
+            catch (Exception) {}
+
+            return formattedDate;
+        }
     }
 }
