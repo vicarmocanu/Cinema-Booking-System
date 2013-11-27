@@ -11,7 +11,9 @@ namespace Cinema.ModelLayer
         private int seatId;       
         private int seatNumber;
         private int rowNumber;
+
         private Room room;
+
         private String status;
 
         //constructors
@@ -28,8 +30,14 @@ namespace Cinema.ModelLayer
         //getters and setters
         public int SeatId
         {
-            get { return seatId; }
-            set { seatId = value; }
+            get 
+            { 
+                return seatId;
+            }
+            set 
+            {
+                seatId = value;
+            }
         }
 
         public int SeatNumber
