@@ -16,18 +16,11 @@ namespace Cinema.ModelLayer
 
         private String status;
 
-        //constructors
-        public Seat(int seatID, int seatNumber, int rowNumber, Room room, String status)
-        {
-            this.seatNumber = seatNumber;
-            this.rowNumber = rowNumber;
-            this.room = room;
-            this.status = status;
-        }
-
+        //constructor
         public Seat() { }
 
         //getters and setters
+
         public int SeatId
         {
             get 

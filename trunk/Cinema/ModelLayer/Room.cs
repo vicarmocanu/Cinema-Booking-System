@@ -11,16 +11,11 @@ namespace Cinema.ModelLayer
         private int roomNumber;
         private int numberOfSeats;
 
-        //constructors
-        public Room(int roomNumber, int numberOfSeats)
-        {
-            roomNumber = roomNumber;
-            numberOfSeats = numberOfSeats;
-        }
-
+        //constructor
         public Room() { }
 
         //getters and setters
+
         public int RoomNumber
         {
             get

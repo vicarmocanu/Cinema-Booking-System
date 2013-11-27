@@ -10,73 +10,35 @@ namespace Cinema.ModelLayer
     class TimeTable
     {
         private Movie movie;
+        private List<Session> sessionList;
+
+        //constructor
+        public TimeTable() { }
+
+        //getters and setters
 
         public Movie Movie
         {
             get 
-            {
-                return movie;
-            }
-            set
             { 
-                movie = value;
-            }
-        }
-
-        private List<Session> sessionList;
-
-        public List<Session> SessionList
-        {
-            get
-            { 
-                return sessionList; 
+                return movie; 
             }
             set 
             { 
+                movie = value;
+            }
+        }  
+
+        public List<Session> SessionList
+        {
+            get 
+            { 
+                return sessionList;
+            }
+            set
+            { 
                 sessionList = value;
             }
-        }
-
-        public TimeTable() 
-        { 
-        
-        }
-
-        public void addSession(Session session)
-        {
-            sessionList.Add(session);
-
-        }
-
-        public void removeSession(int sessionId)
-        {
-            foreach (Session session in sessionList)
-            {
-                if (session.SessionId == sessionId)
-                {
-                    sessionList.Remove(session);
-                    break;
-                }
-              
-            }
-  
-        }
-
-        public Session getSession(int sessionId)
-        {
-            Session wantedSession = new Session();
-
-            foreach (Session session in sessionList)
-            {
-                if (session.SessionId == sessionId)
-                {
-                    wantedSession = session;
-                    break;
-                }
-            }
-            return wantedSession;
-        }
-
-        
+        }       
     }
 }
