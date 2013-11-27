@@ -42,6 +42,7 @@ namespace Cinema.ControlLayer
 
             return _dbCustomer.insertCustomer(cust);
         }
+
         public List<Customer> getCustomers()
         {
             List<Customer> returnList = new List<Customer>();
@@ -50,16 +51,19 @@ namespace Cinema.ControlLayer
             return returnList;
 
         }
+
         public Customer getCustomerByName(String fName, String lName)
         {
             ICustomer _dbCustomer = new DbCustomer();
             return _dbCustomer.getCustomerByName(fName, lName);
         }
+
         public Customer getCustomerByUsername(String username)
         {
             ICustomer _dbCustomer = new DbCustomer();
             return _dbCustomer.getCustomerByUsername(username);
         }
+
         public int updateCustomer(String fName, String lName, String city, String address, String email, String phoneNo, String username, String password)
         {
             ICustomer _dbCustomer = new DbCustomer();
@@ -75,5 +79,6 @@ namespace Cinema.ControlLayer
 
             return _dbCustomer.updateCustomer(cust);     
         }
+
     }
 }

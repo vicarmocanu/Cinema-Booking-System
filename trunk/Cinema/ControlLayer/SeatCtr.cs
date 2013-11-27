@@ -26,6 +26,7 @@ namespace Cinema.ControlLayer
         
         }
 
+
         public int insertSeat(int seatID, int seatNumber, int rowNumber,int roomNumber, int numberOfSeats, String status)
         {
             ISeat _dbSeat = new DbSeat();
@@ -77,5 +78,25 @@ namespace Cinema.ControlLayer
             return _dbSeat.updateSeat(seat);
            
         }
+
+        public List<Seat> getRoomSeats(int roomNumber)
+        {
+            List<Seat> returnList = new List<Seat>;
+            ISeat _dbSeat = new DbSeat();
+            returnList = _dbSeat.getRoomSeats(roomNumber);
+            return returnList;
+
+        }
+
+        public List<int> insertSeatMatrix(int rows, int columns, int roomNumber, int seatId)
+        { 
+            List<int> returnList = new List<int>;
+            ISeat _dbSeat = new DbSeat();
+            returnList = _dbSeat.insertSeatMatrix(rows,columns,roomNumber,seatId);
+            return returnList;
+
+        }
+
+
     }
 }
