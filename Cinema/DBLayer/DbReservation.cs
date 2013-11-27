@@ -15,6 +15,7 @@ namespace Cinema.DBLayer
     {
         private static DbCustomer dbCustomer = new DbCustomer();
         private static DbSession dbSession = new DbSession();
+        private static DbRoom dbRoom = new DbRoom();
         private static SqlCommand dbCmd = null;
 
         private static Reservation createReservation(IDataReader dbReader)
@@ -68,8 +69,9 @@ namespace Cinema.DBLayer
                 int result = -1;
                 string sqlQuery = "INSERT INTO ReservedSeats VALUES " +
                     "('" + reservationId +
-                    "','" + seat.SeatId + "')";
-                    
+                    "','" + seat.SeatId +
+                    "','" + "O" + "')";
+
                 try
                 {
                     SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
@@ -123,6 +125,34 @@ namespace Cinema.DBLayer
             return returnList;
         }
 
+        public List<Seat> getSeatsFromReservation(int reservationId)
+        {
+            List<Seat> returnList = new List<Seat>();
+            string sqlQuery = "SELECT ReservedSeats.reservationId, Seat.seatId, "+
+                "Seat.seatNumber, Seat.roomNumber, Seat.rowNumber, ReservedSeats.status " +
+                "FROM ReservedSeats JOIN Seat ON ReservedSeats.seatId = Seat.seatId " +
+                "WHERE reservationId = '" + reservationId + "'";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            IDataReader dbReader;
+            dbReader = dbCmd.ExecuteReader();
+            Seat seat = new Seat();
+
+            while (dbReader.Read())
+            {
+                seat.SeatId = Convert.ToInt32(dbReader["seatId"].ToString());
+                seat.SeatNumber = Convert.ToInt32(dbReader["seatNumber"].ToString());
+                seat.RowNumber = Convert.ToInt32(dbReader["rowNumber"].ToString());
+                seat.Room = dbRoom.getRoomByNumber(Convert.ToInt32(dbReader["roomNumber"].ToString()));
+                seat.Status = dbReader["status"].ToString();
+                returnList.Add(seat);
+            }
+
+            return returnList;
+
+
+        }
+
         public int updateReservation(Reservation reservation)
         {
             int result = -1;
@@ -146,6 +176,50 @@ namespace Cinema.DBLayer
             { }
 
             return result;
-        }      
+        }
+
+        //just added
+        public int updateReservedSeat(int reservationId, int seatId, String status)
+        {
+            int result = -1;
+
+            string sqlQuery = "UPDATE ReservedSeats SET " +
+                "status = '" + status + "', " +
+                "WHERE reservationId = '" + reservationId + "' AND seatId = '" + seatId + "'";
+
+            try
+            {
+                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                result = cmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
+            }
+            catch (SqlException)
+            { }
+
+            return result;
+        }
+
+        //just added
+        public int updateSeatsFromReservation(int reservationId, String status)
+        {
+            int result = -1;
+
+            string sqlQuery = "UPDATE ReservedSeats SET " +
+                "status = '" + status + "', " +
+                "WHERE reservationId = '" + reservationId + "'";
+
+            try
+            {
+                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                result = cmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
+            }
+            catch (SqlException)
+            { }
+
+            return result;
+        }
+
+        
     }
 }

@@ -17,7 +17,7 @@ namespace Cinema.ModelLayer
         private String username;
         private String password;
 
-        //empty customer builder
+        //constructor
         public Customer(){}
         
 
