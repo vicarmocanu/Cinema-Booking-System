@@ -52,7 +52,7 @@ namespace Cinema.ControlLayer
         public List<Room> getRooms()
         {
             List<Room> returnList = new List<Room>();
-            DbRoom _dbRoom = new DbRoom();
+            IRoom _dbRoom = new DbRoom();
             returnList = _dbRoom.getRooms();
             return returnList;
         }

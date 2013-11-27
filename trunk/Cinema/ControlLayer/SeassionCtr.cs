@@ -26,62 +26,30 @@ namespace Cinema.ControlLayer
         
         }
 
-        public int insertSession()
-        {
-          
-        }
-
-        public List<int> insertSeatSchedule(Session session, List<Seat> sessionSeats)
-        { 
-        
-        }
-
-        public int getRowCount(int sessionId)
-        {
-            ISession _dbSession = new DbSession();
-            return _dbSession.getRowCount(sessionId);
-        }
-
-        public int getColumnCount(int sessionId, int rowNumber)
-        {
-            ISession _dbSession = new DbSession();
-            return _dbSession.getColumnCount(sessionId, rowNumber);
-        }
-
         public Seat[][] getSeatsForJaggedArray(int sessionId)
         {
             ISession _dbSession = new DbSession();
             return _dbSession.getSeatsForJaggedArray(sessionId);
         }
 
-        public List<Seat> getScheduledSeatsFromRow(int sessionId, int rowNumber)
-        {
-            List<Seat> returnList = new List<Seat>();
-            ISession _dbSession = new DbSession();
-            returnList = _dbSession.getScheduledSeatsFromRow(sessionId,rowNumber);
-            return returnList;
-        }
-
         public List<Session> getSessions()
-        { 
-        
+        {
+            List<Session> returnList = new List<Session>();
+            ISession _dbSession = new DbSession();
+            returnList = _dbSession.getSessions();
+            return returnList;
+
         }
 
-        public Session getSession(int sessionId)
+        public Session getSessionById(int sessionId)
         {
             ISession _dbSession = new DbSession();
             return _dbSession.getSessionById(sessionId);
         }
 
-        public int updateSession(Session session)
-        { 
-        
-        }
 
-        public int updateSeatSchedule(int sessionId, int seatId, String status)
-        { 
-        
-        }
+
+
 
 
     }

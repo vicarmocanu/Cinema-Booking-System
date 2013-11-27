@@ -61,11 +61,17 @@ namespace Cinema.ControlLayer
             return _dbEmployee.getEmployeeByUsername(username);
         }
 
-        public int updateEmployee(Employee employee)
+        public int updateEmployee(String fName, String lName, String username, String password)
         {
             IEmployee _dbEmployee = new DbEmployee();
+            Employee emp = new Employee();
 
-            return _dbEmployee.updateEmployee(employee);
+            emp.FName = fName;
+            emp.LName = lName;
+            emp.Username = username;
+            emp.Password = password;
+
+            return _dbEmployee.updateEmployee(emp);
 
         }
 
