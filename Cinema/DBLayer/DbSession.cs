@@ -180,6 +180,7 @@ namespace Cinema.DBLayer
                 session.Date = dbReader["date"].ToString();
                 session.EnterTime = session.suitableTime(dbReader["enterTime"].ToString());
                 session.ExitTime = session.suitableTime(dbReader["exitTime"].ToString());
+                session.Price = Convert.ToDouble(dbReader["price"].ToString());               
 
                 returnList.Add(session);
             }
@@ -211,6 +212,7 @@ namespace Cinema.DBLayer
                 session.Date = dbReader["date"].ToString();
                 session.EnterTime = session.suitableTime(dbReader["enterTime"].ToString());
                 session.ExitTime = session.suitableTime(dbReader["exitTime"].ToString());
+                session.Price = Convert.ToDouble(dbReader["price"].ToString());               
             }
             else
             {
@@ -229,7 +231,8 @@ namespace Cinema.DBLayer
                 "movieId='" + session.Movie.MovieId + "', " +
                 "date='" + session.Date + "', " +
                 "enterTime='" + session.EnterTime + "', " +
-                "exitTime='" + session.ExitTime + "' " +
+                "exitTime='" + session.ExitTime + "', " +
+                "price='" + session.Price + "' " +
                 "WHERE sessionId='" + session.SessionId + "'";
 
             try
