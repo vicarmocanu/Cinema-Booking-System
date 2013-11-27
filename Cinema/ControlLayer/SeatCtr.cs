@@ -27,18 +27,19 @@ namespace Cinema.ControlLayer
         }
 
 
-        public int insertSeat(int seatID, int seatNumber, int rowNumber,int roomNumber, int numberOfSeats, String status)
+        public int insertSeat( int seatNumber, int rowNumber,int roomNumber, int numberOfSeats)
         {
             ISeat _dbSeat = new DbSeat();
             Seat seat = new Seat();
             Room rom = new Room();
 
-            seat.SeatId = seatID;
+            
             seat.SeatNumber = seatNumber;
             seat.RowNumber = rowNumber;
-            rom.RoomNumber = rowNumber;
-            rom.NumberOfSeats = numberOfSeats;
-            seat.Status = status;
+            rom.RoomNumber = roomNumber;
+            seat.Room = rom;
+
+            
 
             return _dbSeat.insertSeat(seat);
 
@@ -62,7 +63,7 @@ namespace Cinema.ControlLayer
         
         }
 
-        public int updateSeat(int seatID, int seatNumber, int rowNumber, int roomNumber, int numberOfSeats, String status)
+        public int updateSeat(int seatID, int seatNumber, int rowNumber, int roomNumber)
         {
             ISeat _dbSeat = new DbSeat();
             Seat seat = new Seat();
@@ -71,9 +72,9 @@ namespace Cinema.ControlLayer
             seat.SeatId = seatID;
             seat.SeatNumber = seatNumber;
             seat.RowNumber = rowNumber;
-            rom.RoomNumber = rowNumber;
-            rom.NumberOfSeats = numberOfSeats;
-            seat.Status = status;
+            rom.RoomNumber = roomNumber;
+            seat.Room = rom;
+            
 
             return _dbSeat.updateSeat(seat);
            
@@ -88,11 +89,11 @@ namespace Cinema.ControlLayer
 
         }
 
-        public List<int> insertSeatMatrix(int rows, int columns, int roomNumber, int seatId)
+        public List<int> insertSeatMatrix(int rows, int columns, int roomNumber)
         { 
             List<int> returnList = new List<int>();
             ISeat _dbSeat = new DbSeat();
-            returnList = _dbSeat.insertSeatMatrix(rows,columns,roomNumber,seatId);
+            returnList = _dbSeat.insertSeatMatrix(rows,columns,roomNumber);
             return returnList;
 
         }
