@@ -137,6 +137,19 @@ namespace Cinema.ModelLayer
 
             return formattedDate;
         }
-        
+
+        //get a suitable price for multiple chairs
+        public int seatsPrice()
+        {
+            int totalPrice = 0;
+            totalPrice = noOfSeats * price; 
+            return totalPrice;
+        }
+
+        //the actual noOfSeats
+        public void setCorrectNoOfSeats()
+        {
+            this.noOfSeats = reservedSeats.Count();
+        }
     }
 }

@@ -43,8 +43,14 @@ namespace Cinema.DBLayer
         public int insertReservaion(Reservation reservation)
         {
             int result = -1;
+
+            string attrib = "reservationId";
+            string table = "Reservation";
+            int max = GetMax.getMax(attrib, table);
+            int id = max + 1;
+
             string sqlQuery = "INSERT INTO Reservation VALUES " +
-                "('" + reservation.ReservationId + //get max
+                "('" + id +
                 "','" + reservation.Customer.CustomerFirstName + 
                 "','" + reservation.Customer.CustomerLastName + 
                 "','" + reservation.Session.SessionId + 
