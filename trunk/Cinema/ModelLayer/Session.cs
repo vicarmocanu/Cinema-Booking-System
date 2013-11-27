@@ -17,7 +17,7 @@ namespace Cinema.ModelLayer
         private String enterTime;
         private String exitTime;
         private Seat[][] seats;
-        private float price;
+        private double price;
         
         //constructor
         public Session() { }  
@@ -111,7 +111,7 @@ namespace Cinema.ModelLayer
             }
         }
 
-        public float Price
+        public double Price
         {
             get 
             { 
