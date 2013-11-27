@@ -9,34 +9,61 @@ namespace Cinema.ModelLayer
     class Employee
     {
         private String fName;
+        private String lName;
+        private String username;
+        private String password;
+
+        //constructor
+        public Employee() { }
+
+        //getters and setters
 
         public String FName
         {
-            get { return fName; }
-            set { fName = value; }
+            get
+            {
+                return fName; 
+            }
+            set
+            {
+                fName = value; 
+            }
         }
-        private String lName;
 
         public String LName
         {
-            get { return lName; }
-            set { lName = value; }
+            get 
+            {
+                return lName; 
+            }
+            set
+            {
+                lName = value; 
+            }
         }
-        private String username;
 
         public String Username
         {
-            get { return username; }
-            set { username = value; }
+            get
+            {
+                return username; 
+            }
+            set
+            {
+                username = value; 
+            }
         }
-        private String password;
 
         public String Password
         {
-            get { return password; }
-            set { password = value; }
-        }
-
-        public Employee() { }
+            get 
+            {
+                return password; 
+            }
+            set 
+            { 
+                password = value; 
+            }
+        }       
     }
 }

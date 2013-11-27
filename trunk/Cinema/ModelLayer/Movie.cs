@@ -43,16 +43,6 @@ namespace Cinema.ModelLayer
             set { lenght = value; }
         }
 
-        public Movie(int movieId, String name, String genre, int ageLimit, string lenght)
-        {
-            movieId = movieId;
-            name = name;
-            genre = genre;
-            ageLimit = ageLimit;
-            lenght = lenght;
-
-        }
-
         public Movie()
         { }
     }
