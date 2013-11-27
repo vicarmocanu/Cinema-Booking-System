@@ -9,41 +9,74 @@ namespace Cinema.ModelLayer
     class Movie
     {
         private int movieId;
+        private String name;
+        private String genre;
+        private int ageLimit;
+        private String lenght;
+
+        //constructor
+        public Movie() { }
+
+        //getters and setters
+
         public int MovieId
         {
-            get { return movieId; }
-            set { movieId = value; }
+            get
+            { 
+                return movieId;
+            }
+            set 
+            { 
+                movieId = value; 
+            }
         }
 
-        private String name;
         public String Name
         {
-            get { return name; }
-            set { name = value; }
+            get
+            { 
+                return name;
+            }
+            set 
+            { 
+                name = value;
+            }
         }
 
-        private String genre;
         public String Genre
         {
-            get { return genre; }
-            set { genre = value; }
+            get 
+            { 
+                return genre;
+            }
+            set 
+            { 
+                genre = value; 
+            }
         }
 
-        private int ageLimit;
         public int AgeLimit
         {
-            get { return ageLimit; }
-            set { ageLimit = value; }
+            get
+            { 
+                return ageLimit; 
+            }
+            set 
+            { 
+                ageLimit = value;
+            }
         }
 
-        private String lenght;
         public String Lenght
         {
-            get { return lenght; }
-            set { lenght = value; }
+            get 
+            { 
+                return lenght; 
+            }
+            set
+            { 
+                lenght = value; 
+            }
         }
-
-        public Movie()
-        { }
     }
 }
