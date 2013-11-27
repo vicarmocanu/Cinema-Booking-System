@@ -36,6 +36,7 @@ namespace Cinema.DBLayer
         public int insertCustomer(Customer customer)
         {
             int result = -1;
+
             string sqlQuery = "INSERT INTO Customer VALUES " +
                 "('" + customer.CustomerFirstName +
                 "','" + customer.CustomerLastName +
@@ -51,7 +52,7 @@ namespace Cinema.DBLayer
                 result = cmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
-            catch (SqlException sqlEx)
+            catch (SqlException)
             { }
 
             return result;
@@ -68,7 +69,7 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Customer customer;
+            Customer customer = new Customer();
 
             while (dbReader.Read())
             {
@@ -91,7 +92,8 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Customer customer;
+            Customer customer = new Customer();
+
             if(dbReader.Read())
             {
                 customer = createCustomer(dbReader);
@@ -115,7 +117,8 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Customer customer;
+            Customer customer = new Customer();
+
             if (dbReader.Read())
             {
                 customer = createCustomer(dbReader);
