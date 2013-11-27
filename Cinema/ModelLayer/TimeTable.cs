@@ -13,16 +13,28 @@ namespace Cinema.ModelLayer
 
         public Movie Movie
         {
-            get { return movie; }
-            set { movie = value; }
+            get 
+            {
+                return movie;
+            }
+            set
+            { 
+                movie = value;
+            }
         }
 
         private List<Session> sessionList;
 
         public List<Session> SessionList
         {
-            get { return sessionList; }
-            set { sessionList = value; }
+            get
+            { 
+                return sessionList; 
+            }
+            set 
+            { 
+                sessionList = value;
+            }
         }
 
         public TimeTable() 
