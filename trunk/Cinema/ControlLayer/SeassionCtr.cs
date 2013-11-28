@@ -89,6 +89,12 @@ namespace Cinema.ControlLayer
 
         }
 
+        public int updateSeatSchedule(int sessionId, int seatId, String status)
+        {
+            ISession _dbSession = new DbSession();
+            return _dbSession.updateSeatSchedule(sessionId, seatId, status);
+        }
+
 
 
 
