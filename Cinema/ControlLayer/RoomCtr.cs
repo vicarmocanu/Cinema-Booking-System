@@ -21,19 +21,14 @@ namespace Cinema.ControlLayer
             return instance;
         }
 
-        public RoomCtr()
-        { 
-        
-        }
+        public RoomCtr(){}
 
         public int insertRoom(int roomNumber, int numberOfSeats)
         {
             IRoom _dbRoom = new DbRoom();
             Room rom = new Room();
-
             rom.NumberOfSeats = numberOfSeats;
             rom.RoomNumber = roomNumber;
-
             return _dbRoom.insertRoom(rom);
         }
 
@@ -41,11 +36,8 @@ namespace Cinema.ControlLayer
         {
             IRoom _dbRoom = new DbRoom();
             Room rom = new Room();
-
             rom.RoomNumber = roomNumber;
             rom.NumberOfSeats = numberOfSeats;
-
-
             return _dbRoom.updateRoom(rom);
         }
 
@@ -60,8 +52,7 @@ namespace Cinema.ControlLayer
         public Room getRoomByNumber(int number)
         {
             IRoom _dbRoom = new DbRoom();
-            return _dbRoom.getRoomByNumber(number);
-           
+            return _dbRoom.getRoomByNumber(number);           
         }
     }
 }

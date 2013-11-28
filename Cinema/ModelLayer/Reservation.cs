@@ -15,7 +15,7 @@ namespace Cinema.ModelLayer
         private Session session;
         private int noOfSeats;
         private List<Seat> reservedSeats;
-        private int price;
+        private double price;
         private String date;
         private String status;
 
@@ -84,7 +84,7 @@ namespace Cinema.ModelLayer
             }
         }
   
-        public int Price
+        public double Price
         {
             get 
             { 
@@ -139,9 +139,9 @@ namespace Cinema.ModelLayer
         }
 
         //get a suitable price for multiple chairs
-        public int seatsPrice()
+        public double seatsPrice()
         {
-            int totalPrice = 0;
+            double totalPrice = 0;
             totalPrice = noOfSeats * price; 
             return totalPrice;
         }

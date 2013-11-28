@@ -10,7 +10,7 @@ namespace Cinema.ControlLayer
 {
     class MovieCtr
     {
-         private static MovieCtr instance = null;
+        private static MovieCtr instance = null;
 
         public static MovieCtr getInstance()
         {
@@ -21,22 +21,17 @@ namespace Cinema.ControlLayer
             return instance;
         }
 
-        public MovieCtr()
-        { 
-        
-        }
+        public MovieCtr(){}
 
         public int insertMovie(int movieId, String name, String genre, int ageLimit, String lenght)
         {
             IMovie _dbMovie = new DbMovie();
             Movie movie = new Movie();
-
             movie.AgeLimit = ageLimit;
             movie.Genre = genre;
             movie.Lenght = lenght;
             movie.MovieId = movieId;
             movie.Name = name;
-
             return _dbMovie.insertMovie(movie);
         }
 
@@ -58,17 +53,12 @@ namespace Cinema.ControlLayer
         {
             IMovie _dbMovie = new DbMovie();
             Movie movie = new Movie();
-
             movie.AgeLimit = ageLimit;
             movie.Genre = genre;
             movie.Lenght = lenght;
             movie.MovieId = movieId;
             movie.Name = name;
-
             return _dbMovie.updateMovie(movie);
         }
-
-
-
     }
 }
