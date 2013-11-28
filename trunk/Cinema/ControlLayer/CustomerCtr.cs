@@ -9,8 +9,7 @@ using Cinema.ModelLayer;
 namespace Cinema.ControlLayer
 {
     class CustomerCtr
-    {
-        
+    {        
         private static CustomerCtr instance = null;
 
         public static CustomerCtr getInstance()
@@ -22,14 +21,12 @@ namespace Cinema.ControlLayer
             return instance;
         }
 
-        public CustomerCtr()
-        { 
-        
-        }
+        public CustomerCtr() {}
 
         public int insertCustomer(String fName, String lName, String city, String address, String email, String phoneNo, String username, String password)
         {
             ICustomer _dbCustomer = new DbCustomer();
+
             Customer cust = new Customer();
             cust.CustomerFirstName = fName;
             cust.CustomerLastName = lName;
@@ -46,10 +43,11 @@ namespace Cinema.ControlLayer
         public List<Customer> getCustomers()
         {
             List<Customer> returnList = new List<Customer>();
+
             DbCustomer _dbCustomer = new DbCustomer();
             returnList = _dbCustomer.getCustomers();
-            return returnList;
 
+            return returnList;
         }
 
         public Customer getCustomerByName(String fName, String lName)
@@ -79,6 +77,5 @@ namespace Cinema.ControlLayer
 
             return _dbCustomer.updateCustomer(cust);     
         }
-
     }
 }

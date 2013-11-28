@@ -13,7 +13,6 @@ namespace Cinema.ControlLayer
 {
     class EmployeeCtr
     {
-
         private static EmployeeCtr instance = null;
 
         public static EmployeeCtr getInstance()
@@ -25,31 +24,23 @@ namespace Cinema.ControlLayer
             return instance;
         }
 
-        public EmployeeCtr()
-        { 
-        
-        }
+        public EmployeeCtr(){}
 
         public int insertEmployee(String fName, String lName, String username, String password)
         {
             IEmployee DbEmployee = new DbEmployee();
             Employee emp = new Employee();
-
             emp.FName = fName;
             emp.LName = lName;
             emp.Username = username;
             emp.Password = password;
-
-            return DbEmployee.insertEmployee(emp);
-     
+            return DbEmployee.insertEmployee(emp);     
         }
 
         public List<Employee> GetEmployees()
         {
             List<Employee> returnList = new List<Employee>();
-
             DbEmployee dbEmployee = new DbEmployee();
-
             returnList = dbEmployee.getEmployees();
             return returnList;
         }
@@ -57,7 +48,6 @@ namespace Cinema.ControlLayer
         public Employee getEmployeeByUserName(String username)
         {
             IEmployee _dbEmployee = new DbEmployee();
-
             return _dbEmployee.getEmployeeByUsername(username);
         }
 
@@ -65,18 +55,11 @@ namespace Cinema.ControlLayer
         {
             IEmployee _dbEmployee = new DbEmployee();
             Employee emp = new Employee();
-
             emp.FName = fName;
             emp.LName = lName;
             emp.Username = username;
             emp.Password = password;
-
             return _dbEmployee.updateEmployee(emp);
-
-        }
-
-
-
-    
+        }   
     }
 }
