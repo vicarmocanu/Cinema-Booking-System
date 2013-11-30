@@ -37,7 +37,7 @@ namespace Cinema.ControlLayer
             return DbEmployee.insertEmployee(emp);     
         }
 
-        public List<Employee> GetEmployees()
+        public List<Employee> getEmployees()
         {
             List<Employee> returnList = new List<Employee>();
             DbEmployee dbEmployee = new DbEmployee();

@@ -10,7 +10,6 @@ namespace Cinema.DBLayer
 {
     interface ISession
     {
-        // OK
         int insertSession(Session session);
         List<int> insertSeatSchedule(int sessionId, List<Seat> sessionSeats);    
         Seat[][] getSeatsForJaggedArray(int sessionId);
