@@ -11,11 +11,11 @@ namespace Cinema.DBLayer
     interface ISession
     {
         int insertSession(Session session);
-        List<int> insertSeatSchedule(Session session, List<Seat> sessionSeats);
-        int getRowCount(int sessionId);
-        int getColumnCount(int sessionId, int rowNumber);
+        List<int> insertSeatSchedule(int sessionId, List<Seat> sessionSeats);
+        //int getRowCount(int sessionId);
+        //int getColumnCount(int sessionId, int rowNumber);
         Seat[][] getSeatsForJaggedArray(int sessionId);
-        List<Seat> getScheduledSeatsFromRow(int sessionId, int rowNumber);
+        //List<Seat> getScheduledSeatsFromRow(int sessionId, int rowNumber);
         List<Session> getSessions();
         Session getSessionById(int sessionId);
         int updateSession(Session session);
