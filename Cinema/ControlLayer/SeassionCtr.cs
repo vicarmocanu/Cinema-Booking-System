@@ -65,10 +65,10 @@ namespace Cinema.ControlLayer
 
         }
 
-        public List<int> insertSeatSchedule(Session session, List<Seat> sessionSeats)
+        public List<int> insertSeatSchedule(int sessionId, List<Seat> sessionSeats)
         {
             ISession _dbSession = new DbSession();
-            return _dbSession.insertSeatSchedule(session, sessionSeats);
+            return _dbSession.insertSeatSchedule(sessionId, sessionSeats);
         }
 
         public int updateSession(int MovieId, String Date, String EnterTime, String ExitTime, Double Price, int SessionId)
