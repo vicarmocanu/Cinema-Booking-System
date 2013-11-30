@@ -15,7 +15,7 @@ namespace Cinema.DBLayer
         private static DbMovie dbMovie = new DbMovie();
         private static DbRoom dbRoom = new DbRoom();
 
-        //insert into the Session table
+        //insert into the Session table/OK
         public int insertSession(Session session)
         {
             int result = -1;
@@ -43,7 +43,7 @@ namespace Cinema.DBLayer
             return result;
         }
 
-        //insert into the SeatSchedule table
+        //insert into the SeatSchedule table/ OK
         public List<int> insertSeatSchedule(int sessionId, List<Seat> sessionSeats)
         {            
             List<int> results = new List<int>();
@@ -68,7 +68,7 @@ namespace Cinema.DBLayer
             return results;
         }
 
-        //get the number of rows from the seats in a session
+        //get the number of rows from the seats in a session/NO
         private static int getRowCount(int sessionId)
         {
             int count = 0;
@@ -87,7 +87,7 @@ namespace Cinema.DBLayer
             return count;
         }
 
-        //get the number of columns from the seats in a session
+        //get the number of columns from the seats in a session/NO
         private static int getColumnCount(int sessionId, int rowNumber)
         {
             int count = 0;
@@ -108,7 +108,7 @@ namespace Cinema.DBLayer
             return count;
         }
 
-        //create the seats jagged array
+        //create the seats jagged array/OK
         public Seat[][] getSeatsForJaggedArray(int sessionId)
         {
             int rowCount = 0;
@@ -132,7 +132,7 @@ namespace Cinema.DBLayer
             return seats;
         }
 
-        //get a row of seats from the scheduled seats for a session
+        //get a row of seats from the scheduled seats for a session/NO
         private static List<Seat> getScheduledSeatsFromRow(int sessionId, int rowNumber)
         {
             List<Seat> returnList = new List<Seat>();
@@ -162,7 +162,7 @@ namespace Cinema.DBLayer
             return returnList;
         }
         
-        //get all sessions
+        //get all sessions?OK
         public List<Session> getSessions()
         {
             List<Session> returnList = new List<Session>();
@@ -196,7 +196,7 @@ namespace Cinema.DBLayer
             return returnList;
         }
 
-        //get the sessions for a movie
+        //get the sessions for a movie/OK
         public List<Session> getMovieSessions(int movieId)
         {
             List<Session> returnList = new List<Session>();
@@ -230,7 +230,7 @@ namespace Cinema.DBLayer
             return returnList;
         }
         
-        //get a particular session
+        //get a particular session/OK
         public Session getSessionById(int sessionId)
         {
             string sqlQuery = "SELECT Session.sessionId, Session.movieId, Session.date, " +
@@ -262,7 +262,7 @@ namespace Cinema.DBLayer
             return session;
         }
 
-        //update a session
+        //update a session/OK
         public int updateSession(Session session)
         {
             int result = -1;
@@ -286,7 +286,7 @@ namespace Cinema.DBLayer
             return result;
         }
 
-        //update a seat schedule
+        //update a seat schedule/OK
         public int updateSeatSchedule(int sessionId, int seatId, String status)
         {
             int result = -1;
