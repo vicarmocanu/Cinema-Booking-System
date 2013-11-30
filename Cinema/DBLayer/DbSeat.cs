@@ -23,6 +23,7 @@ namespace Cinema.DBLayer
             seat.SeatNumber = Convert.ToInt32(dbReader["seatNumber"].ToString());
             seat.Room = dbRoom.getRoomByNumber(Convert.ToInt32(dbReader["roomNumber"].ToString()));
             seat.RowNumber = Convert.ToInt32(Convert.ToInt32(dbReader["rowNumber"].ToString()));
+            seat.Status = "E";
 
             return seat;
         }

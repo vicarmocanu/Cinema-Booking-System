@@ -44,7 +44,7 @@ namespace Cinema.DBLayer
         }
 
         //insert into the SeatSchedule table
-        public List<int> insertSeatSchedule(Session session, List<Seat> sessionSeats)
+        public List<int> insertSeatSchedule(int sessionId, List<Seat> sessionSeats)
         {            
             List<int> results = new List<int>();
 
@@ -53,7 +53,7 @@ namespace Cinema.DBLayer
                 int result = -1;
 
                 string sqlQuery = "INSERT INTO SeatSchedule VALUES " +
-                    "('" + session.SessionId +
+                    "('" + sessionId +
                     "','" + seat.SeatId +
                     "','" + seat.Status + "')";
                 try
@@ -69,7 +69,7 @@ namespace Cinema.DBLayer
         }
 
         //get the number of rows from the seats in a session
-        public int getRowCount(int sessionId)
+        private static int getRowCount(int sessionId)
         {
             int count = 0;
 
@@ -88,7 +88,7 @@ namespace Cinema.DBLayer
         }
 
         //get the number of columns from the seats in a session
-        public int getColumnCount(int sessionId, int rowNumber)
+        private static int getColumnCount(int sessionId, int rowNumber)
         {
             int count = 0;
 
@@ -133,7 +133,7 @@ namespace Cinema.DBLayer
         }
 
         //get a row of seats from the scheduled seats for a session
-        public List<Seat> getScheduledSeatsFromRow(int sessionId, int rowNumber)
+        private static List<Seat> getScheduledSeatsFromRow(int sessionId, int rowNumber)
         {
             List<Seat> returnList = new List<Seat>();
 
