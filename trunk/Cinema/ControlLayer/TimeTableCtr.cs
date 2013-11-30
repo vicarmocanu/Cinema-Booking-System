@@ -8,5 +8,6 @@ namespace Cinema.ControlLayer
 {
     class TimeTableCtr
     {
+
     }
 }
