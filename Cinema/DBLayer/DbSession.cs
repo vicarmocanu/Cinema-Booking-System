@@ -132,6 +132,7 @@ namespace Cinema.DBLayer
             return seats;
         }
 
+
         //get a row of seats from the scheduled seats for a session
         private static List<Seat> getScheduledSeatsFromRow(int sessionId, int rowNumber)
         {
@@ -307,5 +308,7 @@ namespace Cinema.DBLayer
 
             return result;
         }
+
+        
     }
 }
