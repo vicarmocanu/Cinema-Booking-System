@@ -31,11 +31,11 @@ namespace Cinema.DBLayer
         {
             int result = -1;
 
-            string sqlQuery = "INSERT INTO Employee VALUES " +
-                "('" + employee.FName +
-                "','" + employee.LName +
-                "','" + employee.Username +
-                "','" + employee.Password + "')";
+            string sqlQuery = "INSERT INTO Employee(fName, lName, userName, password) VALUES('" +
+                employee.FName + "','" + 
+                employee.LName + "','" + 
+                employee.Username + "','" + 
+                employee.Password + "');";
             try
             {
                 SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);

@@ -9,9 +9,7 @@ using Cinema.ModelLayer;
 namespace Cinema.DBLayer
 {
     interface IEmployee
-    {
-
-        
+    {        
         int insertEmployee(Employee employee);
         List<Employee> getEmployees();
         Employee getEmployeeByUsername(String username);

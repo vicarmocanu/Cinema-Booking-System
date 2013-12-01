@@ -8,34 +8,33 @@ namespace Cinema.DBLayer
 {
     public class AccessDbSQLClient
     {
-        public static readonly string connectionString = @"Data Server=balder.ucn.dk;Initial Catalog=dmae0912_7;User id=dmae0912_7;Password=IsAllowed;Integrated Security=True";
-        public static readonly SqlConnection dbconn = new SqlConnection(connectionString);
+        private static String connectionString = @"Data Source=balder.ucn.dk; Initial Catalog=dmae0912_7; User id=dmae0912_7; Password=IsAllowed; Integrated Security=False";
+        private static SqlConnection dbConnection = new SqlConnection(connectionString);
+        private static SqlCommand dbCommand = new SqlCommand(null, dbConnection);
 
-        private static SqlCommand dbCmd;
-
-        private static void Open()
+        public static void Open()
         {
-            if (dbconn.State.ToString().CompareTo("Open") != 0)
-                dbconn.Open();
+            if (dbConnection.State.ToString().CompareTo("Open") != 0)
+            {
+                dbConnection.Open();
+            }
         }
 
         public static void Close()
         {
-            dbconn.Close();
+            dbConnection.Close();
         }
 
-        public static SqlCommand GetDbCommand(string sql)
+        public static SqlCommand GetDbCommand(String sqlQuery)
         {
-            if (dbconn.State.ToString().CompareTo("Open") != 0)
-                Open();
-            if (dbCmd == null)
+            Open();
+            if (dbCommand == null)
             {
-                dbCmd = new SqlCommand(sql, dbconn);
+                dbCommand = new SqlCommand(sqlQuery, dbConnection);
             }
-            dbCmd.CommandText = sql;
-            return dbCmd;
+            dbCommand.CommandText = sqlQuery;
+            dbCommand.Prepare();
+            return dbCommand;
         }
-
-
     }
 }
