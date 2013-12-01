@@ -44,7 +44,7 @@
     <Compile Include="ControlLayer\MovieCtr.cs" />
     <Compile Include="ControlLayer\ReservationCtr.cs" />
     <Compile Include="ControlLayer\RoomCtr.cs" />
-    <Compile Include="ControlLayer\SeassionCtr.cs" />
+    <Compile Include="ControlLayer\SessionCtr.cs" />
     <Compile Include="ControlLayer\SeatCtr.cs" />
     <Compile Include="ControlLayer\TimeTableCtr.cs" />
     <Compile Include="DBLayer\AccessDbSQLClient.cs" />

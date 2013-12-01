@@ -11,19 +11,21 @@ namespace ConsoleTesting
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("Prepare for employee insertion.");
+            System.Console.WriteLine("Prepare for session insertion.");
             System.Console.ReadLine();
-            System.Console.WriteLine("fName= ");
-            String fName = Console.ReadLine();
-            System.Console.WriteLine("lName= ");
-            String lName = Console.ReadLine();
-            System.Console.WriteLine("userName= ");
-            String userName = Console.ReadLine();
-            System.Console.WriteLine("password= ");
-            String password = Console.ReadLine();
+            System.Console.WriteLine("movieId= ");
+            int movieId = Convert.ToInt32(Console.ReadLine());
+            System.Console.WriteLine("enterTime= ");
+            String enterTime = Console.ReadLine();
+            System.Console.WriteLine("exitTime= ");
+            String exitTime = Console.ReadLine();
+            System.Console.WriteLine("date= ");
+            String date = Console.ReadLine();
+            System.Console.WriteLine("price= ");
+            double price = Convert.ToDouble(Console.ReadLine());
 
-            EmployeeCtr employeeCtr = EmployeeCtr.getInstance();
-            int result = employeeCtr.updateEmployee(fName, lName, userName, password);
+            SessionCtr sessionCtr = SessionCtr.getInstance();
+            int result = sessionCtr.insertSession(movieId, enterTime, exitTime, date, price);
             Console.WriteLine("result = " + result);
             Console.ReadLine();
         }
