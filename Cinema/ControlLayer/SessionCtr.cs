@@ -8,20 +8,20 @@ using Cinema.DBLayer;
 
 namespace Cinema.ControlLayer
 {
-    public class SeassionCtr
+    public class SessionCtr
     {
-         private static SeassionCtr instance = null;
+         private static SessionCtr instance = null;
 
-        public static SeassionCtr getInstance()
+        public static SessionCtr getInstance()
         {
             if (instance == null)
             {
-                instance = new SeassionCtr();
+                instance = new SessionCtr();
             }
             return instance;
         }
 
-        public SeassionCtr()
+        public SessionCtr()
         { 
         
         }
