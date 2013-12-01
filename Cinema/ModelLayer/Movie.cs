@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.ModelLayer
 {
-    class Movie
+    public class Movie
     {
         private int movieId;
         private String name;

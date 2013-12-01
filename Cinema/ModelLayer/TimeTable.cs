@@ -7,7 +7,7 @@ using Cinema.ModelLayer;
 
 namespace Cinema.ModelLayer
 {
-    class TimeTable
+   public class TimeTable
     {
         private Movie movie;
         private List<Session> sessionList;
