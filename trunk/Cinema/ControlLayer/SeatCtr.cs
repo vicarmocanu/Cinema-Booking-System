@@ -8,7 +8,7 @@ using Cinema.DBLayer;
 
 namespace Cinema.ControlLayer
 {
-    class SeatCtr
+    public class SeatCtr
     {
          private static SeatCtr instance = null;
 

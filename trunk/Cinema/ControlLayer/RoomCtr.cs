@@ -8,7 +8,7 @@ using Cinema.ModelLayer;
 
 namespace Cinema.ControlLayer
 {
-    class RoomCtr
+    public class RoomCtr
     {
          private static RoomCtr instance = null;
 

@@ -8,7 +8,7 @@ using System.Globalization;
 
 namespace Cinema.ModelLayer
 {
-    class Reservation
+    public class Reservation
     {
         private int reservationId;
         private Customer customer;
