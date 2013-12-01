@@ -11,7 +11,7 @@ using Cinema.DBLayer;
 
 namespace Cinema.ControlLayer
 {
-    class EmployeeCtr
+    public class EmployeeCtr
     {
         private static EmployeeCtr instance = null;
 
