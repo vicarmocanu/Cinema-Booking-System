@@ -12,7 +12,7 @@ namespace Cinema.ModelLayer
         private String name;
         private String genre;
         private int ageLimit;
-        private String lenght;
+        private int length;
 
         //constructor
         public Movie() { }
@@ -67,15 +67,15 @@ namespace Cinema.ModelLayer
             }
         }
 
-        public String Lenght
+        public int Length
         {
             get 
             { 
-                return lenght; 
+                return length; 
             }
             set
             { 
-                lenght = value; 
+                length = value; 
             }
         }
     }

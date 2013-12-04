@@ -55,6 +55,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\MovieServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -72,6 +77,19 @@
     <None Include="Service References\EmployeeServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\MovieServiceReference\CinemaServiceLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MovieServiceReference\ConsoleTesting.MovieServiceReference.Movie.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MovieServiceReference\service.wsdl" />
+    <None Include="Service References\MovieServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MovieServiceReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cinema\Cinema.csproj">
@@ -85,6 +103,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CustomerServiceReference\" />
     <WCFMetadataStorage Include="Service References\EmployeeServiceReference\" />
+    <WCFMetadataStorage Include="Service References\MovieServiceReference\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\EmployeeServiceReference\configuration91.svcinfo" />
@@ -106,6 +125,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\CustomerServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MovieServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MovieServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MovieServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

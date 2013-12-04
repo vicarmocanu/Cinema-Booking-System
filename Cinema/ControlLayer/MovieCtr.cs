@@ -23,14 +23,13 @@ namespace Cinema.ControlLayer
 
         public MovieCtr(){}
 
-        public int insertMovie(int movieId, String name, String genre, int ageLimit, String lenght)
+        public int insertMovie(String name, String genre, int ageLimit, int length)
         {
             IMovie _dbMovie = new DbMovie();
             Movie movie = new Movie();
             movie.AgeLimit = ageLimit;
             movie.Genre = genre;
-            movie.Lenght = lenght;
-            movie.MovieId = movieId;
+            movie.Length = length;
             movie.Name = name;
             return _dbMovie.insertMovie(movie);
         }
@@ -49,13 +48,13 @@ namespace Cinema.ControlLayer
             return _dbMovie.getMovieByID(id);
         }
 
-        public int updateMovie(int movieId, String name, String genre, int ageLimit, String lenght)
+        public int updateMovie(int movieId, String name, String genre, int ageLimit, int length)
         {
             IMovie _dbMovie = new DbMovie();
             Movie movie = new Movie();
             movie.AgeLimit = ageLimit;
             movie.Genre = genre;
-            movie.Lenght = lenght;
+            movie.Length = length;
             movie.MovieId = movieId;
             movie.Name = name;
             return _dbMovie.updateMovie(movie);
