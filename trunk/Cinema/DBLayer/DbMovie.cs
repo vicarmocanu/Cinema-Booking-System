@@ -24,7 +24,7 @@ namespace Cinema.DBLayer
             mov.Name = dbReader["name"].ToString();
             mov.Genre = dbReader["genre"].ToString();
             mov.AgeLimit = Convert.ToInt32(dbReader["ageLimit"].ToString());
-            mov.Lenght = dbReader["lenght"].ToString();
+            mov.Length = Convert.ToInt32(dbReader["length"].ToString());
 
             return mov;
         }
@@ -44,7 +44,7 @@ namespace Cinema.DBLayer
                 "','" + mov.Name +
                 "','" + mov.Genre +
                 "','" + mov.AgeLimit +
-                "','" + mov.Lenght + "')";
+                "','" + mov.Length + "')";
             try
             {
                 SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
@@ -115,7 +115,7 @@ namespace Cinema.DBLayer
                 "name='" + mov.Name + "', " +
                 "genre='" + mov.Genre + "', " +
                 "ageLimit='" + mov.AgeLimit + "', " +
-                "lenght='" + mov.Lenght + "' WHERE " +
+                "length='" + mov.Length + "' WHERE " +
                 "movieId='" + mov.MovieId + "'";
 
             try
