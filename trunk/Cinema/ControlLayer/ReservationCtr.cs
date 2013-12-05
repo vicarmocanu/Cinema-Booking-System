@@ -21,10 +21,7 @@ namespace Cinema.ControlLayer
             return instance;
         }
 
-        public ReservationCtr()
-        { 
-        
-        }
+        public ReservationCtr() {}
 
         public int insertReservation(String firstName, String lastName, int sessionId, int numberOfSeats, int price  )
         { 
@@ -54,8 +51,8 @@ namespace Cinema.ControlLayer
         public int insertReservedSeat(int reservationId, int seatId)
         {
             IReservation _dbReservation = new DbReservation();
-            Seat sit = new Seat();
 
+            Seat sit = new Seat();
             sit.SeatId = seatId;
 
             return _dbReservation.insertReservedSeat(reservationId, sit);
@@ -70,8 +67,8 @@ namespace Cinema.ControlLayer
         public List<Reservation> getCustomerReservations(String custFName, String custLName)
         {
             IReservation _dbReservation = new DbReservation();
-            List<Reservation> returnList = new List<Reservation>();
 
+            List<Reservation> returnList = new List<Reservation>();
             returnList = _dbReservation.getCustomerReservations(custFName, custLName);
 
             return returnList;
@@ -80,16 +77,20 @@ namespace Cinema.ControlLayer
         public List<Reservation> getAllReservations()
         {
             IReservation _dbReservation = new DbReservation();
+            
             List<Reservation> returnList = new List<Reservation>();
             returnList = _dbReservation.getAllReservations();
+            
             return returnList;
         }
 
         public List<Seat> getSeatsFromReservation(int reservationId)
         {
-            List<Seat> returnList = new List<Seat>();
             IReservation _dbReservation = new DbReservation();
+
+            List<Seat> returnList = new List<Seat>();           
             returnList = _dbReservation.getSeatsFromReservation(reservationId);
+            
             return returnList;
         }
 
@@ -111,16 +112,14 @@ namespace Cinema.ControlLayer
             rzv.Status = status;
             rzv.ReservationId = reservationId;
 
-
             return _dbReservation.updateReservation(rzv);
         }
 
         public int updateReservedSeat(int reservationId, int seatId, String status)
         {
             IReservation _dbRezervation = new DbReservation();
-            Reservation rzv = new Reservation();
+                        
             Seat seat = new Seat();
-
             rzv.Status = status;
 
             return _dbRezervation.updateReservedSeat(reservationId, seatId, status);

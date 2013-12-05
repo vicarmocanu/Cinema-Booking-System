@@ -9,8 +9,7 @@ using Cinema.ModelLayer;
 namespace Cinema.DBLayer
 {
     interface IRoom
-    {
-        
+    {        
         int insertRoom(Room room);
         List<Room> getRooms();
         Room getRoomByNumber(int number);

@@ -13,16 +13,12 @@ namespace Cinema.DBLayer
     {
         private static SqlCommand dbCmd = null; 
 
-        public GetMax()
-        { 
-        
-        }
+        public GetMax() {}
 
         public static int getMax(String attrib, String table)
         {
             String _sqlQuery = "SELECT MAX(" + attrib + ") AS maxim FROM " + table ;
             dbCmd = AccessDbSQLClient.GetDbCommand(_sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -33,10 +29,7 @@ namespace Cinema.DBLayer
             }
             AccessDbSQLClient.Close();
             return maxim;
-
         }
-
     }
-
 }
 

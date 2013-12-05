@@ -26,9 +26,11 @@ namespace Cinema.ControlLayer
             ISession _dbSession = new DbSession();
             TimeTable timeTable = new TimeTable();
             int movieId = movie.MovieId;
+
             List<Session> movieSessionList = _dbSession.getMovieSessions(movieId);
             timeTable.Movie = movie;
             timeTable.SessionList = movieSessionList;
+
             return timeTable;
         }
     }

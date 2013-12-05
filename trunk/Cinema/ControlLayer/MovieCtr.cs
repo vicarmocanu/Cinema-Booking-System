@@ -27,18 +27,22 @@ namespace Cinema.ControlLayer
         {
             IMovie _dbMovie = new DbMovie();
             Movie movie = new Movie();
+
             movie.AgeLimit = ageLimit;
             movie.Genre = genre;
             movie.Length = length;
             movie.Name = name;
+
             return _dbMovie.insertMovie(movie);
         }
 
         public List<Movie> getMovies()
-        { 
+        {
+            IMovie _dbMovie = new DbMovie();
+
             List<Movie> returnList = new List<Movie>();
-            DbMovie _dbMovie = new DbMovie();
             returnList = _dbMovie.getMovies();
+
             return returnList;
         }
 
@@ -52,11 +56,13 @@ namespace Cinema.ControlLayer
         {
             IMovie _dbMovie = new DbMovie();
             Movie movie = new Movie();
+
             movie.AgeLimit = ageLimit;
             movie.Genre = genre;
             movie.Length = length;
             movie.MovieId = movieId;
             movie.Name = name;
+
             return _dbMovie.updateMovie(movie);
         }
     }

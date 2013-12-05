@@ -29,19 +29,23 @@ namespace Cinema.ControlLayer
         public int insertEmployee(String fName, String lName, String username, String password)
         {
             IEmployee DbEmployee = new DbEmployee();
+
             Employee emp = new Employee();
             emp.FName = fName;
             emp.LName = lName;
             emp.Username = username;
             emp.Password = password;
+
             return DbEmployee.insertEmployee(emp);     
         }
 
         public List<Employee> getEmployees()
         {
+            IEmployee dbEmployee = new DbEmployee();
+
             List<Employee> returnList = new List<Employee>();
-            DbEmployee dbEmployee = new DbEmployee();
             returnList = dbEmployee.getEmployees();
+
             return returnList;
         }
 
@@ -55,10 +59,12 @@ namespace Cinema.ControlLayer
         {
             IEmployee _dbEmployee = new DbEmployee();
             Employee emp = new Employee();
+
             emp.FName = fName;
             emp.LName = lName;
             emp.Username = username;
             emp.Password = password;
+
             return _dbEmployee.updateEmployee(emp);
         }   
     }

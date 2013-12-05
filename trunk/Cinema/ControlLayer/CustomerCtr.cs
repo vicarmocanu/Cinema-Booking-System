@@ -42,9 +42,9 @@ namespace Cinema.ControlLayer
 
         public List<Customer> getCustomers()
         {
-            List<Customer> returnList = new List<Customer>();
+            ICustomer _dbCustomer = new DbCustomer();
 
-            DbCustomer _dbCustomer = new DbCustomer();
+            List<Customer> returnList = new List<Customer>();             
             returnList = _dbCustomer.getCustomers();
 
             return returnList;
@@ -66,6 +66,7 @@ namespace Cinema.ControlLayer
         {
             ICustomer _dbCustomer = new DbCustomer();
             Customer cust = new Customer();
+
             cust.CustomerFirstName = fName;
             cust.CustomerLastName = lName;
             cust.CustomerCity = city;

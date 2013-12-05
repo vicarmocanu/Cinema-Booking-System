@@ -15,7 +15,7 @@ namespace Cinema.DBLayer
         private static DbMovie dbMovie = new DbMovie();
         private static DbRoom dbRoom = new DbRoom();
 
-        //insert into the Session table/OK
+        //insert a seat
         public int insertSession(Session session)
         {
             int result = -1;
@@ -43,7 +43,7 @@ namespace Cinema.DBLayer
             return result;
         }
 
-        //insert into the SeatSchedule table/ OK
+        //insert into the SeatSchedule table
         public List<int> insertSeatSchedule(int sessionId, List<Seat> sessionSeats)
         {            
             List<int> results = new List<int>();
@@ -76,7 +76,6 @@ namespace Cinema.DBLayer
             string sqlQuery = "SELECT MAX(rowNumber) AS rowNumber FROM Seat, SeatSchedule WHERE " +
                 "Seat.seatId=SeatSchedule.seatId AND sessionId = '" + sessionId + "'";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -97,7 +96,6 @@ namespace Cinema.DBLayer
                 "SeatSchedule JOIN Seat ON Seat.seatId = SeatSchedule.seatId WHERE " + 
                 " rowNumber = '" + rowNumber + "' AND sessionId = '" + sessionId + "') AS SeatScheduleInfo";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -132,7 +130,7 @@ namespace Cinema.DBLayer
             return seats;
         }
 
-        //get a row of seats from the scheduled seats for a session/NO
+        //get a row of seats from the scheduled seats for a session
         private static List<Seat> getScheduledSeatsFromRow(int sessionId, int rowNumber)
         {
             List<Seat> returnList = new List<Seat>();
@@ -142,7 +140,6 @@ namespace Cinema.DBLayer
                 "FROM SeatSchedule JOIN Seat ON Seat.seatId = SeatSchedule.seatId " +
                 "WHERE rowNumber = '" + rowNumber + "' AND sessionId = '" + sessionId + "' ORDER BY seatNumber";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -162,7 +159,7 @@ namespace Cinema.DBLayer
             return returnList;
         }
         
-        //get all sessions?OK
+        //get all sessions
         public List<Session> getSessions()
         {
             List<Session> returnList = new List<Session>();
@@ -172,7 +169,6 @@ namespace Cinema.DBLayer
                 "FROM Session JOIN SeatSchedule ON Session.sessionId = SeatSchedule.sessionId " +
                 "JOIN Seat ON SeatSchedule.seatId = Seat.seatId";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -196,7 +192,7 @@ namespace Cinema.DBLayer
             return returnList;
         }
 
-        //get the sessions for a movie/OK
+        //get the sessions for a movie
         public List<Session> getMovieSessions(int movieId)
         {
             List<Session> returnList = new List<Session>();
@@ -206,7 +202,6 @@ namespace Cinema.DBLayer
                 "FROM Session JOIN SeatSchedule ON Session.sessionId = SeatSchedule.sessionId " +
                 "JOIN Seat ON SeatSchedule.seatId = Seat.seatId WHERE Session.movieId = '" + movieId + "'";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -230,7 +225,7 @@ namespace Cinema.DBLayer
             return returnList;
         }
         
-        //get a particular session/OK
+        //get a session - id
         public Session getSessionById(int sessionId)
         {
             string sqlQuery = "SELECT Session.sessionId, Session.movieId, Session.date, " +
@@ -238,7 +233,6 @@ namespace Cinema.DBLayer
                 "FROM Session JOIN SeatSchedule ON Session.sessionId = SeatSchedule.sessionId " +
                 "JOIN Seat ON SeatSchedule.seatId = Seat.seatId WHERE Session.sessionId = '" + sessionId + "'";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -262,7 +256,7 @@ namespace Cinema.DBLayer
             return session;
         }
 
-        //update a session/OK
+        //update a session - id
         public int updateSession(Session session)
         {
             int result = -1;
@@ -286,7 +280,7 @@ namespace Cinema.DBLayer
             return result;
         }
 
-        //update a seat schedule/OK
+        //update a seat schedule
         public int updateSeatSchedule(int sessionId, int seatId, String status)
         {
             int result = -1;
@@ -295,7 +289,6 @@ namespace Cinema.DBLayer
                 "status = '" + status + "' " +
                 "WHERE sessionId = '" + sessionId + "' " +
                 "AND seatId = '" + seatId + "'";
-
             try
             {
                 SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
