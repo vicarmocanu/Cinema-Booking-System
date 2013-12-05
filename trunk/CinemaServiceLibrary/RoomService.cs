@@ -16,5 +16,10 @@ namespace CinemaServiceLibrary
         {
             return roomCtr.insertRoom(roomNumber, numberOfSeats);
         }
+
+        public int updateRoom(int roomNumber, int numberOfSeats)
+        {
+            return roomCtr.updateRoom(roomNumber, numberOfSeats);
+        }
     }
 }

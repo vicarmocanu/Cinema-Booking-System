@@ -26,7 +26,7 @@ namespace Cinema.ControlLayer
         
         }
 
-        public int insertReservaion(String firstName, String lastName, int sessionId, int numberOfSeats, int price  )
+        public int insertReservation(String firstName, String lastName, int sessionId, int numberOfSeats, int price  )
         { 
             IReservation _dbReservation = new DbReservation();
             Reservation rzv = new Reservation();
