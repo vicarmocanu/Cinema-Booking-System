@@ -8,11 +8,11 @@ using System.Text;
 namespace CinemaServiceLibrary
 {
     [ServiceContract]
-    public interface IEmployeeService
+    public interface IReservationService
     {
         [OperationContract]
-        int insertEmployee(String fName, String lName, String username, String password);
+        int insertReservation(String firstName, String lastName, int sessionId, int numberOfSeats, int price);
         [OperationContract]
-        int updateEmployee(String fName, String lName, String username, String password);
+        int updateReservation(String firstName, String lastName, int sessionId, int numberOfSeats, int price);
     }
 }

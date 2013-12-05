@@ -16,5 +16,10 @@ namespace CinemaServiceLibrary
         {
             return employeeCtr.insertEmployee(fName, lName, username, password);
         }
+
+        public int updateEmployee(String fName, String lName, String username, String password)
+        {
+            return employeeCtr.updateEmployee(fName, lName, username, password);
+        }
     }
 }

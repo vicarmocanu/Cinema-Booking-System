@@ -7,12 +7,14 @@ using System.Text;
 
 namespace CinemaServiceLibrary
 {
+    
     [ServiceContract]
-    public interface IEmployeeService
+    public interface ISessionService
     {
         [OperationContract]
-        int insertEmployee(String fName, String lName, String username, String password);
+        int insertSession(int movieId, String EnterTime, String ExitTime, String Date, Double Price);
         [OperationContract]
-        int updateEmployee(String fName, String lName, String username, String password);
+        int updateSession(int MovieId, String Date, String EnterTime, String ExitTime, Double Price, int SessionId);
+       
     }
 }

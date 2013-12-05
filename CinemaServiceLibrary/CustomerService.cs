@@ -16,5 +16,10 @@ namespace CinemaServiceLibrary
         {
             return customerCtr.insertCustomer(fName, lName, city, address, email, phoneNo, username, password);
         }
+
+        public int updateCustomer(string fName, string lName, string city, string address, string email, string phoneNo, string username, string password)
+        {
+            return customerCtr.updateCustomer(fName, lName, city, address, email, phoneNo, username, password);
+        }
     }
 }
