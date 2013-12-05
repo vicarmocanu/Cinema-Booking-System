@@ -129,5 +129,13 @@ namespace Cinema.DBLayer
 
             return result;
         }
+
+        //delete movie - id
+        public int deleteMovie(int movieId)
+        {
+            int result = -1;
+            string query = "DELETE FROM Movie WHERE movieId= '" + movieId + "'";
+            return result;
+        }
     }
 }

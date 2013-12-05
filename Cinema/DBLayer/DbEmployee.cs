@@ -114,6 +114,13 @@ namespace Cinema.DBLayer
             { }
 
             return result;
-        }                
+        }
+
+        public int deleteEmployeeByUsername(String username)
+        {
+            int result = -1;
+            string query = "DELETE FROM Employee WHERE userName= '" + username + "'";
+            return result;
+        }
     }
 }
