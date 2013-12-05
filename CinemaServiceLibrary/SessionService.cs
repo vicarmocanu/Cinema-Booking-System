@@ -20,8 +20,6 @@ namespace CinemaServiceLibrary
         public int updateSession(int MovieId, string Date, string EnterTime, string ExitTime, double Price, int SessionId)
         {
             return sessionCtr.updateSession(MovieId, Date, ExitTime, ExitTime, Price, SessionId);
-        }
-    
-        
+        }       
     }
 }

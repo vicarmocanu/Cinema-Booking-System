@@ -12,6 +12,7 @@ namespace CinemaServiceLibrary
     {
         [OperationContract]
         int insertEmployee(String fName, String lName, String username, String password);
+
         [OperationContract]
         int updateEmployee(String fName, String lName, String username, String password);
     }

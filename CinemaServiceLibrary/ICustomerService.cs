@@ -12,6 +12,7 @@ namespace CinemaServiceLibrary
     {
         [OperationContract]
         int insertCustomer(String fName, String lName, String city, String address, String email, String phoneNo, String username, String password);
+
         [OperationContract]
         int updateCustomer(String fName, String lName, String city, String address, String email, String phoneNo, String username, String password);
     }

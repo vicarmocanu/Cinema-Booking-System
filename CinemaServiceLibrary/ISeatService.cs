@@ -12,6 +12,7 @@ namespace CinemaServiceLibrary
     {
            [OperationContract]
            public int insertSeat(int seatNumber, int rowNumber, int roomNumber);
+
            [OperationContract]
            public int updateSeat(int seatID, int seatNumber, int rowNumber, int roomNumber);
 

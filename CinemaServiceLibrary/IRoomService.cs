@@ -12,6 +12,7 @@ namespace CinemaServiceLibrary
     {
         [OperationContract]
         int insertRoom(int roomNumber, int numberOfSeats);
+
         [OperationContract]
         int updateRoom(int roomNumber, int numberOfSeats);
     }

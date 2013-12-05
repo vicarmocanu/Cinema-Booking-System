@@ -13,6 +13,7 @@ namespace CinemaServiceLibrary
     {
         [OperationContract]
         int insertSession(int movieId, String EnterTime, String ExitTime, String Date, Double Price);
+
         [OperationContract]
         int updateSession(int MovieId, String Date, String EnterTime, String ExitTime, Double Price, int SessionId);
        
