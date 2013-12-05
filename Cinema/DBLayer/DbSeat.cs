@@ -78,7 +78,7 @@ namespace Cinema.DBLayer
             return results;
         }
 
-        //insert a seat into the table
+        //insert a seat
         public int insertSeat(Seat seat)
         {
             int result = -1;
@@ -112,7 +112,6 @@ namespace Cinema.DBLayer
 
             string sqlQuery = "SELECT * FROM Seat WHERE roomNumber= '" + roomNumber + "'";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -136,7 +135,6 @@ namespace Cinema.DBLayer
 
             string sqlQuery = "SELECT * FROM Seat";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -158,7 +156,6 @@ namespace Cinema.DBLayer
         {
             string sqlQuery = "SELECT * FROM Seat WHERE seatId= '" + id + "'";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -178,7 +175,7 @@ namespace Cinema.DBLayer
             return seat;
         }
 
-        //update a seat based on its id
+        //update a seat  - id
         public int updateSeat(Seat seat)
         {
             int result = -1;

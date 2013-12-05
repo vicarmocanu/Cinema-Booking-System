@@ -50,4 +50,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getMovies">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMoviesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CinemaServiceLibrary" minOccurs="0" name="getMoviesResult" nillable="true" type="q2:ArrayOfMovie" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

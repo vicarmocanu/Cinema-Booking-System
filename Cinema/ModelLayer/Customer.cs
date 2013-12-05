@@ -18,8 +18,7 @@ namespace Cinema.ModelLayer
         private String password;
 
         //constructor
-        public Customer(){}
-        
+        public Customer(){}        
 
         //getters and setters
 
@@ -106,7 +105,6 @@ namespace Cinema.ModelLayer
                 username = value;
             }
         }
-
 
         public String CustomerPassword
         {

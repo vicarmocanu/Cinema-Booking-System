@@ -32,7 +32,7 @@ namespace Cinema.DBLayer
             return customer;
         }
 
-        //create a customer
+        //insert a customer
         public int insertCustomer(Customer customer)
         {
             int result = -1;
@@ -65,7 +65,6 @@ namespace Cinema.DBLayer
 
             string sqlQuery = "SELECT * FROM Customer";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -82,13 +81,12 @@ namespace Cinema.DBLayer
             return returnList;
         }
                 
-        //get a customer by his first and last name
+        //get a customer - fName, lName
         public Customer getCustomerByName(String fName, String lName)
         {
-            string sqlQuery = "SELECT * FROM Customer WHERE fName= '" + fName 
-                + "' AND lName= '" + lName + "'";
+            string sqlQuery = "SELECT * FROM Customer WHERE " +
+                "fName= '" + fName + "' AND lName= '" + lName + "'";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -108,12 +106,11 @@ namespace Cinema.DBLayer
             return customer;
         }
 
-        //get a customer by his username
+        //get a customer - username
         public Customer getCustomerByUsername(String username)
         {
             string sqlQuery = "SELECT * FROM Customer WHERE username= '" + username + "'";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -133,7 +130,7 @@ namespace Cinema.DBLayer
             return customer;
         }
 
-        //update a customer based on his first and last name
+        //update a customer - fName, lName
         public int updateCustomer(Customer customer)
         {
             int result = -1;
@@ -147,7 +144,6 @@ namespace Cinema.DBLayer
                 "password='" + customer.CustomerPassword + "' " +
                 "WHERE fName='" + customer.CustomerFirstName + "' AND " +
                 "lName='" + customer.CustomerLastName + "'";
-
             try
             {
                 SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);

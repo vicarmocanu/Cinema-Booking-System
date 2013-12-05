@@ -29,7 +29,7 @@ namespace Cinema.DBLayer
             return mov;
         }
 
-        //insert a movie into the table
+        //insert a movie
         public int insertMovie(Movie mov)
         {
             int result = -1;
@@ -81,7 +81,7 @@ namespace Cinema.DBLayer
             return returnList;
         }
 
-        //get a movie based on its id
+        //get a movie - id
         public Movie getMovieByID(int id)
         {
             string sqlQuery = "SELECT * FROM Movie WHERE movieId= '" + id + "'";
@@ -106,7 +106,7 @@ namespace Cinema.DBLayer
             return movie;
         }
 
-        //update a movie based on its id
+        //update a movie - id
         public int updateMovie(Movie mov)
         {
             int result = -1;

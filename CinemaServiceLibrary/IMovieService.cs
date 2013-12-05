@@ -18,9 +18,12 @@ namespace CinemaServiceLibrary
 
         [OperationContract]
         Movie getMovieById(int movieId);
+
+        [OperationContract]
+        List<Movie> getMovies();
     }
 
-    [DataContractAttribute]
+    [DataContract]
     public class Movie
     {
         public int movieId;
@@ -28,6 +31,7 @@ namespace CinemaServiceLibrary
         public String genre;
         public int ageLimit;
         public int length;
+        public List<Movie> movies;
 
         [DataMemberAttribute]
         public int MovieId
@@ -62,19 +66,6 @@ namespace CinemaServiceLibrary
         {
             get { return length; }
             set { length = value; }
-        }
-    }
-
-    [DataContractAttribute]
-    public class ListOfMovies
-    {
-        public List<Movie> movies;
-
-        [DataMemberAttribute]
-        List<Movie> Movies
-        {
-            get { return movies; }
-            set { movies = value; }
         }
     }
 }

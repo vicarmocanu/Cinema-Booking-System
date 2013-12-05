@@ -11,9 +11,7 @@ namespace Cinema.ModelLayer
         private int seatId;       
         private int seatNumber;
         private int rowNumber;
-
         private Room room;
-
         private String status;
 
         //constructor
