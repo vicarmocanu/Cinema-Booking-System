@@ -280,6 +280,14 @@ namespace Cinema.DBLayer
             return result;
         }
 
+        //delete a session - id
+        public int deleteSession(int sessionId)
+        {
+            int result = -1;
+            string sqlQuery = "DELETE FROM Session WHERE sessionId= '" + sessionId + "'";
+            return result;
+        }
+
         //update a seat schedule
         public int updateSeatSchedule(int sessionId, int seatId, String status)
         {
@@ -300,5 +308,14 @@ namespace Cinema.DBLayer
 
             return result;
         }        
+
+        //delete the seats from a session
+        public int deleteSeatsFromSession(int sessionId)
+        {
+            int result = -1;
+            String sqlQuery = "DELETE FROM SeatSchedule WHERE sessionId= '" + sessionId + "'";
+            return result;
+        }
+            
     }
 }

@@ -196,5 +196,21 @@ namespace Cinema.DBLayer
 
             return result;
         }
+
+        //delete a seat - id
+        public int deleteSeat(int id)
+        {
+            int result = -1;
+            String sqlQuery = "DELETE FROM Seat WHERE seatId= '" + id + "'";
+            return result;
+        }
+
+        //delete the seats from a room
+        public int deleteRoomSeats(int roomNumber)
+        {
+            int result = -1;
+            String sqlQuery = "DELETE FROM Seat WHERE roomNumber= '" + roomNumber + "'";
+            return result;
+        }
     }
 }

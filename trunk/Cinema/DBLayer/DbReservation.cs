@@ -237,6 +237,14 @@ namespace Cinema.DBLayer
             return result;
         }
 
+        //delete reservation - id
+        public int deleteReservation(int reservationId)
+        {
+            int result = -1;
+            string sqlQuery = "DELETE FROM Reservation WHERE reservationId= '" + reservationId + "'";
+            return result;
+        }
+
         //update a reserved seat
         public int updateReservedSeat(int reservationId, int seatId, String status)
         {
@@ -254,6 +262,15 @@ namespace Cinema.DBLayer
             catch (SqlException)
             { }
 
+            return result;
+        }
+
+        //delete a reserved seat from a reservation
+        public int deleteReservedSeat(int reservationId, int seatId)
+        {
+            int result = -1;
+            string sqlQuery = "DELETE FROM ReservedSeats WHERE reservationId= '" + reservationId +
+                "' AND seatId= '" + seatId + "'";
             return result;
         }
 
@@ -276,5 +293,13 @@ namespace Cinema.DBLayer
 
             return result;
         }        
+    
+        //delete all seats from reservation
+        public int deleteSeatsFromReservation(int reservationId)
+        {
+            int result = -1;
+            string sqlQuery = "DELETE FROM ReservedSeats WHERE reservationId= '" + reservationId + "'";
+            return result;
+        }
     }
 }

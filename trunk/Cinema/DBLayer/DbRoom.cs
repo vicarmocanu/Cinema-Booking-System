@@ -117,5 +117,13 @@ namespace Cinema.DBLayer
 
             return result;
         }
+
+        //delete a room - number
+        public int deleteRoom(int number)
+        {
+            int result = -1;
+            string sqlQuery = "DELETE FROM Room WHERE roomNumber= '" + number + "'";
+            return result;
+        }
     }
 }

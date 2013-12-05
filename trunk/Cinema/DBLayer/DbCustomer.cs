@@ -155,5 +155,22 @@ namespace Cinema.DBLayer
 
             return result;             
         }
+
+        //delete a customer - fname, lname
+        public int deleteCustomerByName(String fName, String lName)
+        {
+            int result = -1;
+            string query = "DELETE FROM Customer WHERE fName= '" + fName +
+                "' AND lName= '" + lName + "'";
+            return result;
+        }
+
+        //delete a customer - username
+        public int deleteCustomerByUsername(String userName)
+        {
+            int result = -1;
+            string query = "DELETE FROM Customer WHERE userName= '" + userName + "'";
+            return result;
+        }
     }
 }
