@@ -9,8 +9,7 @@ using Cinema.ModelLayer;
 namespace Cinema.DBLayer
 {
     interface IMovie
-    {
-       
+    {       
         int insertMovie(Movie mov);
         List<Movie> getMovies();
         Movie getMovieByID(int id);

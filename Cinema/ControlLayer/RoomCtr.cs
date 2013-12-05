@@ -27,8 +27,10 @@ namespace Cinema.ControlLayer
         {
             IRoom _dbRoom = new DbRoom();
             Room rom = new Room();
+
             rom.NumberOfSeats = numberOfSeats;
             rom.RoomNumber = roomNumber;
+
             return _dbRoom.insertRoom(rom);
         }
 
@@ -36,16 +38,20 @@ namespace Cinema.ControlLayer
         {
             IRoom _dbRoom = new DbRoom();
             Room rom = new Room();
+
             rom.RoomNumber = roomNumber;
             rom.NumberOfSeats = numberOfSeats;
+
             return _dbRoom.updateRoom(rom);
         }
 
         public List<Room> getRooms()
         {
-            List<Room> returnList = new List<Room>();
             IRoom _dbRoom = new DbRoom();
+
+            List<Room> returnList = new List<Room>();            
             returnList = _dbRoom.getRooms();
+
             return returnList;
         }
 

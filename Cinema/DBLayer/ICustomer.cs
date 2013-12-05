@@ -9,8 +9,7 @@ using Cinema.ModelLayer;
 namespace Cinema.DBLayer
 {
     interface ICustomer
-    {
-       
+    {       
        int insertCustomer(Customer customer);
        List<Customer> getCustomers();
        Customer getCustomerByName(String fName, String lName);

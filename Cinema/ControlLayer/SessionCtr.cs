@@ -21,32 +21,30 @@ namespace Cinema.ControlLayer
             return instance;
         }
 
-        public SessionCtr()
-        { 
+        public SessionCtr(){}
         
-        }
-        //ok
         public Seat[][] getSeatsForJaggedArray(int sessionId)
         {
             ISession _dbSession = new DbSession();
             return _dbSession.getSeatsForJaggedArray(sessionId);
         }
-        //ok
+        
         public List<Session> getSessions()
         {
-            List<Session> returnList = new List<Session>();
             ISession _dbSession = new DbSession();
-            returnList = _dbSession.getSessions();
-            return returnList;
 
+            List<Session> returnList = new List<Session>();            
+            returnList = _dbSession.getSessions();
+
+            return returnList;
         }
-        //ok
+
         public Session getSessionById(int sessionId)
         {
             ISession _dbSession = new DbSession();
             return _dbSession.getSessionById(sessionId);
         }
-        //ok
+        
         public int insertSession(int movieId, String EnterTime, String ExitTime, String Date, Double Price)
         { 
             ISession _dbSession = new DbSession();
@@ -62,15 +60,14 @@ namespace Cinema.ControlLayer
             ses.Price = Price;
 
             return _dbSession.insertSession(ses);
-
         }
-        //ok
+        
         public List<int> insertSeatSchedule(int sessionId, List<Seat> sessionSeats)
         {
             ISession _dbSession = new DbSession();
             return _dbSession.insertSeatSchedule(sessionId, sessionSeats);
         }
-        //ok
+        
         public int updateSession(int MovieId, String Date, String EnterTime, String ExitTime, Double Price, int SessionId)
         {
             ISession _dbSession = new DbSession();
@@ -86,25 +83,22 @@ namespace Cinema.ControlLayer
             ses.SessionId = SessionId;
 
             return _dbSession.updateSession(ses);
-
         }
-        //ok
+        
         public int updateSeatSchedule(int sessionId, int seatId, String status)
         {
             ISession _dbSession = new DbSession();
             return _dbSession.updateSeatSchedule(sessionId, seatId, status);
         }
-        //ok
+        
         public List<Session> getMovieSessions(int movieId)
         {
-            List<Session> returnList = new List<Session>();
             ISession _dbSession = new DbSession();
+
+            List<Session> returnList = new List<Session>();            
             returnList = _dbSession.getMovieSessions(movieId);
+            
             return returnList;
-
         }
-
-
-
     }
 }
