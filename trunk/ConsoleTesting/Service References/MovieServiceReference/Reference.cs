@@ -143,6 +143,12 @@ namespace ConsoleTesting.MovieServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/getMovieById", ReplyAction="http://tempuri.org/IMovieService/getMovieByIdResponse")]
         System.Threading.Tasks.Task<ConsoleTesting.MovieServiceReference.Movie> getMovieByIdAsync(int movieId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/getMovies", ReplyAction="http://tempuri.org/IMovieService/getMoviesResponse")]
+        ConsoleTesting.MovieServiceReference.Movie[] getMovies();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/getMovies", ReplyAction="http://tempuri.org/IMovieService/getMoviesResponse")]
+        System.Threading.Tasks.Task<ConsoleTesting.MovieServiceReference.Movie[]> getMoviesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -194,6 +200,14 @@ namespace ConsoleTesting.MovieServiceReference {
         
         public System.Threading.Tasks.Task<ConsoleTesting.MovieServiceReference.Movie> getMovieByIdAsync(int movieId) {
             return base.Channel.getMovieByIdAsync(movieId);
+        }
+        
+        public ConsoleTesting.MovieServiceReference.Movie[] getMovies() {
+            return base.Channel.getMovies();
+        }
+        
+        public System.Threading.Tasks.Task<ConsoleTesting.MovieServiceReference.Movie[]> getMoviesAsync() {
+            return base.Channel.getMoviesAsync();
         }
     }
 }

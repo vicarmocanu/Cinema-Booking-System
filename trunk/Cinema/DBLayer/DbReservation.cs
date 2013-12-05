@@ -41,7 +41,7 @@ namespace Cinema.DBLayer
             return reservation;
         }
 
-        //inser a reservation into the Reservation table
+        //inser a reservation
         public int insertReservaion(Reservation reservation)
         {
             int result = -1;
@@ -69,7 +69,7 @@ namespace Cinema.DBLayer
             return result;
         }
 
-        //insert the reserved seats into the ReservedSeats table
+        //insert the reserved seats
         //reserved seats will be taken from a list
         public List<int> insertReservedSeats(int reservationId, List<Seat> reservedSeats)
         {
@@ -95,7 +95,7 @@ namespace Cinema.DBLayer
             return results;
         }
 
-        //insert a reserved seat into the ReservedSeats table
+        //insert a reserved seat
         public int insertReservedSeat(int reservationId, Seat seat)
         {
             int result = -1;
@@ -115,7 +115,7 @@ namespace Cinema.DBLayer
             return result;
         }
 
-        //get a reservation from the Reservation table based on its id
+        //get a reservation - id
         public Reservation getReservationById(int reservationId)
         {
             string sqlQuery = "SELECT * FROM Reservation WHERE reservationId = '" + reservationId + "'";
@@ -212,7 +212,7 @@ namespace Cinema.DBLayer
             return returnList;
         }
 
-        //update a reservation
+        //update a reservation - id
         public int updateReservation(Reservation reservation)
         {
             int result = -1;

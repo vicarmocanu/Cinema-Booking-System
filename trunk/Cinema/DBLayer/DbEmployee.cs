@@ -26,7 +26,7 @@ namespace Cinema.DBLayer
             return employee;
         }
 
-        //insert and employee object into the database
+        //insert an employee
         public int insertEmployee(Employee employee)
         {
             int result = -1;
@@ -55,7 +55,6 @@ namespace Cinema.DBLayer
 
             string sqlQuery = "SELECT * FROM Employee";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -72,12 +71,11 @@ namespace Cinema.DBLayer
             return returnList;
         }
 
-        //get an employee based on his username
+        //get an employee - username
         public Employee getEmployeeByUsername(String username)
         {
             string sqlQuery = "SELECT * FROM Employee WHERE userName= '" + username + "'";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -96,7 +94,7 @@ namespace Cinema.DBLayer
             return employee;
         }
 
-        //update an employee based on his username
+        //update an employee - username
         public int updateEmployee(Employee employee)
         {
             int result = -1;
@@ -106,7 +104,6 @@ namespace Cinema.DBLayer
                 "lName='" + employee.LName + "', " +
                 "password='" + employee.Password + "' " +
                 "WHERE userName='" + employee.Username + "'";
-
             try
             {
                 SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
@@ -117,7 +114,6 @@ namespace Cinema.DBLayer
             { }
 
             return result;
-        }
-                
+        }                
     }
 }

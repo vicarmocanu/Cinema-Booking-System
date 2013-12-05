@@ -25,15 +25,33 @@ namespace CinemaServiceLibrary
 
         public Movie getMovieById(int movieId)
         {
-            Movie movie = new Movie();
-            movie.MovieId = movieCtr.getMovieById(movieId).MovieId;
-            movie.Name = movieCtr.getMovieById(movieId).Name;
-            movie.Genre = movieCtr.getMovieById(movieId).Genre;
-            movie.AgeLimit = movieCtr.getMovieById(movieId).AgeLimit;
-            movie.Length = movieCtr.getMovieById(movieId).Length;
-            return movie;
+            Movie serviceMovie = new Movie();
+            serviceMovie.MovieId = movieCtr.getMovieById(movieId).MovieId;
+            serviceMovie.Name = movieCtr.getMovieById(movieId).Name;
+            serviceMovie.Genre = movieCtr.getMovieById(movieId).Genre;
+            serviceMovie.AgeLimit = movieCtr.getMovieById(movieId).AgeLimit;
+            serviceMovie.Length = movieCtr.getMovieById(movieId).Length;
+            return serviceMovie;
         }
-    }
 
-    
+        public List<Movie> getMovies()
+        {
+            List<Cinema.ModelLayer.Movie> returnList = movieCtr.getMovies();
+            //ListOfMovies listOfMovies = new ListOfMovies();
+            List<Movie> movieList = new List<Movie>();
+            foreach (Cinema.ModelLayer.Movie cinemaMovie in returnList)
+            {
+                Movie serviceMovie = new Movie();
+                serviceMovie.MovieId = cinemaMovie.MovieId;
+                serviceMovie.Name = cinemaMovie.Name;
+                serviceMovie.Genre = cinemaMovie.Genre;
+                serviceMovie.AgeLimit = cinemaMovie.AgeLimit;
+                serviceMovie.Length = cinemaMovie.Length;
+                //listOfMovies.Movies.Add(serviceMovie);
+                movieList.Add(serviceMovie);
+            }
+            //return listOfMovies.Movies;
+            return movieList;
+        }
+    }    
 }

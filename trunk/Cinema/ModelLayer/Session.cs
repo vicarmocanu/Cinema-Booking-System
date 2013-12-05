@@ -47,7 +47,6 @@ namespace Cinema.ModelLayer
                 movie = value;
             }
         }
-
        
         internal Room Room
         {
@@ -72,7 +71,6 @@ namespace Cinema.ModelLayer
                 date = value;
             }
         }
-
         
         public String EnterTime
         {
@@ -97,8 +95,7 @@ namespace Cinema.ModelLayer
                 exitTime = value; 
             }
         }
-
-        
+               
         public Seat[][] Seats
         {
             get 

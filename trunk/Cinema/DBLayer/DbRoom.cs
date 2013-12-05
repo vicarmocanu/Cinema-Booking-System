@@ -26,7 +26,7 @@ namespace Cinema.DBLayer
             return room;
         }
 
-        //insert a room into the table
+        //insert a room
         public int insertRoom(Room room)
         {
             int result = -1;
@@ -58,7 +58,6 @@ namespace Cinema.DBLayer
 
             string sqlQuery = "SELECT * FROM Room";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -75,12 +74,11 @@ namespace Cinema.DBLayer
             return returnList;
         }
 
-        //get a room based on its number
+        //get a room - number
         public Room getRoomByNumber(int number)
         {
             string sqlQuery = "SELECT * FROM Room WHERE roomNumber= '" + number + "'";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -100,7 +98,7 @@ namespace Cinema.DBLayer
             return room;
         }
 
-        //update a room based on its number
+        //update a room - number
         public int updateRoom(Room room)
         {
             int result = -1;
