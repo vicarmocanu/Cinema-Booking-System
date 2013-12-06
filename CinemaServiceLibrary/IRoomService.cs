@@ -16,4 +16,25 @@ namespace CinemaServiceLibrary
         [OperationContract]
         int updateRoom(int roomNumber, int numberOfSeats);
     }
+
+    [DataContract]
+    public class Room
+    {
+        private int roomNumber;
+        private int numberOfSeats;
+
+        [DataMemberAttribute]
+        public int RoomNumber
+        {
+            get { return roomNumber; }
+            set { roomNumber = value; }
+        }
+
+        [DataMemberAttribute]
+        public int NumberOfSeats
+        {
+            get { return numberOfSeats; }
+            set { numberOfSeats = value; }
+        }
+    }
 }

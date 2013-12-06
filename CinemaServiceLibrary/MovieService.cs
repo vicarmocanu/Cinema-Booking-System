@@ -26,11 +26,13 @@ namespace CinemaServiceLibrary
         public Movie getMovieById(int movieId)
         {
             Movie serviceMovie = new Movie();
-            serviceMovie.MovieId = movieCtr.getMovieById(movieId).MovieId;
-            serviceMovie.Name = movieCtr.getMovieById(movieId).Name;
-            serviceMovie.Genre = movieCtr.getMovieById(movieId).Genre;
-            serviceMovie.AgeLimit = movieCtr.getMovieById(movieId).AgeLimit;
-            serviceMovie.Length = movieCtr.getMovieById(movieId).Length;
+            Cinema.ModelLayer.Movie hostMovie = new Cinema.ModelLayer.Movie();
+            hostMovie = movieCtr.getMovieById(movieId);
+            serviceMovie.MovieId = hostMovie.MovieId;
+            serviceMovie.Name = hostMovie.Name;
+            serviceMovie.Genre = hostMovie.Genre;
+            serviceMovie.AgeLimit = hostMovie.AgeLimit;
+            serviceMovie.Length = hostMovie.Length;
             return serviceMovie;
         }
 
