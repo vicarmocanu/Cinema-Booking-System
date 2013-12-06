@@ -119,7 +119,15 @@ namespace Cinema.DBLayer
         public int deleteEmployeeByUsername(String username)
         {
             int result = -1;
-            string query = "DELETE FROM Employee WHERE userName= '" + username + "'";
+            string sqlQuery = "DELETE FROM Employee WHERE userName= '" + username + "'";
+            try
+            {
+                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                result = cmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
+            }
+            catch (SqlException)
+            { }
             return result;
         }
     }

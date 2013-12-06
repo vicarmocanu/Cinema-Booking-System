@@ -123,6 +123,14 @@ namespace Cinema.DBLayer
         {
             int result = -1;
             string sqlQuery = "DELETE FROM Room WHERE roomNumber= '" + number + "'";
+            try
+            {
+                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                result = cmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
+            }
+            catch (SqlException)
+            { }
             return result;
         }
     }
