@@ -43,11 +43,6 @@ namespace CinemaServiceLibrary
             return seatCtr.deleteSeatById(id);
         }
 
-        public int deleteRoomSeats(int roomNumber)
-        {
-            return seatCtr.deleteRoomSeats(roomNumber);
-        }
-
         public Seat getSeat(int id)
         {
             Seat serviceSeat = new Seat();

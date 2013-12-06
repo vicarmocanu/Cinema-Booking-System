@@ -29,9 +29,6 @@ namespace CinemaServiceLibrary
         int deleteSeatById(int id);
 
         [OperationContract]
-        int deleteRoomSeats(int roomNumber);
-
-        [OperationContract]
         Seat getSeat(int id);
 
         [OperationContract]
