@@ -14,7 +14,31 @@ namespace CinemaServiceLibrary
         int insertSeat(int seatNumber, int rowNumber, int roomNumber);
 
         [OperationContract]
-        int updateSeat(int seatID, int seatNumber, int rowNumber, int roomNumber);       
+        int updateSeat(int seatID, int seatNumber, int rowNumber, int roomNumber);
+
+        [OperationContract]
+        int deleteSeat(int id);
+
+        [OperationContract]
+        int deleteRoomSeats(int roomNumber);
+
+        [OperationContract]
+        List<int> insertSeatMatrix(int rows, int columns, int roomNumber);
+
+        [OperationContract]
+        int deleteSeatById(int id);
+
+        [OperationContract]
+        int deleteRoomSeats(int roomNumber);
+
+        [OperationContract]
+        Seat getSeat(int id);
+
+        [OperationContract]
+        List<Seat> getSeats();
+
+        [OperationContract]
+        List<Seat> getRoomSeats(int roomNumber);
     }
     
     [DataContract]

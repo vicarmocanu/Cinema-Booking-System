@@ -15,6 +15,9 @@ namespace CinemaServiceLibrary
 
         [OperationContract]
         int updateMovie(int movieId, String name, String genre, int ageLimit, int length);
+        
+        [OperationContract]
+        int deleteMovie(int movieId);
 
         [OperationContract]
         Movie getMovieById(int movieId);
