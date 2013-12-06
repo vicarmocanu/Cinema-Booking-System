@@ -87,5 +87,13 @@ namespace Cinema.ControlLayer
             
             return returnList;
         }
+
+        public int deleteSeat(int seatID)
+        {
+            ISeat _dbSeat = new DbSeat();
+            Seat seat = new Seat();
+
+            return _dbSeat.deleteSeat(seat);
+        }
     }
 }
