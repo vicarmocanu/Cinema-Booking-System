@@ -10,7 +10,7 @@ namespace CinemaServiceLibrary
 {   
     public class ReservationService : IReservationService
     {
-        private static ReservationCtr reservationCtr = new ReservationCtr();
+        private static ReservationCtr reservationCtr = ReservationCtr.getInstance();
 
 
 

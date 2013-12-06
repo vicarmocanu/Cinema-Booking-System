@@ -10,7 +10,7 @@ namespace CinemaServiceLibrary
 {    
     public class SessionService : ISessionService
     {
-        private static SessionCtr sessionCtr = new SessionCtr();
+        private static SessionCtr sessionCtr = SessionCtr.getInstance();
 
         public int insertSession(int movieId, string EnterTime, string ExitTime, string Date, double Price)
         {
