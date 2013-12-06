@@ -14,5 +14,6 @@ namespace Cinema.DBLayer
         List<Room> getRooms();
         Room getRoomByNumber(int number);
         int updateRoom(Room room);
+        int deleteRoom(int number);
     }
 }

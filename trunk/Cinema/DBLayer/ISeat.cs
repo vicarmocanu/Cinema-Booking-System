@@ -16,5 +16,7 @@ namespace Cinema.DBLayer
         Seat getSeatById(int id);
         int updateSeat(Seat seat);
         List<Seat> getRoomSeats(int roomNumber);
+        int deleteSeat(int id);
+        int deleteRoomSeats(int roomNumber);
     }
 }
