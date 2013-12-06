@@ -11,7 +11,7 @@ namespace CinemaServiceLibrary
 {
     public class CustomerService : ICustomerService
     {
-        private static CustomerCtr customerCtr = new CustomerCtr();
+        private static CustomerCtr customerCtr = CustomerCtr.getInstance();
 
         public int insertCustomer(string fName, string lName, string city, string address, string email, string phoneNo, string username, string password)
         {

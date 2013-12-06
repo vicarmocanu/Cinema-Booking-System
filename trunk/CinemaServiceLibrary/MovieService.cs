@@ -11,7 +11,7 @@ namespace CinemaServiceLibrary
 {    
     public class MovieService : IMovieService
     {
-        private static MovieCtr movieCtr = new MovieCtr();
+        private static MovieCtr movieCtr = MovieCtr.getInstance();
 
         public int insertMovie(string name, string genre, int ageLimit, int length)
         {

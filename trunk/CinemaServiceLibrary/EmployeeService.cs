@@ -10,7 +10,7 @@ namespace CinemaServiceLibrary
 {
     public class EmployeeService : IEmployeeService
     {
-        private static EmployeeCtr employeeCtr = new EmployeeCtr();
+        private static EmployeeCtr employeeCtr = EmployeeCtr.getInstance();
 
         public int insertEmployee(string fName, string lName, string username, string password)
         {
