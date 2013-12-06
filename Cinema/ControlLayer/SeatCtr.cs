@@ -10,7 +10,7 @@ namespace Cinema.ControlLayer
 {
     public class SeatCtr
     {
-         private static SeatCtr instance = null;
+        private static SeatCtr instance = null;
 
         public static SeatCtr getInstance()
         {
@@ -87,9 +87,7 @@ namespace Cinema.ControlLayer
             
             return returnList;
         }
-
         
-
         public int deleteSeatById(int id)
         {
             ISeat _dbSeat = new DbSeat();

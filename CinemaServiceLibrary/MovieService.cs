@@ -23,6 +23,11 @@ namespace CinemaServiceLibrary
             return movieCtr.updateMovie(movieId, name, genre, ageLimit, length);
         }
 
+        public int deleteMovie(int movieId)
+        {
+            return movieCtr.deleteMovie(movieId);
+        }
+
         public Movie getMovieById(int movieId)
         {
             Movie serviceMovie = new Movie();
