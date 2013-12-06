@@ -78,5 +78,17 @@ namespace Cinema.ControlLayer
 
             return _dbCustomer.updateCustomer(cust);     
         }
+
+        public int deleteCustomerByUserName(string userName)
+        {
+            ICustomer _dbCustomer = new DbCustomer();
+            return _dbCustomer.deleteCustomerByUsername(userName);
+        }
+
+        public int deleteCustomerByName(String fName, String lName)
+        {
+            ICustomer _dbCustomer = new DbCustomer();
+            return _dbCustomer.deleteCustomerByName(fName, lName);
+        }
     }
 }
