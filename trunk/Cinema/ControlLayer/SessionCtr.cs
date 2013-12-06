@@ -100,5 +100,12 @@ namespace Cinema.ControlLayer
             
             return returnList;
         }
+
+        public int deleteSessionById(int sessionId)
+        {
+            ISession _dbSession = new DbSession();
+            return _dbSession.deleteSession(sessionId);
+            
+          }
     }
 }

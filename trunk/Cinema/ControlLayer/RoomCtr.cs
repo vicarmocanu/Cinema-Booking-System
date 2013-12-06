@@ -61,10 +61,13 @@ namespace Cinema.ControlLayer
             return _dbRoom.getRoomByNumber(number);           
         }
 
-        public int deleteRoom(int roomNumber)
+
+        public int deleteRoomByNumber(int number)        
         {
             IRoom _dbRoom = new DbRoom();
-            return _dbRoom.deleteRoom(roomNumber);
+
+            return _dbRoom.deleteRoom(number);                   
+            
         }
     }
 }

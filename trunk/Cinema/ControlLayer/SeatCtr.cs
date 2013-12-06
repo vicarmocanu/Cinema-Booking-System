@@ -88,10 +88,18 @@ namespace Cinema.ControlLayer
             return returnList;
         }
 
-        public int deleteSeat(int seatID)
+        
+
+        public int deleteSeatById(int id)
         {
             ISeat _dbSeat = new DbSeat();
-            return _dbSeat.deleteSeat(seatID);
+            return _dbSeat.deleteSeatById(id);
+        }
+
+        public int deleteRoomSeats(int roomNumber)
+        {
+            ISeat _dbSeat = new DbSeat();
+            return _dbSeat.deleteRoomSeats(roomNumber);
         }
     }
 }
