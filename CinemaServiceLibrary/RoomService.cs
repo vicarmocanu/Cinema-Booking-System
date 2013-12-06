@@ -55,7 +55,5 @@ namespace CinemaServiceLibrary
             }
             return roomList;
         }
-        }
-
     }
 }
