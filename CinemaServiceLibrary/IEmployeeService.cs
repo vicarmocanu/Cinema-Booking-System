@@ -15,6 +15,15 @@ namespace CinemaServiceLibrary
 
         [OperationContract]
         int updateEmployee(String fName, String lName, String username, String password);
+
+        [OperationContract]
+        int deleteEmployeeByUserName(String username);
+
+        [OperationContract]
+        Employee getEmployeeByUserName(String username);
+
+        [OperationContract]
+        List<Employee> getEmployees();
     }
 
     [DataContract]

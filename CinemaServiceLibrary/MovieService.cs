@@ -27,32 +27,35 @@ namespace CinemaServiceLibrary
         {
             Movie serviceMovie = new Movie();
             Cinema.ModelLayer.Movie hostMovie = new Cinema.ModelLayer.Movie();
+
             hostMovie = movieCtr.getMovieById(movieId);
             serviceMovie.MovieId = hostMovie.MovieId;
             serviceMovie.Name = hostMovie.Name;
             serviceMovie.Genre = hostMovie.Genre;
             serviceMovie.AgeLimit = hostMovie.AgeLimit;
             serviceMovie.Length = hostMovie.Length;
+
             return serviceMovie;
         }
 
         public List<Movie> getMovies()
         {
             List<Cinema.ModelLayer.Movie> returnList = movieCtr.getMovies();
-            //ListOfMovies listOfMovies = new ListOfMovies();
             List<Movie> movieList = new List<Movie>();
+
             foreach (Cinema.ModelLayer.Movie cinemaMovie in returnList)
             {
                 Movie serviceMovie = new Movie();
+
                 serviceMovie.MovieId = cinemaMovie.MovieId;
                 serviceMovie.Name = cinemaMovie.Name;
                 serviceMovie.Genre = cinemaMovie.Genre;
                 serviceMovie.AgeLimit = cinemaMovie.AgeLimit;
                 serviceMovie.Length = cinemaMovie.Length;
-                //listOfMovies.Movies.Add(serviceMovie);
+
                 movieList.Add(serviceMovie);
             }
-            //return listOfMovies.Movies;
+
             return movieList;
         }
     }    

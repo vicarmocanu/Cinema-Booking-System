@@ -23,6 +23,16 @@ namespace CinemaServiceLibrary
             return customerCtr.updateCustomer(fName, lName, city, address, email, phoneNo, username, password);
         }
 
+        public int deleteCustomerByName(String fName, String lName)
+        {
+            return customerCtr.deleteCustomerByName(fName, lName);
+        }
+
+        public int deleteCustomerByUserName(string userName)
+        {
+            return customerCtr.deleteCustomerByUserName(userName);
+        }
+
         public Customer getCustomerByName(String fName, String lName)
         {
             Customer serviceCustomer = new Customer();
