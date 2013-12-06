@@ -21,5 +21,42 @@ namespace CinemaServiceLibrary
         {
             return employeeCtr.updateEmployee(fName, lName, username, password);
         }
+
+        public int deleteEmployeeByUserName(String username)
+        {
+            return employeeCtr.deleteEmployeeByUserName(username);
+        }
+
+        public Employee getEmployeeByUserName(String username)
+        {
+            Employee serviceEmployee = new Employee();
+            Cinema.ModelLayer.Employee hostEmployee = new Cinema.ModelLayer.Employee();
+            hostEmployee = employeeCtr.getEmployeeByUserName(username);
+
+            serviceEmployee.FName = hostEmployee.FName;
+            serviceEmployee.LName = hostEmployee.LName;
+            serviceEmployee.Username = hostEmployee.Username;
+            serviceEmployee.Password = hostEmployee.Password;
+
+            return serviceEmployee;
+        }
+
+        public List<Employee> getEmployees()
+        {
+            List<Cinema.ModelLayer.Employee> returnList = employeeCtr.getEmployees();
+            List<Employee> employeeList = new List<Employee>();
+            foreach (Cinema.ModelLayer.Employee hostEmployee in returnList)
+            {
+                Employee serviceEmployee = new Employee();
+
+                serviceEmployee.FName = hostEmployee.FName;
+                serviceEmployee.LName = hostEmployee.LName;
+                serviceEmployee.Username = hostEmployee.Username;
+                serviceEmployee.Password = hostEmployee.Password;
+
+                employeeList.Add(serviceEmployee);
+            }
+            return employeeList;
+        }
     }
 }

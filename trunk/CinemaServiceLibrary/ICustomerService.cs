@@ -15,6 +15,15 @@ namespace CinemaServiceLibrary
 
         [OperationContract]
         int updateCustomer(String fName, String lName, String city, String address, String email, String phoneNo, String username, String password);
+
+        [OperationContract]
+        Customer getCustomerByName(String fName, String lName);
+
+        [OperationContract]
+        Customer getCustomerByUsername(String username);
+
+        [OperationContract]
+        List<Customer> getCustomers();
     }
 
     [DataContract]
