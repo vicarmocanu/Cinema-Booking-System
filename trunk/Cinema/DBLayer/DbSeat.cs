@@ -202,6 +202,14 @@ namespace Cinema.DBLayer
         {
             int result = -1;
             String sqlQuery = "DELETE FROM Seat WHERE seatId= '" + id + "'";
+            try
+            {
+                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                result = cmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
+            }
+            catch (SqlException)
+            { }
             return result;
         }
 
@@ -210,6 +218,14 @@ namespace Cinema.DBLayer
         {
             int result = -1;
             String sqlQuery = "DELETE FROM Seat WHERE roomNumber= '" + roomNumber + "'";
+            try
+            {
+                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                result = cmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
+            }
+            catch (SqlException)
+            { }
             return result;
         }
     }

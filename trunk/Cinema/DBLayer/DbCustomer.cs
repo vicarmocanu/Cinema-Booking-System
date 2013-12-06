@@ -160,8 +160,16 @@ namespace Cinema.DBLayer
         public int deleteCustomerByName(String fName, String lName)
         {
             int result = -1;
-            string query = "DELETE FROM Customer WHERE fName= '" + fName +
+            string sqlQuery = "DELETE FROM Customer WHERE fName= '" + fName +
                 "' AND lName= '" + lName + "'";
+            try
+            {
+                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                result = cmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
+            }
+            catch (SqlException)
+            { }
             return result;
         }
 
@@ -169,7 +177,15 @@ namespace Cinema.DBLayer
         public int deleteCustomerByUsername(String userName)
         {
             int result = -1;
-            string query = "DELETE FROM Customer WHERE userName= '" + userName + "'";
+            string sqlQuery = "DELETE FROM Customer WHERE userName= '" + userName + "'";
+            try
+            {
+                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                result = cmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
+            }
+            catch (SqlException)
+            { }
             return result;
         }
     }

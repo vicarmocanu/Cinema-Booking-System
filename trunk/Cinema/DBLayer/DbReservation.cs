@@ -242,6 +242,14 @@ namespace Cinema.DBLayer
         {
             int result = -1;
             string sqlQuery = "DELETE FROM Reservation WHERE reservationId= '" + reservationId + "'";
+            try
+            {
+                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                result = cmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
+            }
+            catch (SqlException)
+            { }
             return result;
         }
 
@@ -271,6 +279,14 @@ namespace Cinema.DBLayer
             int result = -1;
             string sqlQuery = "DELETE FROM ReservedSeats WHERE reservationId= '" + reservationId +
                 "' AND seatId= '" + seatId + "'";
+            try
+            {
+                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                result = cmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
+            }
+            catch (SqlException)
+            { }
             return result;
         }
 
@@ -299,6 +315,14 @@ namespace Cinema.DBLayer
         {
             int result = -1;
             string sqlQuery = "DELETE FROM ReservedSeats WHERE reservationId= '" + reservationId + "'";
+            try
+            {
+                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                result = cmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
+            }
+            catch (SqlException)
+            { }
             return result;
         }
     }
