@@ -14,5 +14,7 @@ namespace Cinema.DBLayer
         List<Employee> getEmployees();
         Employee getEmployeeByUsername(String username);
         int updateEmployee(Employee employee);
+        int deleteEmployeeByUsername(String username);
+
     }
 }

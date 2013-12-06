@@ -18,5 +18,7 @@ namespace Cinema.DBLayer
         int updateSession(Session session);
         int updateSeatSchedule(int sessionId, int seatId, String status);
         List<Session> getMovieSessions(int movieId);
+        int deleteSession(int sessionId);
+        int deleteSeatsFromSession(int sessionId);
     }
 }

@@ -15,5 +15,7 @@ namespace Cinema.DBLayer
        Customer getCustomerByName(String fName, String lName);
        Customer getCustomerByUsername(String username);
        int updateCustomer(Customer customer);
+       int deleteCustomerByName(String fName, String lName);
+       int deleteCustomerByUsername(String userName);
     }
 }

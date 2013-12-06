@@ -19,6 +19,9 @@ namespace Cinema.DBLayer
        int updateReservation(Reservation reservation);
        int updateReservedSeat(int reservationId, int seatId, String status);
        int updateSeatsFromReservation(int reservationId, String status);
+       int deleteReservation(int reservationId);
+       int deleteReservedSeat(int reservationId, int seatId);
+       int deleteSeatsFromReservation(int reservationId);
 
     }
 }

@@ -14,5 +14,6 @@ namespace Cinema.DBLayer
         List<Movie> getMovies();
         Movie getMovieByID(int id);
         int updateMovie(Movie mov);
+        int deleteMovie(int movieId);
     }
 }
