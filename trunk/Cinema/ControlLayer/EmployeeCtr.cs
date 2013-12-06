@@ -66,6 +66,12 @@ namespace Cinema.ControlLayer
             emp.Password = password;
 
             return _dbEmployee.updateEmployee(emp);
-        }   
+        }
+
+        public int deleteEmployeeByUserName(String username)
+        {
+            IEmployee _dbEmployee = new DbEmployee();
+            return _dbEmployee.deleteEmployeeByUsername(username);
+        }
     }
 }
