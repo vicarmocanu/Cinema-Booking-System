@@ -118,10 +118,6 @@ namespace Cinema.ControlLayer
         public int updateReservedSeat(int reservationId, int seatId, String status)
         {
             IReservation _dbRezervation = new DbReservation();
-            Reservation rzv = new Reservation();           
-            Seat seat = new Seat();
-            rzv.Status = status;
-
             return _dbRezervation.updateReservedSeat(reservationId, seatId, status);
         }
 
@@ -129,25 +125,6 @@ namespace Cinema.ControlLayer
         {
             IReservation _dbRezervation = new DbReservation();
             return _dbRezervation.updateSeatsFromReservation(reservationId, status);
-        }
-
-        public int deleteReservation(int reservationId)
-        {
-            IReservation _dbReservation = new DbReservation();
-
-            return _dbReservation.deleteReservation(reservationId);
-        }
-
-        public int deleteReservedSeat(int reservationId, int seatId)
-        {
-            IReservation _dbReservation = new DbReservation();
-            return _dbReservation.deleteReservedSeat(reservationId, seatId);
-        }
-
-        public int deleteSeatsFromReservation(int reservationId)
-        {
-            IReservation _dbReservation = new DbReservation();
-            return _dbReservation.deleteSeatsFromReservation(reservationId);
         }
     }
 }

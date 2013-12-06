@@ -14,6 +14,6 @@ namespace CinemaServiceLibrary
         int insertReservation(String firstName, String lastName, int sessionId, int numberOfSeats, int price);
 
         [OperationContract]
-        int updateReservation(String firstName, String lastName, int sessionId, int numberOfSeats, int price);
+        int updateReservation(String firstName, String lastName, int sessionId, int numberOfSeats, int price, String status, int reservationId);
     }
 }
