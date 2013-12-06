@@ -65,5 +65,11 @@ namespace Cinema.ControlLayer
 
             return _dbMovie.updateMovie(movie);
         }
+
+        public int deleteMovie(int movieId)
+        {
+            IMovie _dbMovie = new DbMovie();
+            return _dbMovie.deleteMovie(movieId);
+        }
     }
 }
