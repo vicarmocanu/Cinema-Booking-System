@@ -93,7 +93,7 @@ namespace Cinema.ControlLayer
         public int deleteSeatById(int id)
         {
             ISeat _dbSeat = new DbSeat();
-            return _dbSeat.deleteSeatById(id);
+            return _dbSeat.deleteSeat(id);
         }
 
         public int deleteRoomSeats(int roomNumber)
