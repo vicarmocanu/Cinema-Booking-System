@@ -47,10 +47,9 @@ namespace CinemaServiceLibrary
             {
                 Room serviceRoom = new Room();
 
-               serviceRoom.RoomNumber = hostRoom.RoomNumber;
-               serviceRoom.NumberOfSeats = hostRoom.NumberOfSeats;
+                serviceRoom.RoomNumber = hostRoom.RoomNumber;
+                serviceRoom.NumberOfSeats = hostRoom.NumberOfSeats;
                 
-
                 roomList.Add(serviceRoom);
             }
             return roomList;

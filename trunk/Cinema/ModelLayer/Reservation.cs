@@ -36,7 +36,7 @@ namespace Cinema.ModelLayer
             }
         }
        
-        internal Customer Customer
+        public Customer Customer
         {
             get 
             { 
@@ -48,7 +48,7 @@ namespace Cinema.ModelLayer
             }
         }
         
-        internal Session Session
+        public Session Session
         {
             get
             {
@@ -72,7 +72,7 @@ namespace Cinema.ModelLayer
             }
         }
         
-        internal List<Seat> ReservedSeats
+        public List<Seat> ReservedSeats
         {
             get 
             { 
