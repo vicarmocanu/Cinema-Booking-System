@@ -130,7 +130,7 @@ namespace Cinema.Algorithm
                     }
                 }
 
-                //betwerrn 2 and 4 - special case, left&right
+                //between 2 and 4 - special case, left&right
                 if (noOfWantedSeats > 1 && noOfWantedSeats < 5)
                 {
                     for (int a = 0; a < rowNo; a++)
@@ -156,7 +156,7 @@ namespace Cinema.Algorithm
 
                             if (leftAvailableSeats != 0)
                             {
-                                while (x < halfColumnNo - 1 && count != 0)
+                                while (x < halfColumnNo && count != 0)
                                 {
                                     Seat first = innerSeatArray[x];
                                     Seat second = innerSeatArray[x + 1];
@@ -184,7 +184,7 @@ namespace Cinema.Algorithm
                             {
                                 if (rightAvailableSeats != 0)
                                 {
-                                    while (y < columnNo - 1 && count != 0)
+                                    while (y < columnNo && count != 0)
                                     {
                                         Seat first = innerSeatArray[y];
                                         Seat second = innerSeatArray[y + 1];
@@ -225,8 +225,8 @@ namespace Cinema.Algorithm
                                 halfColumnNo = columnNo / 2 + 1;
                             }
 
-                            int x = halfColumnNo;
-                            int y = columnNo;
+                            int x = halfColumnNo - 1;
+                            int y = columnNo - 1;
                             int count = noOfWantedSeats - 1;
 
                             if (leftAvailableSeats != 0)
@@ -259,7 +259,7 @@ namespace Cinema.Algorithm
                             {
                                 if (rightAvailableSeats != 0)
                                 {
-                                    while (y > columnNo && count != 0)
+                                    while (y > halfColumnNo + 1 && count != 0)
                                     {
                                         Seat first = innerSeatArray[y];
                                         Seat second = innerSeatArray[y - 1];
@@ -285,9 +285,6 @@ namespace Cinema.Algorithm
                                 }
                             }
                         }
-
-
-
                     }
                 }
 
@@ -376,8 +373,8 @@ namespace Cinema.Algorithm
                                 halfColumnNo = columnNo / 2 + 1;
                             }
 
-                            int x = halfColumnNo;
-                            int y = columnNo;
+                            int x = halfColumnNo - 1;
+                            int y = columnNo - 1;
 
                             if (leftAvailableSeats != 0)
                             {
@@ -404,7 +401,7 @@ namespace Cinema.Algorithm
                             {
                                 if (rightAvailableSeats != 0)
                                 {
-                                    while (y > halfColumnNo && count != 0)
+                                    while (y > halfColumnNo - 1 && count != 0)
                                     {
                                         Seat seat = innerSeatArray[y];
                                         if (seat.Status.Equals("E") == true)
