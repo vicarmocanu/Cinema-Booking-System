@@ -35,6 +35,7 @@ namespace Cinema.ControlLayer
 
             session.SessionId = sessionId;
 
+            reservation.Session = session;
             reservation.Customer = customer;
             reservation.NoOfSeats = numberOfSeats;
             reservation.Price = price;

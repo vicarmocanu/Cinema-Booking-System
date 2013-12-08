@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3AA3529B-69CD-4060-BD68-F3E73FC8E923}</ProjectGuid>
+    <ProjectGuid>{133927E9-2429-46E0-8E95-4D51E4BB7659}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ConsoleTesting</RootNamespace>
@@ -45,17 +45,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\CustomerServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\EmployeeServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\MovieServiceReference\Reference.cs">
+    <Compile Include="Service References\ReservationServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -68,43 +58,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Service References\CustomerServiceReference\CinemaServiceLibrary.xsd">
+    <None Include="Service References\ReservationServiceReference\CinemaServiceLibrary.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CustomerServiceReference\ConsoleTesting.CustomerServiceReference.Customer.datasource">
+    <None Include="Service References\ReservationServiceReference\ConsoleTesting.ReservationServiceReference.Reservation.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\CustomerServiceReference\service.wsdl" />
-    <None Include="Service References\CustomerServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\CustomerServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\EmployeeServiceReference\CinemaServiceLibrary.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\EmployeeServiceReference\ConsoleTesting.EmployeeServiceReference.Employee.datasource">
+    <None Include="Service References\ReservationServiceReference\ConsoleTesting.ReservationServiceReference.Seat.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\EmployeeServiceReference\service.wsdl" />
-    <None Include="Service References\EmployeeServiceReference\service.xsd">
+    <None Include="Service References\ReservationServiceReference\service.wsdl" />
+    <None Include="Service References\ReservationServiceReference\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EmployeeServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\MovieServiceReference\CinemaServiceLibrary.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\MovieServiceReference\ConsoleTesting.MovieServiceReference.Movie.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\MovieServiceReference\service.wsdl" />
-    <None Include="Service References\MovieServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\MovieServiceReference\service1.xsd">
+    <None Include="Service References\ReservationServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ReservationServiceReference\CinemaServiceLibrary.xsd">
@@ -125,52 +92,20 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cinema\Cinema.csproj">
-      <Project>{3f51b683-7052-420a-b2fa-98d4b0d62d32}</Project>
-      <Name>Cinema</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\CustomerServiceReference\" />
-    <WCFMetadataStorage Include="Service References\EmployeeServiceReference\" />
-    <WCFMetadataStorage Include="Service References\MovieServiceReference\" />
+    <WCFMetadataStorage Include="Service References\ReservationServiceReference\" />
     <WCFMetadataStorage Include="Service References\ReservationServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\MovieServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\ReservationServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\MovieServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ReservationServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\MovieServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\EmployeeServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\EmployeeServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\EmployeeServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\CustomerServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\CustomerServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\CustomerServiceReference\Reference.svcmap">
+    <None Include="Service References\ReservationServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
