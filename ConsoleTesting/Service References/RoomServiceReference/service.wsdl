@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RoomService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/CinemaServiceLibrary" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRoomService_insertRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertRoom" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_insertRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_updateRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateRoom" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_updateRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_deleteRoomByNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteRoomByNumber" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_deleteRoomByNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteRoomByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_getRoomByNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRoomByNumber" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_getRoomByNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRoomByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_getRooms_InputMessage">
+    <wsdl:part name="parameters" element="tns:getRooms" />
+  </wsdl:message>
+  <wsdl:message name="IRoomService_getRooms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getRoomsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRoomService">
+    <wsdl:operation name="insertRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomService/insertRoom" message="tns:IRoomService_insertRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomService/insertRoomResponse" message="tns:IRoomService_insertRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomService/updateRoom" message="tns:IRoomService_updateRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomService/updateRoomResponse" message="tns:IRoomService_updateRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteRoomByNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomService/deleteRoomByNumber" message="tns:IRoomService_deleteRoomByNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomService/deleteRoomByNumberResponse" message="tns:IRoomService_deleteRoomByNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRoomByNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomService/getRoomByNumber" message="tns:IRoomService_getRoomByNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomService/getRoomByNumberResponse" message="tns:IRoomService_getRoomByNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getRooms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRoomService/getRooms" message="tns:IRoomService_getRooms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRoomService/getRoomsResponse" message="tns:IRoomService_getRooms_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRoomService" type="tns:IRoomService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="insertRoom">
+      <soap:operation soapAction="http://tempuri.org/IRoomService/insertRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRoom">
+      <soap:operation soapAction="http://tempuri.org/IRoomService/updateRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRoomByNumber">
+      <soap:operation soapAction="http://tempuri.org/IRoomService/deleteRoomByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRoomByNumber">
+      <soap:operation soapAction="http://tempuri.org/IRoomService/getRoomByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRooms">
+      <soap:operation soapAction="http://tempuri.org/IRoomService/getRooms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RoomService">
+    <wsdl:port name="BasicHttpBinding_IRoomService" binding="tns:BasicHttpBinding_IRoomService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/RoomService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
