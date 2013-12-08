@@ -11,7 +11,7 @@ namespace CinemaServiceLibrary
     public interface IReservationService
     {
         [OperationContract]
-        int insertReservation(String firstName, String lastName, int sessionId, int numberOfSeats, int price);
+        int int insertReservation(String firstName, String lastName, int sessionId, int numberOfSeats, double price, String status);
 
         [OperationContract]
         int updateReservation(String firstName, String lastName, int sessionId, int numberOfSeats, int price, String status, int reservationId);

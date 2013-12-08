@@ -12,9 +12,9 @@ namespace CinemaServiceLibrary
     {
         private static ReservationCtr reservationCtr = ReservationCtr.getInstance();
 
-        public int insertReservation(string firstName, string lastName, int sessionId, int numberOfSeats, int price)
+        public int insertReservation(String firstName, String lastName, int sessionId, int numberOfSeats, double price, String status)
         {
-            return reservationCtr.insertReservation(firstName, lastName, sessionId, numberOfSeats, price);
+            return reservationCtr.insertReservation(firstName, lastName, sessionId, numberOfSeats, price, status);
         }
 
         public int updateReservation(string firstName, string lastName, int sessionId, int numberOfSeats, int price, string status, int reservationId)
