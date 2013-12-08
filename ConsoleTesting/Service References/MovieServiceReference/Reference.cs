@@ -137,6 +137,12 @@ namespace ConsoleTesting.MovieServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/updateMovie", ReplyAction="http://tempuri.org/IMovieService/updateMovieResponse")]
         System.Threading.Tasks.Task<int> updateMovieAsync(int movieId, string name, string genre, int ageLimit, int length);
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IMovieService/deleteMovie", ReplyAction = "http://tempuri.org/IMovieService/deleteMovieResponse")]
+        int deleteMovie(int movieId);    
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IMovieService/deleteMovie", ReplyAction = "http://tempuri.org/IMovieService/deleteMovieResponse")]
+        System.Threading.Tasks.Task<int> deleteMovieAsync(int movieId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/getMovieById", ReplyAction="http://tempuri.org/IMovieService/getMovieByIdResponse")]
         ConsoleTesting.MovieServiceReference.Movie getMovieById(int movieId);
@@ -149,6 +155,7 @@ namespace ConsoleTesting.MovieServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/getMovies", ReplyAction="http://tempuri.org/IMovieService/getMoviesResponse")]
         System.Threading.Tasks.Task<ConsoleTesting.MovieServiceReference.Movie[]> getMoviesAsync();
+
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -193,7 +200,17 @@ namespace ConsoleTesting.MovieServiceReference {
         public System.Threading.Tasks.Task<int> updateMovieAsync(int movieId, string name, string genre, int ageLimit, int length) {
             return base.Channel.updateMovieAsync(movieId, name, genre, ageLimit, length);
         }
-        
+
+        public int deleteMovie(int movieId)
+        {
+            return base.Channel.deleteMovie(movieId);
+        }
+
+        public System.Threading.Tasks.Task<int> deleteMovieAsync(int movieId)
+        {
+            return base.Channel.deleteMovieAsync(movieId);
+        }
+
         public ConsoleTesting.MovieServiceReference.Movie getMovieById(int movieId) {
             return base.Channel.getMovieById(movieId);
         }

@@ -16,7 +16,7 @@ namespace ConsoleTesting
         static MovieCtr movieCtr = new MovieCtr();
         static void Main(string[] args)
         {
-            
+
             //System.Console.WriteLine("Prepare for movie insertion.");
             //System.Console.ReadLine();
             //System.Console.Write("name= ");
@@ -29,25 +29,35 @@ namespace ConsoleTesting
             //int length = Convert.ToInt32(Console.ReadLine());
 
             //int result = movieService.insertMovie(name, genre, ageLimit, length);
-            
+
             //Console.WriteLine("result = " + result);
             //Console.ReadLine();
             
 
-            System.Console.WriteLine("Prepare for movie updation.");
+            //System.Console.WriteLine("Prepare for movie updation.");
+            //System.Console.ReadLine();
+            //System.Console.Write("movieId= ");
+            //int movieId = Convert.ToInt32(Console.ReadLine());
+            //System.Console.Write("name= ");
+            //String name = Console.ReadLine();
+            //System.Console.Write("genre= ");
+            //String genre = Console.ReadLine();
+            //System.Console.Write("ageLimit= ");
+            //int ageLimit = Convert.ToInt32(Console.ReadLine());
+            //System.Console.Write("length= ");
+            //int length = Convert.ToInt32(Console.ReadLine());
+
+            //int result = movieService.updateMovie(movieId, name, genre, ageLimit, length);
+
+            //Console.WriteLine("result = " + result);
+            //Console.ReadLine();
+
+            System.Console.WriteLine("Prepare for movie deletion.");
             System.Console.ReadLine();
             System.Console.Write("movieId= ");
             int movieId = Convert.ToInt32(Console.ReadLine());
-            System.Console.Write("name= ");
-            String name = Console.ReadLine();
-            System.Console.Write("genre= ");
-            String genre = Console.ReadLine();
-            System.Console.Write("ageLimit= ");
-            int ageLimit = Convert.ToInt32(Console.ReadLine());
-            System.Console.Write("length= ");
-            int length = Convert.ToInt32(Console.ReadLine());
 
-            int result = movieService.updateMovie(movieId, name, genre, ageLimit, length);
+            int result = movieService.deleteMovie(movieId);
 
             Console.WriteLine("result = " + result);
             Console.ReadLine();
