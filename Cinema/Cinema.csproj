@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithm\Algorithm.cs" />
     <Compile Include="ControlLayer\CustomerCtr.cs" />
     <Compile Include="ControlLayer\EmployeeCtr.cs" />
     <Compile Include="ControlLayer\MovieCtr.cs" />

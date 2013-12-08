@@ -50,14 +50,17 @@ namespace Cinema.DBLayer
             string table = "Reservation";
             int max = GetMax.getMax(attrib, table);
             int id = max + 1;
+            String currentDate = reservation.getCurrentDate();
 
             string sqlQuery = "INSERT INTO Reservation VALUES " +
                 "('" + id +
-                "','" + reservation.Customer.CustomerFirstName + 
-                "','" + reservation.Customer.CustomerLastName + 
-                "','" + reservation.Session.SessionId + 
-                "','" + reservation.NoOfSeats + 
-                "','" + reservation.Price + "')";
+                "','" + reservation.Customer.CustomerFirstName +
+                "','" + reservation.Customer.CustomerLastName +
+                "','" + reservation.Session.SessionId +
+                "','" + reservation.NoOfSeats +
+                "','" + reservation.Price +
+                "','" + reservation.Status +
+                "','" + currentDate + "')";
             try
             {
                 SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
