@@ -71,8 +71,12 @@ namespace ConsoleTesting
             System.Console.ReadLine();
             System.Console.Write("username= ");
             String username = Console.ReadLine();
+             
             EmployeeServiceReference.Employee employee = employeeService.getEmployeeByUserName(username);
+             
             Console.WriteLine(employee.Username);
+            Console.WriteLine(employee.FName);
+            Console.WriteLine(employee.LName);
             Console.ReadLine();
             */
 
@@ -113,6 +117,7 @@ namespace ConsoleTesting
             Console.ReadLine();
             */
 
+            /*
             System.Console.WriteLine("Prepare for customer updation.");
             System.Console.ReadLine();
             System.Console.Write("fName= ");
@@ -136,7 +141,85 @@ namespace ConsoleTesting
 
             Console.WriteLine("result = " + result);
             Console.ReadLine();
+            */
 
+            /*
+            System.Console.WriteLine("Prepare for customer deletion.");
+            System.Console.ReadLine();
+            System.Console.Write("fName= ");
+            String fName = Console.ReadLine();
+            System.Console.Write("lName= ");
+            String lName = Console.ReadLine();
+
+            int result = customerService.deleteCustomerByName(fName, lName);
+
+            Console.WriteLine("result = " + result);
+            Console.ReadLine();
+            */
+
+            /*
+            System.Console.WriteLine("Prepare for customer deletion.");
+            System.Console.ReadLine();
+            System.Console.Write("userName= ");
+            String userName = Console.ReadLine();
+
+            int result = customerService.deleteCustomerByUserName(userName);
+
+            Console.WriteLine("result = " + result);
+            Console.ReadLine();
+            */
+
+            /*
+            System.Console.WriteLine("Prepare for customer searching by name.");
+            System.Console.ReadLine();
+            System.Console.Write("fName= ");
+            String fName = Console.ReadLine();
+            System.Console.Write("lName= ");
+            String lName = Console.ReadLine();
+
+            CustomerServiceReference.Customer customer = customerService.getCustomerByName(fName, lName);
+
+            Console.WriteLine(customer.CustomerFirstName);
+            Console.WriteLine(customer.CustomerLastName);
+            Console.WriteLine(customer.CustomerCity);
+            Console.WriteLine(customer.CustomerAddress);
+            Console.WriteLine(customer.CustomerEmail);
+            Console.WriteLine(customer.CustomerPhoneNo);
+            Console.WriteLine(customer.CustomerUsername);
+            Console.WriteLine(customer.CustomerPassword);
+            Console.ReadLine();
+            */
+
+            /*
+            System.Console.WriteLine("Prepare for customer searching by username.");
+            System.Console.ReadLine();
+            System.Console.Write("username= ");
+            String username = Console.ReadLine();
+
+            CustomerServiceReference.Customer customer = customerService.getCustomerByUsername(username);
+
+            Console.WriteLine(customer.CustomerFirstName);
+            Console.WriteLine(customer.CustomerLastName);
+            Console.WriteLine(customer.CustomerCity);
+            Console.WriteLine(customer.CustomerAddress);
+            Console.WriteLine(customer.CustomerEmail);
+            Console.WriteLine(customer.CustomerPhoneNo);
+            Console.WriteLine(customer.CustomerUsername);
+            Console.WriteLine(customer.CustomerPassword);
+            Console.ReadLine();
+            */
+
+            /*
+            System.Console.WriteLine("A list of customers.");
+            System.Console.ReadLine();
+            CustomerServiceReference.Customer[] customers = customerService.getCustomers();
+            for (int i = 0; i < customers.Length; i++)
+            {
+                System.Console.WriteLine(customers[i].CustomerUsername + " " + customers[i].CustomerUsername + ";");
+            }
+            System.Console.ReadLine();
+            */
+            
             /*
             System.Console.WriteLine("Prepare for movie insertion.");
             System.Console.ReadLine();

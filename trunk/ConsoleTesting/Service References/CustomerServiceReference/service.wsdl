@@ -4,6 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/CinemaServiceLibrary" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ICustomerService_insertCustomer_InputMessage">
@@ -12,16 +13,130 @@
   <wsdl:message name="ICustomerService_insertCustomer_OutputMessage">
     <wsdl:part name="parameters" element="tns:insertCustomerResponse" />
   </wsdl:message>
+  <wsdl:message name="ICustomerService_updateCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_updateCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_deleteCustomerByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteCustomerByName" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_deleteCustomerByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteCustomerByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_deleteCustomerByUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteCustomerByUserName" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_deleteCustomerByUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteCustomerByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_getCustomerByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCustomerByName" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_getCustomerByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCustomerByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_getCustomerByUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCustomerByUsername" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_getCustomerByUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCustomerByUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_getCustomers_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCustomers" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_getCustomers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCustomersResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICustomerService">
     <wsdl:operation name="insertCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/insertCustomer" message="tns:ICustomerService_insertCustomer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/insertCustomerResponse" message="tns:ICustomerService_insertCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/updateCustomer" message="tns:ICustomerService_updateCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/updateCustomerResponse" message="tns:ICustomerService_updateCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteCustomerByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/deleteCustomerByName" message="tns:ICustomerService_deleteCustomerByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/deleteCustomerByNameResponse" message="tns:ICustomerService_deleteCustomerByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteCustomerByUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/deleteCustomerByUserName" message="tns:ICustomerService_deleteCustomerByUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/deleteCustomerByUserNameResponse" message="tns:ICustomerService_deleteCustomerByUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/getCustomerByName" message="tns:ICustomerService_getCustomerByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/getCustomerByNameResponse" message="tns:ICustomerService_getCustomerByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerByUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/getCustomerByUsername" message="tns:ICustomerService_getCustomerByUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/getCustomerByUsernameResponse" message="tns:ICustomerService_getCustomerByUsername_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/getCustomers" message="tns:ICustomerService_getCustomers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/getCustomersResponse" message="tns:ICustomerService_getCustomers_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICustomerService" type="tns:ICustomerService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="insertCustomer">
       <soap:operation soapAction="http://tempuri.org/ICustomerService/insertCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCustomer">
+      <soap:operation soapAction="http://tempuri.org/ICustomerService/updateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCustomerByName">
+      <soap:operation soapAction="http://tempuri.org/ICustomerService/deleteCustomerByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCustomerByUserName">
+      <soap:operation soapAction="http://tempuri.org/ICustomerService/deleteCustomerByUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerByName">
+      <soap:operation soapAction="http://tempuri.org/ICustomerService/getCustomerByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerByUsername">
+      <soap:operation soapAction="http://tempuri.org/ICustomerService/getCustomerByUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomers">
+      <soap:operation soapAction="http://tempuri.org/ICustomerService/getCustomers" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
