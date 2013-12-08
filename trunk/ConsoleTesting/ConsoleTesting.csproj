@@ -50,30 +50,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ReservationServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Service References\ReservationServiceReference\CinemaServiceLibrary.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ReservationServiceReference\ConsoleTesting.ReservationServiceReference.Reservation.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ReservationServiceReference\ConsoleTesting.ReservationServiceReference.Seat.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ReservationServiceReference\service.wsdl" />
-    <None Include="Service References\ReservationServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ReservationServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ReservationServiceReference\CinemaServiceLibrary.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -97,18 +76,6 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ReservationServiceReference\" />
     <WCFMetadataStorage Include="Service References\ReservationServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ReservationServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ReservationServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ReservationServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ReservationServiceReference\configuration91.svcinfo" />
