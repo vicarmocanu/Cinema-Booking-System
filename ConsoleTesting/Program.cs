@@ -11,11 +11,13 @@ namespace ConsoleTesting
     class Program
     {
         //static EmployeeServiceReference.IEmployeeService employeeService = new EmployeeServiceReference.EmployeeServiceClient();
-        static CustomerServiceReference.ICustomerService customerService = new CustomerServiceReference.CustomerServiceClient();
+        //static CustomerServiceReference.ICustomerService customerService = new CustomerServiceReference.CustomerServiceClient();
         //static MovieServiceReference.IMovieService movieService = new MovieServiceReference.MovieServiceClient();
+        static ReservationServiceReference.IReservationService reservationService = new ReservationServiceReference.ReservationServiceClient();
         //static EmployeeCtr employeeCtr = new EmployeeCtr();
-        static CustomerCtr customerCtr = new CustomerCtr();
+        //static CustomerCtr customerCtr = new CustomerCtr();
         //static MovieCtr movieCtr = new MovieCtr();
+        static ReservationCtr reservationCtr = new ReservationCtr();
         static void Main(string[] args)
         {
             /*
@@ -300,6 +302,125 @@ namespace ConsoleTesting
             //}
             //Console.ReadLine();
             //*/           
+
+            //System.Console.WriteLine("Prepare for reservation insertion.");
+            //System.Console.ReadLine();
+            //System.Console.Write("firstName= ");
+            //String firstName = Console.ReadLine();
+            //System.Console.Write("lastName= ");
+            //String lastName = Console.ReadLine();
+            //System.Console.Write("sessionId= ");
+            //int sessionId = Convert.ToInt32(Console.ReadLine());
+            //System.Console.Write("numberOfSeats= ");
+            //int numberOfSeats = Convert.ToInt32(Console.ReadLine());
+            //System.Console.Write("price= ");
+            //int price = Convert.ToInt32(Console.ReadLine());
+
+            //int result = reservationService.insertReservation(firstName, lastName, sessionId, numberOfSeats, price);
+
+            //Console.WriteLine("result = " + result);
+            //Console.ReadLine();
+
+            /*
+            System.Console.WriteLine("Prepare for reservation updation.");
+            System.Console.ReadLine();
+            System.Console.Write("firstName= ");
+            String firstName = Console.ReadLine();
+            System.Console.Write("lastName= ");
+            String lastName = Console.ReadLine();
+            System.Console.Write("sessionId= ");
+            int sessionId = Convert.ToInt32(Console.ReadLine());
+            System.Console.Write("numberOfSeats= ");
+            int numberOfSeats = Convert.ToInt32(Console.ReadLine());
+            System.Console.Write("price= ");
+            int price = Convert.ToInt32(Console.ReadLine());
+            System.Console.Write("status= ");
+            String status = Console.ReadLine();
+            System.Console.Write("reservationId= ");
+            int reservationId = Convert.ToInt32(Console.ReadLine());
+
+            int result = reservationService.updateReservation(firstName, lastName, sessionId, numberOfSeats, price, status, reservationId);
+
+            Console.WriteLine("result = " + result);
+            Console.ReadLine();
+            */
+
+            /*
+            System.Console.WriteLine("Prepare for reserved seat insertion.");
+            System.Console.ReadLine();
+            System.Console.Write("reservationId= ");
+            int reservationId = Convert.ToInt32(Console.ReadLine());
+            System.Console.Write("seatId= ");
+            int seatId = Convert.ToInt32(Console.ReadLine());
+
+            int result = reservationService.insertReservedSeat(reservationId, seatId);
+
+            Console.WriteLine("result = " + result);
+            Console.ReadLine();
+            */
+
+            
+            //System.Console.WriteLine("Prepare for reserved seat updation.");
+            //System.Console.ReadLine();
+            //System.Console.Write("reservationId= ");
+            //int reservationId = Convert.ToInt32(Console.ReadLine());
+            //System.Console.Write("seatId= ");
+            //int seatId = Convert.ToInt32(Console.ReadLine());
+            //System.Console.Write("status= ");
+            //String status = Console.ReadLine();
+
+            //int result = reservationService.updateReservedSeat(reservationId, seatId, status);
+
+            //Console.WriteLine("result = " + result);
+            //Console.ReadLine();
+            
+
+
+
+            //System.Console.WriteLine("Prepare for seats from reservation updation.");
+            //System.Console.ReadLine();
+            //System.Console.Write("reservationId= ");
+            //int reservationId = Convert.ToInt32(Console.ReadLine());
+            //System.Console.Write("status= ");
+            //String status = Console.ReadLine();
+
+            //int result = reservationService.updateSeatsFromReservation(reservationId, status);
+
+            //Console.WriteLine("result = " + result);
+            //Console.ReadLine();
+
+
+
+
+
+
+            //System.Console.WriteLine("Prepare for getting reservation.");
+            //System.Console.ReadLine();
+            //System.Console.Write("reservationId= ");
+            //int reservationId = Convert.ToInt32(Console.ReadLine());
+
+            //ReservationServiceReference.Reservation reservation = reservationService.getReservation(reservationId);
+
+            //Console.WriteLine(reservation.ReservationId);
+            //Console.WriteLine(reservation.Customer);
+            //Console.WriteLine(reservation.Session);
+            //Console.WriteLine(reservation.NoOfSeats);
+            //Console.WriteLine(reservation.ReservedSeats);
+            //Console.WriteLine(reservation.Price);
+            //Console.WriteLine(reservation.Date);
+            //Console.WriteLine(reservation.Status);
+            //Console.ReadLine();
+
+
+
+            //System.Console.WriteLine("A list of reservations.");
+            //System.Console.ReadLine();
+            //ReservationServiceReference.Reservation[] reservations = reservationService.getReservations();
+            //for (int i = 0; i < reservations.Length; i++)
+            //{
+            //    System.Console.WriteLine(reservations[i].ReservationId + " " +  reservations[i].Status ";");
+            //}
+            //System.Console.ReadLine();
         }
     }
 }
