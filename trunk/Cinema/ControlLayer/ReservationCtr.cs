@@ -23,23 +23,24 @@ namespace Cinema.ControlLayer
 
         public ReservationCtr() {}
 
-        public int insertReservation(String firstName, String lastName, int sessionId, int numberOfSeats, int price  )
+        public int insertReservation(String firstName, String lastName, int sessionId, int numberOfSeats, double price, String status)
         { 
             IReservation _dbReservation = new DbReservation();
-            Reservation rzv = new Reservation();
-            Customer cust = new Customer();
-            Session ses = new Session();
+            Reservation reservation = new Reservation();
+            Customer customer = new Customer();
+            Session session = new Session();
 
-            cust.CustomerFirstName = firstName;
-            rzv.Customer = cust;
-            cust.CustomerLastName = lastName;
-            rzv.Customer = cust;
-            ses.SessionId = sessionId;
-            rzv.Session = ses;
-            rzv.NoOfSeats = numberOfSeats;
-            rzv.Price = price;
+            customer.CustomerFirstName = firstName;
+            customer.CustomerLastName = lastName;
 
-            return _dbReservation.insertReservaion(rzv);
+            session.SessionId = sessionId;
+
+            reservation.Customer = customer;
+            reservation.NoOfSeats = numberOfSeats;
+            reservation.Price = price;
+            reservation.Status = status;
+
+            return _dbReservation.insertReservaion(reservation);
         }
 
         public List<int> insertReservedSeats(int reservationId, List<Seat> reservedSeats)
