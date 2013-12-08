@@ -70,6 +70,12 @@
     <None Include="Service References\CustomerServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\EmployeeServiceReference\CinemaServiceLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmployeeServiceReference\ConsoleTesting.EmployeeServiceReference.Employee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\EmployeeServiceReference\service.wsdl" />
     <None Include="Service References\EmployeeServiceReference\service.xsd">
       <SubType>Designer</SubType>
@@ -106,18 +112,6 @@
     <WCFMetadataStorage Include="Service References\MovieServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\EmployeeServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\EmployeeServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\EmployeeServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\CustomerServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +131,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\MovieServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EmployeeServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EmployeeServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EmployeeServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

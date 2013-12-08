@@ -20,6 +20,13 @@ namespace ConsoleTesting.CustomerServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/insertCustomer", ReplyAction="http://tempuri.org/ICustomerService/insertCustomerResponse")]
         System.Threading.Tasks.Task<int> insertCustomerAsync(string fName, string lName, string city, string address, string email, string phoneNo, string username, string password);
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/ICustomerService/updateCustomer", ReplyAction = "http://tempuri.org/ICustomerService/updateCustomerResponse")]
+        int updateCustomer(string fName, string lName, string city, string address, string email, string phoneNo, string username, string password);
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/ICustomerService/updateCustomer", ReplyAction = "http://tempuri.org/ICustomerService/updateCustomerResponse")]
+        System.Threading.Tasks.Task<int> updateCustomerAsync(string fName, string lName, string city, string address, string email, string phoneNo, string username, string password);
+
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +62,16 @@ namespace ConsoleTesting.CustomerServiceReference {
         
         public System.Threading.Tasks.Task<int> insertCustomerAsync(string fName, string lName, string city, string address, string email, string phoneNo, string username, string password) {
             return base.Channel.insertCustomerAsync(fName, lName, city, address, email, phoneNo, username, password);
+        }
+
+        public int updateCustomer(string fName, string lName, string city, string address, string email, string phoneNo, string username, string password)
+        {
+            return base.Channel.updateCustomer(fName, lName, city, address, email, phoneNo, username, password);
+        }
+
+        public System.Threading.Tasks.Task<int> updateCustomerAsync(string fName, string lName, string city, string address, string email, string phoneNo, string username, string password)
+        {
+            return base.Channel.updateCustomerAsync(fName, lName, city, address, email, phoneNo, username, password);
         }
     }
 }
