@@ -27,12 +27,13 @@ namespace Cinema.DBLayer
             string fName = dbReader["custFName"].ToString();
             string lName = dbReader["custLName"].ToString();
             Customer customer = new Customer();
-            customer = dbCustomer.getCustomerByName(fName, lName);
+            customer.CustomerFirstName = fName;
+            customer.CustomerLastName = lName;
             reservation.Customer = customer;
-            int sesionId = 0;
-            sesionId = Convert.ToInt32(dbReader["sessionId"]);
+            int sessionId = 0;
+            sessionId = Convert.ToInt32(dbReader["sessionId"]);
             Session session = new Session();
-            session = dbSession.getSessionById(sesionId);
+            session.SessionId = sessionId;
             reservation.Session = session;
             reservation.NoOfSeats = Convert.ToInt32(dbReader["noOfSeats"].ToString());
             reservation.Price = Convert.ToDouble(dbReader["price"].ToString());
