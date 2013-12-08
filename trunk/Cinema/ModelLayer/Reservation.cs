@@ -126,16 +126,9 @@ namespace Cinema.ModelLayer
         public String getCurrentDate()
         {
             DateTime currentDate = DateTime.Now;
-            String format = "YYYY-MM-DD";
-            String formattedDate = "1900-01-01";
+            String currentDateString = currentDate.ToString("yyyy-MM-dd");
 
-            try
-            {
-                formattedDate = DateTime.ParseExact(date, format, CultureInfo.InvariantCulture).ToString();
-            }
-            catch (Exception) {}
-
-            return formattedDate;
+            return currentDateString;
         }
 
         //get a suitable price for multiple chairs
