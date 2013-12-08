@@ -15,6 +15,15 @@ namespace CinemaServiceLibrary
 
         [OperationContract]
         int updateRoom(int roomNumber, int numberOfSeats);
+
+        [OperationContract]
+        int deleteRoomByNumber(int number);
+
+        [OperationContract]
+        Room getRoomByNumber(int number);
+
+        [OperationContract]
+        List<Room> getRooms();
     }
 
     [DataContract]
@@ -35,6 +44,13 @@ namespace CinemaServiceLibrary
         {
             get { return numberOfSeats; }
             set { numberOfSeats = value; }
+        }
+
+        [DataMemberAttribute]
+        public int number
+        {
+            get { return number; }
+            set { number = value; }
         }
     }
 }
