@@ -42,25 +42,10 @@ namespace CinemaServiceLibrary
             Reservation serviceReservation = new Reservation();
             Customer serviceCustomer = new Customer();
             Session serviceSession = new Session();
-            Movie serviceMovie = new Movie();
-            Room serviceRoom = new Room();
-
-            Cinema.ModelLayer.Reservation hostReservation = reservationCtr.getReservationById(reservationId);           
-
-            serviceMovie.MovieId = hostReservation.Session.Movie.MovieId;
-            serviceMovie.Name = hostReservation.Session.Movie.Name;
-
-            serviceRoom.RoomNumber = hostReservation.Session.Room.RoomNumber;
-
+            
+            Cinema.ModelLayer.Reservation hostReservation = reservationCtr.getReservationById(reservationId);
             serviceCustomer.CustomerFirstName = hostReservation.Customer.CustomerFirstName;
-            serviceCustomer.CustomerLastName = hostReservation.Customer.CustomerLastName;
-
-            serviceSession.Date = hostReservation.Session.Date;
-            serviceSession.EnterTime = hostReservation.Session.EnterTime;
-            serviceSession.ExitTime = hostReservation.Session.ExitTime;
-            serviceSession.Movie = serviceMovie;
-            serviceSession.Price = hostReservation.Session.Price;
-            serviceSession.Room = serviceRoom;
+            serviceCustomer.CustomerLastName = hostReservation.Customer.CustomerLastName;           
             serviceSession.SessionId = hostReservation.Session.SessionId;
 
             serviceReservation.Customer = serviceCustomer;
@@ -83,23 +68,9 @@ namespace CinemaServiceLibrary
                 Reservation serviceReservation = new Reservation();
                 Customer serviceCustomer = new Customer();
                 Session serviceSession = new Session();
-                Movie serviceMovie = new Movie();
-                Room serviceRoom = new Room();
-
-                serviceMovie.MovieId = hostReservation.Session.Movie.MovieId;
-                serviceMovie.Name = hostReservation.Session.Movie.Name;
-
-                serviceRoom.RoomNumber = hostReservation.Session.Room.RoomNumber;
-
+                
                 serviceCustomer.CustomerFirstName = hostReservation.Customer.CustomerFirstName;
                 serviceCustomer.CustomerLastName = hostReservation.Customer.CustomerLastName;
-
-                serviceSession.Date = hostReservation.Session.Date;
-                serviceSession.EnterTime = hostReservation.Session.EnterTime;
-                serviceSession.ExitTime = hostReservation.Session.ExitTime;
-                serviceSession.Movie = serviceMovie;
-                serviceSession.Price = hostReservation.Session.Price;
-                serviceSession.Room = serviceRoom;
                 serviceSession.SessionId = hostReservation.Session.SessionId;
 
                 serviceReservation.Customer = serviceCustomer;
@@ -124,23 +95,9 @@ namespace CinemaServiceLibrary
                 Reservation serviceReservation = new Reservation();
                 Customer serviceCustomer = new Customer();
                 Session serviceSession = new Session();
-                Movie serviceMovie = new Movie();
-                Room serviceRoom = new Room();
-                
-                serviceMovie.MovieId = hostReservation.Session.Movie.MovieId;
-                serviceMovie.Name = hostReservation.Session.Movie.Name;
-
-                serviceRoom.RoomNumber = hostReservation.Session.Room.RoomNumber;
-
+               
                 serviceCustomer.CustomerFirstName = hostReservation.Customer.CustomerFirstName;
                 serviceCustomer.CustomerLastName = hostReservation.Customer.CustomerLastName;
-
-                serviceSession.Date = hostReservation.Session.Date;
-                serviceSession.EnterTime = hostReservation.Session.EnterTime;
-                serviceSession.ExitTime = hostReservation.Session.ExitTime;
-                serviceSession.Movie = serviceMovie;
-                serviceSession.Price = hostReservation.Session.Price;
-                serviceSession.Room = serviceRoom;
                 serviceSession.SessionId = hostReservation.Session.SessionId;
 
                 serviceReservation.Customer = serviceCustomer;

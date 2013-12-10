@@ -17,11 +17,13 @@ namespace Cinema.DBLayer
         //build a seat object based on the db reader
         private static Seat createSeat(IDataReader dbReader)
         {
-            Seat seat = new Seat();   
+            Seat seat = new Seat();
+            Room room = new Room();
 
             seat.SeatId = Convert.ToInt32(dbReader["seatId"].ToString());
             seat.SeatNumber = Convert.ToInt32(dbReader["seatNumber"].ToString());
-            seat.Room = dbRoom.getRoomByNumber(Convert.ToInt32(dbReader["roomNumber"].ToString()));
+            room.RoomNumber = Convert.ToInt32(dbReader["roomNumber"].ToString());
+            seat.Room = room;
             seat.RowNumber = Convert.ToInt32(Convert.ToInt32(dbReader["rowNumber"].ToString()));
             seat.Status = "E";
 

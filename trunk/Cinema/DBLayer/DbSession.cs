@@ -145,11 +145,14 @@ namespace Cinema.DBLayer
 
             while (dbReader.Read())
             {
+                Room room = new Room();
+
                 Seat scheduledSeat = new Seat();
                 scheduledSeat.SeatId = Convert.ToInt32(dbReader["seatId"].ToString());
                 scheduledSeat.SeatNumber = Convert.ToInt32(dbReader["seatNumber"].ToString());
                 scheduledSeat.RowNumber = Convert.ToInt32(dbReader["rowNumber"].ToString());
-                scheduledSeat.Room = dbRoom.getRoomByNumber(Convert.ToInt32(dbReader["roomNumber"].ToString()));
+                room.RoomNumber = Convert.ToInt32(dbReader["roomNumber"].ToString());
+                scheduledSeat.Room = room;
                 scheduledSeat.Status = dbReader["status"].ToString();
                 returnList.Add(scheduledSeat);
             }
@@ -176,9 +179,15 @@ namespace Cinema.DBLayer
 
             while (dbReader.Read())
             {
+                Movie movie = new Movie();
+                Room room = new Room();
+                
+                movie.MovieId = Convert.ToInt32(dbReader["movieId"].ToString());
+                room.RoomNumber = Convert.ToInt32(dbReader["roomNumber"].ToString());
+
                 session.SessionId = Convert.ToInt32(dbReader["sessionId"].ToString());
-                session.Movie = dbMovie.getMovieByID(Convert.ToInt32(dbReader["movieId"].ToString()));
-                session.Room = dbRoom.getRoomByNumber(Convert.ToInt32(dbReader["movieId"].ToString()));
+                session.Movie = movie;
+                session.Room = room;
                 session.Date = dbReader["date"].ToString();
                 session.EnterTime = session.suitableTime(dbReader["enterTime"].ToString());
                 session.ExitTime = session.suitableTime(dbReader["exitTime"].ToString());
@@ -209,9 +218,16 @@ namespace Cinema.DBLayer
 
             while (dbReader.Read())
             {
-                session.SessionId = Convert.ToInt32(dbReader["sessionId"].ToString());
-                session.Movie = dbMovie.getMovieByID(Convert.ToInt32(dbReader["movieId"].ToString()));
-                session.Room = dbRoom.getRoomByNumber(Convert.ToInt32(dbReader["movieId"].ToString()));
+                Movie movie = new Movie();
+                Room room = new Room();
+
+                movie.MovieId = Convert.ToInt32(dbReader["movieId"].ToString());
+                room.RoomNumber = Convert.ToInt32(dbReader["roomNumber"].ToString());
+
+                session.Movie = movie;
+                session.Room = room;
+
+                session.SessionId = Convert.ToInt32(dbReader["sessionId"].ToString());                
                 session.Date = dbReader["date"].ToString();
                 session.EnterTime = session.suitableTime(dbReader["enterTime"].ToString());
                 session.ExitTime = session.suitableTime(dbReader["exitTime"].ToString());
@@ -240,13 +256,20 @@ namespace Cinema.DBLayer
 
             if (dbReader.Read())
             {
+                Movie movie = new Movie();
+                Room room = new Room();
+
+                movie.MovieId = Convert.ToInt32(dbReader["movieId"].ToString());
+                room.RoomNumber = Convert.ToInt32(dbReader["roomNumber"].ToString());
+
+                session.Movie = movie;
+                session.Room = room;
+
                 session.SessionId = Convert.ToInt32(dbReader["sessionId"].ToString());
-                session.Movie = dbMovie.getMovieByID(Convert.ToInt32(dbReader["movieId"].ToString()));
-                session.Room = dbRoom.getRoomByNumber(Convert.ToInt32(dbReader["movieId"].ToString()));
                 session.Date = dbReader["date"].ToString();
                 session.EnterTime = session.suitableTime(dbReader["enterTime"].ToString());
                 session.ExitTime = session.suitableTime(dbReader["exitTime"].ToString());
-                session.Price = Convert.ToDouble(dbReader["price"].ToString());               
+                session.Price = Convert.ToDouble(dbReader["price"].ToString());    
             }
             else
             {

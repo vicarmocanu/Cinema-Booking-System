@@ -45,6 +45,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="NumberOfSeats" type="xs:int" />
       <xs:element minOccurs="0" name="RoomNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="number" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Room" nillable="true" type="tns:Room" />

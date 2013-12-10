@@ -15,6 +15,17 @@ namespace ConsoleTesting
 
         static void Main(string[] args)
         {
+            System.Console.WriteLine("Prepare for reservation retrieval.");
+            System.Console.ReadLine();
+            System.Console.WriteLine("reservationId= ");
+            int reservationId = Convert.ToInt32(Console.ReadLine());
+            ReservationServiceReference.Reservation serviceReservation = new ReservationServiceReference.Reservation();
+            serviceReservation = reservationService.getReservation(reservationId);
+            System.Console.WriteLine(serviceReservation.ReservationId + " " + serviceReservation.Customer.CustomerFirstName + " " + serviceReservation.Date + ";");
+            System.Console.ReadLine();
+
+
+
             /*
             System.Console.WriteLine("ReservationInsertion");
             System.Console.ReadLine();
