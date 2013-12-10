@@ -7,12 +7,11 @@ using Cinema.ModelLayer;
 
 namespace Cinema.Algorithm
 {
-    class Algorithm
+    public class Algorithm
     {
         public Algorithm() { }
 
-
-        public int getNumberOfFreeSeats(Seat[][] seats)
+        public static int getNumberOfFreeSeats(Seat[][] seats)
         {
             int count = 0;
             int rows = seats.Length;
@@ -31,7 +30,7 @@ namespace Cinema.Algorithm
             return count;
         }
 
-        public int getNumberOfFreeSeatsOnLeft(Seat[][] seats)
+        public static int getNumberOfFreeSeatsOnLeft(Seat[][] seats)
         {
             int count = 0;
             int rows = seats.Length;
@@ -61,7 +60,7 @@ namespace Cinema.Algorithm
             return count;
         }
 
-        public int getNumberOfFreeSeatsOnRight(Seat[][] seats)
+        public static int getNumberOfFreeSeatsOnRight(Seat[][] seats)
         {
             int count = 0;
             int rows = seats.Length;
@@ -91,7 +90,7 @@ namespace Cinema.Algorithm
             return count;
         }
 
-        public List<Seat> getSeatsToReserve(Seat[][] seats, int noOfWantedSeats)
+        public static List<Seat> getSeatsToReserve(Seat[][] seats, int noOfWantedSeats)
         {
             List<Seat> returnList = new List<Seat>();
 
@@ -133,7 +132,10 @@ namespace Cinema.Algorithm
                 //between 2 and 4 - special case, left&right
                 if (noOfWantedSeats > 1 && noOfWantedSeats < 5)
                 {
-                    for (int a = 0; a < rowNo; a++)
+                    int a = 0;
+                    Boolean found = false;
+                    
+                    while(a< rowNo && found != true)
                     {
                         if (a % 2 == 0)
                         {
@@ -154,9 +156,9 @@ namespace Cinema.Algorithm
                             int y = halfColumnNo;
                             int count = noOfWantedSeats - 1;
 
-                            if (leftAvailableSeats != 0)
+                            if (leftAvailableSeats >= noOfWantedSeats)
                             {
-                                while (x < halfColumnNo && count != 0)
+                                while (x < halfColumnNo && count > 0)
                                 {
                                     Seat first = innerSeatArray[x];
                                     Seat second = innerSeatArray[x + 1];
@@ -177,12 +179,20 @@ namespace Cinema.Algorithm
                                     else
                                     {
                                         x++;
-                                    }
+                                    }                                   
+                                }
+                                if (count == 0)
+                                {
+                                    found = true;
+                                }
+                                else
+                                {
+                                    a++;
                                 }
                             }
                             else
                             {
-                                if (rightAvailableSeats != 0)
+                                if (rightAvailableSeats >= noOfWantedSeats)
                                 {
                                     while (y < columnNo && count != 0)
                                     {
@@ -207,6 +217,14 @@ namespace Cinema.Algorithm
                                             y++;
                                         }
                                     }
+                                    if (count == 0)
+                                    {
+                                        found = true;
+                                    }
+                                    else
+                                    {
+                                        a++;
+                                    }
                                 }
                             }
                         }
@@ -229,7 +247,7 @@ namespace Cinema.Algorithm
                             int y = columnNo - 1;
                             int count = noOfWantedSeats - 1;
 
-                            if (leftAvailableSeats != 0)
+                            if (leftAvailableSeats >= noOfWantedSeats)
                             {
                                 while (x > 1 && count != 0)
                                 {
@@ -254,10 +272,18 @@ namespace Cinema.Algorithm
                                         x--;
                                     }
                                 }
+                                if (count == 0)
+                                {
+                                    found = true;
+                                }
+                                else
+                                {
+                                    a++;
+                                }
                             }
                             else
                             {
-                                if (rightAvailableSeats != 0)
+                                if (rightAvailableSeats >= noOfWantedSeats)
                                 {
                                     while (y > halfColumnNo + 1 && count != 0)
                                     {
@@ -281,6 +307,14 @@ namespace Cinema.Algorithm
                                         {
                                             y--;
                                         }
+                                    }
+                                    if (count == 0)
+                                    {
+                                        found = true;
+                                    }
+                                    else
+                                    {
+                                        a++;
                                     }
                                 }
                             }
@@ -335,7 +369,7 @@ namespace Cinema.Algorithm
                             }
                             else
                             {
-                                if (rightAvailableSeats != 0)
+                                if (rightAvailableSeats >= noOfWantedSeats)
                                 {
                                     while (y < columnNo && count != 0)
                                     {
