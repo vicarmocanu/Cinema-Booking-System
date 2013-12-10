@@ -45,11 +45,6 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ReservationServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Service References\RoomServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -63,22 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Service References\ReservationServiceReference\CinemaServiceLibrary.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ReservationServiceReference\ConsoleTesting.ReservationServiceReference.Reservation.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ReservationServiceReference\ConsoleTesting.ReservationServiceReference.Seat.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ReservationServiceReference\service.wsdl" />
-    <None Include="Service References\ReservationServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ReservationServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\RoomServiceReference\CinemaServiceLibrary.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -114,7 +93,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ReservationServiceReference\" />
-    <WCFMetadataStorage Include="Service References\ReservationServiceReference\" />
     <WCFMetadataStorage Include="Service References\RoomServiceReference\" />
     <WCFMetadataStorage Include="Service References\SeatServiceReference\" />
   </ItemGroup>
@@ -143,16 +121,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ReservationServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ReservationServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ReservationServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <ProjectReference Include="..\CinemaServiceLibrary\CinemaServiceLibrary.csproj">
+      <Project>{15b3e0d2-6217-493a-a690-158c497f5318}</Project>
+      <Name>CinemaServiceLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
