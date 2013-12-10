@@ -205,11 +205,15 @@ namespace Cinema.DBLayer
 
             while (dbReader.Read())
             {
+                Room room = new Room();
+
                 seat.SeatId = Convert.ToInt32(dbReader["seatId"].ToString());
                 seat.SeatNumber = Convert.ToInt32(dbReader["seatNumber"].ToString());
                 seat.RowNumber = Convert.ToInt32(dbReader["rowNumber"].ToString());
-                seat.Room = dbRoom.getRoomByNumber(Convert.ToInt32(dbReader["roomNumber"].ToString()));
+                room.RoomNumber = Convert.ToInt32(dbReader["roomNumber"].ToString());
+                seat.Room = room;
                 seat.Status = dbReader["status"].ToString();
+
                 returnList.Add(seat);
             }
 

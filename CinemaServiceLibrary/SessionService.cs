@@ -51,16 +51,11 @@ namespace CinemaServiceLibrary
             Room serviceRoom = new Room();
             Movie serviceMovie = new Movie();
 
-            serviceRoom.RoomNumber = hostSession.Room.RoomNumber;
-            serviceRoom.NumberOfSeats = hostSession.Room.NumberOfSeats;
-
-            serviceMovie.MovieId = hostSession.Movie.MovieId;
-            serviceMovie.Name = hostSession.Movie.Name;
-            serviceMovie.Length = hostSession.Movie.Length;
-            serviceMovie.Genre = hostSession.Movie.Genre;
-            serviceMovie.AgeLimit = hostSession.Movie.AgeLimit;
-
             hostSession = sessionCtr.getSessionById(sessionId);
+
+            serviceRoom.RoomNumber = hostSession.Room.RoomNumber;
+            serviceMovie.MovieId = hostSession.Movie.MovieId;
+            
             serviceSession.SessionId = hostSession.SessionId;
             serviceSession.Movie = serviceMovie;
             serviceSession.Room = serviceRoom;
@@ -83,13 +78,7 @@ namespace CinemaServiceLibrary
                 Movie serviceMovie = new Movie();
 
                 serviceRoom.RoomNumber = hostSession.Room.RoomNumber;
-                serviceRoom.NumberOfSeats = hostSession.Room.NumberOfSeats;
-
                 serviceMovie.MovieId = hostSession.Movie.MovieId;
-                serviceMovie.Name = hostSession.Movie.Name;
-                serviceMovie.Length = hostSession.Movie.Length;
-                serviceMovie.Genre = hostSession.Movie.Genre;
-                serviceMovie.AgeLimit = hostSession.Movie.AgeLimit;
 
                 serviceSession.SessionId = hostSession.SessionId;
                 serviceSession.Movie = serviceMovie;
@@ -115,13 +104,7 @@ namespace CinemaServiceLibrary
                 Movie serviceMovie = new Movie();
 
                 serviceRoom.RoomNumber = hostSession.Room.RoomNumber;
-                serviceRoom.NumberOfSeats = hostSession.Room.NumberOfSeats;
-
                 serviceMovie.MovieId = hostSession.Movie.MovieId;
-                serviceMovie.Name = hostSession.Movie.Name;
-                serviceMovie.Length = hostSession.Movie.Length;
-                serviceMovie.Genre = hostSession.Movie.Genre;
-                serviceMovie.AgeLimit = hostSession.Movie.AgeLimit;
 
                 serviceSession.SessionId = hostSession.SessionId;
                 serviceSession.Movie = serviceMovie;

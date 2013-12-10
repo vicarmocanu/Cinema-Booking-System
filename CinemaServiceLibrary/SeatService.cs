@@ -52,7 +52,6 @@ namespace CinemaServiceLibrary
             Cinema.ModelLayer.Room hostRoom = new Cinema.ModelLayer.Room();
             Room serviceRoom = new Room();
             serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
-            serviceRoom.NumberOfSeats = hostSeat.Room.NumberOfSeats;
 
             serviceSeat.SeatId = hostSeat.SeatId;
             serviceSeat.SeatNumber = hostSeat.SeatNumber;
@@ -73,7 +72,6 @@ namespace CinemaServiceLibrary
                 Room serviceRoom = new Room();
 
                 serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
-                serviceRoom.NumberOfSeats = hostSeat.Room.NumberOfSeats;
 
                 serviceSeat.SeatId = hostSeat.SeatId;
                 serviceSeat.SeatNumber = hostSeat.SeatNumber;
@@ -97,7 +95,6 @@ namespace CinemaServiceLibrary
                 Room serviceRoom = new Room();
 
                 serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
-                serviceRoom.NumberOfSeats = hostSeat.Room.NumberOfSeats;
 
                 serviceSeat.SeatId = hostSeat.SeatId;
                 serviceSeat.SeatNumber = hostSeat.SeatNumber;
