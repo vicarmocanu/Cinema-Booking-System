@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/CinemaServiceLibrary" />
+  <xs:element name="insertReservation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sessionId" type="xs:int" />
+        <xs:element minOccurs="0" name="numberOfSeats" type="xs:int" />
+        <xs:element minOccurs="0" name="price" type="xs:double" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertReservationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertReservationResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateReservation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sessionId" type="xs:int" />
+        <xs:element minOccurs="0" name="numberOfSeats" type="xs:int" />
+        <xs:element minOccurs="0" name="price" type="xs:int" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reservationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateReservationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateReservationResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertReservedSeat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="reservationId" type="xs:int" />
+        <xs:element minOccurs="0" name="seatId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertReservedSeatResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertReservedSeatResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateReservedSeat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="reservationId" type="xs:int" />
+        <xs:element minOccurs="0" name="seatId" type="xs:int" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateReservedSeatResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateReservedSeatResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateSeatsFromReservation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="reservationId" type="xs:int" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateSeatsFromReservationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateSeatsFromReservationResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReservation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="reservationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReservationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CinemaServiceLibrary" minOccurs="0" name="getReservationResult" nillable="true" type="q1:Reservation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReservations">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getReservationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CinemaServiceLibrary" minOccurs="0" name="getReservationsResult" nillable="true" type="q2:ArrayOfReservation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerReservations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="custFName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="custLName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCustomerReservationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CinemaServiceLibrary" minOccurs="0" name="getCustomerReservationsResult" nillable="true" type="q3:ArrayOfReservation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSeatsFromReservation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="reservationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSeatsFromReservationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CinemaServiceLibrary" minOccurs="0" name="getSeatsFromReservationResult" nillable="true" type="q4:ArrayOfSeat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
