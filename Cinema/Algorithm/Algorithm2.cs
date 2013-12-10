@@ -32,7 +32,7 @@ namespace Cinema.Algorithm
         public int getNumberOfFreeSeatsTop(Seat[][] seats)
         {
             int count = 0;
-            int rows = seats.Lenght;
+            int rows = seats.Length;
             int halfRows = 0;
             if (rows % 2 == 0)
             {
@@ -55,12 +55,38 @@ namespace Cinema.Algorithm
                     }
                 }
             }
+
             return count;
         }
 
         public int getNumberOfFreeSeatsBot(Seat[][] seats)
-        { 
-            
+        {
+            int count = 0;
+            int rows = seats.Length;
+            int halfRows = 0;
+            if (rows % 2 == 0)
+            {
+                halfRows = rows / 2;
+            }
+            else
+            {
+                halfRows = (rows / 2) + 1;
+            }
+
+            for (int i = halfRows; i < rows; i++)
+            {
+                Seat[] innerSeatArray = seats[i];
+                int columns = innerSeatArray.Length;
+                for (int j = 0; j < columns; j++)
+                {
+                    if (seats[i][j].Status.Equals("E") == true)
+                    {
+                        count++;
+                    }
+                }
+            }
+
+            return count;
         }
     }
 }
