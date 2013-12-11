@@ -11,11 +11,15 @@ namespace CinemaServiceLibrary
 {
     public class CustomerService : ICustomerService
     {
+        private System.Object lockThis = new System.Object();
         private static CustomerCtr customerCtr = CustomerCtr.getInstance();
 
         public int insertCustomer(string fName, string lName, string city, string address, string email, string phoneNo, string username, string password)
         {
-            return customerCtr.insertCustomer(fName, lName, city, address, email, phoneNo, username, password);
+            lock (lockThis)
+            {
+                return customerCtr.insertCustomer(fName, lName, city, address, email, phoneNo, username, password);
+            }
         }
 
         public int updateCustomer(string fName, string lName, string city, string address, string email, string phoneNo, string username, string password)
