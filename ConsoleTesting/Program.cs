@@ -12,9 +12,11 @@ namespace ConsoleTesting
         static ReservationServiceReference.IReservationService reservationService = new ReservationServiceReference.ReservationServiceClient();
         static RoomServiceReference.IRoomService roomService = new RoomServiceReference.RoomServiceClient();
         static SeatServiceReference.ISeatService seatService = new SeatServiceReference.SeatServiceClient();
+        static CustomerServiceReference.ICustomerService customerService = new CustomerServiceReference.CustomerServiceClient();
 
         static void Main(string[] args)
         {
+            /*
             System.Console.WriteLine("Prepare for reservation retrieval.");
             System.Console.ReadLine();
             System.Console.WriteLine("reservationId= ");
@@ -22,6 +24,30 @@ namespace ConsoleTesting
             ReservationServiceReference.Reservation serviceReservation = new ReservationServiceReference.Reservation();
             serviceReservation = reservationService.getReservation(reservationId);
             System.Console.WriteLine(serviceReservation.ReservationId + " " + serviceReservation.Customer.CustomerFirstName + " " + serviceReservation.Date + ";");
+            System.Console.ReadLine();
+            */
+
+            System.Console.WriteLine("Prepare for customer insertion");
+            System.Console.ReadLine();
+            System.Console.WriteLine("fName= ");
+            String fName = Console.ReadLine();
+            System.Console.WriteLine("lName= ");
+            String lName = Console.ReadLine();
+            System.Console.WriteLine("userName= ");
+            String userName = Console.ReadLine();
+            System.Console.WriteLine("city= ");
+            String city = Console.ReadLine();
+            System.Console.WriteLine("address= ");
+            String address = Console.ReadLine();
+            System.Console.WriteLine("email= ");
+            String email = Console.ReadLine();
+            System.Console.WriteLine("phoneNo= ");
+            String phoneNo = Console.ReadLine();
+            System.Console.WriteLine("password= ");
+            String password = Console.ReadLine();
+
+            int result = customerService.insertCustomer(fName, lName, city, address, email, phoneNo, userName, password);
+            System.Console.WriteLine("result= " + result);
             System.Console.ReadLine();
 
 
