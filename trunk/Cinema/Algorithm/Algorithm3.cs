@@ -7,15 +7,16 @@ using Cinema.ModelLayer;
 
 namespace Cinema.Algorithm
 {
-    public class Algorithm
+    class Algorithm3
     {
-        public Algorithm() { }
+        public Algorithm3() { }
 
         public static int getNumberOfFreeSeats(Seat[][] seats)
         {
             int count = 0;
             int rows = seats.Length;
-            for (int i = 0; i < rows; i++)
+
+            Parallel.For(0, rows, i =>
             {
                 Seat[] innerSeatArray = seats[i];
                 int columns = innerSeatArray.Length;
@@ -26,7 +27,8 @@ namespace Cinema.Algorithm
                         count++;
                     }
                 }
-            }
+            });
+
             return count;
         }
 
@@ -34,29 +36,31 @@ namespace Cinema.Algorithm
         {
             int count = 0;
             int rows = seats.Length;
-            for(int i = 0; i<rows; i++)
+
+            Parallel.For(0, rows, i =>
             {
                 Seat[] innerSeatArray = seats[i];
                 int columns = innerSeatArray.Length;
                 int halfColumns = 0;
-                
-                if(columns % 2 == 0)
+
+                if (columns % 2 == 0)
                 {
                     halfColumns = columns / 2;
                 }
                 else
                 {
-                    halfColumns = columns / 2 + 1;			
+                    halfColumns = columns / 2 + 1;
                 }
-		        
-                for(int j=0; j<halfColumns; j++)
+
+                for (int j = 0; j < halfColumns; j++)
                 {
                     if (seats[i][j].Status.Equals("E") == true)
                     {
-                        count ++ ;
+                        count++;
                     }
                 }
-            }
+            });
+
             return count;
         }
 
@@ -64,30 +68,32 @@ namespace Cinema.Algorithm
         {
             int count = 0;
             int rows = seats.Length;
-            for(int i = 0; i<rows; i++)
+
+            Parallel.For(0, rows, i =>
             {
                 Seat[] innerSeatArray = seats[i];
                 int columns = innerSeatArray.Length;
                 int halfColumns = 0;
-                
-                if(columns % 2 == 0)
+
+                if (columns % 2 == 0)
                 {
                     halfColumns = columns / 2;
                 }
                 else
                 {
-                    halfColumns = columns / 2 + 1;	
+                    halfColumns = columns / 2 + 1;
                 }
-		
-                for(int j= halfColumns; j<columns; j++)
+
+                for (int j = halfColumns; j < columns; j++)
                 {
-                    if (seats[i][j].Status.Equals("E") == true) 
+                    if (seats[i][j].Status.Equals("E") == true)
                     {
-                        count ++ ;
+                        count++;
                     }
                 }
-            }
-            return count;
+            });
+
+            return count; 
         }
 
         public static List<Seat> getSeatsToReserve(Seat[][] seats, int noOfWantedSeats)
@@ -103,9 +109,9 @@ namespace Cinema.Algorithm
                 int rowNo = seats.Length;
 
                 //for only one seat - all 
-                if(noOfWantedSeats == 1)
+                if (noOfWantedSeats == 1)
                 {
-                    for (int a = 0; a < rowNo; a++)
+                    Parallel.For(0, rowNo, (a, loopState) =>
                     {
                         Seat[] innerSeatArray = seats[a];
                         int columnNo = innerSeatArray.Length;
@@ -126,20 +132,17 @@ namespace Cinema.Algorithm
                                 b++;
                             }
                         }
-                        if(found == true)
+                        if (found == true)
                         {
-                            break;
+                            loopState.Break();
                         }
-                    }
+                    });
                 }
 
                 //between 2 and 4 - special case, left&right
                 if (noOfWantedSeats > 1 && noOfWantedSeats < 5)
                 {
-                    int a = 0;
-                    Boolean found = false;
-                    
-                    while(a < rowNo && found != true)
+                    Parallel.For(0, rowNo, (a, loopState) =>
                     {
                         if (a % 2 == 0)
                         {
@@ -183,15 +186,11 @@ namespace Cinema.Algorithm
                                     else
                                     {
                                         x++;
-                                    }                                   
+                                    }
                                 }
                                 if (count == 0)
                                 {
-                                    found = true;
-                                }
-                                else
-                                {
-                                    a++;
+                                    loopState.Break();
                                 }
                             }
                             else
@@ -223,11 +222,7 @@ namespace Cinema.Algorithm
                                     }
                                     if (count == 0)
                                     {
-                                        found = true;
-                                    }
-                                    else
-                                    {
-                                        a++;
+                                        loopState.Break();
                                     }
                                 }
                             }
@@ -253,7 +248,7 @@ namespace Cinema.Algorithm
 
                             if (leftAvailableSeats >= noOfWantedSeats)
                             {
-                                while (x > 1 && count != 0)
+                                while (x > 1 && count > 0)
                                 {
                                     Seat first = innerSeatArray[x];
                                     Seat second = innerSeatArray[x - 1];
@@ -278,11 +273,7 @@ namespace Cinema.Algorithm
                                 }
                                 if (count == 0)
                                 {
-                                    found = true;
-                                }
-                                else
-                                {
-                                    a++;
+                                    loopState.Break();
                                 }
                             }
                             else
@@ -314,23 +305,19 @@ namespace Cinema.Algorithm
                                     }
                                     if (count == 0)
                                     {
-                                        found = true;
-                                    }
-                                    else
-                                    {
-                                        a++;
+                                        loopState.Break();
                                     }
                                 }
                             }
                         }
-                    }
+                    });
                 }
 
                 //general case - left&right
                 if (noOfWantedSeats > 4)
                 {
                     int count = noOfWantedSeats;
-                    for (int a = 0; a < rowNo; a++)
+                    Parallel.For(0, rowNo, (a, loopState) =>
                     {
                         if (a % 2 == 0)
                         {
@@ -372,14 +359,14 @@ namespace Cinema.Algorithm
                                 }
                                 if (count == 0)
                                 {
-                                    break;
+                                    loopState.Break();
                                 }
                             }
                             else
                             {
                                 if (rightAvailableSeats >= noOfWantedSeats)
                                 {
-                                    while (y < columnNo && count != 0)
+                                    while (y < columnNo && count > 0)
                                     {
                                         Seat seat = innerSeatArray[y];
                                         if (seat.Status.Equals("E") == true)
@@ -399,7 +386,7 @@ namespace Cinema.Algorithm
                                     }
                                     if (count == 0)
                                     {
-                                        break;
+                                        loopState.Break();
                                     }
                                 }
                             }
@@ -427,7 +414,7 @@ namespace Cinema.Algorithm
                                 while (x > -1 && count > 0)
                                 {
                                     Seat seat = innerSeatArray[x];
-                                    if(seat.Status.Equals("E") == true)
+                                    if (seat.Status.Equals("E") == true)
                                     {
                                         if (!returnList.Contains(seat))
                                         {
@@ -444,7 +431,7 @@ namespace Cinema.Algorithm
                                 }
                                 if (count == 0)
                                 {
-                                    break;
+                                    loopState.Break();
                                 }
                             }
                             else
@@ -460,7 +447,7 @@ namespace Cinema.Algorithm
                                             {
                                                 returnList.Add(seat);
                                             }
-                                            
+
                                             count--;
                                             y--;
                                         }
@@ -471,12 +458,12 @@ namespace Cinema.Algorithm
                                     }
                                     if (count == 0)
                                     {
-                                        break;
+                                        loopState.Break();
                                     }
                                 }
                             }
-                        }                        
-                    }
+                        }
+                    });
                 }
             }
             return returnList;
