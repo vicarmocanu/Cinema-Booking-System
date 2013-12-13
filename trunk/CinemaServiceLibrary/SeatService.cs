@@ -11,101 +11,129 @@ namespace CinemaServiceLibrary
     
     public class SeatService : ISeatService
     {
+        private System.Object lockThis = new System.Object();
         private static SeatCtr seatCtr = SeatCtr.getInstance();
 
         public int insertSeat(int seatNumber, int rowNumber, int roomNumber)           
         {
-            return seatCtr.insertSeat( seatNumber, rowNumber, roomNumber);
+            lock (lockThis)
+            {
+                return seatCtr.insertSeat(seatNumber, rowNumber, roomNumber);
+            }
         }
 
         public int updateSeat(int seatID, int seatNumber, int rowNumber, int roomNumber)
         {
-            return seatCtr.updateSeat(seatID, seatNumber, rowNumber, roomNumber);
+            lock (lockThis)
+            {
+                return seatCtr.updateSeat(seatID, seatNumber, rowNumber, roomNumber);
+            }
         }
 
         public int deleteSeat(int id)
         {
-            return seatCtr.deleteSeatById(id);
+            lock (lockThis)
+            {
+                return seatCtr.deleteSeatById(id);
+            }
         }
 
         public int deleteRoomSeats(int roomNumber)
         {
-            return seatCtr.deleteRoomSeats(roomNumber);
+            lock (lockThis)
+            {
+                return seatCtr.deleteRoomSeats(roomNumber);
+            }
         }
 
         public List<int> insertSeatMatrix(int rows, int columns, int roomNumber)
         {
-            return seatCtr.insertSeatMatrix(rows, columns, roomNumber);
+            lock (lockThis)
+            {
+                return seatCtr.insertSeatMatrix(rows, columns, roomNumber);
+            }
         }
 
         public int deleteSeatById(int id)
         {
-            return seatCtr.deleteSeatById(id);
+            lock (lockThis)
+            {
+                return seatCtr.deleteSeatById(id);
+            }
         }
 
         public Seat getSeat(int id)
         {
-            Seat serviceSeat = new Seat();
-            Cinema.ModelLayer.Seat hostSeat = new Cinema.ModelLayer.Seat();           
-            hostSeat = seatCtr.getSeatById(id);
+            lock (lockThis)
+            {
+                Seat serviceSeat = new Seat();
+                Cinema.ModelLayer.Seat hostSeat = new Cinema.ModelLayer.Seat();
+                hostSeat = seatCtr.getSeatById(id);
 
-            Cinema.ModelLayer.Room hostRoom = new Cinema.ModelLayer.Room();
-            Room serviceRoom = new Room();
-            serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
+                Cinema.ModelLayer.Room hostRoom = new Cinema.ModelLayer.Room();
+                Room serviceRoom = new Room();
+                serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
 
-            serviceSeat.SeatId = hostSeat.SeatId;
-            serviceSeat.SeatNumber = hostSeat.SeatNumber;
-            serviceSeat.RowNumber = hostSeat.RowNumber;
-            serviceSeat.Status = hostSeat.Status;
-            serviceSeat.Room = serviceRoom;
+                serviceSeat.SeatId = hostSeat.SeatId;
+                serviceSeat.SeatNumber = hostSeat.SeatNumber;
+                serviceSeat.RowNumber = hostSeat.RowNumber;
+                serviceSeat.Status = hostSeat.Status;
+                serviceSeat.Room = serviceRoom;
 
-            return serviceSeat;
+                return serviceSeat;
+            }
         }
 
         public List<Seat> getSeats()
         {
-            List<Cinema.ModelLayer.Seat> returnList = seatCtr.getSeats();
-            List<Seat> seatList = new List<Seat>();
-            foreach (Cinema.ModelLayer.Seat hostSeat in returnList)
+            lock (lockThis)
             {
-                Seat serviceSeat = new Seat();
-                Room serviceRoom = new Room();
+                List<Cinema.ModelLayer.Seat> returnList = seatCtr.getSeats();
+                List<Seat> seatList = new List<Seat>();
+                foreach (Cinema.ModelLayer.Seat hostSeat in returnList)
+                {
+                    Seat serviceSeat = new Seat();
+                    Room serviceRoom = new Room();
 
-                serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
+                    serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
 
-                serviceSeat.SeatId = hostSeat.SeatId;
-                serviceSeat.SeatNumber = hostSeat.SeatNumber;
-                serviceSeat.RowNumber = hostSeat.RowNumber;
-                serviceSeat.Status = hostSeat.Status;
-                serviceSeat.Room = serviceRoom;
+                    serviceSeat.SeatId = hostSeat.SeatId;
+                    serviceSeat.SeatNumber = hostSeat.SeatNumber;
+                    serviceSeat.RowNumber = hostSeat.RowNumber;
+                    serviceSeat.Status = hostSeat.Status;
+                    serviceSeat.Room = serviceRoom;
 
-                seatList.Add(serviceSeat);
+                    seatList.Add(serviceSeat);
+                }
+
+                return seatList;
             }
-
-            return seatList;
         }
 
         public List<Seat> getRoomSeats(int roomNumber)
         {
-            List<Cinema.ModelLayer.Seat> returnList = seatCtr.getRoomSeats(roomNumber);
-            List<Seat> seatList = new List<Seat>();
-            foreach (Cinema.ModelLayer.Seat hostSeat in returnList)
+            lock (lockThis)
             {
-                Seat serviceSeat = new Seat();
-                Room serviceRoom = new Room();
+                List<Cinema.ModelLayer.Seat> returnList = seatCtr.getRoomSeats(roomNumber);
+                List<Seat> seatList = new List<Seat>();
+                foreach (Cinema.ModelLayer.Seat hostSeat in returnList)
+                {
+                    Seat serviceSeat = new Seat();
+                    Room serviceRoom = new Room();
 
-                serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
+                    serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
 
-                serviceSeat.SeatId = hostSeat.SeatId;
-                serviceSeat.SeatNumber = hostSeat.SeatNumber;
-                serviceSeat.RowNumber = hostSeat.RowNumber;
-                serviceSeat.Status = hostSeat.Status;
-                serviceSeat.Room = serviceRoom;
+                    serviceSeat.SeatId = hostSeat.SeatId;
+                    serviceSeat.SeatNumber = hostSeat.SeatNumber;
+                    serviceSeat.RowNumber = hostSeat.RowNumber;
+                    serviceSeat.Status = hostSeat.Status;
+                    serviceSeat.Room = serviceRoom;
 
-                seatList.Add(serviceSeat);
+                    seatList.Add(serviceSeat);
+                }
+
+                return seatList;
             }
-
-            return seatList;
         }
     }
 }
