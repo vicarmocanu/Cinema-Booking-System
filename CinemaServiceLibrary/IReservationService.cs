@@ -39,6 +39,15 @@ namespace CinemaServiceLibrary
 
         [OperationContract]
         List<int> insertReservedSeats(int reservationId, int sessionId, int noOfWantedSeats);
+
+        [OperationContract]
+        int deleteReservation(int reservationId);
+
+        [OperationContract]
+        int deleteReservedSeat(int reservationId, int seatId);
+
+        [OperationContract]
+        int deleteSeatsFromReservation(int reservationId);        
     }
 
     [DataContract]

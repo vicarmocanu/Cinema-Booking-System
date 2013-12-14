@@ -18,6 +18,22 @@ namespace ConsoleTesting
         static void Main(string[] args)
         {
 
+            System.Console.WriteLine("Prepare for customer retrieval.");
+            System.Console.ReadLine();
+            System.Console.WriteLine("userName= ");
+            String username = System.Console.ReadLine();
+            CustomerServiceReference.Customer serviceCustomer = new CustomerServiceReference.Customer();
+            serviceCustomer = customerService.getCustomerByUsername(username);
+            if (serviceCustomer.CustomerLastName == null)
+            {
+                Console.WriteLine("null");
+            }
+            else
+            {
+                Console.Write(serviceCustomer.CustomerFirstName + " " + serviceCustomer.CustomerLastName);
+            }
+            Console.ReadLine();
+
             System.Console.WriteLine("Prepare for reservation retrieval.");
             System.Console.ReadLine();
             System.Console.WriteLine("reservationId= ");

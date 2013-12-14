@@ -42,13 +42,17 @@ namespace CinemaServiceLibrary
             lock (lockThis)
             {
                 Employee serviceEmployee = new Employee();
+
                 Cinema.ModelLayer.Employee hostEmployee = new Cinema.ModelLayer.Employee();
                 hostEmployee = employeeCtr.getEmployeeByUserName(username);
-
-                serviceEmployee.FName = hostEmployee.FName;
-                serviceEmployee.LName = hostEmployee.LName;
-                serviceEmployee.Username = hostEmployee.Username;
-                serviceEmployee.Password = hostEmployee.Password;
+                try
+                {
+                    serviceEmployee.FName = hostEmployee.FName;
+                    serviceEmployee.LName = hostEmployee.LName;
+                    serviceEmployee.Username = hostEmployee.Username;
+                    serviceEmployee.Password = hostEmployee.Password;
+                }
+                catch (NullReferenceException) { }
 
                 return serviceEmployee;
             }
@@ -58,19 +62,24 @@ namespace CinemaServiceLibrary
         {
             lock (lockThis)
             {
-                List<Cinema.ModelLayer.Employee> returnList = employeeCtr.getEmployees();
                 List<Employee> employeeList = new List<Employee>();
-                foreach (Cinema.ModelLayer.Employee hostEmployee in returnList)
+
+                List<Cinema.ModelLayer.Employee> returnList = employeeCtr.getEmployees();
+                if (returnList.Count != 0)
                 {
-                    Employee serviceEmployee = new Employee();
+                    foreach (Cinema.ModelLayer.Employee hostEmployee in returnList)
+                    {
+                        Employee serviceEmployee = new Employee();
 
-                    serviceEmployee.FName = hostEmployee.FName;
-                    serviceEmployee.LName = hostEmployee.LName;
-                    serviceEmployee.Username = hostEmployee.Username;
-                    serviceEmployee.Password = hostEmployee.Password;
+                        serviceEmployee.FName = hostEmployee.FName;
+                        serviceEmployee.LName = hostEmployee.LName;
+                        serviceEmployee.Username = hostEmployee.Username;
+                        serviceEmployee.Password = hostEmployee.Password;
 
-                    employeeList.Add(serviceEmployee);
+                        employeeList.Add(serviceEmployee);
+                    }
                 }
+
                 return employeeList;
             }
         }

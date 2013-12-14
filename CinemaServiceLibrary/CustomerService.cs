@@ -51,17 +51,22 @@ namespace CinemaServiceLibrary
             lock (lockThis)
             {
                 Customer serviceCustomer = new Customer();
+
                 Cinema.ModelLayer.Customer hostCustomer = new Cinema.ModelLayer.Customer();
                 hostCustomer = customerCtr.getCustomerByName(fName, lName);
 
-                serviceCustomer.CustomerFirstName = hostCustomer.CustomerFirstName;
-                serviceCustomer.CustomerLastName = hostCustomer.CustomerLastName;
-                serviceCustomer.CustomerAddress = hostCustomer.CustomerAddress;
-                serviceCustomer.CustomerCity = hostCustomer.CustomerCity;
-                serviceCustomer.CustomerEmail = hostCustomer.CustomerEmail;
-                serviceCustomer.CustomerPassword = hostCustomer.CustomerPassword;
-                serviceCustomer.CustomerPhoneNo = hostCustomer.CustomerPhoneNo;
-                serviceCustomer.CustomerUsername = hostCustomer.CustomerUsername;
+                try
+                {
+                    serviceCustomer.CustomerFirstName = hostCustomer.CustomerFirstName;
+                    serviceCustomer.CustomerLastName = hostCustomer.CustomerLastName;
+                    serviceCustomer.CustomerAddress = hostCustomer.CustomerAddress;
+                    serviceCustomer.CustomerCity = hostCustomer.CustomerCity;
+                    serviceCustomer.CustomerEmail = hostCustomer.CustomerEmail;
+                    serviceCustomer.CustomerPassword = hostCustomer.CustomerPassword;
+                    serviceCustomer.CustomerPhoneNo = hostCustomer.CustomerPhoneNo;
+                    serviceCustomer.CustomerUsername = hostCustomer.CustomerUsername;
+                }
+                catch (NullReferenceException) { }
 
                 return serviceCustomer;
             }
@@ -72,17 +77,21 @@ namespace CinemaServiceLibrary
             lock (lockThis)
             {
                 Customer serviceCustomer = new Customer();
+
                 Cinema.ModelLayer.Customer hostCustomer = new Cinema.ModelLayer.Customer();
                 hostCustomer = customerCtr.getCustomerByUsername(username);
-
-                serviceCustomer.CustomerFirstName = hostCustomer.CustomerFirstName;
-                serviceCustomer.CustomerLastName = hostCustomer.CustomerLastName;
-                serviceCustomer.CustomerAddress = hostCustomer.CustomerAddress;
-                serviceCustomer.CustomerCity = hostCustomer.CustomerCity;
-                serviceCustomer.CustomerEmail = hostCustomer.CustomerEmail;
-                serviceCustomer.CustomerPassword = hostCustomer.CustomerPassword;
-                serviceCustomer.CustomerPhoneNo = hostCustomer.CustomerPhoneNo;
-                serviceCustomer.CustomerUsername = hostCustomer.CustomerUsername;
+                try
+                {
+                    serviceCustomer.CustomerFirstName = hostCustomer.CustomerFirstName;
+                    serviceCustomer.CustomerLastName = hostCustomer.CustomerLastName;
+                    serviceCustomer.CustomerAddress = hostCustomer.CustomerAddress;
+                    serviceCustomer.CustomerCity = hostCustomer.CustomerCity;
+                    serviceCustomer.CustomerEmail = hostCustomer.CustomerEmail;
+                    serviceCustomer.CustomerPassword = hostCustomer.CustomerPassword;
+                    serviceCustomer.CustomerPhoneNo = hostCustomer.CustomerPhoneNo;
+                    serviceCustomer.CustomerUsername = hostCustomer.CustomerUsername;
+                }
+                catch (NullReferenceException){}
 
                 return serviceCustomer;
             }
@@ -92,23 +101,28 @@ namespace CinemaServiceLibrary
         {
             lock (lockThis)
             {
-                List<Cinema.ModelLayer.Customer> returnList = customerCtr.getCustomers();
                 List<Customer> customerList = new List<Customer>();
-                foreach (Cinema.ModelLayer.Customer hostCustomer in returnList)
+
+                List<Cinema.ModelLayer.Customer> returnList = customerCtr.getCustomers();
+                if(returnList.Count != 0)
                 {
-                    Customer serviceCustomer = new Customer();
+                    foreach (Cinema.ModelLayer.Customer hostCustomer in returnList)
+                    {
+                        Customer serviceCustomer = new Customer();
 
-                    serviceCustomer.CustomerFirstName = hostCustomer.CustomerFirstName;
-                    serviceCustomer.CustomerLastName = hostCustomer.CustomerLastName;
-                    serviceCustomer.CustomerAddress = hostCustomer.CustomerAddress;
-                    serviceCustomer.CustomerCity = hostCustomer.CustomerCity;
-                    serviceCustomer.CustomerEmail = hostCustomer.CustomerEmail;
-                    serviceCustomer.CustomerPassword = hostCustomer.CustomerPassword;
-                    serviceCustomer.CustomerPhoneNo = hostCustomer.CustomerPhoneNo;
-                    serviceCustomer.CustomerUsername = hostCustomer.CustomerUsername;
+                        serviceCustomer.CustomerFirstName = hostCustomer.CustomerFirstName;
+                        serviceCustomer.CustomerLastName = hostCustomer.CustomerLastName;
+                        serviceCustomer.CustomerAddress = hostCustomer.CustomerAddress;
+                        serviceCustomer.CustomerCity = hostCustomer.CustomerCity;
+                        serviceCustomer.CustomerEmail = hostCustomer.CustomerEmail;
+                        serviceCustomer.CustomerPassword = hostCustomer.CustomerPassword;
+                        serviceCustomer.CustomerPhoneNo = hostCustomer.CustomerPhoneNo;
+                        serviceCustomer.CustomerUsername = hostCustomer.CustomerUsername;
 
-                    customerList.Add(serviceCustomer);
+                        customerList.Add(serviceCustomer);
+                    }
                 }
+
                 return customerList;
             }
         }

@@ -23,12 +23,12 @@ namespace Cinema.DBLayer
             customer.CustomerAddress = dbReader["address"].ToString();
             customer.CustomerCity = dbReader["city"].ToString();
             customer.CustomerEmail = dbReader["email"].ToString();
-            customer.CustomerFirstName = dbReader["fname"].ToString();
-            customer.CustomerLastName = dbReader["lname"].ToString();
+            customer.CustomerFirstName = dbReader["fName"].ToString();
+            customer.CustomerLastName = dbReader["lName"].ToString();
             customer.CustomerPassword = dbReader["password"].ToString();
             customer.CustomerPhoneNo = dbReader["phoneNo"].ToString();
             customer.CustomerUsername = dbReader["username"].ToString();
-
+        
             return customer;
         }
 

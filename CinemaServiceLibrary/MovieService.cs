@@ -43,14 +43,18 @@ namespace CinemaServiceLibrary
             lock (lockThis)
             {
                 Movie serviceMovie = new Movie();
-                Cinema.ModelLayer.Movie hostMovie = new Cinema.ModelLayer.Movie();
 
+                Cinema.ModelLayer.Movie hostMovie = new Cinema.ModelLayer.Movie();
                 hostMovie = movieCtr.getMovieById(movieId);
-                serviceMovie.MovieId = hostMovie.MovieId;
-                serviceMovie.Name = hostMovie.Name;
-                serviceMovie.Genre = hostMovie.Genre;
-                serviceMovie.AgeLimit = hostMovie.AgeLimit;
-                serviceMovie.Length = hostMovie.Length;
+                try
+                {
+                    serviceMovie.MovieId = hostMovie.MovieId;
+                    serviceMovie.Name = hostMovie.Name;
+                    serviceMovie.Genre = hostMovie.Genre;
+                    serviceMovie.AgeLimit = hostMovie.AgeLimit;
+                    serviceMovie.Length = hostMovie.Length;
+                }
+                catch (NullReferenceException) { }
 
                 return serviceMovie;
             }
@@ -60,22 +64,24 @@ namespace CinemaServiceLibrary
         {
             lock (lockThis)
             {
-                List<Cinema.ModelLayer.Movie> returnList = movieCtr.getMovies();
                 List<Movie> movieList = new List<Movie>();
 
-                foreach (Cinema.ModelLayer.Movie cinemaMovie in returnList)
+                List<Cinema.ModelLayer.Movie> returnList = movieCtr.getMovies();
+                if (returnList.Count != 0)
                 {
-                    Movie serviceMovie = new Movie();
+                    foreach (Cinema.ModelLayer.Movie cinemaMovie in returnList)
+                    {
+                        Movie serviceMovie = new Movie();
 
-                    serviceMovie.MovieId = cinemaMovie.MovieId;
-                    serviceMovie.Name = cinemaMovie.Name;
-                    serviceMovie.Genre = cinemaMovie.Genre;
-                    serviceMovie.AgeLimit = cinemaMovie.AgeLimit;
-                    serviceMovie.Length = cinemaMovie.Length;
+                        serviceMovie.MovieId = cinemaMovie.MovieId;
+                        serviceMovie.Name = cinemaMovie.Name;
+                        serviceMovie.Genre = cinemaMovie.Genre;
+                        serviceMovie.AgeLimit = cinemaMovie.AgeLimit;
+                        serviceMovie.Length = cinemaMovie.Length;
 
-                    movieList.Add(serviceMovie);
+                        movieList.Add(serviceMovie);
+                    }
                 }
-
                 return movieList;
             }
         }
