@@ -14,30 +14,24 @@ namespace Cinema.Algorithm
         public static int getNumberOfFreeSeats(Seat[][] seats)
         {
             int count = 0;
-            int rows = seats.Length;
-
-            Parallel.For(0, rows, i =>
+            for (int i = 0; i < seats.Length; i++)
             {
                 Seat[] innerSeatArray = seats[i];
-                int columns = innerSeatArray.Length;
-                for (int j = 0; j < columns; j++)
+                for (int j = 0; j < innerSeatArray.Length; j++)
                 {
-                    if (seats[i][j].Status.Equals("E") == true)
+                    if (innerSeatArray[j].Status.Equals("E") == true)
                     {
                         count++;
                     }
                 }
-            });
-
+            }
             return count;
         }
 
         public static int getNumberOfFreeSeatsOnLeft(Seat[][] seats)
         {
             int count = 0;
-            int rows = seats.Length;
-
-            Parallel.For(0, rows, i =>
+            for (int i = 0; i < seats.Length; i++)
             {
                 Seat[] innerSeatArray = seats[i];
                 int columns = innerSeatArray.Length;
@@ -54,13 +48,12 @@ namespace Cinema.Algorithm
 
                 for (int j = 0; j < halfColumns; j++)
                 {
-                    if (seats[i][j].Status.Equals("E") == true)
+                    if (innerSeatArray[j].Status.Equals("E") == true)
                     {
                         count++;
                     }
                 }
-            });
-
+            }
             return count;
         }
 
