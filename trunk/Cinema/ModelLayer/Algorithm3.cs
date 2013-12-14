@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Cinema.ModelLayer;
 using System.Threading;
 
-namespace Cinema.Algorithm
+namespace Cinema.ModelLayer
 {
-    class Algorithm3
+    public class Algorithm3
     {
         private static int allAvailableSeats = -1;
         private static int leftAvailableSeats = -1;
@@ -20,7 +19,7 @@ namespace Cinema.Algorithm
 
         public Algorithm3() { }
 
-        public static int getNumberOfFreeSeats(Seat[][] seats)
+        private static int getNumberOfFreeSeats(Seat[][] seats)
         {
             int count = 0;
             for (int i = 0; i < seats.Length; i++)
@@ -37,7 +36,7 @@ namespace Cinema.Algorithm
             return count;
         }
 
-        public static int getNumberOfFreeSeatsOnLeft(Seat[][] seats)
+        private static int getNumberOfFreeSeatsOnLeft(Seat[][] seats)
         {
             int count = 0;
             for (int i = 0; i < seats.Length; i++)
@@ -64,7 +63,7 @@ namespace Cinema.Algorithm
             return count;
         }
 
-        public static int getNumberOfFreeSeatsOnRight(Seat[][] seats)
+        private static int getNumberOfFreeSeatsOnRight(Seat[][] seats)
         {
             int count = 0;
             int rows = seats.Length;

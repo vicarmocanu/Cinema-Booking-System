@@ -37,6 +37,9 @@ namespace CinemaServiceLibrary
 
         [OperationContract]
         List<Session> getMovieSessions(int movieId);
+
+        [OperationContract]
+        List<Seat> getSessionSeats(int sessionId);
     }
 
     [DataContract]
