@@ -136,11 +136,9 @@ namespace Cinema.Algorithm
                 //between 2 and 4 - special case, left&right
                 if (noOfWantedSeats > 1 && noOfWantedSeats < 5)
                 {
-                    int a = 0;
-                    Boolean found = false;
-                    
-                    while(a < rowNo && found != true)
+                    for (int a = 0; a < rowNo; a++)
                     {
+                        Boolean found = false;
                         if (a % 2 == 0)
                         {
                             Seat[] innerSeatArray = seats[a];
@@ -162,7 +160,7 @@ namespace Cinema.Algorithm
 
                             if (leftAvailableSeats >= noOfWantedSeats)
                             {
-                                while (x < halfColumnNo && count > 0)
+                                while (x < halfColumnNo && found!=true)
                                 {
                                     Seat first = innerSeatArray[x];
                                     Seat second = innerSeatArray[x + 1];
@@ -183,15 +181,15 @@ namespace Cinema.Algorithm
                                     else
                                     {
                                         x++;
-                                    }                                   
+                                    }
+                                    if (count == 0)
+                                    {
+                                        found = true;
+                                    }
                                 }
                                 if (count == 0)
                                 {
-                                    found = true;
-                                }
-                                else
-                                {
-                                    a++;
+                                    break;
                                 }
                             }
                             else
@@ -225,10 +223,10 @@ namespace Cinema.Algorithm
                                     {
                                         found = true;
                                     }
-                                    else
-                                    {
-                                        a++;
-                                    }
+                                }
+                                if (count == 0)
+                                {
+                                    break;
                                 }
                             }
                         }
@@ -275,14 +273,14 @@ namespace Cinema.Algorithm
                                     {
                                         x--;
                                     }
+                                    if (count == 0)
+                                    {
+                                        found = true;
+                                    }
                                 }
                                 if (count == 0)
                                 {
-                                    found = true;
-                                }
-                                else
-                                {
-                                    a++;
+                                    break;
                                 }
                             }
                             else
@@ -311,15 +309,15 @@ namespace Cinema.Algorithm
                                         {
                                             y--;
                                         }
-                                    }
+                                    } 
                                     if (count == 0)
                                     {
                                         found = true;
                                     }
-                                    else
-                                    {
-                                        a++;
-                                    }
+                                }
+                                if (count == 0)
+                                {
+                                    break;
                                 }
                             }
                         }
@@ -350,7 +348,7 @@ namespace Cinema.Algorithm
                             int x = 0;
                             int y = halfColumnNo;
 
-                            if (leftAvailableSeats >= noOfWantedSeats)
+                            if (leftAvailableSeats >= count)
                             {
                                 while (x < halfColumnNo && count > 0)
                                 {
@@ -377,9 +375,9 @@ namespace Cinema.Algorithm
                             }
                             else
                             {
-                                if (rightAvailableSeats >= noOfWantedSeats)
+                                if (rightAvailableSeats >= count)
                                 {
-                                    while (y < columnNo && count != 0)
+                                    while (y < columnNo && count > 0)
                                     {
                                         Seat seat = innerSeatArray[y];
                                         if (seat.Status.Equals("E") == true)
@@ -422,7 +420,7 @@ namespace Cinema.Algorithm
                             int x = halfColumnNo - 1;
                             int y = columnNo - 1;
 
-                            if (leftAvailableSeats >= noOfWantedSeats)
+                            if (leftAvailableSeats >= count)
                             {
                                 while (x > -1 && count > 0)
                                 {
@@ -449,7 +447,7 @@ namespace Cinema.Algorithm
                             }
                             else
                             {
-                                if (rightAvailableSeats >= noOfWantedSeats)
+                                if (rightAvailableSeats >= count)
                                 {
                                     while (y > halfColumnNo - 1 && count > 0)
                                     {
