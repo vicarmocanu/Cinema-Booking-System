@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="Algorithm\Algorithm.cs" />
     <Compile Include="Algorithm\Algorithm2.cs" />
-    <Compile Include="Algorithm\Algorithm3.cs" />
+    <Compile Include="ModelLayer\Algorithm3.cs" />
     <Compile Include="ControlLayer\CustomerCtr.cs" />
     <Compile Include="ControlLayer\EmployeeCtr.cs" />
     <Compile Include="ControlLayer\MovieCtr.cs" />
