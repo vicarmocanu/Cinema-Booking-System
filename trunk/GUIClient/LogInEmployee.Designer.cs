@@ -34,6 +34,7 @@
             this.userNameTxt = new System.Windows.Forms.TextBox();
             this.passTxt = new System.Windows.Forms.TextBox();
             this.chkPass = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // logInBtn
@@ -89,11 +90,21 @@
             this.chkPass.UseVisualStyleBackColor = true;
             this.chkPass.CheckedChanged += new System.EventHandler(this.chkPass_CheckedChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Employee Zone";
+            // 
             // LogInEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(262, 182);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.chkPass);
             this.Controls.Add(this.passTxt);
             this.Controls.Add(this.userNameTxt);
@@ -115,5 +126,6 @@
         private System.Windows.Forms.TextBox userNameTxt;
         private System.Windows.Forms.TextBox passTxt;
         private System.Windows.Forms.CheckBox chkPass;
+        private System.Windows.Forms.Label label1;
     }
 }
