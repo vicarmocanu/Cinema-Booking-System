@@ -11,7 +11,7 @@ namespace AlgorithmTesting
     {
         static int[][] seats = new int[5][];
         static int count = -1;
-        static int noOfWantedSeats = 4;
+        static int noOfWantedSeats = 6;
         static Object _lock = new Object();
         static Boolean liniarFound = false;
         static volatile Boolean parallelFound = false;
@@ -77,8 +77,8 @@ namespace AlgorithmTesting
         {
             int i = Convert.ToInt32(obj);
             int result = -1;
-            parallelFound = false;
-            count = noOfWantedSeats;            
+            //parallelFound = false;
+            //count = noOfWantedSeats;            
             int[] innerArray = seats[i];
             int columns = innerArray.Length;
             int j = 0;
@@ -109,7 +109,7 @@ namespace AlgorithmTesting
 
             Thread[] threads = new Thread[noOfThreads];
 
-
+            count = noOfWantedSeats; 
             for (int i = 0; i < rows; i++)
             {
                 threads[i] = new Thread(PartialSearch);
