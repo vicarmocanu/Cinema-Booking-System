@@ -42,11 +42,15 @@ namespace CinemaServiceLibrary
             lock (lockThis)
             {
                 Room serviceRoom = new Room();
+
                 Cinema.ModelLayer.Room hostRoom = new Cinema.ModelLayer.Room();
                 hostRoom = roomCtr.getRoomByNumber(number);
-
-                serviceRoom.RoomNumber = hostRoom.RoomNumber;
-                serviceRoom.NumberOfSeats = hostRoom.NumberOfSeats;
+                try
+                {
+                    serviceRoom.RoomNumber = hostRoom.RoomNumber;
+                    serviceRoom.NumberOfSeats = hostRoom.NumberOfSeats;
+                }
+                catch (NullReferenceException) { }
 
                 return serviceRoom;
             }
@@ -56,17 +60,22 @@ namespace CinemaServiceLibrary
         {
             lock (lockThis)
             {
-                List<Cinema.ModelLayer.Room> returnList = roomCtr.getRooms();
                 List<Room> roomList = new List<Room>();
-                foreach (Cinema.ModelLayer.Room hostRoom in returnList)
+
+                List<Cinema.ModelLayer.Room> returnList = roomCtr.getRooms();
+                if (returnList.Count != 0)
                 {
-                    Room serviceRoom = new Room();
+                    foreach (Cinema.ModelLayer.Room hostRoom in returnList)
+                    {
+                        Room serviceRoom = new Room();
 
-                    serviceRoom.RoomNumber = hostRoom.RoomNumber;
-                    serviceRoom.NumberOfSeats = hostRoom.NumberOfSeats;
+                        serviceRoom.RoomNumber = hostRoom.RoomNumber;
+                        serviceRoom.NumberOfSeats = hostRoom.NumberOfSeats;
 
-                    roomList.Add(serviceRoom);
+                        roomList.Add(serviceRoom);
+                    }
                 }
+
                 return roomList;
             }
         }

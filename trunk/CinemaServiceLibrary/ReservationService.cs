@@ -64,17 +64,21 @@ namespace CinemaServiceLibrary
                 Session serviceSession = new Session();
 
                 Cinema.ModelLayer.Reservation hostReservation = reservationCtr.getReservationById(reservationId);
-                serviceCustomer.CustomerFirstName = hostReservation.Customer.CustomerFirstName;
-                serviceCustomer.CustomerLastName = hostReservation.Customer.CustomerLastName;
-                serviceSession.SessionId = hostReservation.Session.SessionId;
+                try
+                {
+                    serviceCustomer.CustomerFirstName = hostReservation.Customer.CustomerFirstName;
+                    serviceCustomer.CustomerLastName = hostReservation.Customer.CustomerLastName;
+                    serviceSession.SessionId = hostReservation.Session.SessionId;
 
-                serviceReservation.Customer = serviceCustomer;
-                serviceReservation.Date = hostReservation.Date;
-                serviceReservation.NoOfSeats = hostReservation.NoOfSeats;
-                serviceReservation.Price = hostReservation.Price;
-                serviceReservation.ReservationId = hostReservation.ReservationId;
-                serviceReservation.Session = serviceSession;
-                serviceReservation.Status = hostReservation.Status;
+                    serviceReservation.Customer = serviceCustomer;
+                    serviceReservation.Date = hostReservation.Date;
+                    serviceReservation.NoOfSeats = hostReservation.NoOfSeats;
+                    serviceReservation.Price = hostReservation.Price;
+                    serviceReservation.ReservationId = hostReservation.ReservationId;
+                    serviceReservation.Session = serviceSession;
+                    serviceReservation.Status = hostReservation.Status;
+                }
+                catch (NullReferenceException) { }
 
                 return serviceReservation;
             }
@@ -84,27 +88,31 @@ namespace CinemaServiceLibrary
         {
             lock (lockThis)
             {
-                List<Cinema.ModelLayer.Reservation> returnList = reservationCtr.getAllReservations();
                 List<Reservation> reservationList = new List<Reservation>();
-                foreach (Cinema.ModelLayer.Reservation hostReservation in returnList)
+
+                List<Cinema.ModelLayer.Reservation> returnList = reservationCtr.getAllReservations();
+                if (returnList.Count != 0)
                 {
-                    Reservation serviceReservation = new Reservation();
-                    Customer serviceCustomer = new Customer();
-                    Session serviceSession = new Session();
+                    foreach (Cinema.ModelLayer.Reservation hostReservation in returnList)
+                    {
+                        Reservation serviceReservation = new Reservation();
+                        Customer serviceCustomer = new Customer();
+                        Session serviceSession = new Session();
 
-                    serviceCustomer.CustomerFirstName = hostReservation.Customer.CustomerFirstName;
-                    serviceCustomer.CustomerLastName = hostReservation.Customer.CustomerLastName;
-                    serviceSession.SessionId = hostReservation.Session.SessionId;
+                        serviceCustomer.CustomerFirstName = hostReservation.Customer.CustomerFirstName;
+                        serviceCustomer.CustomerLastName = hostReservation.Customer.CustomerLastName;
+                        serviceSession.SessionId = hostReservation.Session.SessionId;
 
-                    serviceReservation.Customer = serviceCustomer;
-                    serviceReservation.Date = hostReservation.Date;
-                    serviceReservation.NoOfSeats = hostReservation.NoOfSeats;
-                    serviceReservation.Price = hostReservation.Price;
-                    serviceReservation.ReservationId = hostReservation.ReservationId;
-                    serviceReservation.Session = serviceSession;
-                    serviceReservation.Status = hostReservation.Status;
+                        serviceReservation.Customer = serviceCustomer;
+                        serviceReservation.Date = hostReservation.Date;
+                        serviceReservation.NoOfSeats = hostReservation.NoOfSeats;
+                        serviceReservation.Price = hostReservation.Price;
+                        serviceReservation.ReservationId = hostReservation.ReservationId;
+                        serviceReservation.Session = serviceSession;
+                        serviceReservation.Status = hostReservation.Status;
 
-                    reservationList.Add(serviceReservation);
+                        reservationList.Add(serviceReservation);
+                    }
                 }
                 return reservationList;
             }
@@ -114,28 +122,33 @@ namespace CinemaServiceLibrary
         {
             lock (lockThis)
             {
-                List<Cinema.ModelLayer.Reservation> returnList = reservationCtr.getCustomerReservations(custFName, custLName);
                 List<Reservation> reservationList = new List<Reservation>();
-                foreach (Cinema.ModelLayer.Reservation hostReservation in returnList)
+
+                List<Cinema.ModelLayer.Reservation> returnList = reservationCtr.getCustomerReservations(custFName, custLName);
+                if(returnList.Count != 0 )
                 {
-                    Reservation serviceReservation = new Reservation();
-                    Customer serviceCustomer = new Customer();
-                    Session serviceSession = new Session();
+                    foreach (Cinema.ModelLayer.Reservation hostReservation in returnList)
+                    {
+                        Reservation serviceReservation = new Reservation();
+                        Customer serviceCustomer = new Customer();
+                        Session serviceSession = new Session();
 
-                    serviceCustomer.CustomerFirstName = hostReservation.Customer.CustomerFirstName;
-                    serviceCustomer.CustomerLastName = hostReservation.Customer.CustomerLastName;
-                    serviceSession.SessionId = hostReservation.Session.SessionId;
+                        serviceCustomer.CustomerFirstName = hostReservation.Customer.CustomerFirstName;
+                        serviceCustomer.CustomerLastName = hostReservation.Customer.CustomerLastName;
+                        serviceSession.SessionId = hostReservation.Session.SessionId;
 
-                    serviceReservation.Customer = serviceCustomer;
-                    serviceReservation.Date = hostReservation.Date;
-                    serviceReservation.NoOfSeats = hostReservation.NoOfSeats;
-                    serviceReservation.Price = hostReservation.Price;
-                    serviceReservation.ReservationId = hostReservation.ReservationId;
-                    serviceReservation.Session = serviceSession;
-                    serviceReservation.Status = hostReservation.Status;
+                        serviceReservation.Customer = serviceCustomer;
+                        serviceReservation.Date = hostReservation.Date;
+                        serviceReservation.NoOfSeats = hostReservation.NoOfSeats;
+                        serviceReservation.Price = hostReservation.Price;
+                        serviceReservation.ReservationId = hostReservation.ReservationId;
+                        serviceReservation.Session = serviceSession;
+                        serviceReservation.Status = hostReservation.Status;
 
-                    reservationList.Add(serviceReservation);
+                        reservationList.Add(serviceReservation);
+                    }
                 }
+
                 return reservationList;
             }
         }
@@ -144,22 +157,27 @@ namespace CinemaServiceLibrary
         {
             lock (lockThis)
             {
-                List<Cinema.ModelLayer.Seat> returnList = reservationCtr.getSeatsFromReservation(reservationId);
                 List<Seat> seatList = new List<Seat>();
-                foreach (Cinema.ModelLayer.Seat hostSeat in returnList)
+
+                List<Cinema.ModelLayer.Seat> returnList = reservationCtr.getSeatsFromReservation(reservationId);
+                if (returnList.Count != 0)
                 {
-                    Seat serviceSeat = new Seat();
-                    Room serviceRoom = new Room();
+                    foreach (Cinema.ModelLayer.Seat hostSeat in returnList)
+                    {
+                        Seat serviceSeat = new Seat();
+                        Room serviceRoom = new Room();
 
-                    serviceSeat.RowNumber = hostSeat.RowNumber;
-                    serviceSeat.SeatId = hostSeat.SeatId;
-                    serviceSeat.SeatNumber = hostSeat.SeatNumber;
-                    serviceSeat.Status = hostSeat.Status;
-                    serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
-                    serviceSeat.Room = serviceRoom;
+                        serviceSeat.RowNumber = hostSeat.RowNumber;
+                        serviceSeat.SeatId = hostSeat.SeatId;
+                        serviceSeat.SeatNumber = hostSeat.SeatNumber;
+                        serviceSeat.Status = hostSeat.Status;
+                        serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
+                        serviceSeat.Room = serviceRoom;
 
-                    seatList.Add(serviceSeat);
+                        seatList.Add(serviceSeat);
+                    }
                 }
+                
                 return seatList;
             }
         }
@@ -181,6 +199,30 @@ namespace CinemaServiceLibrary
                     results = reservationCtr.insertReservedSeats(reservationId, returnList);
                 }
                 return results;
+            }
+        }
+
+        public int deleteReservation(int reservationId)
+        {
+            lock (lockThis)
+            {
+                return reservationCtr.deleteReservation(reservationId);
+            }
+        }
+
+        public int deleteReservedSeat(int reservationId, int seatId)
+        {
+            lock (lockThis)
+            {
+                return reservationCtr.deleteReservedSeat(reservationId, seatId);
+            }
+        }
+
+        public int deleteSeatsFromReservation(int reservationId)
+        {
+            lock (lockThis)
+            {
+                return reservationCtr.deleteSeatsFromReservation(reservationId);
             }
         }
     }

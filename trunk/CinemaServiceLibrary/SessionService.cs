@@ -73,17 +73,20 @@ namespace CinemaServiceLibrary
                 Movie serviceMovie = new Movie();
 
                 hostSession = sessionCtr.getSessionById(sessionId);
+                try
+                {
+                    serviceRoom.RoomNumber = hostSession.Room.RoomNumber;
+                    serviceMovie.MovieId = hostSession.Movie.MovieId;
 
-                serviceRoom.RoomNumber = hostSession.Room.RoomNumber;
-                serviceMovie.MovieId = hostSession.Movie.MovieId;
-
-                serviceSession.SessionId = hostSession.SessionId;
-                serviceSession.Movie = serviceMovie;
-                serviceSession.Room = serviceRoom;
-                serviceSession.Price = hostSession.Price;
-                serviceSession.Date = hostSession.Date;
-                serviceSession.EnterTime = hostSession.EnterTime;
-                serviceSession.ExitTime = hostSession.ExitTime;
+                    serviceSession.SessionId = hostSession.SessionId;
+                    serviceSession.Movie = serviceMovie;
+                    serviceSession.Room = serviceRoom;
+                    serviceSession.Price = hostSession.Price;
+                    serviceSession.Date = hostSession.Date;
+                    serviceSession.EnterTime = hostSession.EnterTime;
+                    serviceSession.ExitTime = hostSession.ExitTime;
+                }
+                catch (NullReferenceException) { }
 
                 return serviceSession;
             }
@@ -93,26 +96,31 @@ namespace CinemaServiceLibrary
         {
             lock (lockThis)
             {
-                List<Cinema.ModelLayer.Session> returnList = sessionCtr.getSessions();
                 List<Session> sessionList = new List<Session>();
-                foreach (Cinema.ModelLayer.Session hostSession in returnList)
+
+                List<Cinema.ModelLayer.Session> returnList = sessionCtr.getSessions();
+                
+                if(returnList.Count != 0)
                 {
-                    Session serviceSession = new Session();
-                    Room serviceRoom = new Room();
-                    Movie serviceMovie = new Movie();
+                    foreach (Cinema.ModelLayer.Session hostSession in returnList)
+                    {
+                        Session serviceSession = new Session();
+                        Room serviceRoom = new Room();
+                        Movie serviceMovie = new Movie();
 
-                    serviceRoom.RoomNumber = hostSession.Room.RoomNumber;
-                    serviceMovie.MovieId = hostSession.Movie.MovieId;
+                        serviceRoom.RoomNumber = hostSession.Room.RoomNumber;
+                        serviceMovie.MovieId = hostSession.Movie.MovieId;
 
-                    serviceSession.SessionId = hostSession.SessionId;
-                    serviceSession.Movie = serviceMovie;
-                    serviceSession.Room = serviceRoom;
-                    serviceSession.Price = hostSession.Price;
-                    serviceSession.Date = hostSession.Date;
-                    serviceSession.EnterTime = hostSession.EnterTime;
-                    serviceSession.ExitTime = hostSession.ExitTime;
+                        serviceSession.SessionId = hostSession.SessionId;
+                        serviceSession.Movie = serviceMovie;
+                        serviceSession.Room = serviceRoom;
+                        serviceSession.Price = hostSession.Price;
+                        serviceSession.Date = hostSession.Date;
+                        serviceSession.EnterTime = hostSession.EnterTime;
+                        serviceSession.ExitTime = hostSession.ExitTime;
 
-                    sessionList.Add(serviceSession);
+                        sessionList.Add(serviceSession);
+                    }
                 }
                 return sessionList;
             }
@@ -122,26 +130,30 @@ namespace CinemaServiceLibrary
         {
             lock (lockThis)
             {
-                List<Cinema.ModelLayer.Session> returnList = sessionCtr.getMovieSessions(movieId);
                 List<Session> sessionList = new List<Session>();
-                foreach (Cinema.ModelLayer.Session hostSession in returnList)
+
+                List<Cinema.ModelLayer.Session> returnList = sessionCtr.getMovieSessions(movieId);
+                if(returnList.Count != 0)
                 {
-                    Session serviceSession = new Session();
-                    Room serviceRoom = new Room();
-                    Movie serviceMovie = new Movie();
+                    foreach (Cinema.ModelLayer.Session hostSession in returnList)
+                    {
+                        Session serviceSession = new Session();
+                        Room serviceRoom = new Room();
+                        Movie serviceMovie = new Movie();
 
-                    serviceRoom.RoomNumber = hostSession.Room.RoomNumber;
-                    serviceMovie.MovieId = hostSession.Movie.MovieId;
+                        serviceRoom.RoomNumber = hostSession.Room.RoomNumber;
+                        serviceMovie.MovieId = hostSession.Movie.MovieId;
 
-                    serviceSession.SessionId = hostSession.SessionId;
-                    serviceSession.Movie = serviceMovie;
-                    serviceSession.Room = serviceRoom;
-                    serviceSession.Price = hostSession.Price;
-                    serviceSession.Date = hostSession.Date;
-                    serviceSession.EnterTime = hostSession.EnterTime;
-                    serviceSession.ExitTime = hostSession.ExitTime;
+                        serviceSession.SessionId = hostSession.SessionId;
+                        serviceSession.Movie = serviceMovie;
+                        serviceSession.Room = serviceRoom;
+                        serviceSession.Price = hostSession.Price;
+                        serviceSession.Date = hostSession.Date;
+                        serviceSession.EnterTime = hostSession.EnterTime;
+                        serviceSession.ExitTime = hostSession.ExitTime;
 
-                    sessionList.Add(serviceSession);
+                        sessionList.Add(serviceSession);
+                    }
                 }
                 return sessionList;
             }
