@@ -9,7 +9,7 @@ namespace AlgorithmTesting
 {
     class Program
     {
-        static int[][] seats = new int[5][];
+        static int[][] seats; //= new int[5][];
         static int count = -1;
         static int noOfWantedSeats = 6;
         static Object _lock = new Object();
@@ -20,11 +20,13 @@ namespace AlgorithmTesting
 
         static void Main(string[] args)
         {
-            seats[0] = new int[10] { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 };
-            seats[1] = new int[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            seats[2] = new int[10] { 0, 1, 1, 1, 0, 0, 0, 0, 0, 0 };
-            seats[3] = new int[10] { 0, 0, 0, 0, 1, 1, 0, 1, 0, 1 };
-            seats[4] = new int[10] { 0, 0, 0, 0, 1, 0, 1, 0, 1, 0 };            
+            int[][] receivedSeats = new int[5][];
+            receivedSeats[0] = new int[10] { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 };
+            receivedSeats[1] = new int[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            receivedSeats[2] = new int[10] { 0, 1, 1, 1, 0, 0, 0, 0, 0, 0 };
+            receivedSeats[3] = new int[10] { 0, 0, 0, 0, 1, 1, 0, 1, 0, 1 };
+            receivedSeats[4] = new int[10] { 0, 0, 0, 0, 1, 0, 1, 0, 1, 0 };
+            seats = receivedSeats;
 
             System.Console.WriteLine("Start?");
             System.Console.ReadLine();
