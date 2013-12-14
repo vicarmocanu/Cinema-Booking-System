@@ -12,6 +12,8 @@ namespace CinemaServiceLibrary
     {
         private System.Object lockThis = new System.Object();
         private static ReservationCtr reservationCtr = ReservationCtr.getInstance();
+        private static AlgorithmCtr algortithmCtr = AlgorithmCtr.getInstance();
+        private static SessionCtr sessionCtr = SessionCtr.getInstance();
 
         public int insertReservation(String firstName, String lastName, int sessionId, int numberOfSeats, double price, String status)
         {
@@ -159,6 +161,26 @@ namespace CinemaServiceLibrary
                     seatList.Add(serviceSeat);
                 }
                 return seatList;
+            }
+        }
+
+        public List<int> insertReservedSeats(int reservationId, int sessionId, int noOfWantedSeats)
+        {
+            lock (lockThis)
+            {
+                List<int> results = new List<int>();
+                List<Cinema.ModelLayer.Seat> returnList = new List<Cinema.ModelLayer.Seat>();
+
+                returnList = algortithmCtr.getAdjancentSeats(sessionCtr.getSeatsForJaggedArray(sessionId), noOfWantedSeats);
+                if (returnList.Count == 0)
+                {
+                    results.Add(-2);
+                }
+                else
+                {
+                    results = reservationCtr.insertReservedSeats(reservationId, returnList);
+                }
+                return results;
             }
         }
     }

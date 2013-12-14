@@ -21,11 +21,11 @@ namespace AlgorithmTesting
         static void Main(string[] args)
         {
             int[][] receivedSeats = new int[5][];
-            receivedSeats[0] = new int[10] { 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 };
+            receivedSeats[0] = new int[10] { 2, 1, 1, 1, 1, 1, 0, 0, 0, 0 };
             receivedSeats[1] = new int[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            receivedSeats[2] = new int[10] { 0, 1, 1, 1, 0, 0, 0, 0, 0, 0 };
-            receivedSeats[3] = new int[10] { 0, 0, 0, 0, 1, 1, 0, 1, 0, 1 };
-            receivedSeats[4] = new int[10] { 0, 0, 0, 0, 1, 0, 1, 0, 1, 0 };
+            receivedSeats[2] = new int[10] { 0, 2, 1, 1, 0, 0, 0, 0, 0, 0 };
+            receivedSeats[3] = new int[10] { 0, 0, 0, 0, 2, 1, 0, 1, 0, 1 };
+            receivedSeats[4] = new int[10] { 0, 0, 0, 0, 1, 0, 1, 0, 2, 0 };
             seats = receivedSeats;
 
             System.Console.WriteLine("Start?");
@@ -37,6 +37,12 @@ namespace AlgorithmTesting
             System.Console.WriteLine("Paralel");
             System.Console.ReadLine();
             ThreadSearch();
+            System.Console.ReadLine();
+            List<int> list = seats.SelectMany(x => x).ToList();
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.Write(list[i] + " ");
+            }
             System.Console.ReadLine();
         }
 

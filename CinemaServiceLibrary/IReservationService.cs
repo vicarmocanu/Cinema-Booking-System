@@ -36,6 +36,9 @@ namespace CinemaServiceLibrary
 
         [OperationContract]
         List<Seat> getSeatsFromReservation(int reservationId);
+
+        [OperationContract]
+        List<int> insertReservedSeats(int reservationId, int sessionId, int noOfWantedSeats);
     }
 
     [DataContract]

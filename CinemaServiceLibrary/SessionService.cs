@@ -146,5 +146,34 @@ namespace CinemaServiceLibrary
                 return sessionList;
             }
         }
+
+        public List<Seat> getSessionSeats(int sessionId)
+        {
+            lock (lockThis)
+            {
+                List<Seat> seatList = new List<Seat>();
+                List<Cinema.ModelLayer.Seat> returnList = new List<Cinema.ModelLayer.Seat>();
+                returnList = sessionCtr.getSeatsForJaggedArray(sessionId).SelectMany(x => x).ToList();
+                if (returnList.Count != 0)
+                {
+                    foreach (Cinema.ModelLayer.Seat hostSeat in returnList)
+                    {
+                        Seat serviceSeat = new Seat();
+                        Room serviceRoom = new Room();
+
+                        serviceSeat.SeatId = hostSeat.SeatId;
+                        serviceSeat.SeatNumber = hostSeat.SeatNumber;
+                        serviceSeat.RowNumber = hostSeat.RowNumber;
+                        serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
+                        serviceSeat.Room = serviceRoom;
+                        serviceSeat.Status = hostSeat.Status;
+
+                        seatList.Add(serviceSeat);
+                    }
+                }
+
+                return seatList;
+            }
+        }
     }
 }
