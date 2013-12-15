@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2431f72c-0cde-4eb4-bd4b-8ea8d7fb6eb6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/ReservationService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="ef8de690-e937-423e-884e-99c1ae804a55" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/ReservationService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="63926e5a-a38e-41c7-8b52-b749150b63d9" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/ReservationService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="56e45e57-c751-47ac-9982-bd13f8b7b810" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/ReservationService/mex" />
+    <MetadataFile FileName="CinemaServiceLibrary.xsd" MetadataType="Schema" ID="261cb295-2792-46be-ab0e-aaa43174bc6a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/ReservationService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="53882a93-a84d-4db9-b1f4-bf7c390dd913" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/ReservationService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

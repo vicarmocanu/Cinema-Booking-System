@@ -65,6 +65,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\MovieSrv\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SessionSrv\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CustomerClient.resx">
       <DependentUpon>CustomerClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +112,38 @@
     <None Include="Service References\CustomerSrv\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\MovieSrv\CinemaServiceLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MovieSrv\GUIClient.MovieSrv.Movie.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MovieSrv\service.wsdl" />
+    <None Include="Service References\MovieSrv\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MovieSrv\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionSrv\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionSrv\CinemaServiceLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionSrv\GUIClient.SessionSrv.Seat.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SessionSrv\GUIClient.SessionSrv.Session.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SessionSrv\service.wsdl" />
+    <None Include="Service References\SessionSrv\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionSrv\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -111,6 +153,8 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CustomerSrv\" />
+    <WCFMetadataStorage Include="Service References\MovieSrv\" />
+    <WCFMetadataStorage Include="Service References\SessionSrv\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\CustomerSrv\configuration91.svcinfo" />
@@ -120,6 +164,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\CustomerSrv\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MovieSrv\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MovieSrv\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MovieSrv\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SessionSrv\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SessionSrv\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SessionSrv\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -60,11 +60,44 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\CustomerSrv\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\EmployeeSrv\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\MovieSrv\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ReservationSrv\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RoomSrv\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SeatSrv\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SessionSrv\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="EmployeeClient.resx">
+      <DependentUpon>EmployeeClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,6 +119,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\CustomerSrv\CinemaServiceLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerSrv\GUIEmployee.CustomerSrv.Customer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CustomerSrv\service.wsdl" />
+    <None Include="Service References\CustomerSrv\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerSrv\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\EmployeeSrv\CinemaServiceLibrary.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -99,6 +145,86 @@
     <None Include="Service References\EmployeeSrv\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\MovieSrv\CinemaServiceLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MovieSrv\GUIEmployee.MovieSrv.Movie.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MovieSrv\service.wsdl" />
+    <None Include="Service References\MovieSrv\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MovieSrv\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReservationSrv\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReservationSrv\CinemaServiceLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReservationSrv\GUIEmployee.ReservationSrv.Reservation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReservationSrv\GUIEmployee.ReservationSrv.Seat.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReservationSrv\service.wsdl" />
+    <None Include="Service References\ReservationSrv\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReservationSrv\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RoomSrv\CinemaServiceLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RoomSrv\GUIEmployee.RoomSrv.Room.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RoomSrv\service.wsdl" />
+    <None Include="Service References\RoomSrv\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RoomSrv\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SeatSrv\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SeatSrv\CinemaServiceLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SeatSrv\GUIEmployee.SeatSrv.Seat.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SeatSrv\service.wsdl" />
+    <None Include="Service References\SeatSrv\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SeatSrv\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionSrv\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionSrv\CinemaServiceLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionSrv\GUIEmployee.SessionSrv.Seat.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SessionSrv\GUIEmployee.SessionSrv.Session.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SessionSrv\service.wsdl" />
+    <None Include="Service References\SessionSrv\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionSrv\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -107,7 +233,13 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CustomerSrv\" />
     <WCFMetadataStorage Include="Service References\EmployeeSrv\" />
+    <WCFMetadataStorage Include="Service References\MovieSrv\" />
+    <WCFMetadataStorage Include="Service References\ReservationSrv\" />
+    <WCFMetadataStorage Include="Service References\RoomSrv\" />
+    <WCFMetadataStorage Include="Service References\SeatSrv\" />
+    <WCFMetadataStorage Include="Service References\SessionSrv\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\EmployeeSrv\configuration91.svcinfo" />
@@ -117,6 +249,78 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\EmployeeSrv\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SessionSrv\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SessionSrv\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SessionSrv\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SeatSrv\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SeatSrv\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SeatSrv\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RoomSrv\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RoomSrv\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RoomSrv\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReservationSrv\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReservationSrv\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReservationSrv\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MovieSrv\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MovieSrv\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MovieSrv\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CustomerSrv\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CustomerSrv\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CustomerSrv\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

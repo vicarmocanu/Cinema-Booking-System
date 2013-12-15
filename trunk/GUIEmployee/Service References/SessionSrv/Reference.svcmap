@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1584f516-f874-41fc-889c-f96ca1f9b0b9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/SessionService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="ba21c18e-10c4-4c1c-af54-58a1cd1e55ab" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/SessionService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="2bf03b97-50e1-4e55-b6c0-819cf3e33575" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/SessionService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="2a341615-f696-4233-9d5a-044718fc1e4b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/SessionService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="59df0c18-bc89-4924-a25a-55f93d6918fe" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/SessionService/mex" />
+    <MetadataFile FileName="CinemaServiceLibrary.xsd" MetadataType="Schema" ID="b4aa4042-121d-4f8a-a7c7-199a0369ab1b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/SessionService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
