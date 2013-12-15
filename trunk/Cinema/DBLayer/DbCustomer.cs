@@ -49,12 +49,9 @@ namespace Cinema.DBLayer
                 "','" + customer.CustomerPhoneNo + "')";
             try
             {
-                lock (obj)
-                {
-                    SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                    result = cmd.ExecuteNonQuery();
-                    AccessDbSQLClient.Close();
-                }
+                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                result = cmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
             }
             catch (SqlException)
             { }
