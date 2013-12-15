@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUIClient
+namespace GUIEmployee
 {
-    public partial class CustomerClient : Form
+    public partial class EmployeeClient : Form
     {
-        public CustomerClient()
+        public EmployeeClient()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
