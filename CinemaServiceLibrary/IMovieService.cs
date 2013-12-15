@@ -23,6 +23,9 @@ namespace CinemaServiceLibrary
         Movie getMovieById(int movieId);
 
         [OperationContract]
+        Movie getMovieByName(String name);
+
+        [OperationContract]
         List<Movie> getMovies();
     }
 

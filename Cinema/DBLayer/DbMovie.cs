@@ -106,6 +106,31 @@ namespace Cinema.DBLayer
             return movie;
         }
 
+        //get a movie - name
+        public Movie getMovieByName(String name)
+        {
+            string sqlQuery = "SELECT * FROM Movie WHERE name= '" + name + "'";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            IDataReader dbReader;
+            dbReader = dbCmd.ExecuteReader();
+
+            Movie movie = new Movie();
+
+            if (dbReader.Read())
+            {
+                movie = createMovie(dbReader);
+            }
+            else
+            {
+                movie = null;
+            }
+
+            AccessDbSQLClient.Close();
+
+            return movie;
+        }
+
         //update a movie - id
         public int updateMovie(Movie mov)
         {

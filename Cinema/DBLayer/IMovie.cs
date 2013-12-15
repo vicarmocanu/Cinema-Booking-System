@@ -13,6 +13,7 @@ namespace Cinema.DBLayer
         int insertMovie(Movie mov);
         List<Movie> getMovies();
         Movie getMovieByID(int id);
+        Movie getMovieByName(String name);
         int updateMovie(Movie mov);
         int deleteMovie(int movieId);
     }

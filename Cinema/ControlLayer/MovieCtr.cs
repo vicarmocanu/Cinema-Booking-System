@@ -52,6 +52,12 @@ namespace Cinema.ControlLayer
             return _dbMovie.getMovieByID(id);
         }
 
+        public Movie getMovieByName(String name)
+        {
+            IMovie _dbMovie = new DbMovie();
+            return _dbMovie.getMovieByName(name);
+        }
+
         public int updateMovie(int movieId, String name, String genre, int ageLimit, int length)
         {
             IMovie _dbMovie = new DbMovie();
