@@ -354,7 +354,6 @@ namespace Cinema.DBLayer
             catch (SqlException)
             { }
             return result;
-        }
-            
+        }            
     }
 }
