@@ -30,9 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblNrSeats = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.ReserveBtn = new System.Windows.Forms.Button();
+            this.ReserveAutoBtn = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.OkSesBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -40,7 +41,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ManualRzvBtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -58,10 +61,13 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ManualRzvBtn);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.lblNrSeats);
             this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.ReserveBtn);
+            this.tabPage1.Controls.Add(this.ReserveAutoBtn);
             this.tabPage1.Controls.Add(this.dataGridView2);
             this.tabPage1.Controls.Add(this.OkSesBtn);
             this.tabPage1.Controls.Add(this.dataGridView1);
@@ -76,6 +82,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Number Seats";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(184, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblNrSeats
             // 
@@ -93,14 +109,14 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 7;
             // 
-            // ReserveBtn
+            // ReserveAutoBtn
             // 
-            this.ReserveBtn.Location = new System.Drawing.Point(1094, 20);
-            this.ReserveBtn.Name = "ReserveBtn";
-            this.ReserveBtn.Size = new System.Drawing.Size(75, 23);
-            this.ReserveBtn.TabIndex = 1;
-            this.ReserveBtn.Text = "Reserve";
-            this.ReserveBtn.UseVisualStyleBackColor = true;
+            this.ReserveAutoBtn.Location = new System.Drawing.Point(1094, 20);
+            this.ReserveAutoBtn.Name = "ReserveAutoBtn";
+            this.ReserveAutoBtn.Size = new System.Drawing.Size(75, 23);
+            this.ReserveAutoBtn.TabIndex = 1;
+            this.ReserveAutoBtn.Text = "AutomaticRzv";
+            this.ReserveAutoBtn.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
@@ -130,7 +146,7 @@
             // 
             // OkMovBtn
             // 
-            this.OkMovBtn.Location = new System.Drawing.Point(743, 94);
+            this.OkMovBtn.Location = new System.Drawing.Point(830, 121);
             this.OkMovBtn.Name = "OkMovBtn";
             this.OkMovBtn.Size = new System.Drawing.Size(35, 21);
             this.OkMovBtn.TabIndex = 3;
@@ -152,7 +168,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(49, 33);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(648, 82);
+            this.listBox1.Size = new System.Drawing.Size(129, 82);
             this.listBox1.TabIndex = 1;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -166,15 +182,32 @@
             this.label1.Text = "Movie";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button1
+            // label3
             // 
-            this.button1.Location = new System.Drawing.Point(703, 33);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(790, 124);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Seats";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(918, 61);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Rezervation";
+            // 
+            // ManualRzvBtn
+            // 
+            this.ManualRzvBtn.Location = new System.Drawing.Point(988, 56);
+            this.ManualRzvBtn.Name = "ManualRzvBtn";
+            this.ManualRzvBtn.Size = new System.Drawing.Size(75, 23);
+            this.ManualRzvBtn.TabIndex = 12;
+            this.ManualRzvBtn.Text = "ManualRzv";
+            this.ManualRzvBtn.UseVisualStyleBackColor = true;
             // 
             // CustomerClient
             // 
@@ -206,8 +239,11 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button ReserveBtn;
+        private System.Windows.Forms.Button ReserveAutoBtn;
         private System.Windows.Forms.Label lblNrSeats;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ManualRzvBtn;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }
