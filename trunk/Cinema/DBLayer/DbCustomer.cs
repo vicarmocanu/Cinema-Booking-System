@@ -14,6 +14,7 @@ namespace Cinema.DBLayer
     class DbCustomer : ICustomer
     {
         private static SqlCommand dbCmd = null;
+        private static Object obj = new Object();
 
         //build a customer object based on the db reader
         private static Customer createCustomer(IDataReader dbReader)
@@ -48,9 +49,12 @@ namespace Cinema.DBLayer
                 "','" + customer.CustomerPhoneNo + "')";
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
-                AccessDbSQLClient.Close();
+                lock (obj)
+                {
+                    SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                    result = cmd.ExecuteNonQuery();
+                    AccessDbSQLClient.Close();
+                }
             }
             catch (SqlException)
             { }
