@@ -27,6 +27,10 @@ namespace Cinema.DBLayer
 
         public static SqlCommand GetDbCommand(String sqlQuery)
         {
+            if (dbConnection.State.ToString().Equals("Open") == true)
+            {
+                Close();
+            }
             Open();
             if (dbCommand == null)
             {
