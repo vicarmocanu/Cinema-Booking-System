@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="64a8b45b-6dad-4c7a-8680-94cfafdee805" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9c4f725d-a138-4b4c-b281-b231215fe558" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/MovieService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="2e0131e8-b65c-48ca-9386-2cb9487a6119" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/MovieService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="f338a5d8-45b2-41a6-8d91-11d1a1984b6d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/MovieService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="a6c75377-9ff8-4a89-bfff-8576fd7b0653" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/MovieService/mex" />
-    <MetadataFile FileName="CinemaServiceLibrary.xsd" MetadataType="Schema" ID="e34c1d84-5d28-4bb3-b457-5eae072a6a91" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/MovieService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="633ef9ba-89b7-44cf-84f2-aada7bf44114" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/MovieService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="a1b360ed-5484-4ca2-be73-d21d524a0b82" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/MovieService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="98660556-4e8c-458e-84bc-6f0ee12b9a98" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/MovieService/mex" />
+    <MetadataFile FileName="CinemaServiceLibrary.xsd" MetadataType="Schema" ID="7eb682e2-7aa7-48c4-bbe6-faf10d6d367f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/MovieService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

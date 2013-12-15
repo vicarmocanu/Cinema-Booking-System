@@ -150,6 +150,12 @@ namespace GUIClient.MovieSrv {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/getMovieById", ReplyAction="http://tempuri.org/IMovieService/getMovieByIdResponse")]
         System.Threading.Tasks.Task<GUIClient.MovieSrv.Movie> getMovieByIdAsync(int movieId);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/getMovieByName", ReplyAction="http://tempuri.org/IMovieService/getMovieByNameResponse")]
+        GUIClient.MovieSrv.Movie getMovieByName(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/getMovieByName", ReplyAction="http://tempuri.org/IMovieService/getMovieByNameResponse")]
+        System.Threading.Tasks.Task<GUIClient.MovieSrv.Movie> getMovieByNameAsync(string name);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMovieService/getMovies", ReplyAction="http://tempuri.org/IMovieService/getMoviesResponse")]
         GUIClient.MovieSrv.Movie[] getMovies();
         
@@ -214,6 +220,14 @@ namespace GUIClient.MovieSrv {
         
         public System.Threading.Tasks.Task<GUIClient.MovieSrv.Movie> getMovieByIdAsync(int movieId) {
             return base.Channel.getMovieByIdAsync(movieId);
+        }
+        
+        public GUIClient.MovieSrv.Movie getMovieByName(string name) {
+            return base.Channel.getMovieByName(name);
+        }
+        
+        public System.Threading.Tasks.Task<GUIClient.MovieSrv.Movie> getMovieByNameAsync(string name) {
+            return base.Channel.getMovieByNameAsync(name);
         }
         
         public GUIClient.MovieSrv.Movie[] getMovies() {

@@ -46,11 +46,5 @@ namespace CinemaServiceLibrary
             set { numberOfSeats = value; }
         }
 
-        [DataMemberAttribute]
-        public int number
-        {
-            get { return number; }
-            set { number = value; }
-        }
     }
 }
