@@ -511,7 +511,7 @@ namespace Cinema.Algorithm
                             }
                         }
                         //check left
-                        if (returnList.Count == 0) ;
+                        if (returnList.Count == 0) 
                         {
                             rowCounter = halfRows;
                             Boolean rowFind = false;
