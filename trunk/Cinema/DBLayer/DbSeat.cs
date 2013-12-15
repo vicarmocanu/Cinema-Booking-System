@@ -42,41 +42,48 @@ namespace Cinema.DBLayer
 
             Room room = new Room();
             room = dbRoom.getRoomByNumber(roomNumber);
-            int requiredNoOfSeats = room.NumberOfSeats;
-
+            int requiredNoOfSeats = -1;
             int noOfSeats = rows * columns;
-
-            if (noOfSeats == requiredNoOfSeats)
+            try
             {
-                for (int i = 1; i <= rows; i++)
+                requiredNoOfSeats = room.NumberOfSeats;
+            }
+            catch (NullReferenceException) { }
+
+            if (requiredNoOfSeats != -1)
+            {
+                if (noOfSeats == requiredNoOfSeats)
                 {
-                    for (int j = 1; j <= columns; j++)
+                    for (int i = 1; i <= rows; i++)
                     {
-                        int result = -1;
-
-                        max = GetMax.getMax(attrib, table);
-                        id = max + 1;
-
-                        int seatNumber = (i * columns) - (columns - j);
-                        string sqlQuery = "INSERT INTO Seat VALUES " +
-                            "('" + id +
-                            "','" + seatNumber +
-                            "','" + roomNumber +
-                            "','" + i + "')";
-                        try
+                        for (int j = 1; j <= columns; j++)
                         {
-                            SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                            result = cmd.ExecuteNonQuery();
-                            AccessDbSQLClient.Close();
-                        }
-                        catch (SqlException)
-                        { }
+                            int result = -1;
+                            max = GetMax.getMax(attrib, table);
+                            id = max + 1;
 
-                        results.Add(result);
+                            int seatNumber = (i * columns) - (columns - j);
+                            string sqlQuery = "INSERT INTO Seat VALUES " +
+                                "('" + id +
+                                "','" + seatNumber +
+                                "','" + roomNumber +
+                                "','" + i + "')";
+                            try
+                            {
+                                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                                result = cmd.ExecuteNonQuery();
+                                AccessDbSQLClient.Close();
+                            }
+                            catch (SqlException) { }
+
+                            results.Add(result);
+                        }
                     }
                 }
+                else { }
             }
-            else { }
+            else
+            { }
             return results;
         }
 

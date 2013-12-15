@@ -116,6 +116,7 @@ namespace Cinema.DBLayer
             return result;
         }
 
+        //delete an employee - username
         public int deleteEmployeeByUsername(String username)
         {
             int result = -1;
