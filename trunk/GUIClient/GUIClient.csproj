@@ -70,6 +70,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\RoomSrv\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\SessionSrv\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -125,6 +130,19 @@
     <None Include="Service References\MovieSrv\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\RoomSrv\CinemaServiceLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RoomSrv\GUIClient.RoomSrv.Room.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RoomSrv\service.wsdl" />
+    <None Include="Service References\RoomSrv\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RoomSrv\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\SessionSrv\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -154,6 +172,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CustomerSrv\" />
     <WCFMetadataStorage Include="Service References\MovieSrv\" />
+    <WCFMetadataStorage Include="Service References\RoomSrv\" />
     <WCFMetadataStorage Include="Service References\SessionSrv\" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +183,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\CustomerSrv\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SessionSrv\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SessionSrv\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SessionSrv\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -181,13 +212,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SessionSrv\configuration91.svcinfo" />
+    <None Include="Service References\RoomSrv\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SessionSrv\configuration.svcinfo" />
+    <None Include="Service References\RoomSrv\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\SessionSrv\Reference.svcmap">
+    <None Include="Service References\RoomSrv\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
