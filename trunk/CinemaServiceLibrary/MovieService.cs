@@ -60,6 +60,25 @@ namespace CinemaServiceLibrary
             }
         }
 
+        public Movie getMovieByName(String name)
+        {
+            Movie serviceMovie = new Movie();
+
+            Cinema.ModelLayer.Movie hostMovie = new Cinema.ModelLayer.Movie();
+            hostMovie = movieCtr.getMovieByName(name);
+            try
+            {
+                serviceMovie.MovieId = hostMovie.MovieId;
+                serviceMovie.Name = hostMovie.Name;
+                serviceMovie.Genre = hostMovie.Genre;
+                serviceMovie.AgeLimit = hostMovie.AgeLimit;
+                serviceMovie.Length = hostMovie.Length;
+            }
+            catch (NullReferenceException) { }
+
+            return serviceMovie;
+        }
+
         public List<Movie> getMovies()
         {
             lock (lockThis)
