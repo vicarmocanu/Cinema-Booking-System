@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SessionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/CinemaServiceLibrary" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISessionService_insertSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertSession" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_insertSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_updateSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateSession" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_updateSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_insertSeatSchedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertSeatSchedule" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_insertSeatSchedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertSeatScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_updateSeatSchedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateSeatSchedule" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_updateSeatSchedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateSeatScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_deleteSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteSession" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_deleteSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_deleteSeatsFromSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteSeatsFromSession" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_deleteSeatsFromSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteSeatsFromSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_getSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSession" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_getSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_getSessions_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSessions" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_getSessions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_getMovieSessions_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMovieSessions" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_getMovieSessions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMovieSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_getSessionSeats_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSessionSeats" />
+  </wsdl:message>
+  <wsdl:message name="ISessionService_getSessionSeats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSessionSeatsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISessionService">
+    <wsdl:operation name="insertSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionService/insertSession" message="tns:ISessionService_insertSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionService/insertSessionResponse" message="tns:ISessionService_insertSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionService/updateSession" message="tns:ISessionService_updateSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionService/updateSessionResponse" message="tns:ISessionService_updateSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertSeatSchedule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionService/insertSeatSchedule" message="tns:ISessionService_insertSeatSchedule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionService/insertSeatScheduleResponse" message="tns:ISessionService_insertSeatSchedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSeatSchedule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionService/updateSeatSchedule" message="tns:ISessionService_updateSeatSchedule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionService/updateSeatScheduleResponse" message="tns:ISessionService_updateSeatSchedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionService/deleteSession" message="tns:ISessionService_deleteSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionService/deleteSessionResponse" message="tns:ISessionService_deleteSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteSeatsFromSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionService/deleteSeatsFromSession" message="tns:ISessionService_deleteSeatsFromSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionService/deleteSeatsFromSessionResponse" message="tns:ISessionService_deleteSeatsFromSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionService/getSession" message="tns:ISessionService_getSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionService/getSessionResponse" message="tns:ISessionService_getSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSessions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionService/getSessions" message="tns:ISessionService_getSessions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionService/getSessionsResponse" message="tns:ISessionService_getSessions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMovieSessions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionService/getMovieSessions" message="tns:ISessionService_getMovieSessions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionService/getMovieSessionsResponse" message="tns:ISessionService_getMovieSessions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSessionSeats">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionService/getSessionSeats" message="tns:ISessionService_getSessionSeats_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionService/getSessionSeatsResponse" message="tns:ISessionService_getSessionSeats_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISessionService" type="tns:ISessionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="insertSession">
+      <soap:operation soapAction="http://tempuri.org/ISessionService/insertSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSession">
+      <soap:operation soapAction="http://tempuri.org/ISessionService/updateSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertSeatSchedule">
+      <soap:operation soapAction="http://tempuri.org/ISessionService/insertSeatSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSeatSchedule">
+      <soap:operation soapAction="http://tempuri.org/ISessionService/updateSeatSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSession">
+      <soap:operation soapAction="http://tempuri.org/ISessionService/deleteSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSeatsFromSession">
+      <soap:operation soapAction="http://tempuri.org/ISessionService/deleteSeatsFromSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSession">
+      <soap:operation soapAction="http://tempuri.org/ISessionService/getSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSessions">
+      <soap:operation soapAction="http://tempuri.org/ISessionService/getSessions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMovieSessions">
+      <soap:operation soapAction="http://tempuri.org/ISessionService/getMovieSessions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSessionSeats">
+      <soap:operation soapAction="http://tempuri.org/ISessionService/getSessionSeats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SessionService">
+    <wsdl:port name="BasicHttpBinding_ISessionService" binding="tns:BasicHttpBinding_ISessionService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/SessionService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

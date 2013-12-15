@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ReservationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/CinemaServiceLibrary" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IReservationService_insertReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertReservation" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_insertReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_updateReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateReservation" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_updateReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_insertReservedSeat_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertReservedSeat" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_insertReservedSeat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertReservedSeatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_updateReservedSeat_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateReservedSeat" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_updateReservedSeat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateReservedSeatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_updateSeatsFromReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateSeatsFromReservation" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_updateSeatsFromReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateSeatsFromReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_getReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:getReservation" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_getReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_getReservations_InputMessage">
+    <wsdl:part name="parameters" element="tns:getReservations" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_getReservations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getReservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_getCustomerReservations_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCustomerReservations" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_getCustomerReservations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCustomerReservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_getSeatsFromReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSeatsFromReservation" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_getSeatsFromReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSeatsFromReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_insertReservedSeats_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertReservedSeats" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_insertReservedSeats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertReservedSeatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_deleteReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteReservation" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_deleteReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_deleteReservedSeat_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteReservedSeat" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_deleteReservedSeat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteReservedSeatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_deleteSeatsFromReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteSeatsFromReservation" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_deleteSeatsFromReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteSeatsFromReservationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IReservationService">
+    <wsdl:operation name="insertReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/insertReservation" message="tns:IReservationService_insertReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/insertReservationResponse" message="tns:IReservationService_insertReservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/updateReservation" message="tns:IReservationService_updateReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/updateReservationResponse" message="tns:IReservationService_updateReservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertReservedSeat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/insertReservedSeat" message="tns:IReservationService_insertReservedSeat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/insertReservedSeatResponse" message="tns:IReservationService_insertReservedSeat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateReservedSeat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/updateReservedSeat" message="tns:IReservationService_updateReservedSeat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/updateReservedSeatResponse" message="tns:IReservationService_updateReservedSeat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSeatsFromReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/updateSeatsFromReservation" message="tns:IReservationService_updateSeatsFromReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/updateSeatsFromReservationResponse" message="tns:IReservationService_updateSeatsFromReservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/getReservation" message="tns:IReservationService_getReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/getReservationResponse" message="tns:IReservationService_getReservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getReservations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/getReservations" message="tns:IReservationService_getReservations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/getReservationsResponse" message="tns:IReservationService_getReservations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerReservations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/getCustomerReservations" message="tns:IReservationService_getCustomerReservations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/getCustomerReservationsResponse" message="tns:IReservationService_getCustomerReservations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSeatsFromReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/getSeatsFromReservation" message="tns:IReservationService_getSeatsFromReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/getSeatsFromReservationResponse" message="tns:IReservationService_getSeatsFromReservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertReservedSeats">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/insertReservedSeats" message="tns:IReservationService_insertReservedSeats_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/insertReservedSeatsResponse" message="tns:IReservationService_insertReservedSeats_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/deleteReservation" message="tns:IReservationService_deleteReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/deleteReservationResponse" message="tns:IReservationService_deleteReservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteReservedSeat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/deleteReservedSeat" message="tns:IReservationService_deleteReservedSeat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/deleteReservedSeatResponse" message="tns:IReservationService_deleteReservedSeat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteSeatsFromReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/deleteSeatsFromReservation" message="tns:IReservationService_deleteSeatsFromReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/deleteSeatsFromReservationResponse" message="tns:IReservationService_deleteSeatsFromReservation_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IReservationService" type="tns:IReservationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="insertReservation">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/insertReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateReservation">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/updateReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertReservedSeat">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/insertReservedSeat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateReservedSeat">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/updateReservedSeat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSeatsFromReservation">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/updateSeatsFromReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReservation">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/getReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReservations">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/getReservations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerReservations">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/getCustomerReservations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeatsFromReservation">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/getSeatsFromReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertReservedSeats">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/insertReservedSeats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteReservation">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/deleteReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteReservedSeat">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/deleteReservedSeat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSeatsFromReservation">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/deleteSeatsFromReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReservationService">
+    <wsdl:port name="BasicHttpBinding_IReservationService" binding="tns:BasicHttpBinding_IReservationService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/CinemaServiceLibrary/ReservationService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
