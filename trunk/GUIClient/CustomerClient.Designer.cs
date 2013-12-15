@@ -40,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -57,6 +58,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.lblNrSeats);
             this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.ReserveBtn);
@@ -128,12 +130,13 @@
             // 
             // OkMovBtn
             // 
-            this.OkMovBtn.Location = new System.Drawing.Point(177, 6);
+            this.OkMovBtn.Location = new System.Drawing.Point(743, 94);
             this.OkMovBtn.Name = "OkMovBtn";
             this.OkMovBtn.Size = new System.Drawing.Size(35, 21);
             this.OkMovBtn.TabIndex = 3;
             this.OkMovBtn.Text = "Ok";
             this.OkMovBtn.UseVisualStyleBackColor = true;
+            this.OkMovBtn.Click += new System.EventHandler(this.OkMovBtn_Click);
             // 
             // label2
             // 
@@ -162,6 +165,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Movie";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(703, 33);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CustomerClient
             // 
@@ -195,5 +208,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button ReserveBtn;
         private System.Windows.Forms.Label lblNrSeats;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -15,7 +15,6 @@ namespace GUIClient
         public CustomerClient()
         {
             InitializeComponent();
-           
         }
 
         private static MovieSrv.IMovieService movService = new MovieSrv.MovieServiceClient();
@@ -39,6 +38,25 @@ namespace GUIClient
 
         private void CustomerClient_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void OkMovBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MovieSrv.Movie[] returnList = movService.getMovies();
+            String showString = "default";
+            List<string> showList = new List<string>();
+            foreach(MovieSrv.Movie movie in returnList)
+            {
+                showString = movie.MovieId + " " + movie.Name;
+                showList.Add(showString);
+            }
+            listBox1.DataSource = showList;
 
         }
 
