@@ -21,6 +21,7 @@ namespace GUIClient
         private static MovieSrv.IMovieService movService = new MovieSrv.MovieServiceClient();
         private static SessionSrv.ISessionService sessionService = new SessionSrv.SessionServiceClient();
         private static RoomSrv.IRoomService roomService = new RoomSrv.RoomServiceClient();
+        private static SeatSrv.ISeatService seatService = new SeatSrv.SeatServiceClient();
         private string movieName;
 
         private void label1_Click(object sender, EventArgs e)
@@ -37,10 +38,7 @@ namespace GUIClient
 
 
 
-        private void gridSession_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
+       
 
         private void CustomerClient_Load(object sender, EventArgs e)
         {
@@ -106,19 +104,53 @@ namespace GUIClient
             }
         }
 
-        private void loadSeatGrid()
-        { 
-        
+        private void loadSeatGrid(int sessionId)
+        {
+
+            gridSeats.ColumnCount = 4;
+            gridSeats.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gridSeats.MultiSelect = false;
+            gridSeats.Columns[0].HeaderCell.Value = "SeatId";
+            gridSeats.Columns[1].HeaderCell.Value = "SeatNumber";
+            gridSeats.Columns[2].HeaderCell.Value = "RowNumber";
+            gridSeats.Columns[3].HeaderCell.Value = "Status";
+
+            SessionSrv.Seat[] returnList = sessionService.getSessionSeats(sessionId);
+
+            foreach (SessionSrv.Seat seat in returnList)
+            {
+
+                gridSeats.Rows.Add(new object[] { seat.SeatId, seat.SeatNumber, seat.RowNumber, seat.Status });
+            }
+            
         }
 
         private void OkSesBtn_Click(object sender, EventArgs e)
         {
+            gridSeats.Rows.Clear();
+            try
+            {
+                string data = gridSession.SelectedRows[0].Cells[0].Value.ToString();
 
+                int sessionId = Convert.ToInt32(data);
+                loadSeatGrid(sessionId);
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("You have selected a no seat session.");
+            }
+           
         }
 
         private void gridSeats_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void gridSession_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            gridSeats.Rows.Clear();
+            
         }
 
         

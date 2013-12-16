@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ManualRzvBtn = new System.Windows.Forms.Button();
@@ -45,12 +44,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.sessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSession)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sessionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -153,13 +150,13 @@
             this.gridSeats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridSeats.Location = new System.Drawing.Point(804, 148);
             this.gridSeats.Name = "gridSeats";
-            this.gridSeats.Size = new System.Drawing.Size(444, 284);
+            this.gridSeats.Size = new System.Drawing.Size(444, 342);
             this.gridSeats.TabIndex = 6;
             this.gridSeats.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridSeats_CellContentClick);
             // 
             // OkSesBtn
             // 
-            this.OkSesBtn.Location = new System.Drawing.Point(85, 119);
+            this.OkSesBtn.Location = new System.Drawing.Point(632, 119);
             this.OkSesBtn.Name = "OkSesBtn";
             this.OkSesBtn.Size = new System.Drawing.Size(45, 23);
             this.OkSesBtn.TabIndex = 5;
@@ -173,9 +170,9 @@
             this.gridSession.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridSession.Location = new System.Drawing.Point(33, 148);
             this.gridSession.Name = "gridSession";
-            this.gridSession.Size = new System.Drawing.Size(644, 336);
+            this.gridSession.Size = new System.Drawing.Size(644, 345);
             this.gridSession.TabIndex = 4;
-            this.gridSession.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridSession_CellContentClick);
+            this.gridSession.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridSession_CellClick);
             // 
             // OkMovBtn
             // 
@@ -190,7 +187,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 124);
+            this.label2.Location = new System.Drawing.Point(577, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 2;
@@ -215,10 +212,6 @@
             this.label1.Text = "Movie";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // sessionBindingSource
-            // 
-            this.sessionBindingSource.DataSource = typeof(GUIClient.SessionSrv.Session);
-            // 
             // CustomerClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,7 +226,6 @@
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSession)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sessionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,6 +248,5 @@
         private System.Windows.Forms.Button ManualRzvBtn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.BindingSource sessionBindingSource;
     }
 }
