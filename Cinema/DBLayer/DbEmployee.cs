@@ -58,10 +58,9 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Employee employee = new Employee();
-
             while (dbReader.Read())
             {
+                Employee employee = new Employee();
                 employee = createEmployee(dbReader);
                 returnList.Add(employee);
             }
@@ -80,6 +79,7 @@ namespace Cinema.DBLayer
             dbReader = dbCmd.ExecuteReader();
 
             Employee employee = new Employee();
+
             if (dbReader.Read())
             {
                 employee = createEmployee(dbReader);

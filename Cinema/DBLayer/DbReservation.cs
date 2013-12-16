@@ -154,11 +154,10 @@ namespace Cinema.DBLayer
 
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
-
-            Reservation reservation = new Reservation();
-
+            
             while (dbReader.Read())
             {
+                Reservation reservation = new Reservation();
                 reservation = createReservation(dbReader);
                 returnList.Add(reservation);
             }
@@ -201,10 +200,11 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Seat seat = new Seat();
+            
 
             while (dbReader.Read())
             {
+                Seat seat = new Seat();
                 Room room = new Room();
 
                 seat.SeatId = Convert.ToInt32(dbReader["seatId"].ToString());

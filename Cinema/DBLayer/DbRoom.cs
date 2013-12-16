@@ -60,11 +60,10 @@ namespace Cinema.DBLayer
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
-
-            Room room = new Room();
-
+            
             while (dbReader.Read())
             {
+                Room room = new Room();
                 room = createRoom(dbReader);
                 returnList.Add(room);
             }

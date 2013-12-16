@@ -17,7 +17,7 @@ namespace ConsoleTesting
 
         static void Main(string[] args)
         {
-
+            /*
             System.Console.WriteLine("Prepare for customer retrieval.");
             System.Console.ReadLine();
             System.Console.WriteLine("userName= ");
@@ -65,6 +65,7 @@ namespace ConsoleTesting
             int result = customerService.insertCustomer(fName, lName, city, address, email, phoneNo, userName, password);
             System.Console.WriteLine("result= " + result);
             System.Console.ReadLine();
+            */
 
 
             System.Console.WriteLine("Prepare for room seat matrix insertion.");

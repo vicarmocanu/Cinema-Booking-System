@@ -124,10 +124,9 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Seat seat = new Seat();
-
             while (dbReader.Read())
             {
+                Seat seat = new Seat();
                 seat = createSeat(dbReader);
                 returnList.Add(seat);
             }
@@ -146,11 +145,10 @@ namespace Cinema.DBLayer
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
-
-            Seat seat = new Seat();
-
+            
             while (dbReader.Read())
             {
+                Seat seat = new Seat();
                 seat = createSeat(dbReader);
                 returnList.Add(seat);
             }
