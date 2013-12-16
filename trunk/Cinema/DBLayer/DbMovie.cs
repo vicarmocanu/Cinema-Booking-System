@@ -68,10 +68,9 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Movie mov = new Movie();
-
             while (dbReader.Read())
             {
+                Movie mov = new Movie();
                 mov = createMovie(dbReader);
                 returnList.Add(mov);
             }

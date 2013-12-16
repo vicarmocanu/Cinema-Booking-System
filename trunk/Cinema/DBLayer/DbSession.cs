@@ -99,8 +99,10 @@ namespace Cinema.DBLayer
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
-
-            count = Convert.ToInt32(dbReader["count"].ToString());
+            if (dbReader.Read())
+            {
+                count = Convert.ToInt32(dbReader["count"].ToString());
+            }
 
             AccessDbSQLClient.Close();
 
@@ -147,8 +149,8 @@ namespace Cinema.DBLayer
             while (dbReader.Read())
             {
                 Room room = new Room();
-
                 Seat scheduledSeat = new Seat();
+
                 scheduledSeat.SeatId = Convert.ToInt32(dbReader["seatId"].ToString());
                 scheduledSeat.SeatNumber = Convert.ToInt32(dbReader["seatNumber"].ToString());
                 scheduledSeat.RowNumber = Convert.ToInt32(dbReader["rowNumber"].ToString());
@@ -176,10 +178,9 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Session session = new Session();
-
             while (dbReader.Read())
             {
+                Session session = new Session();
                 Movie movie = new Movie();
                 Room room = new Room();
                 
@@ -214,8 +215,6 @@ namespace Cinema.DBLayer
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
-
-           
 
             while (dbReader.Read())
             {

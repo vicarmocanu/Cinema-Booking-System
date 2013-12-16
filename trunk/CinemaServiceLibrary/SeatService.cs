@@ -14,9 +14,7 @@ namespace CinemaServiceLibrary
         private System.Object lockThis = new System.Object();
         private static SeatCtr seatCtr = SeatCtr.getInstance();
         private static SessionCtr sessionCtr = SessionCtr.getInstance();
-
-
-
+        
         public int insertSeat(int seatNumber, int rowNumber, int roomNumber)           
         {
             lock (lockThis)
@@ -148,8 +146,6 @@ namespace CinemaServiceLibrary
 
                 return seatList;
             }
-        }
-
-       
+        }       
     }
 }

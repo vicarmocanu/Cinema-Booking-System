@@ -28,7 +28,7 @@ namespace Cinema.DBLayer
             customer.CustomerLastName = dbReader["lName"].ToString();
             customer.CustomerPassword = dbReader["password"].ToString();
             customer.CustomerPhoneNo = dbReader["phoneNo"].ToString();
-            customer.CustomerUsername = dbReader["username"].ToString();
+            customer.CustomerUsername = dbReader["userName"].ToString();
         
             return customer;
         }
@@ -69,10 +69,9 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            Customer customer = new Customer();
-
             while (dbReader.Read())
             {
+                Customer customer = new Customer();
                 customer = createCustomer(dbReader);
                 returnList.Add(customer);
             }
@@ -137,7 +136,7 @@ namespace Cinema.DBLayer
             int result = -1;
 
             string sqlQuery = "UPDATE Customer SET " +
-                "username='" + customer.CustomerUsername + "', " +
+                "userName='" + customer.CustomerUsername + "', " +
                 "city='" + customer.CustomerCity + "', " +
                 "address='" + customer.CustomerAddress + "', " +
                 "email='" + customer.CustomerEmail + "', " +

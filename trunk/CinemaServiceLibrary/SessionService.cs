@@ -33,9 +33,18 @@ namespace CinemaServiceLibrary
         {
             lock (lockThis)
             {
+                List<int> returns = new List<int>();
                 SeatCtr seatCtr = SeatCtr.getInstance();
                 List<Cinema.ModelLayer.Seat> returnList = seatCtr.getRoomSeats(roomNumber);
-                return sessionCtr.insertSeatSchedule(sessionId, returnList);
+                if (returnList.Count != 0)
+                {
+                    returns = sessionCtr.insertSeatSchedule(sessionId, returnList);
+                }
+                else
+                {
+                    returns.Add(-2);
+                }
+                return returns;
             }
         }
 
@@ -187,6 +196,5 @@ namespace CinemaServiceLibrary
                 return seatList;
             }
         }
-
     }
 }
