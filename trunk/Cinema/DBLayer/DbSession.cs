@@ -78,9 +78,10 @@ namespace Cinema.DBLayer
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
-
-            count = Convert.ToInt32(dbReader["rowNumber"].ToString());
-
+            if (dbReader.Read())
+            {
+                count = Convert.ToInt32(dbReader["rowNumber"].ToString());
+            }
             AccessDbSQLClient.Close();
 
             return count;

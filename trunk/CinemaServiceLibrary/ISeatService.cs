@@ -36,6 +36,8 @@ namespace CinemaServiceLibrary
 
         [OperationContract]
         List<Seat> getRoomSeats(int roomNumber);
+
+
     }
     
     [DataContract]
@@ -75,6 +77,7 @@ namespace CinemaServiceLibrary
             set { room = value; }
         }
         
+        [DataMemberAttribute]
         public String Status
         {
             get { return status; }
