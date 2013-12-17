@@ -231,19 +231,25 @@ namespace CinemaServiceLibrary
             lock (lockThis)
             {
                 List<int> results = new List<int>();
-                int result = -2;
-                result = reservationCtr.insertReservation(firstName, lastName, sessionId, numberOfSeats, price, status) + 3;
+                
+                int result = -1;
+                result = reservationCtr.insertReservation(firstName, lastName, sessionId, numberOfSeats, price, status) ;
                 List<Cinema.ModelLayer.Seat> returnList = new List<Cinema.ModelLayer.Seat>();
 
                 returnList = algortithmCtr.getAdjancentSeats(sessionCtr.getSeatsForJaggedArray(sessionId), numberOfSeats);
 
                 if (returnList.Count == 0)
                 {
-                    results.Add(-2);
+                    results.Add(-1);
                 }
                 else
                 {
-                    results = reservationCtr.trustedInsertReservedSeats(returnList);
+                    reservationCtr.trustedInsertReservedSeats(returnList);
+                    foreach (Cinema.ModelLayer.Seat hostSeat in returnList)
+                    {
+                        sessionCtr.updateSeatSchedule(sessionId, hostSeat.SeatId, "O");
+                        results.Add(hostSeat.SeatNumber);
+                    }
 
                 }
 
