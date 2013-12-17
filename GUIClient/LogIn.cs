@@ -13,6 +13,7 @@ namespace GUIClient
     public partial class LogIn : Form
     {
         private static LogIn instance = null;
+        int failure = 0;
 
         public static LogIn getInstance()
         {
@@ -28,12 +29,6 @@ namespace GUIClient
         public LogIn()
         {
             InitializeComponent();
-
-        }
-
-        private void LogIn_Load(object sender, EventArgs e)
-        {
-           
 
         }
 
@@ -62,7 +57,6 @@ namespace GUIClient
                 actualPassword = customer.CustomerPassword;
                 customerFName = customer.CustomerFirstName;
                 customerLName = customer.CustomerLastName;
-
             }
             catch(NullReferenceException)
             { 
@@ -70,20 +64,34 @@ namespace GUIClient
             }
 
 
-           
 
-            if(password.Equals(actualPassword)== true)
+
+            if (password.Equals(actualPassword) == true)
             {
                 MessageBox.Show("Welcome " + username + "!");
-                
+
                 CustomerClient custClient = new CustomerClient();
                 custClient.CustomerFName = customerFName;
                 custClient.CustomerLName = customerLName;
                 this.Hide();
-                CustomerClient.getInstance().ShowDialog();
+                custClient.ShowDialog();
                 this.Close();
-                
-            }                          
-        }       
+
+            }
+            else
+            {
+                if (failure == 2)
+                {
+                    MessageBox.Show("Come again later");
+                    Application.Exit();
+                }
+                MessageBox.Show("UserName or Password was incorect");
+                userNameTxt.Text = "";
+                passTxt.Text = "";
+                failure++;
+            }
+        }
+
+
     }
 }
