@@ -16,6 +16,7 @@ namespace Cinema.ModelLayer
         static volatile Boolean parallelFound = false;
         private static List<Seat> returnList;
         private static Seat[][] seats;
+        private static int parallelNoOfSeats = -1;
 
         public Algorithm3() { }
 
@@ -316,6 +317,7 @@ namespace Cinema.ModelLayer
                 {
                     parallelFound = false;
                     generalCount = noOfWantedSeats;
+                    parallelNoOfSeats = noOfWantedSeats;
                     int noOfThreads = rowNo;
                     Thread[] threads = new Thread[noOfThreads];
                     for (int i = 0; i < noOfThreads; i++)
@@ -356,7 +358,7 @@ namespace Cinema.ModelLayer
                 int x = 0;
                 int y = halfColumnNo;
                 
-                if (leftAvailableSeats >= generalCount)
+                if (leftAvailableSeats >= parallelNoOfSeats)
                 {
                     while (x < halfColumnNo && parallelFound != true)
                     {
@@ -382,7 +384,7 @@ namespace Cinema.ModelLayer
                 }
                 else
                 {
-                    if (rightAvailableSeats >= generalCount)
+                    if (rightAvailableSeats >= parallelNoOfSeats)
                     {
                         while (y < columnNo && parallelFound != true)
                         {
@@ -424,7 +426,7 @@ namespace Cinema.ModelLayer
                 int x = halfColumnNo - 1;
                 int y = columnNo - 1;
 
-                if (leftAvailableSeats >= generalCount)
+                if (leftAvailableSeats >= parallelNoOfSeats)
                 {
                     while (x > -1 && parallelFound != true)
                     {
@@ -451,7 +453,7 @@ namespace Cinema.ModelLayer
                 }
                 else
                 {
-                    if (rightAvailableSeats >= generalCount)
+                    if (rightAvailableSeats >= parallelNoOfSeats)
                     {
                         while (y > halfColumnNo - 1 && parallelFound != true)
                         {
