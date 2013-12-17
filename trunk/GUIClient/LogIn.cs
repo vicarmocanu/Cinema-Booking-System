@@ -80,7 +80,7 @@ namespace GUIClient
                 custClient.CustomerFName = customerFName;
                 custClient.CustomerLName = customerLName;
                 this.Hide();
-                custClient.ShowDialog();
+                CustomerClient.getInstance().ShowDialog();
                 this.Close();
                 
             }                          

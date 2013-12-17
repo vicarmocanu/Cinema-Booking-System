@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblLogOut = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblNrSeats = new System.Windows.Forms.Label();
             this.noOfSeatsTxt = new System.Windows.Forms.TextBox();
@@ -41,7 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblLogOut = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeats)).BeginInit();
@@ -78,6 +78,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Number Seats";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // lblLogOut
+            // 
+            this.lblLogOut.AutoSize = true;
+            this.lblLogOut.Location = new System.Drawing.Point(1055, 3);
+            this.lblLogOut.Name = "lblLogOut";
+            this.lblLogOut.Size = new System.Drawing.Size(42, 13);
+            this.lblLogOut.TabIndex = 10;
+            this.lblLogOut.Text = "LogOut";
+            this.lblLogOut.Click += new System.EventHandler(this.lblLogOut_Click);
             // 
             // label3
             // 
@@ -178,16 +189,6 @@
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Movie";
-            // 
-            // lblLogOut
-            // 
-            this.lblLogOut.AutoSize = true;
-            this.lblLogOut.Location = new System.Drawing.Point(1055, 3);
-            this.lblLogOut.Name = "lblLogOut";
-            this.lblLogOut.Size = new System.Drawing.Size(35, 13);
-            this.lblLogOut.TabIndex = 10;
-            this.lblLogOut.Text = "label4";
-            this.lblLogOut.Click += new System.EventHandler(this.lblLogOut_Click);
             // 
             // CustomerClient
             // 

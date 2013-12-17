@@ -53,12 +53,9 @@ namespace GUIClient
             set { customerLName = value; }
         }
 
-
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             movieName = listBox1.SelectedItem.ToString();
-            
-
         }
 
         private void CustomerClient_Load(object sender, EventArgs e)
@@ -68,23 +65,17 @@ namespace GUIClient
 
         private void OkMovBtn_Click(object sender, EventArgs e)
         {
-
             gridSession.Rows.Clear();
             MovieSrv.Movie mov = new MovieSrv.Movie();
             mov = movService.getMovieByName(movieName);
 
             int movieId = mov.MovieId;
+
             loadSessionGrid(movieId);
-
-
-
         }
-
-        
 
         private void loadList()
         {
-
             MovieSrv.Movie[] returnList = movService.getMovies();
             String showString = "default";
             List<string> showList = new List<string>();
@@ -109,8 +100,7 @@ namespace GUIClient
             gridSession.Columns[5].HeaderCell.Value = "Price";
 
             SessionSrv.Session[] returnList = sessionService.getMovieSessions(movieId);
-            
-           
+                      
             foreach(SessionSrv.Session session in returnList)
             {
                 RoomSrv.Room rom = new RoomSrv.Room();
@@ -160,17 +150,20 @@ namespace GUIClient
            
         }
 
-        
-
         private void gridSession_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             gridSeats.Rows.Clear();
-            string data = gridSession.SelectedRows[0].Cells[0].Value.ToString();
+            try
+            {
+                string data = gridSession.SelectedRows[0].Cells[0].Value.ToString();
 
-            sessionId = Convert.ToInt32(data);
+                sessionId = Convert.ToInt32(data);
+            }
+            catch(NullReferenceException)
+            {
+                MessageBox.Show("Empty space selected");
+            }
         }
-
-        
 
         private void ReserveAutoBtn_Click(object sender, EventArgs e)
         {
@@ -206,10 +199,17 @@ namespace GUIClient
 
         private void lblLogOut_Click(object sender, EventArgs e)
         {
-            LogIn log ();
+           
             this.Hide();
-            log.
+            MessageBox.Show("Logged Out");
             this.Close();
+            LogIn.getInstance().ShowDialog();
+            
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
 
         
