@@ -153,7 +153,7 @@ namespace Cinema.ModelLayer
 
                             if (leftAvailableSeats >= noOfWantedSeats)
                             {
-                                while (x < halfColumnNo && found != true)
+                                while (x < halfColumnNo-1 && found != true)
                                 {
                                     Seat first = innerSeatArray[x];
                                     Seat second = innerSeatArray[x + 1];
@@ -184,41 +184,44 @@ namespace Cinema.ModelLayer
                                     break;
                                 }
                             }
-                            if (rightAvailableSeats >= noOfWantedSeats)
+                            else
                             {
-                                while (y < columnNo && found != true)
+                                if (rightAvailableSeats >= noOfWantedSeats)
                                 {
-                                    Seat first = innerSeatArray[y];
-                                    Seat second = innerSeatArray[y + 1];
-                                    if (first.Status.Equals("E") == true && second.Status.Equals("E") == true)
+                                    while (y < columnNo-1 && found != true)
                                     {
-                                        if (!returnList.Contains(first))
+                                        Seat first = innerSeatArray[y];
+                                        Seat second = innerSeatArray[y + 1];
+                                        if (first.Status.Equals("E") == true && second.Status.Equals("E") == true)
                                         {
-                                            returnList.Add(first);
+                                            if (!returnList.Contains(first))
+                                            {
+                                                returnList.Add(first);
+                                            }
+                                            if (!returnList.Contains(second))
+                                            {
+                                                returnList.Add(second);
+                                            }
+                                            count--;
+                                            y++;
                                         }
-                                        if (!returnList.Contains(second))
+                                        else
                                         {
-                                            returnList.Add(second);
+                                            y++;
                                         }
-                                        count--;
-                                        y++;
+                                        if (count == 0)
+                                        {
+                                            found = true;
+                                        }
                                     }
-                                    else
+                                    if (found == true)
                                     {
-                                        y++;
+                                        break;
                                     }
-                                    if (count == 0)
-                                    {
-                                        found = true;
-                                    }
-                                }
-                                if (found == true)
-                                {
-                                    break;
                                 }
                             }
                         }
-                        if(a%2 != 0)
+                        if (a % 2 != 0)
                         {
                             Seat[] innerSeatArray = seats[a];
                             int columnNo = innerSeatArray.Length;
@@ -237,7 +240,7 @@ namespace Cinema.ModelLayer
 
                             if (leftAvailableSeats >= noOfWantedSeats)
                             {
-                                while (x > 1 && found!= true)
+                                while (x > 1 && found != true)
                                 {
                                     Seat first = innerSeatArray[x];
                                     Seat second = innerSeatArray[x - 1];
@@ -268,37 +271,40 @@ namespace Cinema.ModelLayer
                                     break;
                                 }
                             }
-                            if (rightAvailableSeats >= noOfWantedSeats)
+                            else
                             {
-                                while (y > halfColumnNo + 1 && found != true)
+                                if (rightAvailableSeats >= noOfWantedSeats)
                                 {
-                                    Seat first = innerSeatArray[y];
-                                    Seat second = innerSeatArray[y - 1];
-                                    if (first.Status.Equals("E") == true && second.Status.Equals("E") == true)
+                                    while (y > halfColumnNo + 1 && found != true)
                                     {
-                                        if (!returnList.Contains(first))
+                                        Seat first = innerSeatArray[y];
+                                        Seat second = innerSeatArray[y - 1];
+                                        if (first.Status.Equals("E") == true && second.Status.Equals("E") == true)
                                         {
-                                            returnList.Add(first);
+                                            if (!returnList.Contains(first))
+                                            {
+                                                returnList.Add(first);
+                                            }
+                                            if (!returnList.Contains(second))
+                                            {
+                                                returnList.Add(second);
+                                            }
+                                            count--;
+                                            y--;
                                         }
-                                        if (!returnList.Contains(second))
+                                        else
                                         {
-                                            returnList.Add(second);
+                                            y--;
                                         }
-                                        count--;
-                                        y--;
+                                        if (count == 0)
+                                        {
+                                            found = true;
+                                        }
                                     }
-                                    else
+                                    if (found == true)
                                     {
-                                        y--;
+                                        break;
                                     }
-                                    if (count == 0)
-                                    {
-                                        found = true;
-                                    }
-                                }
-                                if (found == true)
-                                {
-                                    break;
                                 }
                             }
                         }
@@ -374,27 +380,30 @@ namespace Cinema.ModelLayer
                         }
                     }
                 }
-                if (rightAvailableSeats >= generalCount)
+                else
                 {
-                    while (y < columnNo && parallelFound != true)
+                    if (rightAvailableSeats >= generalCount)
                     {
-                        Seat seat = innerSeatArray[y];
-                        if (seat.Status.Equals("E") == true)
+                        while (y < columnNo && parallelFound != true)
                         {
-                            if (!returnList.Contains(seat))
+                            Seat seat = innerSeatArray[y];
+                            if (seat.Status.Equals("E") == true)
                             {
-                                returnList.Add(seat);
+                                if (!returnList.Contains(seat))
+                                {
+                                    returnList.Add(seat);
+                                }
+                                generalCount--;
+                                y++;
                             }
-                            generalCount--;
-                            y++;
-                        }
-                        else
-                        {
-                            y++;
-                        }                        
-                        if (generalCount == 0)
-                        {
-                            parallelFound = true;
+                            else
+                            {
+                                y++;
+                            }
+                            if (generalCount == 0)
+                            {
+                                parallelFound = true;
+                            }
                         }
                     }
                 }                
@@ -440,27 +449,30 @@ namespace Cinema.ModelLayer
                         }
                     }
                 }
-                if (rightAvailableSeats >= generalCount)
+                else
                 {
-                    while (y > halfColumnNo - 1 && parallelFound!=true)
+                    if (rightAvailableSeats >= generalCount)
                     {
-                        Seat seat = innerSeatArray[y];
-                        if (seat.Status.Equals("E") == true)
+                        while (y > halfColumnNo - 1 && parallelFound != true)
                         {
-                            if (!returnList.Contains(seat))
+                            Seat seat = innerSeatArray[y];
+                            if (seat.Status.Equals("E") == true)
                             {
-                                returnList.Add(seat);
+                                if (!returnList.Contains(seat))
+                                {
+                                    returnList.Add(seat);
+                                }
+                                generalCount--;
+                                y--;
                             }
-                            generalCount--;
-                            y--;
-                        }
-                        else
-                        {
-                            y--;
-                        }
-                        if (generalCount == 0)
-                        {
-                            parallelFound = true;
+                            else
+                            {
+                                y--;
+                            }
+                            if (generalCount == 0)
+                            {
+                                parallelFound = true;
+                            }
                         }
                     }
                 }
