@@ -38,7 +38,7 @@ namespace Cinema.ControlLayer
             reservation.Session = session;
             reservation.Customer = customer;
             reservation.NoOfSeats = numberOfSeats;
-            reservation.Price = price;
+            reservation.Price = numberOfSeats*price;
             reservation.Status = status;
 
             return _dbReservation.insertReservaion(reservation);
@@ -145,6 +145,12 @@ namespace Cinema.ControlLayer
         {
             IReservation _dbReservation = new DbReservation();
             return _dbReservation.deleteSeatsFromReservation(reservationId);
+        }
+
+        public List<int> trustedInsertReservedSeats(List<Seat> reservedSeats)
+        {
+            IReservation _dbReservation = new DbReservation();
+            return _dbReservation.trustedInsertReservedSeats(reservedSeats);
         }
     }
 }

@@ -246,7 +246,7 @@ namespace Cinema.DBLayer
         //get a session - id
         public Session getSessionById(int sessionId)
         {
-            string sqlQuery = "SELECT Session.sessionId, Session.movieId, Session.date, " +
+            string sqlQuery = "SELECT Session.sessionId, Session.movieId, Session.date, Session.price, " +
                 "Session.enterTime, Session.exitTime, SeatSchedule.seatId, Seat.roomNumber " +
                 "FROM Session JOIN SeatSchedule ON Session.sessionId = SeatSchedule.sessionId " +
                 "JOIN Seat ON SeatSchedule.seatId = Seat.seatId WHERE Session.sessionId = '" + sessionId + "'";

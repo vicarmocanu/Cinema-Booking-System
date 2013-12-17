@@ -225,5 +225,30 @@ namespace CinemaServiceLibrary
                 return reservationCtr.deleteSeatsFromReservation(reservationId);
             }
         }
+
+        public List<int> trustedInsertReservedSeats(String firstName, String lastName, int sessionId, int numberOfSeats, double price, String status)
+        {
+            lock (lockThis)
+            {
+                List<int> results = new List<int>();
+                int result = -2;
+                result = reservationCtr.insertReservation(firstName, lastName, sessionId, numberOfSeats, price, status) + 3;
+                List<Cinema.ModelLayer.Seat> returnList = new List<Cinema.ModelLayer.Seat>();
+
+                returnList = algortithmCtr.getAdjancentSeats(sessionCtr.getSeatsForJaggedArray(sessionId), numberOfSeats);
+
+                if (returnList.Count == 0)
+                {
+                    results.Add(-2);
+                }
+                else
+                {
+                    results = reservationCtr.trustedInsertReservedSeats(returnList);
+
+                }
+
+                return results;
+            }
+        }
     }
 }
