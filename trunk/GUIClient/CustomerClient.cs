@@ -12,17 +12,6 @@ namespace GUIClient
 {
     public partial class CustomerClient : Form
     {
-        private static CustomerClient instance = null;
-
-        public static CustomerClient getInstance()
-        {
-            if (instance == null)
-            {
-                instance = new CustomerClient();
-            }
-            return instance;
-        }
-
         public CustomerClient()
         {
             InitializeComponent();
@@ -207,13 +196,5 @@ namespace GUIClient
             
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-        
-        
     }
 }
