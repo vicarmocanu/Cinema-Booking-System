@@ -12,6 +12,16 @@ namespace GUIClient
 {
     public partial class LogIn : Form
     {
+        private static LogIn instance = null;
+
+        public static LogIn getInstance()
+        {
+            if (instance == null)
+            {
+                instance = new LogIn();
+            }
+            return instance;
+        }
 
         private static CustomerSrv.ICustomerService customerService = new CustomerSrv.CustomerServiceClient();
 

@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblLogOut = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeats)).BeginInit();
@@ -58,6 +59,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblLogOut);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.lblNrSeats);
             this.tabPage1.Controls.Add(this.noOfSeatsTxt);
@@ -177,6 +179,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Movie";
             // 
+            // lblLogOut
+            // 
+            this.lblLogOut.AutoSize = true;
+            this.lblLogOut.Location = new System.Drawing.Point(1055, 3);
+            this.lblLogOut.Name = "lblLogOut";
+            this.lblLogOut.Size = new System.Drawing.Size(35, 13);
+            this.lblLogOut.TabIndex = 10;
+            this.lblLogOut.Text = "label4";
+            this.lblLogOut.Click += new System.EventHandler(this.lblLogOut_Click);
+            // 
             // CustomerClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,5 +222,6 @@
         private System.Windows.Forms.Button ReserveAutoBtn;
         private System.Windows.Forms.Label lblNrSeats;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblLogOut;
     }
 }

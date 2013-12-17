@@ -126,6 +126,10 @@ namespace Cinema.ModelLayer
                                 j++;
                             }
                         }
+                        if (found == true)
+                        {
+                            break;
+                        }
                     }
                 }
 

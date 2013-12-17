@@ -12,6 +12,17 @@ namespace GUIClient
 {
     public partial class CustomerClient : Form
     {
+        private static CustomerClient instance = null;
+
+        public static CustomerClient getInstance()
+        {
+            if (instance == null)
+            {
+                instance = new CustomerClient();
+            }
+            return instance;
+        }
+
         public CustomerClient()
         {
             InitializeComponent();
@@ -174,14 +185,35 @@ namespace GUIClient
                 double sessionPrice = sess.Price;
                 int noOfWantedSeats = Convert.ToInt32(noOfSeatsTxt.Text);
                 string status = "Made";
-                reservationService.trustedInsertReservedSeats(customerFName, customerLName, sessionId, noOfWantedSeats, sessionPrice, status);
+                int[] results = reservationService.trustedInsertReservedSeats(customerFName, customerLName, sessionId, noOfWantedSeats, sessionPrice, status);
+                string lineResults = "";
+                for (int i = 0; i < results.Length; i++)
+                {
+
+                    lineResults = lineResults + results[i] + " ";
+                }
+
+                MessageBox.Show("Seat(s) " + lineResults + "!" );
+                gridSeats.Rows.Clear();
+                loadSeatGrid(sessionId);
+                
+
+                
 
                 
             }
         }
 
-        
+        private void lblLogOut_Click(object sender, EventArgs e)
+        {
+            LogIn log ();
+            this.Hide();
+            log.
+            this.Close();
+        }
 
+        
+        
         
     }
 }
