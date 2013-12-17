@@ -150,23 +150,18 @@ namespace Cinema.ModelLayer
                             }
                             int x = 0;
                             int y = halfColumnNo;
-                            int count = noOfWantedSeats - 1;
+                            int count = noOfWantedSeats;
 
                             if (leftAvailableSeats >= noOfWantedSeats)
                             {
-                                while (x < halfColumnNo-1 && found != true)
+                                while (x < halfColumnNo && found != true)
                                 {
-                                    Seat first = innerSeatArray[x];
-                                    Seat second = innerSeatArray[x + 1];
-                                    if (first.Status.Equals("E") == true && second.Status.Equals("E") == true)
+                                    Seat seat = innerSeatArray[x];
+                                    if (seat.Status.Equals("E") == true)
                                     {
-                                        if (!returnList.Contains(first))
+                                        if (!returnList.Contains(seat))
                                         {
-                                            returnList.Add(first);
-                                        }
-                                        if (!returnList.Contains(second))
-                                        {
-                                            returnList.Add(second);
+                                            returnList.Add(seat);
                                         }
                                         count--;
                                         x++;
@@ -189,19 +184,14 @@ namespace Cinema.ModelLayer
                             {
                                 if (rightAvailableSeats >= noOfWantedSeats)
                                 {
-                                    while (y < columnNo-1 && found != true)
+                                    while (y < columnNo && found != true)
                                     {
-                                        Seat first = innerSeatArray[y];
-                                        Seat second = innerSeatArray[y + 1];
-                                        if (first.Status.Equals("E") == true && second.Status.Equals("E") == true)
+                                        Seat seat = innerSeatArray[y];
+                                        if (seat.Status.Equals("E") == true)
                                         {
-                                            if (!returnList.Contains(first))
+                                            if (!returnList.Contains(seat))
                                             {
-                                                returnList.Add(first);
-                                            }
-                                            if (!returnList.Contains(second))
-                                            {
-                                                returnList.Add(second);
+                                                returnList.Add(seat);
                                             }
                                             count--;
                                             y++;
@@ -237,23 +227,18 @@ namespace Cinema.ModelLayer
                             }
                             int x = halfColumnNo - 1;
                             int y = columnNo - 1;
-                            int count = noOfWantedSeats - 1;
+                            int count = noOfWantedSeats;
 
                             if (leftAvailableSeats >= noOfWantedSeats)
                             {
-                                while (x > 1 && found != true)
+                                while (x > -1 && found != true)
                                 {
-                                    Seat first = innerSeatArray[x];
-                                    Seat second = innerSeatArray[x - 1];
-                                    if (first.Status.Equals("E") == true && second.Status.Equals("E") == true)
+                                    Seat seat = innerSeatArray[x];
+                                    if (seat.Status.Equals("E") == true)
                                     {
-                                        if (!returnList.Contains(first))
+                                        if (!returnList.Contains(seat))
                                         {
-                                            returnList.Add(first);
-                                        }
-                                        if (!returnList.Contains(second))
-                                        {
-                                            returnList.Add(second);
+                                            returnList.Add(seat);
                                         }
                                         count--;
                                         x--;
@@ -276,19 +261,14 @@ namespace Cinema.ModelLayer
                             {
                                 if (rightAvailableSeats >= noOfWantedSeats)
                                 {
-                                    while (y > halfColumnNo + 1 && found != true)
+                                    while (y > halfColumnNo-1 && found != true)
                                     {
-                                        Seat first = innerSeatArray[y];
-                                        Seat second = innerSeatArray[y - 1];
-                                        if (first.Status.Equals("E") == true && second.Status.Equals("E") == true)
+                                        Seat seat = innerSeatArray[y];
+                                        if (seat.Status.Equals("E") == true)
                                         {
-                                            if (!returnList.Contains(first))
+                                            if (!returnList.Contains(seat))
                                             {
-                                                returnList.Add(first);
-                                            }
-                                            if (!returnList.Contains(second))
-                                            {
-                                                returnList.Add(second);
+                                                returnList.Add(seat);
                                             }
                                             count--;
                                             y--;
