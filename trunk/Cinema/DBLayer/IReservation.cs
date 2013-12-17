@@ -22,6 +22,7 @@ namespace Cinema.DBLayer
        int deleteReservation(int reservationId);
        int deleteReservedSeat(int reservationId, int seatId);
        int deleteSeatsFromReservation(int reservationId);
+       List<int> trustedInsertReservedSeats(List<Seat> reservedSeats);
 
     }
 }

@@ -47,7 +47,10 @@ namespace CinemaServiceLibrary
         int deleteReservedSeat(int reservationId, int seatId);
 
         [OperationContract]
-        int deleteSeatsFromReservation(int reservationId);        
+        int deleteSeatsFromReservation(int reservationId);
+
+        [OperationContract]
+        List<int> trustedInsertReservedSeats(String firstName, String lastName, int sessionId, int numberOfSeats, double price, String status);
     }
 
     [DataContract]

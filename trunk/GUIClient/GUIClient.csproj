@@ -70,6 +70,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ReservationSrv\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\RoomSrv\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -135,6 +140,25 @@
     <None Include="Service References\MovieSrv\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ReservationSrv\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReservationSrv\CinemaServiceLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReservationSrv\GUIClient.ReservationSrv.Reservation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReservationSrv\GUIClient.ReservationSrv.Seat.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReservationSrv\service.wsdl" />
+    <None Include="Service References\ReservationSrv\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReservationSrv\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\RoomSrv\CinemaServiceLibrary.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -193,6 +217,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CustomerSrv\" />
     <WCFMetadataStorage Include="Service References\MovieSrv\" />
+    <WCFMetadataStorage Include="Service References\ReservationSrv\" />
     <WCFMetadataStorage Include="Service References\RoomSrv\" />
     <WCFMetadataStorage Include="Service References\SeatSrv\" />
     <WCFMetadataStorage Include="Service References\SessionSrv\" />
@@ -253,6 +278,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\SeatSrv\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReservationSrv\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReservationSrv\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReservationSrv\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

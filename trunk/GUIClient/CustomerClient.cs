@@ -22,12 +22,26 @@ namespace GUIClient
         private static SessionSrv.ISessionService sessionService = new SessionSrv.SessionServiceClient();
         private static RoomSrv.IRoomService roomService = new RoomSrv.RoomServiceClient();
         private static SeatSrv.ISeatService seatService = new SeatSrv.SeatServiceClient();
+        private static ReservationSrv.IReservationService reservationService = new ReservationSrv.ReservationServiceClient();
+
+        private int sessionId=-1;
+
         private string movieName;
+        private string customerFName;
 
-        private void label1_Click(object sender, EventArgs e)
+        public string CustomerFName
         {
-
+            get { return customerFName; }
+            set { customerFName = value; }
         }
+        private string customerLName;
+
+        public string CustomerLName
+        {
+            get { return customerLName; }
+            set { customerLName = value; }
+        }
+
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -36,13 +50,9 @@ namespace GUIClient
 
         }
 
-
-
-       
-
         private void CustomerClient_Load(object sender, EventArgs e)
         {
-
+            label3.Text = "Logged IN AS " + CustomerFName + " " + CustomerLName; 
         }
 
         private void OkMovBtn_Click(object sender, EventArgs e)
@@ -59,10 +69,7 @@ namespace GUIClient
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-          
-        }
+        
 
         private void loadList()
         {
@@ -132,7 +139,7 @@ namespace GUIClient
             {
                 string data = gridSession.SelectedRows[0].Cells[0].Value.ToString();
 
-                int sessionId = Convert.ToInt32(data);
+                sessionId = Convert.ToInt32(data);
                 loadSeatGrid(sessionId);
             }
             catch (NullReferenceException)
@@ -142,16 +149,38 @@ namespace GUIClient
            
         }
 
-        private void gridSeats_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
 
         private void gridSession_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             gridSeats.Rows.Clear();
-            
+            string data = gridSession.SelectedRows[0].Cells[0].Value.ToString();
+
+            sessionId = Convert.ToInt32(data);
         }
+
+        
+
+        private void ReserveAutoBtn_Click(object sender, EventArgs e)
+        {
+            if (sessionId == -1 || noOfSeatsTxt.Text.Equals("") == true)
+            {
+                MessageBox.Show("Pls Select a Movie, a Session  for the Movie and the number of wanted seats");
+            }
+            else
+            {
+                SessionSrv.Session sess = new SessionSrv.Session();
+                sess = sessionService.getSession(sessionId);
+                double sessionPrice = sess.Price;
+                int noOfWantedSeats = Convert.ToInt32(noOfSeatsTxt.Text);
+                string status = "Made";
+                reservationService.trustedInsertReservedSeats(customerFName, customerLName, sessionId, noOfWantedSeats, sessionPrice, status);
+
+                
+            }
+        }
+
+        
 
         
     }

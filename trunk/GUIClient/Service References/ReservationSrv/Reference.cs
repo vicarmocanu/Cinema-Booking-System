@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GUIEmployee.ReservationSrv {
+namespace GUIClient.ReservationSrv {
     using System.Runtime.Serialization;
     using System;
     
@@ -23,7 +23,7 @@ namespace GUIEmployee.ReservationSrv {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private GUIEmployee.ReservationSrv.Customer CustomerField;
+        private GUIClient.ReservationSrv.Customer CustomerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DateField;
@@ -38,10 +38,10 @@ namespace GUIEmployee.ReservationSrv {
         private int ReservationIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private GUIEmployee.ReservationSrv.Seat[] ReservedSeatsField;
+        private GUIClient.ReservationSrv.Seat[] ReservedSeatsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private GUIEmployee.ReservationSrv.Session SessionField;
+        private GUIClient.ReservationSrv.Session SessionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StatusField;
@@ -57,7 +57,7 @@ namespace GUIEmployee.ReservationSrv {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public GUIEmployee.ReservationSrv.Customer Customer {
+        public GUIClient.ReservationSrv.Customer Customer {
             get {
                 return this.CustomerField;
             }
@@ -122,7 +122,7 @@ namespace GUIEmployee.ReservationSrv {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public GUIEmployee.ReservationSrv.Seat[] ReservedSeats {
+        public GUIClient.ReservationSrv.Seat[] ReservedSeats {
             get {
                 return this.ReservedSeatsField;
             }
@@ -135,7 +135,7 @@ namespace GUIEmployee.ReservationSrv {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public GUIEmployee.ReservationSrv.Session Session {
+        public GUIClient.ReservationSrv.Session Session {
             get {
                 return this.SessionField;
             }
@@ -346,16 +346,16 @@ namespace GUIEmployee.ReservationSrv {
         private string ExitTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private GUIEmployee.ReservationSrv.Movie MovieField;
+        private GUIClient.ReservationSrv.Movie MovieField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double PriceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private GUIEmployee.ReservationSrv.Room RoomField;
+        private GUIClient.ReservationSrv.Room RoomField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private GUIEmployee.ReservationSrv.Seat[][] SeatsField;
+        private GUIClient.ReservationSrv.Seat[][] SeatsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int SessionIdField;
@@ -410,7 +410,7 @@ namespace GUIEmployee.ReservationSrv {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public GUIEmployee.ReservationSrv.Movie Movie {
+        public GUIClient.ReservationSrv.Movie Movie {
             get {
                 return this.MovieField;
             }
@@ -436,7 +436,7 @@ namespace GUIEmployee.ReservationSrv {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public GUIEmployee.ReservationSrv.Room Room {
+        public GUIClient.ReservationSrv.Room Room {
             get {
                 return this.RoomField;
             }
@@ -449,7 +449,7 @@ namespace GUIEmployee.ReservationSrv {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public GUIEmployee.ReservationSrv.Seat[][] Seats {
+        public GUIClient.ReservationSrv.Seat[][] Seats {
             get {
                 return this.SeatsField;
             }
@@ -494,7 +494,7 @@ namespace GUIEmployee.ReservationSrv {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private GUIEmployee.ReservationSrv.Room RoomField;
+        private GUIClient.ReservationSrv.Room RoomField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int RowNumberField;
@@ -519,7 +519,7 @@ namespace GUIEmployee.ReservationSrv {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public GUIEmployee.ReservationSrv.Room Room {
+        public GUIClient.ReservationSrv.Room Room {
             get {
                 return this.RoomField;
             }
@@ -798,28 +798,28 @@ namespace GUIEmployee.ReservationSrv {
         System.Threading.Tasks.Task<int> updateSeatsFromReservationAsync(int reservationId, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/getReservation", ReplyAction="http://tempuri.org/IReservationService/getReservationResponse")]
-        GUIEmployee.ReservationSrv.Reservation getReservation(int reservationId);
+        GUIClient.ReservationSrv.Reservation getReservation(int reservationId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/getReservation", ReplyAction="http://tempuri.org/IReservationService/getReservationResponse")]
-        System.Threading.Tasks.Task<GUIEmployee.ReservationSrv.Reservation> getReservationAsync(int reservationId);
+        System.Threading.Tasks.Task<GUIClient.ReservationSrv.Reservation> getReservationAsync(int reservationId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/getReservations", ReplyAction="http://tempuri.org/IReservationService/getReservationsResponse")]
-        GUIEmployee.ReservationSrv.Reservation[] getReservations();
+        GUIClient.ReservationSrv.Reservation[] getReservations();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/getReservations", ReplyAction="http://tempuri.org/IReservationService/getReservationsResponse")]
-        System.Threading.Tasks.Task<GUIEmployee.ReservationSrv.Reservation[]> getReservationsAsync();
+        System.Threading.Tasks.Task<GUIClient.ReservationSrv.Reservation[]> getReservationsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/getCustomerReservations", ReplyAction="http://tempuri.org/IReservationService/getCustomerReservationsResponse")]
-        GUIEmployee.ReservationSrv.Reservation[] getCustomerReservations(string custFName, string custLName);
+        GUIClient.ReservationSrv.Reservation[] getCustomerReservations(string custFName, string custLName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/getCustomerReservations", ReplyAction="http://tempuri.org/IReservationService/getCustomerReservationsResponse")]
-        System.Threading.Tasks.Task<GUIEmployee.ReservationSrv.Reservation[]> getCustomerReservationsAsync(string custFName, string custLName);
+        System.Threading.Tasks.Task<GUIClient.ReservationSrv.Reservation[]> getCustomerReservationsAsync(string custFName, string custLName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/getSeatsFromReservation", ReplyAction="http://tempuri.org/IReservationService/getSeatsFromReservationResponse")]
-        GUIEmployee.ReservationSrv.Seat[] getSeatsFromReservation(int reservationId);
+        GUIClient.ReservationSrv.Seat[] getSeatsFromReservation(int reservationId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/getSeatsFromReservation", ReplyAction="http://tempuri.org/IReservationService/getSeatsFromReservationResponse")]
-        System.Threading.Tasks.Task<GUIEmployee.ReservationSrv.Seat[]> getSeatsFromReservationAsync(int reservationId);
+        System.Threading.Tasks.Task<GUIClient.ReservationSrv.Seat[]> getSeatsFromReservationAsync(int reservationId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/insertReservedSeats", ReplyAction="http://tempuri.org/IReservationService/insertReservedSeatsResponse")]
         int[] insertReservedSeats(int reservationId, int sessionId, int noOfWantedSeats);
@@ -844,15 +844,21 @@ namespace GUIEmployee.ReservationSrv {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/deleteSeatsFromReservation", ReplyAction="http://tempuri.org/IReservationService/deleteSeatsFromReservationResponse")]
         System.Threading.Tasks.Task<int> deleteSeatsFromReservationAsync(int reservationId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/trustedInsertReservedSeats", ReplyAction="http://tempuri.org/IReservationService/trustedInsertReservedSeatsResponse")]
+        int[] trustedInsertReservedSeats(string firstName, string lastName, int sessionId, int numberOfSeats, double price, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/trustedInsertReservedSeats", ReplyAction="http://tempuri.org/IReservationService/trustedInsertReservedSeatsResponse")]
+        System.Threading.Tasks.Task<int[]> trustedInsertReservedSeatsAsync(string firstName, string lastName, int sessionId, int numberOfSeats, double price, string status);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IReservationServiceChannel : GUIEmployee.ReservationSrv.IReservationService, System.ServiceModel.IClientChannel {
+    public interface IReservationServiceChannel : GUIClient.ReservationSrv.IReservationService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ReservationServiceClient : System.ServiceModel.ClientBase<GUIEmployee.ReservationSrv.IReservationService>, GUIEmployee.ReservationSrv.IReservationService {
+    public partial class ReservationServiceClient : System.ServiceModel.ClientBase<GUIClient.ReservationSrv.IReservationService>, GUIClient.ReservationSrv.IReservationService {
         
         public ReservationServiceClient() {
         }
@@ -913,35 +919,35 @@ namespace GUIEmployee.ReservationSrv {
             return base.Channel.updateSeatsFromReservationAsync(reservationId, status);
         }
         
-        public GUIEmployee.ReservationSrv.Reservation getReservation(int reservationId) {
+        public GUIClient.ReservationSrv.Reservation getReservation(int reservationId) {
             return base.Channel.getReservation(reservationId);
         }
         
-        public System.Threading.Tasks.Task<GUIEmployee.ReservationSrv.Reservation> getReservationAsync(int reservationId) {
+        public System.Threading.Tasks.Task<GUIClient.ReservationSrv.Reservation> getReservationAsync(int reservationId) {
             return base.Channel.getReservationAsync(reservationId);
         }
         
-        public GUIEmployee.ReservationSrv.Reservation[] getReservations() {
+        public GUIClient.ReservationSrv.Reservation[] getReservations() {
             return base.Channel.getReservations();
         }
         
-        public System.Threading.Tasks.Task<GUIEmployee.ReservationSrv.Reservation[]> getReservationsAsync() {
+        public System.Threading.Tasks.Task<GUIClient.ReservationSrv.Reservation[]> getReservationsAsync() {
             return base.Channel.getReservationsAsync();
         }
         
-        public GUIEmployee.ReservationSrv.Reservation[] getCustomerReservations(string custFName, string custLName) {
+        public GUIClient.ReservationSrv.Reservation[] getCustomerReservations(string custFName, string custLName) {
             return base.Channel.getCustomerReservations(custFName, custLName);
         }
         
-        public System.Threading.Tasks.Task<GUIEmployee.ReservationSrv.Reservation[]> getCustomerReservationsAsync(string custFName, string custLName) {
+        public System.Threading.Tasks.Task<GUIClient.ReservationSrv.Reservation[]> getCustomerReservationsAsync(string custFName, string custLName) {
             return base.Channel.getCustomerReservationsAsync(custFName, custLName);
         }
         
-        public GUIEmployee.ReservationSrv.Seat[] getSeatsFromReservation(int reservationId) {
+        public GUIClient.ReservationSrv.Seat[] getSeatsFromReservation(int reservationId) {
             return base.Channel.getSeatsFromReservation(reservationId);
         }
         
-        public System.Threading.Tasks.Task<GUIEmployee.ReservationSrv.Seat[]> getSeatsFromReservationAsync(int reservationId) {
+        public System.Threading.Tasks.Task<GUIClient.ReservationSrv.Seat[]> getSeatsFromReservationAsync(int reservationId) {
             return base.Channel.getSeatsFromReservationAsync(reservationId);
         }
         
@@ -975,6 +981,14 @@ namespace GUIEmployee.ReservationSrv {
         
         public System.Threading.Tasks.Task<int> deleteSeatsFromReservationAsync(int reservationId) {
             return base.Channel.deleteSeatsFromReservationAsync(reservationId);
+        }
+        
+        public int[] trustedInsertReservedSeats(string firstName, string lastName, int sessionId, int numberOfSeats, double price, string status) {
+            return base.Channel.trustedInsertReservedSeats(firstName, lastName, sessionId, numberOfSeats, price, status);
+        }
+        
+        public System.Threading.Tasks.Task<int[]> trustedInsertReservedSeatsAsync(string firstName, string lastName, int sessionId, int numberOfSeats, double price, string status) {
+            return base.Channel.trustedInsertReservedSeatsAsync(firstName, lastName, sessionId, numberOfSeats, price, status);
         }
     }
 }

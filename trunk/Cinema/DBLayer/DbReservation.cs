@@ -38,11 +38,12 @@ namespace Cinema.DBLayer
             reservation.NoOfSeats = Convert.ToInt32(dbReader["noOfSeats"].ToString());
             reservation.Price = Convert.ToDouble(dbReader["price"].ToString());
             reservation.Status = dbReader["status"].ToString();
+            reservation.Date = dbReader["date"].ToString();
 
             return reservation;
         }
 
-        //inser a reservation
+        //insert a reservation
         public int insertReservaion(Reservation reservation)
         {
             int result = -1;
@@ -52,6 +53,7 @@ namespace Cinema.DBLayer
             int max = GetMax.getMax(attrib, table);
             int id = max + 1;
             String currentDate = reservation.getCurrentDate();
+
 
             string sqlQuery = "INSERT INTO Reservation VALUES " +
                 "('" + id +
@@ -333,5 +335,32 @@ namespace Cinema.DBLayer
             { }
             return result;
         }
+
+        public List<int> trustedInsertReservedSeats( List<Seat> reservedSeats)
+        {
+            List<int> results = new List<int>();
+
+            int wantedId = GetMax.getMax("reservationId", "Reservation");
+
+            foreach (Seat seat in reservedSeats)
+            {
+                int result = -1;
+                string sqlQuery = "INSERT INTO ReservedSeats VALUES " +
+                    "('" + wantedId +
+                    "','" + seat.SeatId +
+                    "','" + "O" + "')";
+                try
+                {
+                    SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+                    result = cmd.ExecuteNonQuery();
+                    AccessDbSQLClient.Close();
+                    results.Add(result);
+                }
+                catch (SqlException) { }
+            }
+
+            return results;
+        }
+
     }
 }

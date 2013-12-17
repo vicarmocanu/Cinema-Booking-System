@@ -131,18 +131,6 @@ namespace Cinema.ModelLayer
             return currentDateString;
         }
 
-        //get a suitable price for multiple chairs
-        public double seatsPrice()
-        {
-            double totalPrice = 0;
-            totalPrice = noOfSeats * price; 
-            return totalPrice;
-        }
-
-        //the actual noOfSeats
-        public void setCorrectNoOfSeats()
-        {
-            this.noOfSeats = reservedSeats.Count();
-        }
+        
     }
 }
