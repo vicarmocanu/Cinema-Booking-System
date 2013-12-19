@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Cinema.ModelLayer;
 
-namespace Cinema.Algorithm
+namespace AlgorithmTesting
 {
     public class Algorithm
     {
@@ -454,20 +454,14 @@ namespace Cinema.Algorithm
                                         {
                                             found = true;
                                         }
-
                                     }
                                 }
                             }
                         }
-
                     }
-
                 }
             }
-
-                return returnList;
-            
+            return returnList;
         }
     }
-
 }
