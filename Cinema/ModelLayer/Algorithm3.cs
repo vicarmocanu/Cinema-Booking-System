@@ -183,6 +183,11 @@ namespace Cinema.ModelLayer
                                 {
                                     break;
                                 }
+                                else
+                                {
+                                    returnList.Clear();
+
+                                }
                             }
                             else
                             {
@@ -212,6 +217,11 @@ namespace Cinema.ModelLayer
                                     if (found == true)
                                     {
                                         break;
+                                    }
+                                    else
+                                    {
+                                        returnList.Clear();
+
                                     }
                                 }
                             }
@@ -260,6 +270,11 @@ namespace Cinema.ModelLayer
                                 {
                                     break;
                                 }
+                                else
+                                {
+                                    returnList.Clear();
+
+                                }
                             }
                             else
                             {
@@ -289,6 +304,11 @@ namespace Cinema.ModelLayer
                                     if (found == true)
                                     {
                                         break;
+                                    }
+                                    else
+                                    {
+                                        returnList.Clear();
+
                                     }
                                 }
                             }
