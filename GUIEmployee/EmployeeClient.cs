@@ -48,7 +48,7 @@ namespace GUIEmployee
 
         private void loadReservationGrid()
         {
-            gridReservation.ColumnCount = 7;
+            gridReservation.ColumnCount = 8;
             gridReservation.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             gridReservation.MultiSelect = false;
             gridReservation.Columns[0].HeaderCell.Value = "ReservationId";
@@ -72,7 +72,7 @@ namespace GUIEmployee
 
         private void loadCustomerGrid()
         {
-            gridCustomer.ColumnCount = 7;
+            gridCustomer.ColumnCount = 8;
             gridCustomer.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             gridCustomer.MultiSelect = false;
             gridCustomer.Columns[0].HeaderCell.Value = "FName";
