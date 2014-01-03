@@ -49,7 +49,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.gridReservation = new System.Windows.Forms.DataGridView();
             this.movieTab = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -69,7 +69,7 @@
             this.DelCustBtn = new System.Windows.Forms.Button();
             this.UpdCustBtn = new System.Windows.Forms.Button();
             this.CrtCustBtn = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.gridCustomer = new System.Windows.Forms.DataGridView();
             this.phoneNoTxt = new System.Windows.Forms.TextBox();
             this.emailTxt = new System.Windows.Forms.TextBox();
             this.addressTxt = new System.Windows.Forms.TextBox();
@@ -89,25 +89,24 @@
             this.sessAdminTab = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.reservationTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridReservation)).BeginInit();
             this.movieTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMovie)).BeginInit();
             this.customerAdminTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.reservationTab);
-            this.tabControl1.Controls.Add(this.movieTab);
             this.tabControl1.Controls.Add(this.customerAdminTab);
+            this.tabControl1.Controls.Add(this.movieTab);
+            this.tabControl1.Controls.Add(this.reservationTab);
             this.tabControl1.Controls.Add(this.sessAdminTab);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(943, 465);
             this.tabControl1.TabIndex = 0;
-            
             // 
             // reservationTab
             // 
@@ -130,7 +129,7 @@
             this.reservationTab.Controls.Add(this.label8);
             this.reservationTab.Controls.Add(this.label7);
             this.reservationTab.Controls.Add(this.label6);
-            this.reservationTab.Controls.Add(this.dataGridView2);
+            this.reservationTab.Controls.Add(this.gridReservation);
             this.reservationTab.Location = new System.Drawing.Point(4, 22);
             this.reservationTab.Name = "reservationTab";
             this.reservationTab.Padding = new System.Windows.Forms.Padding(3);
@@ -294,13 +293,13 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "rezervationId";
             // 
-            // dataGridView2
+            // gridReservation
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 137);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(893, 302);
-            this.dataGridView2.TabIndex = 0;
+            this.gridReservation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridReservation.Location = new System.Drawing.Point(3, 137);
+            this.gridReservation.Name = "gridReservation";
+            this.gridReservation.Size = new System.Drawing.Size(893, 302);
+            this.gridReservation.TabIndex = 0;
             // 
             // movieTab
             // 
@@ -325,7 +324,6 @@
             this.movieTab.TabIndex = 0;
             this.movieTab.Text = "Movie Admin";
             this.movieTab.UseVisualStyleBackColor = true;
-            this.movieTab.Click += new System.EventHandler(this.movieTab_Click);
             // 
             // label5
             // 
@@ -447,7 +445,7 @@
             this.customerAdminTab.Controls.Add(this.DelCustBtn);
             this.customerAdminTab.Controls.Add(this.UpdCustBtn);
             this.customerAdminTab.Controls.Add(this.CrtCustBtn);
-            this.customerAdminTab.Controls.Add(this.dataGridView3);
+            this.customerAdminTab.Controls.Add(this.gridCustomer);
             this.customerAdminTab.Controls.Add(this.phoneNoTxt);
             this.customerAdminTab.Controls.Add(this.emailTxt);
             this.customerAdminTab.Controls.Add(this.addressTxt);
@@ -498,13 +496,13 @@
             this.CrtCustBtn.Text = "Create";
             this.CrtCustBtn.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
+            // gridCustomer
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(4, 179);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(846, 257);
-            this.dataGridView3.TabIndex = 16;
+            this.gridCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridCustomer.Location = new System.Drawing.Point(4, 179);
+            this.gridCustomer.Name = "gridCustomer";
+            this.gridCustomer.Size = new System.Drawing.Size(928, 257);
+            this.gridCustomer.TabIndex = 16;
             // 
             // phoneNoTxt
             // 
@@ -655,13 +653,13 @@
             this.tabControl1.ResumeLayout(false);
             this.reservationTab.ResumeLayout(false);
             this.reservationTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridReservation)).EndInit();
             this.movieTab.ResumeLayout(false);
             this.movieTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMovie)).EndInit();
             this.customerAdminTab.ResumeLayout(false);
             this.customerAdminTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCustomer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -694,7 +692,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView gridReservation;
         private System.Windows.Forms.Button DelResBtn;
         private System.Windows.Forms.Button UpdResBtn;
         private System.Windows.Forms.Button CrtResBtn;
@@ -707,7 +705,7 @@
         private System.Windows.Forms.TextBox rezervationIdTxt;
         private System.Windows.Forms.TextBox dateTxt;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView gridCustomer;
         private System.Windows.Forms.TextBox phoneNoTxt;
         private System.Windows.Forms.TextBox emailTxt;
         private System.Windows.Forms.TextBox addressTxt;

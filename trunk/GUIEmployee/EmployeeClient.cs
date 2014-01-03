@@ -18,15 +18,16 @@ namespace GUIEmployee
         }
 
         private static MovieSrv.IMovieService movService = new MovieSrv.MovieServiceClient();
+        private static ReservationSrv.IReservationService rzvService = new ReservationSrv.ReservationServiceClient();
+        private static CustomerSrv.ICustomerService custService = new CustomerSrv.CustomerServiceClient();
 
         private void EmployeeClient_Load(object sender, EventArgs e)
         {
-
+            loadGrids();
         }
 
         private void loadMovieGrid()
         {
-
             gridMovie.ColumnCount = 5;
             gridMovie.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             gridMovie.MultiSelect = false;
@@ -43,23 +44,113 @@ namespace GUIEmployee
 
                 gridMovie.Rows.Add(new object[] { mov.MovieId, mov.Name, mov.Genre, mov.AgeLimit, mov.Length });
             }
-
         }
 
-        private void movieTab_Click(object sender, EventArgs e)
+        private void loadReservationGrid()
         {
-            gridMovie.Rows.Clear();
-            try 
+            gridReservation.ColumnCount = 7;
+            gridReservation.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gridReservation.MultiSelect = false;
+            gridReservation.Columns[0].HeaderCell.Value = "ReservationId";
+            gridReservation.Columns[1].HeaderCell.Value = "custFName";
+            gridReservation.Columns[2].HeaderCell.Value = "custLName";
+            gridReservation.Columns[3].HeaderCell.Value = "SessionId";
+            gridReservation.Columns[4].HeaderCell.Value = "NoOfSeats";
+            gridReservation.Columns[5].HeaderCell.Value = "Price";
+            gridReservation.Columns[6].HeaderCell.Value = "Status";
+            gridReservation.Columns[7].HeaderCell.Value = "date";
+
+
+            ReservationSrv.Reservation[] returnList = rzvService.getReservations();
+
+            foreach (ReservationSrv.Reservation rzv in returnList)
             {
-               
-                loadMovieGrid();
+                gridReservation.Rows.Add(new object[] { rzv.ReservationId, rzv.Customer.CustomerFirstName, rzv.Customer.CustomerLastName, rzv.Session.SessionId, rzv.NoOfSeats, rzv.Price, rzv.Status, rzv.Date });
             }
-            catch (NullReferenceException)
+        
+        }
+
+        private void loadCustomerGrid()
+        {
+            gridCustomer.ColumnCount = 7;
+            gridCustomer.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gridCustomer.MultiSelect = false;
+            gridCustomer.Columns[0].HeaderCell.Value = "FName";
+            gridCustomer.Columns[1].HeaderCell.Value = "LName";
+            gridCustomer.Columns[2].HeaderCell.Value = "UserName";
+            gridCustomer.Columns[3].HeaderCell.Value = "Password";
+            gridCustomer.Columns[4].HeaderCell.Value = "City";
+            gridCustomer.Columns[5].HeaderCell.Value = "Address";
+            gridCustomer.Columns[6].HeaderCell.Value = "E-mail";
+            gridCustomer.Columns[7].HeaderCell.Value = "PhoneNo";
+
+            CustomerSrv.Customer[] returnList = custService.getCustomers();
+
+            foreach (CustomerSrv.Customer cust in returnList)
             {
-                MessageBox.Show("You have't done it right");
-                
+                gridCustomer.Rows.Add(new object[] { cust.CustomerFirstName, cust.CustomerLastName, cust.CustomerUsername, cust.CustomerPassword, cust.CustomerCity, cust.CustomerAddress, cust.CustomerEmail, cust.CustomerPhoneNo });
             }
         }
+
+        private void loadGrids()
+        {
+            if (tabControl1.SelectedTab == customerAdminTab)
+            {
+                gridCustomer.Rows.Clear();
+                try
+                {
+                    loadCustomerGrid();
+                }
+                catch (NullReferenceException)
+                {
+                    MessageBox.Show("Dafq3?");
+                }
+            }
+
+            if (tabControl1.SelectedTab == movieTab)
+            {
+                gridMovie.Rows.Clear();
+                try 
+                {
+                    loadMovieGrid();
+                }
+                catch(NullReferenceException)
+                {
+                    MessageBox.Show("Dafq?");
+                }
+            }
+
+            if(tabControl1.SelectedTab == reservationTab)
+            {
+                gridReservation.Rows.Clear();
+                try
+                {
+                    loadReservationGrid();
+                }
+                catch (NullReferenceException)
+                {
+                    MessageBox.Show("Dafq2?");
+                }
+               
+            }
+
+            
+        }
+
+        //private void movieTab_Click(object sender, EventArgs e)
+     //   {
+     //       gridMovie.Rows.Clear();
+    //        try 
+//{
+//               
+ //               loadMovieGrid();
+ //           }
+ //           catch (NullReferenceException)
+ //           {
+ //               MessageBox.Show("You have't done it right");
+                
+ //           }
+ //       }
 
         
 
