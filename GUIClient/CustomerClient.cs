@@ -196,5 +196,10 @@ namespace GUIClient
             
         }
 
+        private void gridSession_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
     }
 }

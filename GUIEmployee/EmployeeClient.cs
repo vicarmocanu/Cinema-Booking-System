@@ -17,34 +17,52 @@ namespace GUIEmployee
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private static MovieSrv.IMovieService movService = new MovieSrv.MovieServiceClient();
+
+        private void EmployeeClient_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
+        private void loadMovieGrid()
         {
+
+            gridMovie.ColumnCount = 5;
+            gridMovie.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gridMovie.MultiSelect = false;
+            gridMovie.Columns[0].HeaderCell.Value = "MovieId";
+            gridMovie.Columns[1].HeaderCell.Value = "Name";
+            gridMovie.Columns[2].HeaderCell.Value = "Genre";
+            gridMovie.Columns[3].HeaderCell.Value = "AgeLimit";
+            gridMovie.Columns[4].HeaderCell.Value = "Length";
+
+            MovieSrv.Movie[] returnList = movService.getMovies();
+
+            foreach (MovieSrv.Movie mov in returnList)
+            {
+
+                gridMovie.Rows.Add(new object[] { mov.MovieId, mov.Name, mov.Genre, mov.AgeLimit, mov.Length });
+            }
 
         }
 
-        private void textBox16_TextChanged(object sender, EventArgs e)
+        private void movieTab_Click(object sender, EventArgs e)
         {
-
+            gridMovie.Rows.Clear();
+            try 
+            {
+               
+                loadMovieGrid();
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("You have't done it right");
+                
+            }
         }
 
-        private void textBox17_TextChanged(object sender, EventArgs e)
-        {
+        
 
-        }
 
-        private void textBox15_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox14_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
