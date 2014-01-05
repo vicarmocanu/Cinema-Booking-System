@@ -29,42 +29,6 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.reservationTab = new System.Windows.Forms.TabPage();
-            this.dateTxt = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.DelResBtn = new System.Windows.Forms.Button();
-            this.UpdResBtn = new System.Windows.Forms.Button();
-            this.CrtResBtn = new System.Windows.Forms.Button();
-            this.statusTxt = new System.Windows.Forms.TextBox();
-            this.priceTxt = new System.Windows.Forms.TextBox();
-            this.noOfSeatsTxt = new System.Windows.Forms.TextBox();
-            this.sessionIdTxt = new System.Windows.Forms.TextBox();
-            this.custLNameTxt = new System.Windows.Forms.TextBox();
-            this.custFNameTxt = new System.Windows.Forms.TextBox();
-            this.rezervationIdTxt = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.gridReservation = new System.Windows.Forms.DataGridView();
-            this.movieTab = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.nameTxt = new System.Windows.Forms.TextBox();
-            this.movieIdTxt = new System.Windows.Forms.TextBox();
-            this.lenghtTxt = new System.Windows.Forms.TextBox();
-            this.genreTxt = new System.Windows.Forms.TextBox();
-            this.ageLimitTxt = new System.Windows.Forms.TextBox();
-            this.dltMovieBtn = new System.Windows.Forms.Button();
-            this.UpdMovieBtn = new System.Windows.Forms.Button();
-            this.crtMovieBtn = new System.Windows.Forms.Button();
-            this.gridMovie = new System.Windows.Forms.DataGridView();
             this.customerAdminTab = new System.Windows.Forms.TabPage();
             this.DelCustBtn = new System.Windows.Forms.Button();
             this.UpdCustBtn = new System.Windows.Forms.Button();
@@ -86,27 +50,394 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.movieTab = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.nameTxt = new System.Windows.Forms.TextBox();
+            this.movieIdTxt = new System.Windows.Forms.TextBox();
+            this.lenghtTxt = new System.Windows.Forms.TextBox();
+            this.genreTxt = new System.Windows.Forms.TextBox();
+            this.ageLimitTxt = new System.Windows.Forms.TextBox();
+            this.dltMovieBtn = new System.Windows.Forms.Button();
+            this.UpdMovieBtn = new System.Windows.Forms.Button();
+            this.crtMovieBtn = new System.Windows.Forms.Button();
+            this.gridMovie = new System.Windows.Forms.DataGridView();
+            this.reservationTab = new System.Windows.Forms.TabPage();
+            this.dateTxt = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.DelResBtn = new System.Windows.Forms.Button();
+            this.UpdResBtn = new System.Windows.Forms.Button();
+            this.CrtResBtn = new System.Windows.Forms.Button();
+            this.statusTxt = new System.Windows.Forms.TextBox();
+            this.priceTxt = new System.Windows.Forms.TextBox();
+            this.noOfSeatsTxt = new System.Windows.Forms.TextBox();
+            this.sessionIdTxt = new System.Windows.Forms.TextBox();
+            this.custLNameTxt = new System.Windows.Forms.TextBox();
+            this.custFNameTxt = new System.Windows.Forms.TextBox();
+            this.rezervationIdTxt = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.gridReservation = new System.Windows.Forms.DataGridView();
             this.sessAdminTab = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
-            this.reservationTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridReservation)).BeginInit();
-            this.movieTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridMovie)).BeginInit();
             this.customerAdminTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomer)).BeginInit();
+            this.movieTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMovie)).BeginInit();
+            this.reservationTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridReservation)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.reservationTab);
             this.tabControl1.Controls.Add(this.customerAdminTab);
             this.tabControl1.Controls.Add(this.movieTab);
-            this.tabControl1.Controls.Add(this.reservationTab);
             this.tabControl1.Controls.Add(this.sessAdminTab);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(943, 465);
             this.tabControl1.TabIndex = 0;
+            // 
+            // customerAdminTab
+            // 
+            this.customerAdminTab.Controls.Add(this.DelCustBtn);
+            this.customerAdminTab.Controls.Add(this.UpdCustBtn);
+            this.customerAdminTab.Controls.Add(this.CrtCustBtn);
+            this.customerAdminTab.Controls.Add(this.gridCustomer);
+            this.customerAdminTab.Controls.Add(this.phoneNoTxt);
+            this.customerAdminTab.Controls.Add(this.emailTxt);
+            this.customerAdminTab.Controls.Add(this.addressTxt);
+            this.customerAdminTab.Controls.Add(this.cityTxt);
+            this.customerAdminTab.Controls.Add(this.usernameTxt);
+            this.customerAdminTab.Controls.Add(this.lnametxt);
+            this.customerAdminTab.Controls.Add(this.fnametxt);
+            this.customerAdminTab.Controls.Add(this.passwordTxt);
+            this.customerAdminTab.Controls.Add(this.label21);
+            this.customerAdminTab.Controls.Add(this.label20);
+            this.customerAdminTab.Controls.Add(this.label19);
+            this.customerAdminTab.Controls.Add(this.label18);
+            this.customerAdminTab.Controls.Add(this.label17);
+            this.customerAdminTab.Controls.Add(this.label16);
+            this.customerAdminTab.Controls.Add(this.label15);
+            this.customerAdminTab.Controls.Add(this.label14);
+            this.customerAdminTab.Location = new System.Drawing.Point(4, 22);
+            this.customerAdminTab.Name = "customerAdminTab";
+            this.customerAdminTab.Size = new System.Drawing.Size(935, 439);
+            this.customerAdminTab.TabIndex = 2;
+            this.customerAdminTab.Text = "Customer Admin";
+            this.customerAdminTab.UseVisualStyleBackColor = true;
+            // 
+            // DelCustBtn
+            // 
+            this.DelCustBtn.Location = new System.Drawing.Point(602, 103);
+            this.DelCustBtn.Name = "DelCustBtn";
+            this.DelCustBtn.Size = new System.Drawing.Size(135, 51);
+            this.DelCustBtn.TabIndex = 19;
+            this.DelCustBtn.Text = "Delete";
+            this.DelCustBtn.UseVisualStyleBackColor = true;
+            // 
+            // UpdCustBtn
+            // 
+            this.UpdCustBtn.Location = new System.Drawing.Point(676, 27);
+            this.UpdCustBtn.Name = "UpdCustBtn";
+            this.UpdCustBtn.Size = new System.Drawing.Size(155, 55);
+            this.UpdCustBtn.TabIndex = 18;
+            this.UpdCustBtn.Text = "Update";
+            this.UpdCustBtn.UseVisualStyleBackColor = true;
+            // 
+            // CrtCustBtn
+            // 
+            this.CrtCustBtn.Location = new System.Drawing.Point(528, 27);
+            this.CrtCustBtn.Name = "CrtCustBtn";
+            this.CrtCustBtn.Size = new System.Drawing.Size(128, 55);
+            this.CrtCustBtn.TabIndex = 17;
+            this.CrtCustBtn.Text = "Create";
+            this.CrtCustBtn.UseVisualStyleBackColor = true;
+            // 
+            // gridCustomer
+            // 
+            this.gridCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridCustomer.Location = new System.Drawing.Point(4, 179);
+            this.gridCustomer.Name = "gridCustomer";
+            this.gridCustomer.Size = new System.Drawing.Size(928, 257);
+            this.gridCustomer.TabIndex = 16;
+            // 
+            // phoneNoTxt
+            // 
+            this.phoneNoTxt.Location = new System.Drawing.Point(347, 119);
+            this.phoneNoTxt.Name = "phoneNoTxt";
+            this.phoneNoTxt.Size = new System.Drawing.Size(100, 20);
+            this.phoneNoTxt.TabIndex = 15;
+            // 
+            // emailTxt
+            // 
+            this.emailTxt.Location = new System.Drawing.Point(347, 93);
+            this.emailTxt.Name = "emailTxt";
+            this.emailTxt.Size = new System.Drawing.Size(100, 20);
+            this.emailTxt.TabIndex = 14;
+            // 
+            // addressTxt
+            // 
+            this.addressTxt.Location = new System.Drawing.Point(347, 66);
+            this.addressTxt.Name = "addressTxt";
+            this.addressTxt.Size = new System.Drawing.Size(100, 20);
+            this.addressTxt.TabIndex = 13;
+            // 
+            // cityTxt
+            // 
+            this.cityTxt.Location = new System.Drawing.Point(347, 40);
+            this.cityTxt.Name = "cityTxt";
+            this.cityTxt.Size = new System.Drawing.Size(100, 20);
+            this.cityTxt.TabIndex = 12;
+            // 
+            // usernameTxt
+            // 
+            this.usernameTxt.Location = new System.Drawing.Point(107, 93);
+            this.usernameTxt.Name = "usernameTxt";
+            this.usernameTxt.Size = new System.Drawing.Size(100, 20);
+            this.usernameTxt.TabIndex = 11;
+            // 
+            // lnametxt
+            // 
+            this.lnametxt.Location = new System.Drawing.Point(107, 67);
+            this.lnametxt.Name = "lnametxt";
+            this.lnametxt.Size = new System.Drawing.Size(100, 20);
+            this.lnametxt.TabIndex = 10;
+            // 
+            // fnametxt
+            // 
+            this.fnametxt.Location = new System.Drawing.Point(107, 41);
+            this.fnametxt.Name = "fnametxt";
+            this.fnametxt.Size = new System.Drawing.Size(100, 20);
+            this.fnametxt.TabIndex = 9;
+            // 
+            // passwordTxt
+            // 
+            this.passwordTxt.Location = new System.Drawing.Point(107, 119);
+            this.passwordTxt.Name = "passwordTxt";
+            this.passwordTxt.Size = new System.Drawing.Size(100, 20);
+            this.passwordTxt.TabIndex = 8;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(300, 96);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(34, 13);
+            this.label21.TabIndex = 7;
+            this.label21.Text = "e-mail";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(290, 122);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(51, 13);
+            this.label20.TabIndex = 6;
+            this.label20.Text = "phoneNo";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(60, 45);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(41, 13);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "FName";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(60, 70);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(41, 13);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "LName";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(46, 96);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(55, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "userName";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(297, 70);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(44, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "address";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(311, 44);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(23, 13);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "city";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(46, 122);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(52, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "password";
+            // 
+            // movieTab
+            // 
+            this.movieTab.Controls.Add(this.label5);
+            this.movieTab.Controls.Add(this.label4);
+            this.movieTab.Controls.Add(this.label3);
+            this.movieTab.Controls.Add(this.label2);
+            this.movieTab.Controls.Add(this.label1);
+            this.movieTab.Controls.Add(this.nameTxt);
+            this.movieTab.Controls.Add(this.movieIdTxt);
+            this.movieTab.Controls.Add(this.lenghtTxt);
+            this.movieTab.Controls.Add(this.genreTxt);
+            this.movieTab.Controls.Add(this.ageLimitTxt);
+            this.movieTab.Controls.Add(this.dltMovieBtn);
+            this.movieTab.Controls.Add(this.UpdMovieBtn);
+            this.movieTab.Controls.Add(this.crtMovieBtn);
+            this.movieTab.Controls.Add(this.gridMovie);
+            this.movieTab.Location = new System.Drawing.Point(4, 22);
+            this.movieTab.Name = "movieTab";
+            this.movieTab.Padding = new System.Windows.Forms.Padding(3);
+            this.movieTab.Size = new System.Drawing.Size(935, 439);
+            this.movieTab.TabIndex = 0;
+            this.movieTab.Text = "Movie Admin";
+            this.movieTab.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(109, 133);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Name";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(104, 107);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "MovieId";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(109, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Lenght";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(109, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Genre";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(97, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "AgeLimit";
+            // 
+            // nameTxt
+            // 
+            this.nameTxt.Location = new System.Drawing.Point(150, 130);
+            this.nameTxt.Name = "nameTxt";
+            this.nameTxt.Size = new System.Drawing.Size(100, 20);
+            this.nameTxt.TabIndex = 8;
+            // 
+            // movieIdTxt
+            // 
+            this.movieIdTxt.Location = new System.Drawing.Point(150, 104);
+            this.movieIdTxt.Name = "movieIdTxt";
+            this.movieIdTxt.Size = new System.Drawing.Size(100, 20);
+            this.movieIdTxt.TabIndex = 7;
+            // 
+            // lenghtTxt
+            // 
+            this.lenghtTxt.Location = new System.Drawing.Point(150, 78);
+            this.lenghtTxt.Name = "lenghtTxt";
+            this.lenghtTxt.Size = new System.Drawing.Size(100, 20);
+            this.lenghtTxt.TabIndex = 6;
+            // 
+            // genreTxt
+            // 
+            this.genreTxt.Location = new System.Drawing.Point(150, 52);
+            this.genreTxt.Name = "genreTxt";
+            this.genreTxt.Size = new System.Drawing.Size(100, 20);
+            this.genreTxt.TabIndex = 5;
+            // 
+            // ageLimitTxt
+            // 
+            this.ageLimitTxt.Location = new System.Drawing.Point(150, 26);
+            this.ageLimitTxt.Name = "ageLimitTxt";
+            this.ageLimitTxt.Size = new System.Drawing.Size(100, 20);
+            this.ageLimitTxt.TabIndex = 4;
+            // 
+            // dltMovieBtn
+            // 
+            this.dltMovieBtn.Location = new System.Drawing.Point(196, 319);
+            this.dltMovieBtn.Name = "dltMovieBtn";
+            this.dltMovieBtn.Size = new System.Drawing.Size(169, 101);
+            this.dltMovieBtn.TabIndex = 3;
+            this.dltMovieBtn.Text = "Delete";
+            this.dltMovieBtn.UseVisualStyleBackColor = true;
+            // 
+            // UpdMovieBtn
+            // 
+            this.UpdMovieBtn.Location = new System.Drawing.Point(196, 199);
+            this.UpdMovieBtn.Name = "UpdMovieBtn";
+            this.UpdMovieBtn.Size = new System.Drawing.Size(164, 74);
+            this.UpdMovieBtn.TabIndex = 2;
+            this.UpdMovieBtn.Text = "Update";
+            this.UpdMovieBtn.UseVisualStyleBackColor = true;
+            // 
+            // crtMovieBtn
+            // 
+            this.crtMovieBtn.Location = new System.Drawing.Point(19, 261);
+            this.crtMovieBtn.Name = "crtMovieBtn";
+            this.crtMovieBtn.Size = new System.Drawing.Size(147, 74);
+            this.crtMovieBtn.TabIndex = 1;
+            this.crtMovieBtn.Text = "Create";
+            this.crtMovieBtn.UseVisualStyleBackColor = true;
+            // 
+            // gridMovie
+            // 
+            this.gridMovie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridMovie.Location = new System.Drawing.Point(387, 6);
+            this.gridMovie.Name = "gridMovie";
+            this.gridMovie.Size = new System.Drawing.Size(545, 427);
+            this.gridMovie.TabIndex = 0;
             // 
             // reservationTab
             // 
@@ -301,337 +632,6 @@
             this.gridReservation.Size = new System.Drawing.Size(893, 302);
             this.gridReservation.TabIndex = 0;
             // 
-            // movieTab
-            // 
-            this.movieTab.Controls.Add(this.label5);
-            this.movieTab.Controls.Add(this.label4);
-            this.movieTab.Controls.Add(this.label3);
-            this.movieTab.Controls.Add(this.label2);
-            this.movieTab.Controls.Add(this.label1);
-            this.movieTab.Controls.Add(this.nameTxt);
-            this.movieTab.Controls.Add(this.movieIdTxt);
-            this.movieTab.Controls.Add(this.lenghtTxt);
-            this.movieTab.Controls.Add(this.genreTxt);
-            this.movieTab.Controls.Add(this.ageLimitTxt);
-            this.movieTab.Controls.Add(this.dltMovieBtn);
-            this.movieTab.Controls.Add(this.UpdMovieBtn);
-            this.movieTab.Controls.Add(this.crtMovieBtn);
-            this.movieTab.Controls.Add(this.gridMovie);
-            this.movieTab.Location = new System.Drawing.Point(4, 22);
-            this.movieTab.Name = "movieTab";
-            this.movieTab.Padding = new System.Windows.Forms.Padding(3);
-            this.movieTab.Size = new System.Drawing.Size(935, 439);
-            this.movieTab.TabIndex = 0;
-            this.movieTab.Text = "Movie Admin";
-            this.movieTab.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(109, 133);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Name";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(104, 107);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "MovieId";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(109, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Lenght";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(109, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Genre";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(97, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "AgeLimit";
-            // 
-            // nameTxt
-            // 
-            this.nameTxt.Location = new System.Drawing.Point(150, 130);
-            this.nameTxt.Name = "nameTxt";
-            this.nameTxt.Size = new System.Drawing.Size(100, 20);
-            this.nameTxt.TabIndex = 8;
-            // 
-            // movieIdTxt
-            // 
-            this.movieIdTxt.Location = new System.Drawing.Point(150, 104);
-            this.movieIdTxt.Name = "movieIdTxt";
-            this.movieIdTxt.Size = new System.Drawing.Size(100, 20);
-            this.movieIdTxt.TabIndex = 7;
-            // 
-            // lenghtTxt
-            // 
-            this.lenghtTxt.Location = new System.Drawing.Point(150, 78);
-            this.lenghtTxt.Name = "lenghtTxt";
-            this.lenghtTxt.Size = new System.Drawing.Size(100, 20);
-            this.lenghtTxt.TabIndex = 6;
-            // 
-            // genreTxt
-            // 
-            this.genreTxt.Location = new System.Drawing.Point(150, 52);
-            this.genreTxt.Name = "genreTxt";
-            this.genreTxt.Size = new System.Drawing.Size(100, 20);
-            this.genreTxt.TabIndex = 5;
-            // 
-            // ageLimitTxt
-            // 
-            this.ageLimitTxt.Location = new System.Drawing.Point(150, 26);
-            this.ageLimitTxt.Name = "ageLimitTxt";
-            this.ageLimitTxt.Size = new System.Drawing.Size(100, 20);
-            this.ageLimitTxt.TabIndex = 4;
-            // 
-            // dltMovieBtn
-            // 
-            this.dltMovieBtn.Location = new System.Drawing.Point(196, 319);
-            this.dltMovieBtn.Name = "dltMovieBtn";
-            this.dltMovieBtn.Size = new System.Drawing.Size(169, 101);
-            this.dltMovieBtn.TabIndex = 3;
-            this.dltMovieBtn.Text = "Delete";
-            this.dltMovieBtn.UseVisualStyleBackColor = true;
-            // 
-            // UpdMovieBtn
-            // 
-            this.UpdMovieBtn.Location = new System.Drawing.Point(196, 199);
-            this.UpdMovieBtn.Name = "UpdMovieBtn";
-            this.UpdMovieBtn.Size = new System.Drawing.Size(164, 74);
-            this.UpdMovieBtn.TabIndex = 2;
-            this.UpdMovieBtn.Text = "Update";
-            this.UpdMovieBtn.UseVisualStyleBackColor = true;
-            // 
-            // crtMovieBtn
-            // 
-            this.crtMovieBtn.Location = new System.Drawing.Point(19, 261);
-            this.crtMovieBtn.Name = "crtMovieBtn";
-            this.crtMovieBtn.Size = new System.Drawing.Size(147, 74);
-            this.crtMovieBtn.TabIndex = 1;
-            this.crtMovieBtn.Text = "Create";
-            this.crtMovieBtn.UseVisualStyleBackColor = true;
-            // 
-            // gridMovie
-            // 
-            this.gridMovie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridMovie.Location = new System.Drawing.Point(387, 6);
-            this.gridMovie.Name = "gridMovie";
-            this.gridMovie.Size = new System.Drawing.Size(545, 427);
-            this.gridMovie.TabIndex = 0;
-            // 
-            // customerAdminTab
-            // 
-            this.customerAdminTab.Controls.Add(this.DelCustBtn);
-            this.customerAdminTab.Controls.Add(this.UpdCustBtn);
-            this.customerAdminTab.Controls.Add(this.CrtCustBtn);
-            this.customerAdminTab.Controls.Add(this.gridCustomer);
-            this.customerAdminTab.Controls.Add(this.phoneNoTxt);
-            this.customerAdminTab.Controls.Add(this.emailTxt);
-            this.customerAdminTab.Controls.Add(this.addressTxt);
-            this.customerAdminTab.Controls.Add(this.cityTxt);
-            this.customerAdminTab.Controls.Add(this.usernameTxt);
-            this.customerAdminTab.Controls.Add(this.lnametxt);
-            this.customerAdminTab.Controls.Add(this.fnametxt);
-            this.customerAdminTab.Controls.Add(this.passwordTxt);
-            this.customerAdminTab.Controls.Add(this.label21);
-            this.customerAdminTab.Controls.Add(this.label20);
-            this.customerAdminTab.Controls.Add(this.label19);
-            this.customerAdminTab.Controls.Add(this.label18);
-            this.customerAdminTab.Controls.Add(this.label17);
-            this.customerAdminTab.Controls.Add(this.label16);
-            this.customerAdminTab.Controls.Add(this.label15);
-            this.customerAdminTab.Controls.Add(this.label14);
-            this.customerAdminTab.Location = new System.Drawing.Point(4, 22);
-            this.customerAdminTab.Name = "customerAdminTab";
-            this.customerAdminTab.Size = new System.Drawing.Size(935, 439);
-            this.customerAdminTab.TabIndex = 2;
-            this.customerAdminTab.Text = "Customer Admin";
-            this.customerAdminTab.UseVisualStyleBackColor = true;
-            // 
-            // DelCustBtn
-            // 
-            this.DelCustBtn.Location = new System.Drawing.Point(602, 103);
-            this.DelCustBtn.Name = "DelCustBtn";
-            this.DelCustBtn.Size = new System.Drawing.Size(135, 51);
-            this.DelCustBtn.TabIndex = 19;
-            this.DelCustBtn.Text = "Delete";
-            this.DelCustBtn.UseVisualStyleBackColor = true;
-            // 
-            // UpdCustBtn
-            // 
-            this.UpdCustBtn.Location = new System.Drawing.Point(676, 27);
-            this.UpdCustBtn.Name = "UpdCustBtn";
-            this.UpdCustBtn.Size = new System.Drawing.Size(155, 55);
-            this.UpdCustBtn.TabIndex = 18;
-            this.UpdCustBtn.Text = "Update";
-            this.UpdCustBtn.UseVisualStyleBackColor = true;
-            // 
-            // CrtCustBtn
-            // 
-            this.CrtCustBtn.Location = new System.Drawing.Point(528, 27);
-            this.CrtCustBtn.Name = "CrtCustBtn";
-            this.CrtCustBtn.Size = new System.Drawing.Size(128, 55);
-            this.CrtCustBtn.TabIndex = 17;
-            this.CrtCustBtn.Text = "Create";
-            this.CrtCustBtn.UseVisualStyleBackColor = true;
-            // 
-            // gridCustomer
-            // 
-            this.gridCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridCustomer.Location = new System.Drawing.Point(4, 179);
-            this.gridCustomer.Name = "gridCustomer";
-            this.gridCustomer.Size = new System.Drawing.Size(928, 257);
-            this.gridCustomer.TabIndex = 16;
-            // 
-            // phoneNoTxt
-            // 
-            this.phoneNoTxt.Location = new System.Drawing.Point(347, 119);
-            this.phoneNoTxt.Name = "phoneNoTxt";
-            this.phoneNoTxt.Size = new System.Drawing.Size(100, 20);
-            this.phoneNoTxt.TabIndex = 15;
-            // 
-            // emailTxt
-            // 
-            this.emailTxt.Location = new System.Drawing.Point(347, 93);
-            this.emailTxt.Name = "emailTxt";
-            this.emailTxt.Size = new System.Drawing.Size(100, 20);
-            this.emailTxt.TabIndex = 14;
-            // 
-            // addressTxt
-            // 
-            this.addressTxt.Location = new System.Drawing.Point(347, 66);
-            this.addressTxt.Name = "addressTxt";
-            this.addressTxt.Size = new System.Drawing.Size(100, 20);
-            this.addressTxt.TabIndex = 13;
-            // 
-            // cityTxt
-            // 
-            this.cityTxt.Location = new System.Drawing.Point(347, 40);
-            this.cityTxt.Name = "cityTxt";
-            this.cityTxt.Size = new System.Drawing.Size(100, 20);
-            this.cityTxt.TabIndex = 12;
-            // 
-            // usernameTxt
-            // 
-            this.usernameTxt.Location = new System.Drawing.Point(107, 93);
-            this.usernameTxt.Name = "usernameTxt";
-            this.usernameTxt.Size = new System.Drawing.Size(100, 20);
-            this.usernameTxt.TabIndex = 11;
-            // 
-            // lnametxt
-            // 
-            this.lnametxt.Location = new System.Drawing.Point(107, 67);
-            this.lnametxt.Name = "lnametxt";
-            this.lnametxt.Size = new System.Drawing.Size(100, 20);
-            this.lnametxt.TabIndex = 10;
-            // 
-            // fnametxt
-            // 
-            this.fnametxt.Location = new System.Drawing.Point(107, 41);
-            this.fnametxt.Name = "fnametxt";
-            this.fnametxt.Size = new System.Drawing.Size(100, 20);
-            this.fnametxt.TabIndex = 9;
-            // 
-            // passwordTxt
-            // 
-            this.passwordTxt.Location = new System.Drawing.Point(107, 119);
-            this.passwordTxt.Name = "passwordTxt";
-            this.passwordTxt.Size = new System.Drawing.Size(100, 20);
-            this.passwordTxt.TabIndex = 8;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(300, 96);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(34, 13);
-            this.label21.TabIndex = 7;
-            this.label21.Text = "e-mail";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(290, 122);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(51, 13);
-            this.label20.TabIndex = 6;
-            this.label20.Text = "phoneNo";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(60, 45);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(41, 13);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "FName";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(60, 70);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 13);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "LName";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(46, 96);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(55, 13);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "userName";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(297, 70);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(44, 13);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "address";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(311, 44);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(23, 13);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "city";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(46, 122);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(52, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "password";
-            // 
             // sessAdminTab
             // 
             this.sessAdminTab.Location = new System.Drawing.Point(4, 22);
@@ -651,15 +651,15 @@
             this.Text = "EmployeeClient";
             this.Load += new System.EventHandler(this.EmployeeClient_Load);
             this.tabControl1.ResumeLayout(false);
-            this.reservationTab.ResumeLayout(false);
-            this.reservationTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridReservation)).EndInit();
-            this.movieTab.ResumeLayout(false);
-            this.movieTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridMovie)).EndInit();
             this.customerAdminTab.ResumeLayout(false);
             this.customerAdminTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomer)).EndInit();
+            this.movieTab.ResumeLayout(false);
+            this.movieTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMovie)).EndInit();
+            this.reservationTab.ResumeLayout(false);
+            this.reservationTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridReservation)).EndInit();
             this.ResumeLayout(false);
 
         }
