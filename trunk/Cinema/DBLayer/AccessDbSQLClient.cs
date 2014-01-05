@@ -37,7 +37,6 @@ namespace Cinema.DBLayer
                 dbCommand = new SqlCommand(sqlQuery, dbConnection);
             }
             dbCommand.CommandText = sqlQuery;
-            dbCommand.Prepare();
             return dbCommand;
         }
     }
