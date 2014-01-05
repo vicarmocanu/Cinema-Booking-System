@@ -73,7 +73,8 @@ namespace Cinema.DBLayer
         //get an employee - username
         public Employee getEmployeeByUsername(String username)
         {
-            string sqlQuery = "SELECT * FROM Employee WHERE userName= '" + username + "'";
+            string sqlQuery = "SELECT * FROM Employee WHERE userName= @username";
+            dbCmd.Parameters.AddWithValue("username", username);
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
