@@ -170,8 +170,8 @@ namespace Cinema.DBLayer
         {
             List<Session> returnList = new List<Session>();
 
-            string sqlQuery = "SELECT Session.sessionId, Session.movieId, Session.date, " +
-                "Session.enterTime, Session.exitTime, SeatSchedule.seatId, Seat.roomNumber " +
+            string sqlQuery = "SELECT DISTINCT Session.sessionId, Session.movieId, Session.date, " +
+                "Session.enterTime, Session.exitTime, Session.price, Seat.roomNumber " +
                 "FROM Session JOIN SeatSchedule ON Session.sessionId = SeatSchedule.sessionId " +
                 "JOIN Seat ON SeatSchedule.seatId = Seat.seatId";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
