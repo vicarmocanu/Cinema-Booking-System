@@ -164,6 +164,8 @@ namespace Cinema.DBLayer
                 returnList.Add(reservation);
             }
 
+            AccessDbSQLClient.Close();
+
             return returnList;
         }
         
@@ -185,6 +187,8 @@ namespace Cinema.DBLayer
                 returnList.Add(reservation);
             }
 
+            AccessDbSQLClient.Close();
+
             return returnList;
         }
 
@@ -202,8 +206,6 @@ namespace Cinema.DBLayer
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
-            
-
             while (dbReader.Read())
             {
                 Seat seat = new Seat();
@@ -218,6 +220,8 @@ namespace Cinema.DBLayer
 
                 returnList.Add(seat);
             }
+
+            AccessDbSQLClient.Close();
 
             return returnList;
         }
@@ -361,6 +365,5 @@ namespace Cinema.DBLayer
 
             return results;
         }
-
     }
 }
