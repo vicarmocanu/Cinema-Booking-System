@@ -14,7 +14,6 @@ namespace Cinema.DBLayer
     class DbCustomer : ICustomer
     {
         private static SqlCommand dbCmd = null;
-        private static Object obj = new Object();
 
         //build a customer object based on the db reader
         private static Customer createCustomer(IDataReader dbReader)
