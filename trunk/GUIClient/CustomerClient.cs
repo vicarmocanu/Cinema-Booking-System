@@ -188,11 +188,5 @@ namespace GUIClient
             this.Close();
             LogIn.getInstance().ShowDialog();
         }
-
-        private void gridSession_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
     }
 }
