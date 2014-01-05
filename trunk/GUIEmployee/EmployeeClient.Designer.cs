@@ -383,7 +383,7 @@
             this.gridCustomer.Name = "gridCustomer";
             this.gridCustomer.Size = new System.Drawing.Size(928, 257);
             this.gridCustomer.TabIndex = 16;
-            
+            this.gridCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCustomer_CellClick);
             // 
             // phoneNoTxt
             // 
@@ -651,6 +651,7 @@
             this.gridMovie.Name = "gridMovie";
             this.gridMovie.Size = new System.Drawing.Size(545, 427);
             this.gridMovie.TabIndex = 0;
+            this.gridMovie.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridMovie_CellClick);
             // 
             // sessAdminTab
             // 
@@ -680,10 +681,11 @@
             // gridSession
             // 
             this.gridSession.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridSession.Location = new System.Drawing.Point(347, 29);
+            this.gridSession.Location = new System.Drawing.Point(323, 29);
             this.gridSession.Name = "gridSession";
-            this.gridSession.Size = new System.Drawing.Size(580, 224);
+            this.gridSession.Size = new System.Drawing.Size(604, 224);
             this.gridSession.TabIndex = 15;
+            this.gridSession.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridSession_CellClick);
             // 
             // txtSesId
             // 
