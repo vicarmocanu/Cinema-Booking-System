@@ -132,5 +132,51 @@ namespace GUIEmployee
                 dateTxt.Text = row.Cells[7].Value.ToString();
             }
         }
+
+        private void gridCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.gridCustomer.Rows[e.RowIndex];
+
+                fnametxt.Text = row.Cells[0].Value.ToString();
+                lnametxt.Text = row.Cells[1].Value.ToString();
+                usernameTxt.Text = row.Cells[2].Value.ToString();
+                passwordTxt.Text = row.Cells[3].Value.ToString();
+                cityTxt.Text = row.Cells[4].Value.ToString();
+                addressTxt.Text = row.Cells[5].Value.ToString();
+                emailTxt.Text = row.Cells[6].Value.ToString();
+                phoneNoTxt.Text = row.Cells[7].Value.ToString();
+            }
+        }
+
+        private void gridMovie_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.gridMovie.Rows[e.RowIndex];
+
+                ageLimitTxt.Text = row.Cells[0].Value.ToString();
+                genreTxt.Text = row.Cells[1].Value.ToString();
+                lenghtTxt.Text = row.Cells[2].Value.ToString();
+                movieIdTxt.Text = row.Cells[3].Value.ToString();
+                nameTxt.Text = row.Cells[4].Value.ToString();
+            }
+        }
+
+        private void gridSession_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.gridSession.Rows[e.RowIndex];
+
+                txtSesId.Text = row.Cells[0].Value.ToString();
+                txtSesMovId.Text = row.Cells[1].Value.ToString();
+                txtEnterTime.Text = row.Cells[2].Value.ToString();
+                txtExitTime.Text = row.Cells[3].Value.ToString();
+                txtSesDate.Text = row.Cells[4].Value.ToString();
+                txtSesPrice.Text = row.Cells[5].Value.ToString();
+            }
+        }
     }
 }
