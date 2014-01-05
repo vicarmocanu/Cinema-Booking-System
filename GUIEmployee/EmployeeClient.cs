@@ -23,7 +23,9 @@ namespace GUIEmployee
 
         private void EmployeeClient_Load(object sender, EventArgs e)
         {
-            loadGrids();
+            loadCustomerGrid();
+            loadMovieGrid();
+            loadReservationGrid();
         }
 
         private void loadMovieGrid()
@@ -90,70 +92,6 @@ namespace GUIEmployee
             {
                 gridCustomer.Rows.Add(new object[] { cust.CustomerFirstName, cust.CustomerLastName, cust.CustomerUsername, cust.CustomerPassword, cust.CustomerCity, cust.CustomerAddress, cust.CustomerEmail, cust.CustomerPhoneNo });
             }
-        }
-
-        private void loadGrids()
-        {
-            if (tabControl1.SelectedTab == customerAdminTab)
-            {
-                gridCustomer.Rows.Clear();
-                try
-                {
-                    loadCustomerGrid();
-                }
-                catch (NullReferenceException)
-                {
-                    MessageBox.Show("Dafq3?");
-                }
-            }
-
-            if (tabControl1.SelectedTab == movieTab)
-            {
-                gridMovie.Rows.Clear();
-                try 
-                {
-                    loadMovieGrid();
-                }
-                catch(NullReferenceException)
-                {
-                    MessageBox.Show("Dafq?");
-                }
-            }
-
-            if(tabControl1.SelectedTab == reservationTab)
-            {
-                gridReservation.Rows.Clear();
-                try
-                {
-                    loadReservationGrid();
-                }
-                catch (NullReferenceException)
-                {
-                    MessageBox.Show("Dafq2?");
-                }
-               
-            }
-
-            
-        }
-
-        //private void movieTab_Click(object sender, EventArgs e)
-     //   {
-     //       gridMovie.Rows.Clear();
-    //        try 
-//{
-//               
- //               loadMovieGrid();
- //           }
- //           catch (NullReferenceException)
- //           {
- //               MessageBox.Show("You have't done it right");
-                
- //           }
- //       }
-
-        
-
-
+        }     
     }
 }
