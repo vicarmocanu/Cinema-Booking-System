@@ -198,8 +198,6 @@ namespace Cinema.DBLayer
                 returnList.Add(session);
             }
 
-            AccessDbSQLClient.Close();
-
             return returnList;
         }
 

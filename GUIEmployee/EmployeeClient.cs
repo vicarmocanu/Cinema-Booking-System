@@ -20,12 +20,14 @@ namespace GUIEmployee
         private static MovieSrv.IMovieService movService = new MovieSrv.MovieServiceClient();
         private static ReservationSrv.IReservationService rzvService = new ReservationSrv.ReservationServiceClient();
         private static CustomerSrv.ICustomerService custService = new CustomerSrv.CustomerServiceClient();
+        private static SessionSrv.ISessionService sesService = new SessionSrv.SessionServiceClient();
 
         private void EmployeeClient_Load(object sender, EventArgs e)
         {
             loadCustomerGrid();
             loadMovieGrid();
             loadReservationGrid();
+           // loadSessionGrid();
         }
 
         private void loadMovieGrid()
@@ -92,6 +94,36 @@ namespace GUIEmployee
             {
                 gridCustomer.Rows.Add(new object[] { cust.CustomerFirstName, cust.CustomerLastName, cust.CustomerUsername, cust.CustomerPassword, cust.CustomerCity, cust.CustomerAddress, cust.CustomerEmail, cust.CustomerPhoneNo });
             }
-        }     
+        }
+
+        private void loadSessionGrid()
+        {
+            gridSession.ColumnCount = 6;
+            gridSession.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            gridSession.MultiSelect = false;
+            gridSession.Columns[0].HeaderCell.Value = "SessionId";
+            gridSession.Columns[1].HeaderCell.Value = "MovieId";
+            gridSession.Columns[2].HeaderCell.Value = "EnterTime";
+            gridSession.Columns[3].HeaderCell.Value = "ExitTime";
+            gridSession.Columns[4].HeaderCell.Value = "Date";
+            gridSession.Columns[5].HeaderCell.Value = "Price";
+
+            SessionSrv.Session[] returnList = sesService.getSessions();
+
+            foreach (SessionSrv.Session ses in returnList)
+            {
+                gridSession.Rows.Add(new object[] { ses.SessionId, ses.Movie.MovieId, ses.EnterTime, ses.ExitTime, ses.Date, ses.Price });
+            }
+        }
+
+        private void gridReservation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            { 
+                DataGridViewRow row = this.gridReservation.Rows[e.RowIndex];
+
+                rezervationIdTxt.Text = row.Cells[0].Value.ToString();
+            }
+        }
     }
 }
