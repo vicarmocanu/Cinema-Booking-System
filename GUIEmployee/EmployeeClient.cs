@@ -27,7 +27,7 @@ namespace GUIEmployee
             loadCustomerGrid();
             loadMovieGrid();
             loadReservationGrid();
-           // loadSessionGrid();
+            loadSessionGrid();
         }
 
         private void loadMovieGrid()
@@ -116,13 +116,20 @@ namespace GUIEmployee
             }
         }
 
-        private void gridReservation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void gridReservation_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
-            { 
+            {
                 DataGridViewRow row = this.gridReservation.Rows[e.RowIndex];
 
                 rezervationIdTxt.Text = row.Cells[0].Value.ToString();
+                custFNameTxt.Text = row.Cells[1].Value.ToString();
+                custLNameTxt.Text = row.Cells[2].Value.ToString();
+                sessionIdTxt.Text = row.Cells[3].Value.ToString();
+                noOfSeatsTxt.Text = row.Cells[4].Value.ToString();
+                priceTxt.Text = row.Cells[5].Value.ToString();
+                statusTxt.Text = row.Cells[6].Value.ToString();
+                dateTxt.Text = row.Cells[7].Value.ToString();
             }
         }
     }
