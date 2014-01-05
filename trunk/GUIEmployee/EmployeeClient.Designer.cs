@@ -29,6 +29,27 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.reservationTab = new System.Windows.Forms.TabPage();
+            this.dateTxt = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.DelResBtn = new System.Windows.Forms.Button();
+            this.UpdResBtn = new System.Windows.Forms.Button();
+            this.CrtResBtn = new System.Windows.Forms.Button();
+            this.statusTxt = new System.Windows.Forms.TextBox();
+            this.priceTxt = new System.Windows.Forms.TextBox();
+            this.noOfSeatsTxt = new System.Windows.Forms.TextBox();
+            this.sessionIdTxt = new System.Windows.Forms.TextBox();
+            this.custLNameTxt = new System.Windows.Forms.TextBox();
+            this.custFNameTxt = new System.Windows.Forms.TextBox();
+            this.rezervationIdTxt = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.gridReservation = new System.Windows.Forms.DataGridView();
             this.customerAdminTab = new System.Windows.Forms.TabPage();
             this.DelCustBtn = new System.Windows.Forms.Button();
             this.UpdCustBtn = new System.Windows.Forms.Button();
@@ -65,35 +86,32 @@
             this.UpdMovieBtn = new System.Windows.Forms.Button();
             this.crtMovieBtn = new System.Windows.Forms.Button();
             this.gridMovie = new System.Windows.Forms.DataGridView();
-            this.reservationTab = new System.Windows.Forms.TabPage();
-            this.dateTxt = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.DelResBtn = new System.Windows.Forms.Button();
-            this.UpdResBtn = new System.Windows.Forms.Button();
-            this.CrtResBtn = new System.Windows.Forms.Button();
-            this.statusTxt = new System.Windows.Forms.TextBox();
-            this.priceTxt = new System.Windows.Forms.TextBox();
-            this.noOfSeatsTxt = new System.Windows.Forms.TextBox();
-            this.sessionIdTxt = new System.Windows.Forms.TextBox();
-            this.custLNameTxt = new System.Windows.Forms.TextBox();
-            this.custFNameTxt = new System.Windows.Forms.TextBox();
-            this.rezervationIdTxt = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.gridReservation = new System.Windows.Forms.DataGridView();
             this.sessAdminTab = new System.Windows.Forms.TabPage();
+            this.gridSession = new System.Windows.Forms.DataGridView();
+            this.txtSesId = new System.Windows.Forms.TextBox();
+            this.txtSesMovId = new System.Windows.Forms.TextBox();
+            this.txtEnterTime = new System.Windows.Forms.TextBox();
+            this.txtExitTime = new System.Windows.Forms.TextBox();
+            this.txtSesDate = new System.Windows.Forms.TextBox();
+            this.txtSesPrice = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.btnDelSes = new System.Windows.Forms.Button();
+            this.brnUpdSes = new System.Windows.Forms.Button();
+            this.btnCrtSes = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
+            this.reservationTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridReservation)).BeginInit();
             this.customerAdminTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomer)).BeginInit();
             this.movieTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMovie)).BeginInit();
-            this.reservationTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridReservation)).BeginInit();
+            this.sessAdminTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSession)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -107,6 +125,200 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(943, 465);
             this.tabControl1.TabIndex = 0;
+            // 
+            // reservationTab
+            // 
+            this.reservationTab.Controls.Add(this.dateTxt);
+            this.reservationTab.Controls.Add(this.label13);
+            this.reservationTab.Controls.Add(this.DelResBtn);
+            this.reservationTab.Controls.Add(this.UpdResBtn);
+            this.reservationTab.Controls.Add(this.CrtResBtn);
+            this.reservationTab.Controls.Add(this.statusTxt);
+            this.reservationTab.Controls.Add(this.priceTxt);
+            this.reservationTab.Controls.Add(this.noOfSeatsTxt);
+            this.reservationTab.Controls.Add(this.sessionIdTxt);
+            this.reservationTab.Controls.Add(this.custLNameTxt);
+            this.reservationTab.Controls.Add(this.custFNameTxt);
+            this.reservationTab.Controls.Add(this.rezervationIdTxt);
+            this.reservationTab.Controls.Add(this.label12);
+            this.reservationTab.Controls.Add(this.label11);
+            this.reservationTab.Controls.Add(this.label10);
+            this.reservationTab.Controls.Add(this.label9);
+            this.reservationTab.Controls.Add(this.label8);
+            this.reservationTab.Controls.Add(this.label7);
+            this.reservationTab.Controls.Add(this.label6);
+            this.reservationTab.Controls.Add(this.gridReservation);
+            this.reservationTab.Location = new System.Drawing.Point(4, 22);
+            this.reservationTab.Name = "reservationTab";
+            this.reservationTab.Padding = new System.Windows.Forms.Padding(3);
+            this.reservationTab.Size = new System.Drawing.Size(935, 439);
+            this.reservationTab.TabIndex = 1;
+            this.reservationTab.Text = "Rezervation Admin";
+            this.reservationTab.UseVisualStyleBackColor = true;
+            // 
+            // dateTxt
+            // 
+            this.dateTxt.Location = new System.Drawing.Point(284, 94);
+            this.dateTxt.Name = "dateTxt";
+            this.dateTxt.Size = new System.Drawing.Size(100, 20);
+            this.dateTxt.TabIndex = 19;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(244, 97);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(28, 13);
+            this.label13.TabIndex = 18;
+            this.label13.Text = "date";
+            // 
+            // DelResBtn
+            // 
+            this.DelResBtn.Location = new System.Drawing.Point(627, 33);
+            this.DelResBtn.Name = "DelResBtn";
+            this.DelResBtn.Size = new System.Drawing.Size(120, 50);
+            this.DelResBtn.TabIndex = 17;
+            this.DelResBtn.Text = "Delete";
+            this.DelResBtn.UseVisualStyleBackColor = true;
+            // 
+            // UpdResBtn
+            // 
+            this.UpdResBtn.Location = new System.Drawing.Point(470, 70);
+            this.UpdResBtn.Name = "UpdResBtn";
+            this.UpdResBtn.Size = new System.Drawing.Size(120, 57);
+            this.UpdResBtn.TabIndex = 16;
+            this.UpdResBtn.Text = "Update";
+            this.UpdResBtn.UseVisualStyleBackColor = true;
+            // 
+            // CrtResBtn
+            // 
+            this.CrtResBtn.Location = new System.Drawing.Point(470, 4);
+            this.CrtResBtn.Name = "CrtResBtn";
+            this.CrtResBtn.Size = new System.Drawing.Size(122, 56);
+            this.CrtResBtn.TabIndex = 15;
+            this.CrtResBtn.Text = "Create";
+            this.CrtResBtn.UseVisualStyleBackColor = true;
+            // 
+            // statusTxt
+            // 
+            this.statusTxt.Location = new System.Drawing.Point(284, 67);
+            this.statusTxt.Name = "statusTxt";
+            this.statusTxt.Size = new System.Drawing.Size(100, 20);
+            this.statusTxt.TabIndex = 14;
+            // 
+            // priceTxt
+            // 
+            this.priceTxt.Location = new System.Drawing.Point(284, 40);
+            this.priceTxt.Name = "priceTxt";
+            this.priceTxt.Size = new System.Drawing.Size(100, 20);
+            this.priceTxt.TabIndex = 13;
+            // 
+            // noOfSeatsTxt
+            // 
+            this.noOfSeatsTxt.Location = new System.Drawing.Point(284, 11);
+            this.noOfSeatsTxt.Name = "noOfSeatsTxt";
+            this.noOfSeatsTxt.Size = new System.Drawing.Size(100, 20);
+            this.noOfSeatsTxt.TabIndex = 12;
+            // 
+            // sessionIdTxt
+            // 
+            this.sessionIdTxt.Location = new System.Drawing.Point(103, 90);
+            this.sessionIdTxt.Name = "sessionIdTxt";
+            this.sessionIdTxt.Size = new System.Drawing.Size(100, 20);
+            this.sessionIdTxt.TabIndex = 11;
+            // 
+            // custLNameTxt
+            // 
+            this.custLNameTxt.Location = new System.Drawing.Point(103, 67);
+            this.custLNameTxt.Name = "custLNameTxt";
+            this.custLNameTxt.Size = new System.Drawing.Size(100, 20);
+            this.custLNameTxt.TabIndex = 10;
+            // 
+            // custFNameTxt
+            // 
+            this.custFNameTxt.Location = new System.Drawing.Point(103, 40);
+            this.custFNameTxt.Name = "custFNameTxt";
+            this.custFNameTxt.Size = new System.Drawing.Size(100, 20);
+            this.custFNameTxt.TabIndex = 9;
+            // 
+            // rezervationIdTxt
+            // 
+            this.rezervationIdTxt.Location = new System.Drawing.Point(103, 14);
+            this.rezervationIdTxt.Name = "rezervationIdTxt";
+            this.rezervationIdTxt.Size = new System.Drawing.Size(100, 20);
+            this.rezervationIdTxt.TabIndex = 8;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(237, 70);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(35, 13);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "status";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(242, 43);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(30, 13);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "price";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(219, 17);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(59, 13);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "NoOfSeats";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(46, 97);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(51, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "sessionId";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(36, 70);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "custLName";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(36, 43);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "custFName";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(29, 17);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "rezervationId";
+            // 
+            // gridReservation
+            // 
+            this.gridReservation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridReservation.Location = new System.Drawing.Point(3, 137);
+            this.gridReservation.Name = "gridReservation";
+            this.gridReservation.Size = new System.Drawing.Size(893, 302);
+            this.gridReservation.TabIndex = 0;
+            this.gridReservation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridReservation_CellContentClick);
             // 
             // customerAdminTab
             // 
@@ -439,207 +651,161 @@
             this.gridMovie.Size = new System.Drawing.Size(545, 427);
             this.gridMovie.TabIndex = 0;
             // 
-            // reservationTab
-            // 
-            this.reservationTab.Controls.Add(this.dateTxt);
-            this.reservationTab.Controls.Add(this.label13);
-            this.reservationTab.Controls.Add(this.DelResBtn);
-            this.reservationTab.Controls.Add(this.UpdResBtn);
-            this.reservationTab.Controls.Add(this.CrtResBtn);
-            this.reservationTab.Controls.Add(this.statusTxt);
-            this.reservationTab.Controls.Add(this.priceTxt);
-            this.reservationTab.Controls.Add(this.noOfSeatsTxt);
-            this.reservationTab.Controls.Add(this.sessionIdTxt);
-            this.reservationTab.Controls.Add(this.custLNameTxt);
-            this.reservationTab.Controls.Add(this.custFNameTxt);
-            this.reservationTab.Controls.Add(this.rezervationIdTxt);
-            this.reservationTab.Controls.Add(this.label12);
-            this.reservationTab.Controls.Add(this.label11);
-            this.reservationTab.Controls.Add(this.label10);
-            this.reservationTab.Controls.Add(this.label9);
-            this.reservationTab.Controls.Add(this.label8);
-            this.reservationTab.Controls.Add(this.label7);
-            this.reservationTab.Controls.Add(this.label6);
-            this.reservationTab.Controls.Add(this.gridReservation);
-            this.reservationTab.Location = new System.Drawing.Point(4, 22);
-            this.reservationTab.Name = "reservationTab";
-            this.reservationTab.Padding = new System.Windows.Forms.Padding(3);
-            this.reservationTab.Size = new System.Drawing.Size(935, 439);
-            this.reservationTab.TabIndex = 1;
-            this.reservationTab.Text = "Rezervation Admin";
-            this.reservationTab.UseVisualStyleBackColor = true;
-            // 
-            // dateTxt
-            // 
-            this.dateTxt.Location = new System.Drawing.Point(284, 94);
-            this.dateTxt.Name = "dateTxt";
-            this.dateTxt.Size = new System.Drawing.Size(100, 20);
-            this.dateTxt.TabIndex = 19;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(244, 97);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(28, 13);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "date";
-            // 
-            // DelResBtn
-            // 
-            this.DelResBtn.Location = new System.Drawing.Point(627, 33);
-            this.DelResBtn.Name = "DelResBtn";
-            this.DelResBtn.Size = new System.Drawing.Size(120, 50);
-            this.DelResBtn.TabIndex = 17;
-            this.DelResBtn.Text = "Delete";
-            this.DelResBtn.UseVisualStyleBackColor = true;
-            // 
-            // UpdResBtn
-            // 
-            this.UpdResBtn.Location = new System.Drawing.Point(470, 70);
-            this.UpdResBtn.Name = "UpdResBtn";
-            this.UpdResBtn.Size = new System.Drawing.Size(120, 57);
-            this.UpdResBtn.TabIndex = 16;
-            this.UpdResBtn.Text = "Update";
-            this.UpdResBtn.UseVisualStyleBackColor = true;
-            // 
-            // CrtResBtn
-            // 
-            this.CrtResBtn.Location = new System.Drawing.Point(470, 4);
-            this.CrtResBtn.Name = "CrtResBtn";
-            this.CrtResBtn.Size = new System.Drawing.Size(122, 56);
-            this.CrtResBtn.TabIndex = 15;
-            this.CrtResBtn.Text = "Create";
-            this.CrtResBtn.UseVisualStyleBackColor = true;
-            // 
-            // statusTxt
-            // 
-            this.statusTxt.Location = new System.Drawing.Point(284, 67);
-            this.statusTxt.Name = "statusTxt";
-            this.statusTxt.Size = new System.Drawing.Size(100, 20);
-            this.statusTxt.TabIndex = 14;
-            // 
-            // priceTxt
-            // 
-            this.priceTxt.Location = new System.Drawing.Point(284, 40);
-            this.priceTxt.Name = "priceTxt";
-            this.priceTxt.Size = new System.Drawing.Size(100, 20);
-            this.priceTxt.TabIndex = 13;
-            // 
-            // noOfSeatsTxt
-            // 
-            this.noOfSeatsTxt.Location = new System.Drawing.Point(284, 11);
-            this.noOfSeatsTxt.Name = "noOfSeatsTxt";
-            this.noOfSeatsTxt.Size = new System.Drawing.Size(100, 20);
-            this.noOfSeatsTxt.TabIndex = 12;
-            // 
-            // sessionIdTxt
-            // 
-            this.sessionIdTxt.Location = new System.Drawing.Point(103, 90);
-            this.sessionIdTxt.Name = "sessionIdTxt";
-            this.sessionIdTxt.Size = new System.Drawing.Size(100, 20);
-            this.sessionIdTxt.TabIndex = 11;
-            // 
-            // custLNameTxt
-            // 
-            this.custLNameTxt.Location = new System.Drawing.Point(103, 67);
-            this.custLNameTxt.Name = "custLNameTxt";
-            this.custLNameTxt.Size = new System.Drawing.Size(100, 20);
-            this.custLNameTxt.TabIndex = 10;
-            // 
-            // custFNameTxt
-            // 
-            this.custFNameTxt.Location = new System.Drawing.Point(103, 40);
-            this.custFNameTxt.Name = "custFNameTxt";
-            this.custFNameTxt.Size = new System.Drawing.Size(100, 20);
-            this.custFNameTxt.TabIndex = 9;
-            // 
-            // rezervationIdTxt
-            // 
-            this.rezervationIdTxt.Location = new System.Drawing.Point(103, 14);
-            this.rezervationIdTxt.Name = "rezervationIdTxt";
-            this.rezervationIdTxt.Size = new System.Drawing.Size(100, 20);
-            this.rezervationIdTxt.TabIndex = 8;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(237, 70);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(35, 13);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "status";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(242, 43);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(30, 13);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "price";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(219, 17);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 13);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "NoOfSeats";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(46, 97);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "sessionId";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(36, 70);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 13);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "custLName";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(36, 43);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "custFName";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(29, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "rezervationId";
-            // 
-            // gridReservation
-            // 
-            this.gridReservation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridReservation.Location = new System.Drawing.Point(3, 137);
-            this.gridReservation.Name = "gridReservation";
-            this.gridReservation.Size = new System.Drawing.Size(893, 302);
-            this.gridReservation.TabIndex = 0;
-            // 
             // sessAdminTab
             // 
+            this.sessAdminTab.Controls.Add(this.gridSession);
+            this.sessAdminTab.Controls.Add(this.txtSesId);
+            this.sessAdminTab.Controls.Add(this.txtSesMovId);
+            this.sessAdminTab.Controls.Add(this.txtEnterTime);
+            this.sessAdminTab.Controls.Add(this.txtExitTime);
+            this.sessAdminTab.Controls.Add(this.txtSesDate);
+            this.sessAdminTab.Controls.Add(this.txtSesPrice);
+            this.sessAdminTab.Controls.Add(this.label27);
+            this.sessAdminTab.Controls.Add(this.label26);
+            this.sessAdminTab.Controls.Add(this.label25);
+            this.sessAdminTab.Controls.Add(this.label24);
+            this.sessAdminTab.Controls.Add(this.label23);
+            this.sessAdminTab.Controls.Add(this.label22);
+            this.sessAdminTab.Controls.Add(this.btnDelSes);
+            this.sessAdminTab.Controls.Add(this.brnUpdSes);
+            this.sessAdminTab.Controls.Add(this.btnCrtSes);
             this.sessAdminTab.Location = new System.Drawing.Point(4, 22);
             this.sessAdminTab.Name = "sessAdminTab";
             this.sessAdminTab.Size = new System.Drawing.Size(935, 439);
             this.sessAdminTab.TabIndex = 4;
             this.sessAdminTab.Text = "Session Admin";
             this.sessAdminTab.UseVisualStyleBackColor = true;
+            // 
+            // gridSession
+            // 
+            this.gridSession.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridSession.Location = new System.Drawing.Point(347, 29);
+            this.gridSession.Name = "gridSession";
+            this.gridSession.Size = new System.Drawing.Size(580, 224);
+            this.gridSession.TabIndex = 15;
+            // 
+            // txtSesId
+            // 
+            this.txtSesId.Location = new System.Drawing.Point(110, 29);
+            this.txtSesId.Name = "txtSesId";
+            this.txtSesId.Size = new System.Drawing.Size(100, 20);
+            this.txtSesId.TabIndex = 14;
+            // 
+            // txtSesMovId
+            // 
+            this.txtSesMovId.Location = new System.Drawing.Point(110, 55);
+            this.txtSesMovId.Name = "txtSesMovId";
+            this.txtSesMovId.Size = new System.Drawing.Size(100, 20);
+            this.txtSesMovId.TabIndex = 13;
+            // 
+            // txtEnterTime
+            // 
+            this.txtEnterTime.Location = new System.Drawing.Point(110, 79);
+            this.txtEnterTime.Name = "txtEnterTime";
+            this.txtEnterTime.Size = new System.Drawing.Size(100, 20);
+            this.txtEnterTime.TabIndex = 12;
+            // 
+            // txtExitTime
+            // 
+            this.txtExitTime.Location = new System.Drawing.Point(110, 105);
+            this.txtExitTime.Name = "txtExitTime";
+            this.txtExitTime.Size = new System.Drawing.Size(100, 20);
+            this.txtExitTime.TabIndex = 11;
+            // 
+            // txtSesDate
+            // 
+            this.txtSesDate.Location = new System.Drawing.Point(110, 131);
+            this.txtSesDate.Name = "txtSesDate";
+            this.txtSesDate.Size = new System.Drawing.Size(100, 20);
+            this.txtSesDate.TabIndex = 10;
+            // 
+            // txtSesPrice
+            // 
+            this.txtSesPrice.Location = new System.Drawing.Point(110, 157);
+            this.txtSesPrice.Name = "txtSesPrice";
+            this.txtSesPrice.Size = new System.Drawing.Size(100, 20);
+            this.txtSesPrice.TabIndex = 9;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(71, 160);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(31, 13);
+            this.label27.TabIndex = 8;
+            this.label27.Text = "Price";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(74, 134);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(30, 13);
+            this.label26.TabIndex = 7;
+            this.label26.Text = "Date";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(57, 108);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(47, 13);
+            this.label25.TabIndex = 6;
+            this.label25.Text = "ExitTime";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(49, 82);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(55, 13);
+            this.label24.TabIndex = 5;
+            this.label24.Text = "EnterTime";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(57, 58);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(45, 13);
+            this.label23.TabIndex = 4;
+            this.label23.Text = "MovieId";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(51, 32);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(53, 13);
+            this.label22.TabIndex = 3;
+            this.label22.Text = "SessionId";
+            // 
+            // btnDelSes
+            // 
+            this.btnDelSes.Location = new System.Drawing.Point(213, 290);
+            this.btnDelSes.Name = "btnDelSes";
+            this.btnDelSes.Size = new System.Drawing.Size(188, 77);
+            this.btnDelSes.TabIndex = 2;
+            this.btnDelSes.Text = "Delete";
+            this.btnDelSes.UseVisualStyleBackColor = true;
+            // 
+            // brnUpdSes
+            // 
+            this.brnUpdSes.Location = new System.Drawing.Point(8, 336);
+            this.brnUpdSes.Name = "brnUpdSes";
+            this.brnUpdSes.Size = new System.Drawing.Size(188, 77);
+            this.brnUpdSes.TabIndex = 1;
+            this.brnUpdSes.Text = "Update";
+            this.brnUpdSes.UseVisualStyleBackColor = true;
+            // 
+            // btnCrtSes
+            // 
+            this.btnCrtSes.Location = new System.Drawing.Point(8, 241);
+            this.btnCrtSes.Name = "btnCrtSes";
+            this.btnCrtSes.Size = new System.Drawing.Size(188, 81);
+            this.btnCrtSes.TabIndex = 0;
+            this.btnCrtSes.Text = "Create";
+            this.btnCrtSes.UseVisualStyleBackColor = true;
             // 
             // EmployeeClient
             // 
@@ -651,15 +817,18 @@
             this.Text = "EmployeeClient";
             this.Load += new System.EventHandler(this.EmployeeClient_Load);
             this.tabControl1.ResumeLayout(false);
+            this.reservationTab.ResumeLayout(false);
+            this.reservationTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridReservation)).EndInit();
             this.customerAdminTab.ResumeLayout(false);
             this.customerAdminTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomer)).EndInit();
             this.movieTab.ResumeLayout(false);
             this.movieTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMovie)).EndInit();
-            this.reservationTab.ResumeLayout(false);
-            this.reservationTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridReservation)).EndInit();
+            this.sessAdminTab.ResumeLayout(false);
+            this.sessAdminTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSession)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -725,5 +894,21 @@
         private System.Windows.Forms.Button DelCustBtn;
         private System.Windows.Forms.Button UpdCustBtn;
         private System.Windows.Forms.Button CrtCustBtn;
+        private System.Windows.Forms.DataGridView gridSession;
+        private System.Windows.Forms.TextBox txtSesId;
+        private System.Windows.Forms.TextBox txtSesMovId;
+        private System.Windows.Forms.TextBox txtEnterTime;
+        private System.Windows.Forms.TextBox txtExitTime;
+        private System.Windows.Forms.TextBox txtSesDate;
+        private System.Windows.Forms.TextBox txtSesPrice;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button btnDelSes;
+        private System.Windows.Forms.Button brnUpdSes;
+        private System.Windows.Forms.Button btnCrtSes;
     }
 }
