@@ -318,7 +318,7 @@
             this.gridReservation.Name = "gridReservation";
             this.gridReservation.Size = new System.Drawing.Size(893, 302);
             this.gridReservation.TabIndex = 0;
-            this.gridReservation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridReservation_CellContentClick);
+            this.gridReservation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridReservation_CellClick);
             // 
             // customerAdminTab
             // 
@@ -383,6 +383,7 @@
             this.gridCustomer.Name = "gridCustomer";
             this.gridCustomer.Size = new System.Drawing.Size(928, 257);
             this.gridCustomer.TabIndex = 16;
+            
             // 
             // phoneNoTxt
             // 

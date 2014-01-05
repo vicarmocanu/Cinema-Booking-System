@@ -178,22 +178,15 @@ namespace GUIClient
                 MessageBox.Show("Seat(s) " + lineResults + "!" );
                 gridSeats.Rows.Clear();
                 loadSeatGrid(sessionId);
-                
-
-                
-
-                
             }
         }
 
         private void lblLogOut_Click(object sender, EventArgs e)
         {
-           
             this.Hide();
             MessageBox.Show("Logged Out");
             this.Close();
             LogIn.getInstance().ShowDialog();
-            
         }
 
         private void gridSession_CellContentClick(object sender, DataGridViewCellEventArgs e)
