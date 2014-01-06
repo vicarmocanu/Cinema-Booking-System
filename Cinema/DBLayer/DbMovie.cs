@@ -80,6 +80,7 @@ namespace Cinema.DBLayer
         {
             List<Movie> returnList = new List<Movie>();
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "SELECT * FROM Movie";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
 
