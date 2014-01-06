@@ -65,6 +65,7 @@ namespace Cinema.DBLayer
         {
             List<Room> returnList = new List<Room>();
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "SELECT * FROM Room";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
             IDataReader dbReader;

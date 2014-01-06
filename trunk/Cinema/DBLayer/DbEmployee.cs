@@ -68,6 +68,7 @@ namespace Cinema.DBLayer
         {
             List<Employee> returnList = new List<Employee>();
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "SELECT * FROM Employee";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
             IDataReader dbReader;

@@ -238,6 +238,7 @@ namespace Cinema.DBLayer
         {
             List<Reservation> returnList = new List<Reservation>();
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "SELECT * FROM Reservation";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
 
@@ -261,6 +262,7 @@ namespace Cinema.DBLayer
         {
             List<Seat> returnList = new List<Seat>();
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "SELECT ReservedSeats.reservationId, Seat.seatId, " +
                 "Seat.seatNumber, Seat.roomNumber, Seat.rowNumber, ReservedSeats.status " +
                 "FROM ReservedSeats JOIN Seat ON ReservedSeats.seatId = Seat.seatId " +
