@@ -14,6 +14,8 @@ namespace Cinema.DBLayer
     class DbRoom: IRoom
     {
         private static SqlCommand dbCmd = null;
+        private static SqlParameter paramRoomNumber = new SqlParameter("@roomNumber", SqlDbType.Int);
+        private static SqlParameter paramNoOfSeats = new SqlParameter("@noOfSeats", SqlDbType.Int);
 
         //create a room object based on the data reader
         private static Room createRoom(IDataReader dbReader)
@@ -41,17 +43,16 @@ namespace Cinema.DBLayer
                 "(@roomNumber, @noOfSeats)";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
 
-            SqlParameter paramRoomNumber = new SqlParameter("@roomNumber", SqlDbType.Int);
             paramRoomNumber.Value = id;
             dbCmd.Parameters.Add(paramRoomNumber);
 
-            SqlParameter paramNoOfSeats = new SqlParameter("@noOfSeats", SqlDbType.Int);
             paramNoOfSeats.Value = room.NumberOfSeats;
             dbCmd.Parameters.Add(paramNoOfSeats);
 
             try
             {            
                 result = dbCmd.ExecuteNonQuery();
+                dbCmd.Parameters.Clear();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -78,6 +79,7 @@ namespace Cinema.DBLayer
                 returnList.Add(room);
             }
 
+            dbCmd.Parameters.Clear();
             AccessDbSQLClient.Close();
 
             return returnList;
@@ -90,7 +92,6 @@ namespace Cinema.DBLayer
             string sqlQuery = "SELECT * FROM Room WHERE roomNumber= @roomNumber";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
 
-            SqlParameter paramRoomNumber = new SqlParameter("@roomNumber", SqlDbType.Int);
             paramRoomNumber.Value = number;
             dbCmd.Parameters.Add(paramRoomNumber);
 
@@ -108,6 +109,7 @@ namespace Cinema.DBLayer
                 room = null;
             }
 
+            dbCmd.Parameters.Clear();
             AccessDbSQLClient.Close();
 
             return room;
@@ -123,17 +125,16 @@ namespace Cinema.DBLayer
                 "noOfSeats= @noOfSeats WHERE roomNumber= @roomNumber";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
 
-            SqlParameter paramRoomNumber = new SqlParameter("@roomNumber", SqlDbType.Int);
             paramRoomNumber.Value = room.RoomNumber;
             dbCmd.Parameters.Add(paramRoomNumber);
 
-            SqlParameter paramNoOfSeats = new SqlParameter("@noOfSeats", SqlDbType.Int);
             paramNoOfSeats.Value = room.NumberOfSeats;
             dbCmd.Parameters.Add(paramNoOfSeats);
 
             try
             {
                 result = dbCmd.ExecuteNonQuery();
+                dbCmd.Parameters.Clear();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -151,13 +152,13 @@ namespace Cinema.DBLayer
             string sqlQuery = "DELETE FROM Room WHERE roomNumber= @roomNumber";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
 
-            SqlParameter paramRoomNumber = new SqlParameter("@roomNumber", SqlDbType.Int);
             paramRoomNumber.Value = number;
             dbCmd.Parameters.Add(paramRoomNumber);
 
             try
             {
                 result = dbCmd.ExecuteNonQuery();
+                dbCmd.Parameters.Clear();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)

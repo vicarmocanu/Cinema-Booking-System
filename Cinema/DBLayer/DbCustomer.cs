@@ -14,6 +14,14 @@ namespace Cinema.DBLayer
     class DbCustomer : ICustomer
     {
         private static SqlCommand dbCmd = null;
+        private static SqlParameter paramFName = new SqlParameter("@fName", SqlDbType.NVarChar, 50);
+        private static SqlParameter paramLName = new SqlParameter("@lName", SqlDbType.NVarChar, 50);
+        private static SqlParameter paramUserName = new SqlParameter("@userName", SqlDbType.NVarChar, 50);
+        private static SqlParameter paramPassword = new SqlParameter("@password", SqlDbType.NVarChar, 50);
+        private static SqlParameter paramCity = new SqlParameter("@city", SqlDbType.NVarChar, 50);
+        private static SqlParameter paramAddress = new SqlParameter("@address", SqlDbType.NVarChar, 50);
+        private static SqlParameter paramEmail = new SqlParameter("@email", SqlDbType.NVarChar, 50);
+        private static SqlParameter paramPhoneNo = new SqlParameter("@phoneNo", SqlDbType.NVarChar, 50);
 
         //build a customer object based on the db reader
         private static Customer createCustomer(IDataReader dbReader)
@@ -41,42 +49,35 @@ namespace Cinema.DBLayer
             string sqlQuery = "INSERT INTO Customer VALUES " +
                 "(@fName, @lName, @userName, @password, @city, @address, @email, @phoneNo)";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
-            SqlParameter fName = new SqlParameter("@fName", SqlDbType.NVarChar, 50);
-            fName.Value = customer.CustomerFirstName;
-            dbCmd.Parameters.Add(fName);
-
-            SqlParameter lName = new SqlParameter("@lName", SqlDbType.NVarChar, 50);
-            lName.Value = customer.CustomerLastName;
-            dbCmd.Parameters.Add(lName);
-
-            SqlParameter userName = new SqlParameter("@userName", SqlDbType.NVarChar, 50);
-            userName.Value = customer.CustomerUsername;
-            dbCmd.Parameters.Add(userName);
-
-            SqlParameter password = new SqlParameter("@password", SqlDbType.NVarChar, 50);
-            password.Value = customer.CustomerPassword;
-            dbCmd.Parameters.Add(password);
-
-            SqlParameter city = new SqlParameter("@city", SqlDbType.NVarChar, 50);
-            city.Value = customer.CustomerCity;
-            dbCmd.Parameters.Add(city);
-
-            SqlParameter address = new SqlParameter("@address", SqlDbType.NVarChar, 50);
-            address.Value = customer.CustomerAddress;
-            dbCmd.Parameters.Add(address);
-
-            SqlParameter email = new SqlParameter("@email", SqlDbType.NVarChar, 50);
-            email.Value = customer.CustomerEmail;
-            dbCmd.Parameters.Add(email);
-
-            SqlParameter phoneNo = new SqlParameter("@phoneNo", SqlDbType.NVarChar, 50);
-            phoneNo.Value = customer.CustomerPhoneNo;
-            dbCmd.Parameters.Add(phoneNo);
+            
+            paramFName.Value = customer.CustomerFirstName;
+            dbCmd.Parameters.Add(paramFName);
+            
+            paramLName.Value = customer.CustomerLastName;
+            dbCmd.Parameters.Add(paramLName);
+            
+            paramUserName.Value = customer.CustomerUsername;
+            dbCmd.Parameters.Add(paramUserName);
+            
+            paramPassword.Value = customer.CustomerPassword;
+            dbCmd.Parameters.Add(paramPassword);
+            
+            paramCity.Value = customer.CustomerCity;
+            dbCmd.Parameters.Add(paramCity);
+            
+            paramAddress.Value = customer.CustomerAddress;
+            dbCmd.Parameters.Add(paramAddress);
+            
+            paramEmail.Value = customer.CustomerEmail;
+            dbCmd.Parameters.Add(paramEmail);
+            
+            paramPhoneNo.Value = customer.CustomerPhoneNo;
+            dbCmd.Parameters.Add(paramPhoneNo);
             
             try
             {
                 result = dbCmd.ExecuteNonQuery();
+                dbCmd.Parameters.Clear();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -93,6 +94,7 @@ namespace Cinema.DBLayer
             dbCmd = new SqlCommand();
             string sqlQuery = "SELECT * FROM Customer";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -103,6 +105,7 @@ namespace Cinema.DBLayer
                 returnList.Add(customer);
             }
 
+            dbCmd.Parameters.Clear();
             AccessDbSQLClient.Close();
 
             return returnList;
@@ -116,11 +119,9 @@ namespace Cinema.DBLayer
                 "fName= @fName AND lName= @lName";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
 
-            SqlParameter paramFName = new SqlParameter("@fName", SqlDbType.NVarChar, 50);
             paramFName.Value = fName;
             dbCmd.Parameters.Add(paramFName);
 
-            SqlParameter paramLName = new SqlParameter("@lName", SqlDbType.NVarChar, 50);
             paramLName.Value = lName;
             dbCmd.Parameters.Add(paramLName);
 
@@ -138,6 +139,7 @@ namespace Cinema.DBLayer
                 customer = null;
             }
 
+            dbCmd.Parameters.Clear();
             AccessDbSQLClient.Close();
 
             return customer;
@@ -149,8 +151,7 @@ namespace Cinema.DBLayer
             dbCmd = new SqlCommand();
             string sqlQuery = "SELECT * FROM Customer WHERE userName= @userName";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
-            SqlParameter paramUserName = new SqlParameter("@userName", SqlDbType.NVarChar, 50);
+            
             paramUserName.Value = userName;
             dbCmd.Parameters.Add(paramUserName);
 
@@ -168,6 +169,7 @@ namespace Cinema.DBLayer
                 customer = null;
             }
 
+            dbCmd.Parameters.Clear();
             AccessDbSQLClient.Close();
 
             return customer;
@@ -184,42 +186,35 @@ namespace Cinema.DBLayer
                 "email= @email, phoneNo= @phoneNo, password= @password WHERE " +
                 "fName= @fName AND lName= @lName";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+            
+            paramFName.Value = customer.CustomerFirstName;
+            dbCmd.Parameters.Add(paramFName);
+            
+            paramLName.Value = customer.CustomerLastName;
+            dbCmd.Parameters.Add(paramLName);
 
-            SqlParameter fName = new SqlParameter("@fName", SqlDbType.NVarChar, 50);
-            fName.Value = customer.CustomerFirstName;
-            dbCmd.Parameters.Add(fName);
+            paramUserName.Value = customer.CustomerUsername;
+            dbCmd.Parameters.Add(paramUserName);
 
-            SqlParameter lName = new SqlParameter("@lName", SqlDbType.NVarChar, 50);
-            lName.Value = customer.CustomerLastName;
-            dbCmd.Parameters.Add(lName);
+            paramPassword.Value = customer.CustomerPassword;
+            dbCmd.Parameters.Add(paramPassword);
 
-            SqlParameter userName = new SqlParameter("@userName", SqlDbType.NVarChar, 50);
-            userName.Value = customer.CustomerUsername;
-            dbCmd.Parameters.Add(userName);
+            paramCity.Value = customer.CustomerCity;
+            dbCmd.Parameters.Add(paramCity);
 
-            SqlParameter password = new SqlParameter("@password", SqlDbType.NVarChar, 50);
-            password.Value = customer.CustomerPassword;
-            dbCmd.Parameters.Add(password);
+            paramAddress.Value = customer.CustomerAddress;
+            dbCmd.Parameters.Add(paramAddress);
 
-            SqlParameter city = new SqlParameter("@city", SqlDbType.NVarChar, 50);
-            city.Value = customer.CustomerCity;
-            dbCmd.Parameters.Add(city);
+            paramEmail.Value = customer.CustomerEmail;
+            dbCmd.Parameters.Add(paramEmail);
 
-            SqlParameter address = new SqlParameter("@address", SqlDbType.NVarChar, 50);
-            address.Value = customer.CustomerAddress;
-            dbCmd.Parameters.Add(address);
-
-            SqlParameter email = new SqlParameter("@email", SqlDbType.NVarChar, 50);
-            email.Value = customer.CustomerEmail;
-            dbCmd.Parameters.Add(email);
-
-            SqlParameter phoneNo = new SqlParameter("@phoneNo", SqlDbType.NVarChar, 50);
-            phoneNo.Value = customer.CustomerPhoneNo;
-            dbCmd.Parameters.Add(phoneNo);
+            paramPhoneNo.Value = customer.CustomerPhoneNo;
+            dbCmd.Parameters.Add(paramPhoneNo);
 
             try
             {
                 result = dbCmd.ExecuteNonQuery();
+                dbCmd.Parameters.Clear();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -237,22 +232,22 @@ namespace Cinema.DBLayer
             string sqlQuery = "DELETE FROM Customer WHERE " +
                 "fName= @fName AND lName= @lName";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
-            SqlParameter paramFName = new SqlParameter("@fName", SqlDbType.NVarChar, 50);
+            
             paramFName.Value = fName;
             dbCmd.Parameters.Add(paramFName);
 
-            SqlParameter paramLName = new SqlParameter("@lName", SqlDbType.NVarChar, 50);
             paramLName.Value = lName;
             dbCmd.Parameters.Add(paramLName);
             
             try
             {
                 result = dbCmd.ExecuteNonQuery();
+                dbCmd.Parameters.Clear();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
             { }
+
             return result;
         }
 
@@ -265,14 +260,14 @@ namespace Cinema.DBLayer
             string sqlQuery = "DELETE FROM Customer WHERE " +
                 "userName= @userName";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
-            SqlParameter paramUserName = new SqlParameter("@userName", SqlDbType.NVarChar, 50);
+                        
             paramUserName.Value = userName;
             dbCmd.Parameters.Add(paramUserName);
 
             try
             {
                 result = dbCmd.ExecuteNonQuery();
+                dbCmd.Parameters.Clear();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
