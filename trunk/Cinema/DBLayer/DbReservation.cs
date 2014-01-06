@@ -54,20 +54,46 @@ namespace Cinema.DBLayer
             int id = max + 1;
             String currentDate = reservation.getCurrentDate();
 
-
+            dbCmd = new SqlCommand();
             string sqlQuery = "INSERT INTO Reservation VALUES " +
-                "('" + id +
-                "','" + reservation.Customer.CustomerFirstName +
-                "','" + reservation.Customer.CustomerLastName +
-                "','" + reservation.Session.SessionId +
-                "','" + reservation.NoOfSeats +
-                "','" + reservation.Price +
-                "','" + reservation.Status +
-                "','" + currentDate + "')";
+                "(@reservationId, @custFName, @custLName, @sessionId, @noOfSeats, @price, @status, @date)";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramReservationId = new SqlParameter("@reservationId", SqlDbType.Int);
+            paramReservationId.Value = id;
+            dbCmd.Parameters.Add(paramReservationId);
+
+            SqlParameter paramCustFName = new SqlParameter("@custFName", SqlDbType.NVarChar, 50);
+            paramCustFName.Value = reservation.Customer.CustomerFirstName;
+            dbCmd.Parameters.Add(paramCustFName);
+
+            SqlParameter paramCustLName = new SqlParameter("@custLName", SqlDbType.NVarChar, 50);
+            paramCustLName.Value = reservation.Customer.CustomerLastName;
+            dbCmd.Parameters.Add(paramCustLName);
+
+            SqlParameter paramSessionId = new SqlParameter("@sessionId", SqlDbType.Int);
+            paramSessionId.Value = reservation.Session.SessionId;
+            dbCmd.Parameters.Add(paramSessionId);
+
+            SqlParameter paramNoOfSeats = new SqlParameter("@noOfSeats", SqlDbType.Int);
+            paramNoOfSeats.Value = reservation.NoOfSeats;
+            dbCmd.Parameters.Add(paramNoOfSeats);
+
+            SqlParameter paramPrice = new SqlParameter("@price", SqlDbType.Float);
+            paramPrice.Value = reservation.Price;
+            dbCmd.Parameters.Add(paramPrice);
+
+            SqlParameter paramStatus = new SqlParameter("@status", SqlDbType.NVarChar, 50);
+            paramStatus.Value = reservation.Status;
+            dbCmd.Parameters.Add(paramStatus);
+
+            SqlParameter paramDate = new SqlParameter("@date", SqlDbType.Date);
+            paramDate.Value = currentDate;
+            dbCmd.Parameters.Add(paramDate);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException) { }
@@ -84,14 +110,27 @@ namespace Cinema.DBLayer
             foreach (Seat seat in reservedSeats)
             {
                 int result = -1;
+
+                dbCmd = new SqlCommand();
                 string sqlQuery = "INSERT INTO ReservedSeats VALUES " +
-                    "('" + reservationId +
-                    "','" + seat.SeatId +
-                    "','" + "O" + "')";
+                    "(@reservationId, @seatId, @status) ";
+                dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+                SqlParameter paramReservationId = new SqlParameter("@reservationId", SqlDbType.Int);
+                paramReservationId.Value = reservationId;
+                dbCmd.Parameters.Add(paramReservationId);
+
+                SqlParameter paramSeatId = new SqlParameter("@seatId", SqlDbType.Int);
+                paramSeatId.Value = seat.SeatId;
+                dbCmd.Parameters.Add(paramSeatId);
+
+                SqlParameter paramStatus = new SqlParameter("@status", SqlDbType.NVarChar, 50);
+                paramStatus.Value = "O";
+                dbCmd.Parameters.Add(paramStatus);
+
                 try
                 {
-                    SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                    result = cmd.ExecuteNonQuery();
+                    result = dbCmd.ExecuteNonQuery();
                     AccessDbSQLClient.Close();
                     results.Add(result);
                 }
@@ -106,15 +145,27 @@ namespace Cinema.DBLayer
         {
             int result = -1;
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "INSERT INTO ReservedSeats VALUES " +
-                "('" + reservationId +
-                "','" + seat.SeatId +
-                "','" + "O" + "')";
+                "(@reservationId, @seatId, @status) ";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramReservationId = new SqlParameter("@reservationId", SqlDbType.Int);
+            paramReservationId.Value = reservationId;
+            dbCmd.Parameters.Add(paramReservationId);
+
+            SqlParameter paramSeatId = new SqlParameter("@seatId", SqlDbType.Int);
+            paramSeatId.Value = seat.SeatId;
+            dbCmd.Parameters.Add(paramSeatId);
+
+            SqlParameter paramStatus = new SqlParameter("@status", SqlDbType.NVarChar, 50);
+            paramStatus.Value = "O";
+            dbCmd.Parameters.Add(paramStatus);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
-                AccessDbSQLClient.Close();               
+                result = dbCmd.ExecuteNonQuery();
+                AccessDbSQLClient.Close();
             }
             catch (SqlException) { }
 
@@ -124,8 +175,13 @@ namespace Cinema.DBLayer
         //get a reservation - id
         public Reservation getReservationById(int reservationId)
         {
-            string sqlQuery = "SELECT * FROM Reservation WHERE reservationId = '" + reservationId + "'";
+            dbCmd = new SqlCommand();
+            string sqlQuery = "SELECT * FROM Reservation WHERE reservationId = @reservationId";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramReservationId = new SqlParameter("@reservationId", SqlDbType.Int);
+            paramReservationId.Value = reservationId;
+            dbCmd.Parameters.Add(paramReservationId);
 
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
@@ -149,10 +205,18 @@ namespace Cinema.DBLayer
         {
             List<Reservation> returnList = new List<Reservation>();
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "SELECT * FROM Reservation WHERE " +
-                "custFName = '" + custFName + 
-                "' AND custLName = '" + custLName + "'";
+                "custFName= @custFName AND custLName= @custLName";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramCustFName = new SqlParameter("@custFName", SqlDbType.NVarChar, 50);
+            paramCustFName.Value = custFName;
+            dbCmd.Parameters.Add(paramCustFName);
+
+            SqlParameter paramCustLName = new SqlParameter("@custLName", SqlDbType.NVarChar, 50);
+            paramCustLName.Value = custLName;
+            dbCmd.Parameters.Add(paramCustLName);
 
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
@@ -197,11 +261,15 @@ namespace Cinema.DBLayer
         {
             List<Seat> returnList = new List<Seat>();
 
-            string sqlQuery = "SELECT ReservedSeats.reservationId, Seat.seatId, "+
+            string sqlQuery = "SELECT ReservedSeats.reservationId, Seat.seatId, " +
                 "Seat.seatNumber, Seat.roomNumber, Seat.rowNumber, ReservedSeats.status " +
                 "FROM ReservedSeats JOIN Seat ON ReservedSeats.seatId = Seat.seatId " +
-                "WHERE reservationId = '" + reservationId + "'";
+                "WHERE reservationId = @reservationId";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramReservationId = new SqlParameter("@reservationId", SqlDbType.Int);
+            paramReservationId.Value = reservationId;
+            dbCmd.Parameters.Add(paramReservationId);
 
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
@@ -231,18 +299,48 @@ namespace Cinema.DBLayer
         {
             int result = -1;
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "UPDATE Reservation SET " +
-                "custFName='" + reservation.Customer.CustomerFirstName + "', " +
-                "custLName='" + reservation.Customer.CustomerLastName + "', " +
-                "sessionId='" + reservation.Session.SessionId + "', " +
-                "noOfSeats='" + reservation.NoOfSeats + "', " +
-                "price='" + reservation.Price + "', " +
-                "status='" + reservation.Status + "' WHERE " +
-                "reservationId='" + reservation.ReservationId + "'";
+                "custFName= @custFName, custLName= @custLName, sessionId= @sessionId, " +
+                "noOfSeats= @noOfSeats, price= @price, status= @status WHERE " +
+                "reservationId= @reservationId";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramReservationId = new SqlParameter("@reservationId", SqlDbType.Int);
+            paramReservationId.Value = reservation.ReservationId;
+            dbCmd.Parameters.Add(paramReservationId);
+
+            SqlParameter paramCustFName = new SqlParameter("@custFName", SqlDbType.NVarChar, 50);
+            paramCustFName.Value = reservation.Customer.CustomerFirstName;
+            dbCmd.Parameters.Add(paramCustFName);
+
+            SqlParameter paramCustLName = new SqlParameter("@custLName", SqlDbType.NVarChar, 50);
+            paramCustLName.Value = reservation.Customer.CustomerLastName;
+            dbCmd.Parameters.Add(paramCustLName);
+
+            SqlParameter paramSessionId = new SqlParameter("@sessionId", SqlDbType.Int);
+            paramSessionId.Value = reservation.Session.SessionId;
+            dbCmd.Parameters.Add(paramSessionId);
+
+            SqlParameter paramNoOfSeats = new SqlParameter("@noOfSeats", SqlDbType.Int);
+            paramNoOfSeats.Value = reservation.NoOfSeats;
+            dbCmd.Parameters.Add(paramNoOfSeats);
+
+            SqlParameter paramPrice = new SqlParameter("@price", SqlDbType.Float);
+            paramPrice.Value = reservation.Price;
+            dbCmd.Parameters.Add(paramPrice);
+
+            SqlParameter paramStatus = new SqlParameter("@status", SqlDbType.NVarChar, 50);
+            paramStatus.Value = reservation.Status;
+            dbCmd.Parameters.Add(paramStatus);
+
+            SqlParameter paramDate = new SqlParameter("@date", SqlDbType.Date);
+            paramDate.Value = reservation.Date;
+            dbCmd.Parameters.Add(paramDate);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -255,11 +353,18 @@ namespace Cinema.DBLayer
         public int deleteReservation(int reservationId)
         {
             int result = -1;
-            string sqlQuery = "DELETE FROM Reservation WHERE reservationId= '" + reservationId + "'";
+
+            dbCmd = new SqlCommand();
+            string sqlQuery = "DELETE FROM Reservation WHERE reservationId= @reservationId";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramReservationId = new SqlParameter("@reservationId", SqlDbType.Int);
+            paramReservationId.Value = reservationId;
+            dbCmd.Parameters.Add(paramReservationId);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -272,13 +377,26 @@ namespace Cinema.DBLayer
         {
             int result = -1;
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "UPDATE ReservedSeats SET " +
-                "status = '" + status + "', " +
-                "WHERE reservationId = '" + reservationId + "' AND seatId = '" + seatId + "'";
+                "status= @status WHERE reservationId= @reservationId AND seatId= @seatId";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramReservationId = new SqlParameter("@reservationId", SqlDbType.Int);
+            paramReservationId.Value = reservationId;
+            dbCmd.Parameters.Add(paramReservationId);
+
+            SqlParameter paramStatus = new SqlParameter("@status", SqlDbType.NVarChar, 50);
+            paramStatus.Value = status;
+            dbCmd.Parameters.Add(paramStatus);
+
+            SqlParameter paramSeatId = new SqlParameter("@seatId", SqlDbType.Int);
+            paramSeatId.Value = seatId;
+            dbCmd.Parameters.Add(paramSeatId);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -291,12 +409,23 @@ namespace Cinema.DBLayer
         public int deleteReservedSeat(int reservationId, int seatId)
         {
             int result = -1;
-            string sqlQuery = "DELETE FROM ReservedSeats WHERE reservationId= '" + reservationId +
-                "' AND seatId= '" + seatId + "'";
+
+            dbCmd = new SqlCommand();
+            string sqlQuery = "DELETE FROM ReservedSeats WHERE " +
+            "reservationId= @reservationId AND seatId= @seatId";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramReservationId = new SqlParameter("@reservationId", SqlDbType.Int);
+            paramReservationId.Value = reservationId;
+            dbCmd.Parameters.Add(paramReservationId);
+
+            SqlParameter paramSeatId = new SqlParameter("@seatId", SqlDbType.Int);
+            paramSeatId.Value = seatId;
+            dbCmd.Parameters.Add(paramSeatId);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -309,13 +438,22 @@ namespace Cinema.DBLayer
         {
             int result = -1;
 
-            string sqlQuery = "UPDATE ReservedSeats SET " +
-                "status = '" + status + "', " +
-                "WHERE reservationId = '" + reservationId + "'";
+            dbCmd = new SqlCommand();
+            string sqlQuery = "UPDATE ReservedSeats SET status= @status WHERE " +
+                "reservationId= @reservationId";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramStatus = new SqlParameter("@status", SqlDbType.NVarChar, 50);
+            paramStatus.Value = status;
+            dbCmd.Parameters.Add(paramStatus);
+
+            SqlParameter paramReservationId = new SqlParameter("@reservationId", SqlDbType.Int);
+            paramReservationId.Value = reservationId;
+            dbCmd.Parameters.Add(paramReservationId);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -328,11 +466,19 @@ namespace Cinema.DBLayer
         public int deleteSeatsFromReservation(int reservationId)
         {
             int result = -1;
-            string sqlQuery = "DELETE FROM ReservedSeats WHERE reservationId= '" + reservationId + "'";
+
+            dbCmd = new SqlCommand();
+            string sqlQuery = "DELETE FROM ReservedSeats "+
+            "WHERE reservationId= @reservationId";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramReservationId = new SqlParameter("@reservationId", SqlDbType.Int);
+            paramReservationId.Value = reservationId;
+            dbCmd.Parameters.Add(paramReservationId);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -349,14 +495,27 @@ namespace Cinema.DBLayer
             foreach (Seat seat in reservedSeats)
             {
                 int result = -1;
+
+                dbCmd = new SqlCommand();
                 string sqlQuery = "INSERT INTO ReservedSeats VALUES " +
-                    "('" + wantedId +
-                    "','" + seat.SeatId +
-                    "','" + "O" + "')";
+                    "(@reservationId, @seatId, @status)";
+                dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+                SqlParameter paramReservationId = new SqlParameter("@reservationId", SqlDbType.Int);
+                paramReservationId.Value = wantedId;
+                dbCmd.Parameters.Add(paramReservationId);
+
+                SqlParameter paramSeatId = new SqlParameter("@seatId", SqlDbType.Int);
+                paramSeatId.Value = seat.SeatId;
+                dbCmd.Parameters.Add(paramSeatId);
+
+                SqlParameter paramStatus = new SqlParameter("@status", SqlDbType.NVarChar, 50);
+                paramStatus.Value = "O";
+                dbCmd.Parameters.Add(paramStatus);
+
                 try
                 {
-                    SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                    result = cmd.ExecuteNonQuery();
+                    result = dbCmd.ExecuteNonQuery();
                     AccessDbSQLClient.Close();
                     results.Add(result);
                 }

@@ -63,15 +63,31 @@ namespace Cinema.DBLayer
                             id = max + 1;
 
                             int seatNumber = (i * columns) - (columns - j);
+
+                            dbCmd = new SqlCommand();
                             string sqlQuery = "INSERT INTO Seat VALUES " +
-                                "('" + id +
-                                "','" + seatNumber +
-                                "','" + roomNumber +
-                                "','" + i + "')";
+                                "(@seatId, @seatNumber, @roomNumber, @rowNumber)";
+                            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+                            SqlParameter paramSeatId = new SqlParameter("@seatId", SqlDbType.Int);
+                            paramSeatId.Value = id;
+                            dbCmd.Parameters.Add(paramSeatId);
+
+                            SqlParameter paramSeatNumber = new SqlParameter("@seatNumber", SqlDbType.Int);
+                            paramSeatNumber.Value = seatNumber;
+                            dbCmd.Parameters.Add(paramSeatNumber);
+
+                            SqlParameter paramRoomNumber = new SqlParameter("@roomNumber", SqlDbType.Int);
+                            paramRoomNumber.Value = roomNumber;
+                            dbCmd.Parameters.Add(paramRoomNumber);
+
+                            SqlParameter paramRowNumber = new SqlParameter("@rowNumber", SqlDbType.Int);
+                            paramRowNumber.Value = i;
+                            dbCmd.Parameters.Add(paramRowNumber);
+
                             try
                             {
-                                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                                result = cmd.ExecuteNonQuery();
+                                result = dbCmd.ExecuteNonQuery();
                                 AccessDbSQLClient.Close();
                             }
                             catch (SqlException) { }
@@ -97,15 +113,30 @@ namespace Cinema.DBLayer
             int max = GetMax.getMax(attrib, table);
             int id = max + 1;
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "INSERT INTO Seat VALUES " +
-                "('" + id +
-                "','" + seat.SeatNumber +
-                "','" + seat.Room.RoomNumber +
-                "','" + seat.RowNumber + "')";            
+                "(@seatId, @seatNumber, @roomNumber, @rowNumber)";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramSeatId = new SqlParameter("@seatId", SqlDbType.Int);
+            paramSeatId.Value = id;
+            dbCmd.Parameters.Add(paramSeatId);
+
+            SqlParameter paramSeatNumber = new SqlParameter("@seatNumber", SqlDbType.Int);
+            paramSeatNumber.Value = seat.SeatNumber;
+            dbCmd.Parameters.Add(paramSeatNumber);
+
+            SqlParameter paramRoomNumber = new SqlParameter("@roomNumber", SqlDbType.Int);
+            paramRoomNumber.Value = seat.Room.RoomNumber;
+            dbCmd.Parameters.Add(paramRoomNumber);
+
+            SqlParameter paramRowNumber = new SqlParameter("@rowNumber", SqlDbType.Int);
+            paramRowNumber.Value = seat.RowNumber;
+            dbCmd.Parameters.Add(paramRowNumber);
+   
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -119,8 +150,14 @@ namespace Cinema.DBLayer
         {
             List<Seat> returnList = new List<Seat>();
 
-            string sqlQuery = "SELECT * FROM Seat WHERE roomNumber= '" + roomNumber + "'";
+            dbCmd = new SqlCommand();
+            string sqlQuery = "SELECT * FROM Seat WHERE roomNumber= @roomNumber";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramRoomNumber = new SqlParameter("@roomNumber", SqlDbType.Int);
+            paramRoomNumber.Value = roomNumber;
+            dbCmd.Parameters.Add(paramRoomNumber);
+
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -161,8 +198,14 @@ namespace Cinema.DBLayer
         //get a seat by its id
         public Seat getSeatById(int id)
         {
-            string sqlQuery = "SELECT * FROM Seat WHERE seatId= '" + id + "'";
+            dbCmd = new SqlCommand();
+            string sqlQuery = "SELECT * FROM Seat WHERE seatId= @seatId";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramSeatId = new SqlParameter("@seatId", SqlDbType.Int);
+            paramSeatId.Value = id;
+            dbCmd.Parameters.Add(paramSeatId);
+
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -187,15 +230,31 @@ namespace Cinema.DBLayer
         {
             int result = -1;
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "UPDATE Seat SET " +
-                "seatNumber='" + seat.SeatNumber + "', " +
-                "roomNumber='" + seat.Room.RoomNumber + "', " +
-                "rowNumber='" + seat.RowNumber + "' " +
-                "WHERE seatId='" + seat.SeatId + "'";
+                "seatNumber= @seatNumber, roomNumber= @roomNumber, " +
+                "rowNumber= @rowNumber WHERE seatId= @seatId";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramSeatId = new SqlParameter("@seatId", SqlDbType.Int);
+            paramSeatId.Value = seat.SeatId;
+            dbCmd.Parameters.Add(paramSeatId);
+
+            SqlParameter paramSeatNumber = new SqlParameter("@seatNumber", SqlDbType.Int);
+            paramSeatNumber.Value = seat.SeatNumber;
+            dbCmd.Parameters.Add(paramSeatNumber);
+
+            SqlParameter paramRoomNumber = new SqlParameter("@roomNumber", SqlDbType.Int);
+            paramRoomNumber.Value = seat.Room.RoomNumber;
+            dbCmd.Parameters.Add(paramRoomNumber);
+
+            SqlParameter paramRowNumber = new SqlParameter("@rowNumber", SqlDbType.Int);
+            paramRowNumber.Value = seat.RowNumber;
+            dbCmd.Parameters.Add(paramRowNumber);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -208,11 +267,18 @@ namespace Cinema.DBLayer
         public int deleteSeat(int id)
         {
             int result = -1;
-            String sqlQuery = "DELETE FROM Seat WHERE seatId= '" + id + "'";
+
+            dbCmd = new SqlCommand();
+            String sqlQuery = "DELETE FROM Seat WHERE seatId= @seatId";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramSeatId = new SqlParameter("@seatId", SqlDbType.Int);
+            paramSeatId.Value = id;
+            dbCmd.Parameters.Add(paramSeatId);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -224,15 +290,22 @@ namespace Cinema.DBLayer
         public int deleteRoomSeats(int roomNumber)
         {
             int result = -1;
-            String sqlQuery = "DELETE FROM Seat WHERE roomNumber= '" + roomNumber + "'";
+            dbCmd = new SqlCommand();
+            String sqlQuery = "DELETE FROM Seat WHERE roomNumber= @roomNumber";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramRoomNumber = new SqlParameter("@roomNumber", SqlDbType.Int);
+            paramRoomNumber.Value = roomNumber;
+            dbCmd.Parameters.Add(paramRoomNumber);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
             { }
+
             return result;
         }
     }

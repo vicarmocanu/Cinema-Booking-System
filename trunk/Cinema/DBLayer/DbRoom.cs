@@ -36,13 +36,22 @@ namespace Cinema.DBLayer
             int max = GetMax.getMax(attrib, table);
             int id = max + 1;
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "INSERT INTO Room VALUES " +
-                "('" + id + 
-                "','" + room.NumberOfSeats +"')";
+                "(@roomNumber, @noOfSeats)";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramRoomNumber = new SqlParameter("@roomNumber", SqlDbType.Int);
+            paramRoomNumber.Value = id;
+            dbCmd.Parameters.Add(paramRoomNumber);
+
+            SqlParameter paramNoOfSeats = new SqlParameter("@noOfSeats", SqlDbType.Int);
+            paramNoOfSeats.Value = room.NumberOfSeats;
+            dbCmd.Parameters.Add(paramNoOfSeats);
+
             try
-            {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+            {            
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -76,8 +85,14 @@ namespace Cinema.DBLayer
         //get a room - number
         public Room getRoomByNumber(int number)
         {
-            string sqlQuery = "SELECT * FROM Room WHERE roomNumber= '" + number + "'";
+            dbCmd = new SqlCommand();
+            string sqlQuery = "SELECT * FROM Room WHERE roomNumber= @roomNumber";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramRoomNumber = new SqlParameter("@roomNumber", SqlDbType.Int);
+            paramRoomNumber.Value = number;
+            dbCmd.Parameters.Add(paramRoomNumber);
+
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -102,13 +117,22 @@ namespace Cinema.DBLayer
         {
             int result = -1;
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "UPDATE Room SET " +
-                "noOfSeats='" + room.NumberOfSeats + "' " + 
-                "WHERE roomNumber='" + room.RoomNumber + "'";
+                "noOfSeats= @noOfSeats WHERE roomNumber= @roomNumber";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramRoomNumber = new SqlParameter("@roomNumber", SqlDbType.Int);
+            paramRoomNumber.Value = room.RoomNumber;
+            dbCmd.Parameters.Add(paramRoomNumber);
+
+            SqlParameter paramNoOfSeats = new SqlParameter("@noOfSeats", SqlDbType.Int);
+            paramNoOfSeats.Value = room.NumberOfSeats;
+            dbCmd.Parameters.Add(paramNoOfSeats);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -121,15 +145,23 @@ namespace Cinema.DBLayer
         public int deleteRoom(int number)
         {
             int result = -1;
-            string sqlQuery = "DELETE FROM Room WHERE roomNumber= '" + number + "'";
+
+            dbCmd = new SqlCommand();
+            string sqlQuery = "DELETE FROM Room WHERE roomNumber= @roomNumber";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramRoomNumber = new SqlParameter("@roomNumber", SqlDbType.Int);
+            paramRoomNumber.Value = number;
+            dbCmd.Parameters.Add(paramRoomNumber);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
             { }
+
             return result;
         }
     }

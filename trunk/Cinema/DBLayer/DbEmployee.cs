@@ -31,15 +31,30 @@ namespace Cinema.DBLayer
         {
             int result = -1;
 
-            string sqlQuery = "INSERT INTO Employee(fName, lName, userName, password) VALUES('" +
-                employee.FName + "','" + 
-                employee.LName + "','" + 
-                employee.Username + "','" + 
-                employee.Password + "');";
+            dbCmd = new SqlCommand();
+            string sqlQuery = "INSERT INTO Employee(fName, lName, userName, password) VALUES " +
+                "(@fName, @lName, @userName, @password)";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramFName = new SqlParameter("@fName", SqlDbType.NVarChar, 50);
+            paramFName.Value = employee.FName;
+            dbCmd.Parameters.Add(paramFName);
+
+            SqlParameter paramLName = new SqlParameter("@lName", SqlDbType.NVarChar, 50);
+            paramLName.Value = employee.LName;
+            dbCmd.Parameters.Add(paramLName);
+
+            SqlParameter paramUserName = new SqlParameter("@userName", SqlDbType.NVarChar, 50);
+            paramUserName.Value = employee.Username;
+            dbCmd.Parameters.Add(paramUserName);
+
+            SqlParameter paramPassword = new SqlParameter("@password", SqlDbType.NVarChar, 50);
+            paramPassword.Value = employee.Password;
+            dbCmd.Parameters.Add(paramPassword);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -71,17 +86,16 @@ namespace Cinema.DBLayer
         }
 
         //get an employee - username
-        public Employee getEmployeeByUsername(String username)
+        public Employee getEmployeeByUsername(String userName)
         {
             dbCmd = new SqlCommand();
             string sqlQuery = "SELECT * FROM Employee WHERE userName= @userName";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-            SqlParameter param = new SqlParameter();
-            param.ParameterName = "@userName";
-            param.Value = username;
-            dbCmd.Parameters.Add(param);
-                      
-            
+
+            SqlParameter paramUserName = new SqlParameter("@userName", SqlDbType.NVarChar, 50);
+            paramUserName.Value = userName;
+            dbCmd.Parameters.Add(paramUserName);
+           
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
 
@@ -106,15 +120,31 @@ namespace Cinema.DBLayer
         {
             int result = -1;
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "UPDATE Employee SET " +
-                "fName='" + employee.FName + "', " +
-                "lName='" + employee.LName + "', " +
-                "password='" + employee.Password + "' " +
-                "WHERE userName='" + employee.Username + "'";
+                "fName= @fName, lName= @lName, password= @password WHERE " +
+                "userName= @userName";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramFName = new SqlParameter("@fName", SqlDbType.NVarChar, 50);
+            paramFName.Value = employee.FName;
+            dbCmd.Parameters.Add(paramFName);
+
+            SqlParameter paramLName = new SqlParameter("@lName", SqlDbType.NVarChar, 50);
+            paramLName.Value = employee.LName;
+            dbCmd.Parameters.Add(paramLName);
+
+            SqlParameter paramUserName = new SqlParameter("@userName", SqlDbType.NVarChar, 50);
+            paramUserName.Value = employee.Username;
+            dbCmd.Parameters.Add(paramUserName);
+
+            SqlParameter paramPassword = new SqlParameter("@password", SqlDbType.NVarChar, 50);
+            paramPassword.Value = employee.Password;
+            dbCmd.Parameters.Add(paramPassword);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -124,13 +154,20 @@ namespace Cinema.DBLayer
         }
 
         //delete an employee - username
-        public int deleteEmployeeByUsername(String username)
+        public int deleteEmployeeByUsername(String userName)
         {
             int result = -1;
-            string sqlQuery = "DELETE FROM Employee WHERE userName= '" + username + "'";
+
+            dbCmd = new SqlCommand();
+            string sqlQuery = "DELETE FROM Employee WHERE userName= @userName";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramUserName = new SqlParameter("@userName", SqlDbType.NVarChar, 50);
+            paramUserName.Value = userName;
+            dbCmd.Parameters.Add(paramUserName);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
                 result = cmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
