@@ -198,6 +198,7 @@
             this.CrtResBtn.TabIndex = 15;
             this.CrtResBtn.Text = "Create";
             this.CrtResBtn.UseVisualStyleBackColor = true;
+            this.CrtResBtn.Click += new System.EventHandler(this.CrtResBtn_Click);
             // 
             // statusTxt
             // 

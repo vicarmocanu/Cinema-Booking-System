@@ -131,7 +131,7 @@ namespace Cinema.DBLayer
         //get a movie - name
         public Movie getMovieByName(String name)
         {
-            dbCmd = new SqlCommand()
+            dbCmd = new SqlCommand();
             string sqlQuery = "SELECT * FROM Movie WHERE name= @name";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
 

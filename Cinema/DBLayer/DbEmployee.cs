@@ -168,7 +168,7 @@ namespace Cinema.DBLayer
 
             try
             {
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)

@@ -178,5 +178,29 @@ namespace GUIEmployee
                 txtSesPrice.Text = row.Cells[5].Value.ToString();
             }
         }
+
+        private void CrtResBtn_Click(object sender, EventArgs e)
+        {
+            gridReservation.Rows.Clear();
+            if(custFNameTxt.Text.Equals("") || custLNameTxt.Text.Equals("") || sessionIdTxt.Text.Equals("") || noOfSeatsTxt.Text.Equals("") || priceTxt.Text.Equals("") || statusTxt.Text.Equals(""))
+            {
+                 MessageBox.Show("More Information Required!");
+                 loadReservationGrid();
+            }
+            else
+            {
+                int[] results = rzvService.trustedInsertReservedSeats(custFNameTxt.Text.ToString(), custLNameTxt.Text.ToString(), Convert.ToInt32(sessionIdTxt.Text.ToString()), Convert.ToInt32(noOfSeatsTxt.Text.ToString()), Convert.ToDouble(priceTxt.Text.ToString()), statusTxt.Text.ToString());
+                string lineResults = "";
+                for (int i = 0; i < results.Length; i++)
+                {
+
+                    lineResults = lineResults + results[i] + " ";
+                }
+
+                MessageBox.Show("Seat(s) " + lineResults + "!" );
+
+                loadReservationGrid();
+            }
+        }
     }
 }
