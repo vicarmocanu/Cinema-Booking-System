@@ -12,6 +12,10 @@ namespace Cinema.DBLayer
     class DbEmployee: IEmployee
     {
         private static SqlCommand dbCmd = null;
+        private static SqlParameter paramFName = new SqlParameter("@fName", SqlDbType.NVarChar, 50);
+        private static SqlParameter paramLName = new SqlParameter("@lName", SqlDbType.NVarChar, 50);
+        private static SqlParameter paramUserName = new SqlParameter("@userName", SqlDbType.NVarChar, 50);
+        private static SqlParameter paramPassword = new SqlParameter("@password", SqlDbType.NVarChar, 50);
 
         //build an employee object based on the db reader
         private static Employee createEmployee(IDataReader dbReader)
@@ -35,26 +39,24 @@ namespace Cinema.DBLayer
             string sqlQuery = "INSERT INTO Employee(fName, lName, userName, password) VALUES " +
                 "(@fName, @lName, @userName, @password)";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
-            SqlParameter paramFName = new SqlParameter("@fName", SqlDbType.NVarChar, 50);
+            
             paramFName.Value = employee.FName;
             dbCmd.Parameters.Add(paramFName);
-
-            SqlParameter paramLName = new SqlParameter("@lName", SqlDbType.NVarChar, 50);
+            
             paramLName.Value = employee.LName;
             dbCmd.Parameters.Add(paramLName);
 
-            SqlParameter paramUserName = new SqlParameter("@userName", SqlDbType.NVarChar, 50);
+            
             paramUserName.Value = employee.Username;
             dbCmd.Parameters.Add(paramUserName);
-
-            SqlParameter paramPassword = new SqlParameter("@password", SqlDbType.NVarChar, 50);
+            
             paramPassword.Value = employee.Password;
             dbCmd.Parameters.Add(paramPassword);
 
             try
             {
                 result = dbCmd.ExecuteNonQuery();
+                dbCmd.Parameters.Clear();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -81,6 +83,7 @@ namespace Cinema.DBLayer
                 returnList.Add(employee);
             }
 
+            dbCmd.Parameters.Clear();
             AccessDbSQLClient.Close();
 
             return returnList;
@@ -92,8 +95,7 @@ namespace Cinema.DBLayer
             dbCmd = new SqlCommand();
             string sqlQuery = "SELECT * FROM Employee WHERE userName= @userName";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
-            SqlParameter paramUserName = new SqlParameter("@userName", SqlDbType.NVarChar, 50);
+            
             paramUserName.Value = userName;
             dbCmd.Parameters.Add(paramUserName);
            
@@ -111,6 +113,7 @@ namespace Cinema.DBLayer
                 employee = null;
             }
 
+            dbCmd.Parameters.Clear();
             AccessDbSQLClient.Close();
 
             return employee;
@@ -127,25 +130,22 @@ namespace Cinema.DBLayer
                 "userName= @userName";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
 
-            SqlParameter paramFName = new SqlParameter("@fName", SqlDbType.NVarChar, 50);
             paramFName.Value = employee.FName;
             dbCmd.Parameters.Add(paramFName);
 
-            SqlParameter paramLName = new SqlParameter("@lName", SqlDbType.NVarChar, 50);
             paramLName.Value = employee.LName;
             dbCmd.Parameters.Add(paramLName);
 
-            SqlParameter paramUserName = new SqlParameter("@userName", SqlDbType.NVarChar, 50);
             paramUserName.Value = employee.Username;
             dbCmd.Parameters.Add(paramUserName);
 
-            SqlParameter paramPassword = new SqlParameter("@password", SqlDbType.NVarChar, 50);
             paramPassword.Value = employee.Password;
             dbCmd.Parameters.Add(paramPassword);
 
             try
             {
                 result = dbCmd.ExecuteNonQuery();
+                dbCmd.Parameters.Clear();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -163,17 +163,18 @@ namespace Cinema.DBLayer
             string sqlQuery = "DELETE FROM Employee WHERE userName= @userName";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
 
-            SqlParameter paramUserName = new SqlParameter("@userName", SqlDbType.NVarChar, 50);
             paramUserName.Value = userName;
             dbCmd.Parameters.Add(paramUserName);
 
             try
             {
-                result = dbCmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery(); 
+                dbCmd.Parameters.Clear();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
             { }
+
             return result;
         }
     }
