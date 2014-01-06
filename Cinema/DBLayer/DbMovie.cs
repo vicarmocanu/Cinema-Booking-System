@@ -38,17 +38,35 @@ namespace Cinema.DBLayer
             String table = "Movie";
             int max = GetMax.getMax(attrib, table);
             int id = max + 1;
-            
+
+            dbCmd = new SqlCommand();
             string sqlQuery = "INSERT INTO Movie VALUES " +
-                "('" + id + 
-                "','" + mov.Name +
-                "','" + mov.Genre +
-                "','" + mov.AgeLimit +
-                "','" + mov.Length + "')";
+                "(@movieId, @name, @genre, @ageLimit, @length)";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramMovieId = new SqlParameter("@movieId", SqlDbType.Int);
+            paramMovieId.Value = id;
+            dbCmd.Parameters.Add(paramMovieId);
+
+            SqlParameter paramName = new SqlParameter("@name", SqlDbType.NVarChar, 50);
+            paramName.Value = mov.Name;
+            dbCmd.Parameters.Add(paramName);
+
+            SqlParameter paramGenre = new SqlParameter("@genre", SqlDbType.NVarChar, 50);
+            paramGenre.Value = mov.Genre;
+            dbCmd.Parameters.Add(paramGenre);
+
+            SqlParameter paramAgeLimit = new SqlParameter("@ageLimit", SqlDbType.Int);
+            paramAgeLimit.Value = mov.AgeLimit;
+            dbCmd.Parameters.Add(paramAgeLimit);
+
+            SqlParameter paramLength = new SqlParameter("@length", SqlDbType.Int);
+            paramLength.Value = mov.Length;
+            dbCmd.Parameters.Add(paramLength);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -83,8 +101,13 @@ namespace Cinema.DBLayer
         //get a movie - id
         public Movie getMovieByID(int id)
         {
-            string sqlQuery = "SELECT * FROM Movie WHERE movieId= '" + id + "'";
+            dbCmd = new SqlCommand();
+            string sqlQuery = "SELECT * FROM Movie WHERE movieId= @id";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramId = new SqlParameter("@id", SqlDbType.Int);
+            paramId.Value = id;
+            dbCmd.Parameters.Add(paramId);
 
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
@@ -108,8 +131,13 @@ namespace Cinema.DBLayer
         //get a movie - name
         public Movie getMovieByName(String name)
         {
-            string sqlQuery = "SELECT * FROM Movie WHERE name= '" + name + "'";
+            dbCmd = new SqlCommand()
+            string sqlQuery = "SELECT * FROM Movie WHERE name= @name";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramName = new SqlParameter("@name", SqlDbType.NVarChar, 50);
+            paramName.Value = name;
+            dbCmd.Parameters.Add(paramName);
 
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
@@ -135,17 +163,35 @@ namespace Cinema.DBLayer
         {
             int result = -1;
 
+            dbCmd = new SqlCommand();
             string sqlQuery = "UPDATE Movie SET " +
-                "name='" + mov.Name + "', " +
-                "genre='" + mov.Genre + "', " +
-                "ageLimit='" + mov.AgeLimit + "', " +
-                "length='" + mov.Length + "' WHERE " +
-                "movieId='" + mov.MovieId + "'";
+                "name= @name, genre= @genre, ageLimit= @ageLimit, length= @length WHERE " +
+                "movieId= @movieId";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramMovieId = new SqlParameter("@movieId", SqlDbType.Int);
+            paramMovieId.Value = mov.MovieId;
+            dbCmd.Parameters.Add(paramMovieId);
+
+            SqlParameter paramName = new SqlParameter("@name", SqlDbType.NVarChar, 50);
+            paramName.Value = mov.Name;
+            dbCmd.Parameters.Add(paramName);
+
+            SqlParameter paramGenre = new SqlParameter("@genre", SqlDbType.NVarChar, 50);
+            paramGenre.Value = mov.Genre;
+            dbCmd.Parameters.Add(paramGenre);
+
+            SqlParameter paramAgeLimit = new SqlParameter("@ageLimit", SqlDbType.Int);
+            paramAgeLimit.Value = mov.AgeLimit;
+            dbCmd.Parameters.Add(paramAgeLimit);
+
+            SqlParameter paramLength = new SqlParameter("@length", SqlDbType.Int);
+            paramLength.Value = mov.Length;
+            dbCmd.Parameters.Add(paramLength);
 
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
@@ -158,15 +204,23 @@ namespace Cinema.DBLayer
         public int deleteMovie(int movieId)
         {
             int result = -1;
-            string sqlQuery = "DELETE FROM Movie WHERE movieId= '" + movieId + "'";
+
+            dbCmd = new SqlCommand();
+            string sqlQuery = "DELETE FROM Movie WHERE movieId= @movieId";
+            dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
+
+            SqlParameter paramMovieId = new SqlParameter("@movieId", SqlDbType.Int);
+            paramMovieId.Value = movieId;
+            dbCmd.Parameters.Add(paramMovieId);
+
             try
             {
-                SqlCommand cmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-                result = cmd.ExecuteNonQuery();
+                result = dbCmd.ExecuteNonQuery();
                 AccessDbSQLClient.Close();
             }
             catch (SqlException)
             { }
+
             return result;
         }
     }
