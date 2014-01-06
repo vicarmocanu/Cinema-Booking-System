@@ -108,12 +108,8 @@ namespace Cinema.DBLayer
 
             dbCmd = new SqlCommand();
             string sqlQuery = "SELECT MAX(rowNumber) AS rowNumber FROM Seat, SeatSchedule WHERE " +
-                "Seat.seatId=SeatSchedule.seatId AND sessionId = @sessionId";
+                "Seat.seatId=SeatSchedule.seatId AND sessionId = '" + sessionId + "'";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
-            SqlParameter paramSessionId = new SqlParameter("@sessionId", SqlDbType.Int);
-            paramSessionId.Value = sessionId;
-            dbCmd.Parameters.Add(paramSessionId);
 
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
@@ -136,16 +132,8 @@ namespace Cinema.DBLayer
             string sqlQuery = "SELECT COUNT(seatId) AS count FROM " + 
                 "(SELECT SeatSchedule.sessionId, SeatSchedule.seatId, Seat.rowNumber FROM " +
                 "SeatSchedule JOIN Seat ON Seat.seatId = SeatSchedule.seatId WHERE " + 
-                " rowNumber = @rowNumber AND sessionId = @sessionId) AS SeatScheduleInfo";
+                " rowNumber = '"+ rowNumber + "' AND sessionId = '" + sessionId + "') AS SeatScheduleInfo";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
-            SqlParameter paramSessionId = new SqlParameter("@sessionId", SqlDbType.Int);
-            paramSessionId.Value = sessionId;
-            dbCmd.Parameters.Add(paramSessionId);
-
-            SqlParameter paramRowNumber = new SqlParameter("@rowNumber", SqlDbType.Int);
-            paramRowNumber.Value = rowNumber;
-            dbCmd.Parameters.Add(paramRowNumber);
 
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
@@ -192,16 +180,8 @@ namespace Cinema.DBLayer
             string sqlQuery = "SELECT SeatSchedule.sessionId, SeatSchedule.seatId, " + 
                 "Seat.seatNumber, Seat.rowNumber, Seat.roomNumber, SeatSchedule.status " +
                 "FROM SeatSchedule JOIN Seat ON Seat.seatId = SeatSchedule.seatId " +
-                "WHERE rowNumber = @rowNumber AND sessionId = @sessionId ORDER BY seatNumber";
+                "WHERE rowNumber = '"+rowNumber+"' AND sessionId = '" +sessionId+"' ORDER BY seatNumber";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
-
-            SqlParameter paramSessionId = new SqlParameter("@sessionId", SqlDbType.Int);
-            paramSessionId.Value = sessionId;
-            dbCmd.Parameters.Add(paramSessionId);
-
-            SqlParameter paramRowNumber = new SqlParameter("@rowNumber", SqlDbType.Int);
-            paramRowNumber.Value = rowNumber;
-            dbCmd.Parameters.Add(paramRowNumber);
 
             IDataReader dbReader;
             dbReader = dbCmd.ExecuteReader();
