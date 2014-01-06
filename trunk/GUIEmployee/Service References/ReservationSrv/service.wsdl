@@ -86,6 +86,12 @@
   <wsdl:message name="IReservationService_deleteSeatsFromReservation_OutputMessage">
     <wsdl:part name="parameters" element="tns:deleteSeatsFromReservationResponse" />
   </wsdl:message>
+  <wsdl:message name="IReservationService_trustedInsertReservedSeats_InputMessage">
+    <wsdl:part name="parameters" element="tns:trustedInsertReservedSeats" />
+  </wsdl:message>
+  <wsdl:message name="IReservationService_trustedInsertReservedSeats_OutputMessage">
+    <wsdl:part name="parameters" element="tns:trustedInsertReservedSeatsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IReservationService">
     <wsdl:operation name="insertReservation">
       <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/insertReservation" message="tns:IReservationService_insertReservation_InputMessage" />
@@ -138,6 +144,10 @@
     <wsdl:operation name="deleteSeatsFromReservation">
       <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/deleteSeatsFromReservation" message="tns:IReservationService_deleteSeatsFromReservation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/deleteSeatsFromReservationResponse" message="tns:IReservationService_deleteSeatsFromReservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="trustedInsertReservedSeats">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReservationService/trustedInsertReservedSeats" message="tns:IReservationService_trustedInsertReservedSeats_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReservationService/trustedInsertReservedSeatsResponse" message="tns:IReservationService_trustedInsertReservedSeats_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IReservationService" type="tns:IReservationService">
@@ -252,6 +262,15 @@
     </wsdl:operation>
     <wsdl:operation name="deleteSeatsFromReservation">
       <soap:operation soapAction="http://tempuri.org/IReservationService/deleteSeatsFromReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="trustedInsertReservedSeats">
+      <soap:operation soapAction="http://tempuri.org/IReservationService/trustedInsertReservedSeats" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

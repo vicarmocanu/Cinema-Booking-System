@@ -844,6 +844,12 @@ namespace GUIEmployee.ReservationSrv {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/deleteSeatsFromReservation", ReplyAction="http://tempuri.org/IReservationService/deleteSeatsFromReservationResponse")]
         System.Threading.Tasks.Task<int> deleteSeatsFromReservationAsync(int reservationId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/trustedInsertReservedSeats", ReplyAction="http://tempuri.org/IReservationService/trustedInsertReservedSeatsResponse")]
+        int[] trustedInsertReservedSeats(string firstName, string lastName, int sessionId, int numberOfSeats, double price, string status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/trustedInsertReservedSeats", ReplyAction="http://tempuri.org/IReservationService/trustedInsertReservedSeatsResponse")]
+        System.Threading.Tasks.Task<int[]> trustedInsertReservedSeatsAsync(string firstName, string lastName, int sessionId, int numberOfSeats, double price, string status);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -975,6 +981,14 @@ namespace GUIEmployee.ReservationSrv {
         
         public System.Threading.Tasks.Task<int> deleteSeatsFromReservationAsync(int reservationId) {
             return base.Channel.deleteSeatsFromReservationAsync(reservationId);
+        }
+        
+        public int[] trustedInsertReservedSeats(string firstName, string lastName, int sessionId, int numberOfSeats, double price, string status) {
+            return base.Channel.trustedInsertReservedSeats(firstName, lastName, sessionId, numberOfSeats, price, status);
+        }
+        
+        public System.Threading.Tasks.Task<int[]> trustedInsertReservedSeatsAsync(string firstName, string lastName, int sessionId, int numberOfSeats, double price, string status) {
+            return base.Channel.trustedInsertReservedSeatsAsync(firstName, lastName, sessionId, numberOfSeats, price, status);
         }
     }
 }
