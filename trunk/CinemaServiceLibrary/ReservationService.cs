@@ -23,7 +23,7 @@ namespace CinemaServiceLibrary
             }
         }
 
-        public int updateReservation(string firstName, string lastName, int sessionId, int numberOfSeats, int price, string status, int reservationId, String data)
+        public int updateReservation(string firstName, string lastName, int sessionId, int numberOfSeats, double price, string status, int reservationId, String data)
         {
             lock (lockThis)
             {
