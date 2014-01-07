@@ -213,8 +213,8 @@ namespace GUIEmployee
             }
             else
             {
-                ReservationSrv.Reservation rzv = new ReservationSrv.Reservation();
-                rzv = rzvService.updateReservation(custFNameTxt.Text.ToString(), custLNameTxt.Text.ToString(), Convert.ToInt32(sessionIdTxt.Text.ToString()), Convert.ToInt32(noOfSeatsTxt.Text.ToString()), Convert.ToInt32(priceTxt.Text.ToString()), statusTxt.Text.ToString(), Convert.ToInt32(rezervationIdTxt.Text.ToString()));
+                int result = -1;
+                result = rzvService.updateReservation(custFNameTxt.Text.ToString(), custLNameTxt.Text.ToString(), Convert.ToInt32(sessionIdTxt.Text.ToString()), Convert.ToInt32(noOfSeatsTxt.Text.ToString()), Convert.ToInt32(priceTxt.Text.ToString()), statusTxt.Text.ToString(), Convert.ToInt32(rezervationIdTxt.Text.ToString()));
                 gridReservation.Rows.Clear();
                 loadReservationGrid();
             }
@@ -231,9 +231,8 @@ namespace GUIEmployee
             }
             else
             {
-                ReservationSrv.Reservation rzv = new ReservationSrv.Reservation();
-                int rzId = rzv.ReservationId;
-                rzv = rzvService.deleteReservation(rzId);
+                int result = -1;
+                result = rzvService.deleteReservation(Convert.ToInt32(rezervationIdTxt.Text.ToString()));
                 gridReservation.Rows.Clear();
                 loadReservationGrid();
             }
@@ -249,8 +248,8 @@ namespace GUIEmployee
             }
             else
             {
-                CustomerSrv.Customer cust = new CustomerSrv.Customer();
-                cust = custService.insertCustomer(fnametxt.Text.ToString(), lnametxt.Text.ToString(), cityTxt.Text.ToString(), addressTxt.Text.ToString(), emailTxt.Text.ToString(), phoneNoTxt.Text.ToString(), usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
+                int result = -1;
+                result = custService.insertCustomer(fnametxt.Text.ToString(), lnametxt.Text.ToString(), cityTxt.Text.ToString(), addressTxt.Text.ToString(), emailTxt.Text.ToString(), phoneNoTxt.Text.ToString(), usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
                 gridCustomer.Rows.Clear();
                 loadCustomerGrid();
             }

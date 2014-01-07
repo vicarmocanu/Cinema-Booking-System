@@ -305,7 +305,7 @@ namespace Cinema.DBLayer
             dbCmd = new SqlCommand();
             string sqlQuery = "UPDATE Reservation SET " +
                 "custFName= @custFName, custLName= @custLName, sessionId= @sessionId, " +
-                "noOfSeats= @noOfSeats, price= @price, status= @status WHERE " +
+                "noOfSeats= @noOfSeats, price= @price, status= @status, date= @date WHERE " +
                 "reservationId= @reservationId";
             dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
 
