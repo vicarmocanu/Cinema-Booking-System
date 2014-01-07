@@ -202,5 +202,61 @@ namespace GUIEmployee
                 loadReservationGrid();
             }
         }
+
+        private void UpdResBtn_Click(object sender, EventArgs e)
+        {
+            gridReservation.Rows.Clear();
+            if (custFNameTxt.Text.Equals("") || custLNameTxt.Text.Equals("") || sessionIdTxt.Text.Equals("") || noOfSeatsTxt.Text.Equals("") || priceTxt.Text.Equals("") || statusTxt.Text.Equals(""))
+            {
+                MessageBox.Show("More Information Required!");
+                loadReservationGrid();
+            }
+            else
+            {
+                ReservationSrv.Reservation rzv = new ReservationSrv.Reservation();
+                rzv = rzvService.updateReservation(custFNameTxt.Text.ToString(), custLNameTxt.Text.ToString(), Convert.ToInt32(sessionIdTxt.Text.ToString()), Convert.ToInt32(noOfSeatsTxt.Text.ToString()), Convert.ToInt32(priceTxt.Text.ToString()), statusTxt.Text.ToString(), Convert.ToInt32(rezervationIdTxt.Text.ToString()));
+                gridReservation.Rows.Clear();
+                loadReservationGrid();
+            }
+        }
+
+        private void DelResBtn_Click(object sender, EventArgs e)
+        {
+            gridReservation.Rows.Clear();
+
+            if (rezervationIdTxt.Text.Equals(""))
+            {
+                MessageBox.Show("More Information Required!");
+                loadReservationGrid();
+            }
+            else
+            {
+                ReservationSrv.Reservation rzv = new ReservationSrv.Reservation();
+                int rzId = rzv.ReservationId;
+                rzv = rzvService.deleteReservation(rzId);
+                gridReservation.Rows.Clear();
+                loadReservationGrid();
+            }
+        }
+
+        private void CrtCustBtn_Click(object sender, EventArgs e)
+        {
+            gridCustomer.Rows.Clear();
+            if (fnametxt.Text.Equals("") || lnametxt.Text.Equals("") || usernameTxt.Text.Equals("") || passwordTxt.Text.Equals("") || cityTxt.Text.Equals("") || addressTxt.Text.Equals("") || emailTxt.Text.Equals("") || phoneNoTxt.Text.Equals(""))
+            {
+                MessageBox.Show("More Information Required!");
+                loadCustomerGrid();
+            }
+            else
+            {
+                CustomerSrv.Customer cust = new CustomerSrv.Customer();
+                cust = custService.insertCustomer(fnametxt.Text.ToString(), lnametxt.Text.ToString(), cityTxt.Text.ToString(), addressTxt.Text.ToString(), emailTxt.Text.ToString(), phoneNoTxt.Text.ToString(), usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
+                gridCustomer.Rows.Clear();
+                loadCustomerGrid();
+            }
+
+        }
+
+
     }
 }

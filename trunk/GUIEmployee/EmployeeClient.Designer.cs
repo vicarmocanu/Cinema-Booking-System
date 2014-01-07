@@ -180,6 +180,7 @@
             this.DelResBtn.TabIndex = 17;
             this.DelResBtn.Text = "Delete";
             this.DelResBtn.UseVisualStyleBackColor = true;
+            this.DelResBtn.Click += new System.EventHandler(this.DelResBtn_Click);
             // 
             // UpdResBtn
             // 
@@ -189,6 +190,7 @@
             this.UpdResBtn.TabIndex = 16;
             this.UpdResBtn.Text = "Update";
             this.UpdResBtn.UseVisualStyleBackColor = true;
+            this.UpdResBtn.Click += new System.EventHandler(this.UpdResBtn_Click);
             // 
             // CrtResBtn
             // 
@@ -376,6 +378,7 @@
             this.CrtCustBtn.TabIndex = 17;
             this.CrtCustBtn.Text = "Create";
             this.CrtCustBtn.UseVisualStyleBackColor = true;
+            this.CrtCustBtn.Click += new System.EventHandler(this.CrtCustBtn_Click);
             // 
             // gridCustomer
             // 
