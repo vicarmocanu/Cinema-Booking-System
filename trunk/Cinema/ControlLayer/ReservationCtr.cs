@@ -96,7 +96,7 @@ namespace Cinema.ControlLayer
             return returnList;
         }
 
-        public int updateReservation(String firstName, String lastName, int sessionId, int numberOfSeats, int price, String status, int reservationId)
+        public int updateReservation(String firstName, String lastName, int sessionId, int numberOfSeats, int price, String status, int reservationId, String date)
         {
             IReservation _dbReservation = new DbReservation();
             Reservation rzv = new Reservation();
@@ -113,6 +113,7 @@ namespace Cinema.ControlLayer
             rzv.Price = price;
             rzv.Status = status;
             rzv.ReservationId = reservationId;
+            rzv.Date = date;
 
             return _dbReservation.updateReservation(rzv);
         }
