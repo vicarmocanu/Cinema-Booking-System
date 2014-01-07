@@ -360,6 +360,7 @@
             this.DelCustBtn.TabIndex = 19;
             this.DelCustBtn.Text = "Delete";
             this.DelCustBtn.UseVisualStyleBackColor = true;
+            this.DelCustBtn.Click += new System.EventHandler(this.DelCustBtn_Click);
             // 
             // UpdCustBtn
             // 
@@ -369,6 +370,7 @@
             this.UpdCustBtn.TabIndex = 18;
             this.UpdCustBtn.Text = "Update";
             this.UpdCustBtn.UseVisualStyleBackColor = true;
+            this.UpdCustBtn.Click += new System.EventHandler(this.UpdCustBtn_Click);
             // 
             // CrtCustBtn
             // 
@@ -625,10 +627,11 @@
             // 
             this.dltMovieBtn.Location = new System.Drawing.Point(196, 319);
             this.dltMovieBtn.Name = "dltMovieBtn";
-            this.dltMovieBtn.Size = new System.Drawing.Size(169, 101);
+            this.dltMovieBtn.Size = new System.Drawing.Size(169, 78);
             this.dltMovieBtn.TabIndex = 3;
             this.dltMovieBtn.Text = "Delete";
             this.dltMovieBtn.UseVisualStyleBackColor = true;
+            this.dltMovieBtn.Click += new System.EventHandler(this.dltMovieBtn_Click);
             // 
             // UpdMovieBtn
             // 
@@ -638,6 +641,7 @@
             this.UpdMovieBtn.TabIndex = 2;
             this.UpdMovieBtn.Text = "Update";
             this.UpdMovieBtn.UseVisualStyleBackColor = true;
+            this.UpdMovieBtn.Click += new System.EventHandler(this.UpdMovieBtn_Click);
             // 
             // crtMovieBtn
             // 
@@ -647,6 +651,7 @@
             this.crtMovieBtn.TabIndex = 1;
             this.crtMovieBtn.Text = "Create";
             this.crtMovieBtn.UseVisualStyleBackColor = true;
+            this.crtMovieBtn.Click += new System.EventHandler(this.crtMovieBtn_Click);
             // 
             // gridMovie
             // 
@@ -795,6 +800,7 @@
             this.btnDelSes.TabIndex = 2;
             this.btnDelSes.Text = "Delete";
             this.btnDelSes.UseVisualStyleBackColor = true;
+            this.btnDelSes.Click += new System.EventHandler(this.btnDelSes_Click);
             // 
             // brnUpdSes
             // 
@@ -804,6 +810,7 @@
             this.brnUpdSes.TabIndex = 1;
             this.brnUpdSes.Text = "Update";
             this.brnUpdSes.UseVisualStyleBackColor = true;
+            this.brnUpdSes.Click += new System.EventHandler(this.brnUpdSes_Click);
             // 
             // btnCrtSes
             // 
@@ -813,6 +820,7 @@
             this.btnCrtSes.TabIndex = 0;
             this.btnCrtSes.Text = "Create";
             this.btnCrtSes.UseVisualStyleBackColor = true;
+            this.btnCrtSes.Click += new System.EventHandler(this.btnCrtSes_Click);
             // 
             // EmployeeClient
             // 

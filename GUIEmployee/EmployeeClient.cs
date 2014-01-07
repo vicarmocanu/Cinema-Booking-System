@@ -257,6 +257,142 @@ namespace GUIEmployee
 
         }
 
+        private void UpdCustBtn_Click(object sender, EventArgs e)
+        {
+            gridCustomer.Rows.Clear();
+            if (fnametxt.Text.Equals("") || lnametxt.Text.Equals("") || usernameTxt.Text.Equals("") || passwordTxt.Text.Equals("") || cityTxt.Text.Equals("") || addressTxt.Text.Equals("") || emailTxt.Text.Equals("") || phoneNoTxt.Text.Equals(""))
+            {
+                MessageBox.Show("More Information Required!");
+                loadCustomerGrid();
+            }
+            else
+            {
+                int result = -1;
+                result = custService.updateCustomer(fnametxt.Text.ToString(), lnametxt.Text.ToString(), cityTxt.Text.ToString(), addressTxt.Text.ToString(), emailTxt.Text.ToString(), phoneNoTxt.Text.ToString(), usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
+                gridCustomer.Rows.Clear();
+                loadCustomerGrid();
+            }
+        }
+
+        private void DelCustBtn_Click(object sender, EventArgs e)
+        {
+            gridCustomer.Rows.Clear();
+            if (fnametxt.Text.Equals("") || lnametxt.Text.Equals(""))
+            {
+                MessageBox.Show("More Information Required!");
+                loadCustomerGrid();
+            }
+            else
+            {
+                int result = -1;
+                result = custService.deleteCustomerByName(fnametxt.Text.ToString(), lnametxt.Text.ToString());
+                gridCustomer.Rows.Clear();
+                loadCustomerGrid();
+            }
+        }
+
+        private void crtMovieBtn_Click(object sender, EventArgs e)
+        {
+            gridMovie.Rows.Clear();
+            if (ageLimitTxt.Text.Equals("") || genreTxt.Text.Equals("") || lenghtTxt.Text.Equals("") || movieIdTxt.Text.Equals("") || nameTxt.Text.Equals(""))
+            {
+                MessageBox.Show("More Information Required!");
+                loadMovieGrid();
+            }
+            else
+            {
+                int result = -1;
+                result = movService.insertMovie(nameTxt.Text.ToString(), genreTxt.Text.ToString(), Convert.ToInt32(ageLimitTxt.Text.ToString()), Convert.ToInt32(lenghtTxt.Text.ToString()));
+                gridMovie.Rows.Clear();
+                loadMovieGrid();
+            }
+              
+        }
+
+        private void UpdMovieBtn_Click(object sender, EventArgs e)
+        {
+            gridMovie.Rows.Clear();
+            if (ageLimitTxt.Text.Equals("") || genreTxt.Text.Equals("") || lenghtTxt.Text.Equals("") || movieIdTxt.Text.Equals("") || nameTxt.Text.Equals(""))
+            {
+                MessageBox.Show("More Information Required!");
+                loadMovieGrid();
+            }
+            else
+            {
+                int result = -1;
+                result = movService.updateMovie(Convert.ToInt32(movieIdTxt.Text.ToString()), nameTxt.Text.ToString(), genreTxt.Text.ToString(), Convert.ToInt32(ageLimitTxt.Text.ToString()), Convert.ToInt32(lenghtTxt.Text.ToString()));
+                gridMovie.Rows.Clear();
+                loadMovieGrid();
+            }
+        }
+
+        private void dltMovieBtn_Click(object sender, EventArgs e)
+        {
+            gridMovie.Rows.Clear();
+            if (ageLimitTxt.Text.Equals("") || genreTxt.Text.Equals("") || lenghtTxt.Text.Equals("") || movieIdTxt.Text.Equals("") || nameTxt.Text.Equals(""))
+            {
+                MessageBox.Show("More Information Required!");
+                loadMovieGrid();
+            }
+            else
+            {
+                int result = -1;
+                result = movService.deleteMovie(Convert.ToInt32(movieIdTxt.Text.ToString()));
+                gridMovie.Rows.Clear();
+                loadMovieGrid();
+            }
+        }
+
+        private void btnCrtSes_Click(object sender, EventArgs e)
+        {
+            gridSession.Rows.Clear();
+            if(txtSesId.Text.Equals("") || txtSesMovId.Text.Equals("")  || txtEnterTime.Text.Equals("") || txtExitTime.Text.Equals("") || txtSesDate.Text.Equals("") || txtSesPrice.Text.Equals(""))
+            {
+            MessageBox.Show("More Information Required!");
+                loadSessionGrid();
+            }
+            else
+            {
+                int result = -1;
+                result = sesService.insertSession(Convert.ToInt32(txtSesMovId.Text.ToString()), txtEnterTime.Text.ToString(), txtExitTime.Text.ToString(), txtSesDate.Text.ToString(), Convert.ToDouble(txtSesPrice.Text.ToString()));
+                gridSession.Rows.Clear();
+                loadSessionGrid();
+            }
+        }
+
+        private void brnUpdSes_Click(object sender, EventArgs e)
+        {
+            if(txtSesId.Text.Equals("") || txtSesMovId.Text.Equals("")  || txtEnterTime.Text.Equals("") || txtExitTime.Text.Equals("") || txtSesDate.Text.Equals("") || txtSesPrice.Text.Equals(""))
+            {
+                MessageBox.Show("More Information Required!");
+                loadSessionGrid();
+            }
+            else
+            {
+                int result = -1;
+                result = sesService.updateSession(Convert.ToInt32(txtSesMovId.Text.ToString()), txtSesDate.Text.ToString(), txtEnterTime.Text.ToString(), txtExitTime.Text.ToString(), Convert.ToDouble(txtSesPrice.Text.ToString()), Convert.ToInt32(txtSesId.Text.ToString()));
+                gridSession.Rows.Clear();
+                loadSessionGrid();
+            }
+        }
+
+        private void btnDelSes_Click(object sender, EventArgs e)
+        {
+            if(txtSesId.Text.Equals(""))
+            {
+                MessageBox.Show("Must provide Session Id!");
+                loadSessionGrid();
+            }
+            else
+            {
+                int result = -1;
+                result = sesService.deleteSession(Convert.ToInt32(txtSesId.Text.ToString()));
+                gridSession.Rows.Clear();
+                loadSessionGrid();
+            }
+        }
+
+
 
     }
 }
