@@ -110,7 +110,7 @@ namespace Cinema.ControlLayer
             ses.SessionId = sessionId;
             rzv.Session = ses;
             rzv.NoOfSeats = numberOfSeats;
-            rzv.Price = price;
+            rzv.Price = price * numberOfSeats;
             rzv.Status = status;
             rzv.ReservationId = reservationId;
             rzv.Date = date;
