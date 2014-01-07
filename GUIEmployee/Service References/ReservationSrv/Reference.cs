@@ -774,10 +774,10 @@ namespace GUIEmployee.ReservationSrv {
         System.Threading.Tasks.Task<int> insertReservationAsync(string firstName, string lastName, int sessionId, int numberOfSeats, double price, string status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/updateReservation", ReplyAction="http://tempuri.org/IReservationService/updateReservationResponse")]
-        int updateReservation(string firstName, string lastName, int sessionId, int numberOfSeats, int price, string status, int reservationId);
+        int updateReservation(string firstName, string lastName, int sessionId, int numberOfSeats, int price, string status, int reservationId, string data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/updateReservation", ReplyAction="http://tempuri.org/IReservationService/updateReservationResponse")]
-        System.Threading.Tasks.Task<int> updateReservationAsync(string firstName, string lastName, int sessionId, int numberOfSeats, int price, string status, int reservationId);
+        System.Threading.Tasks.Task<int> updateReservationAsync(string firstName, string lastName, int sessionId, int numberOfSeats, int price, string status, int reservationId, string data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReservationService/insertReservedSeat", ReplyAction="http://tempuri.org/IReservationService/insertReservedSeatResponse")]
         int insertReservedSeat(int reservationId, int seatId);
@@ -887,12 +887,12 @@ namespace GUIEmployee.ReservationSrv {
             return base.Channel.insertReservationAsync(firstName, lastName, sessionId, numberOfSeats, price, status);
         }
         
-        public int updateReservation(string firstName, string lastName, int sessionId, int numberOfSeats, int price, string status, int reservationId) {
-            return base.Channel.updateReservation(firstName, lastName, sessionId, numberOfSeats, price, status, reservationId);
+        public int updateReservation(string firstName, string lastName, int sessionId, int numberOfSeats, int price, string status, int reservationId, string data) {
+            return base.Channel.updateReservation(firstName, lastName, sessionId, numberOfSeats, price, status, reservationId, data);
         }
         
-        public System.Threading.Tasks.Task<int> updateReservationAsync(string firstName, string lastName, int sessionId, int numberOfSeats, int price, string status, int reservationId) {
-            return base.Channel.updateReservationAsync(firstName, lastName, sessionId, numberOfSeats, price, status, reservationId);
+        public System.Threading.Tasks.Task<int> updateReservationAsync(string firstName, string lastName, int sessionId, int numberOfSeats, int price, string status, int reservationId, string data) {
+            return base.Channel.updateReservationAsync(firstName, lastName, sessionId, numberOfSeats, price, status, reservationId, data);
         }
         
         public int insertReservedSeat(int reservationId, int seatId) {

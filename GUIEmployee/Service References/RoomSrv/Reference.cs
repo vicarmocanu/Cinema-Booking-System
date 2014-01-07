@@ -28,9 +28,6 @@ namespace GUIEmployee.RoomSrv {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int RoomNumberField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int numberField;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -63,19 +60,6 @@ namespace GUIEmployee.RoomSrv {
                 if ((this.RoomNumberField.Equals(value) != true)) {
                     this.RoomNumberField = value;
                     this.RaisePropertyChanged("RoomNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int number {
-            get {
-                return this.numberField;
-            }
-            set {
-                if ((this.numberField.Equals(value) != true)) {
-                    this.numberField = value;
-                    this.RaisePropertyChanged("number");
                 }
             }
         }
