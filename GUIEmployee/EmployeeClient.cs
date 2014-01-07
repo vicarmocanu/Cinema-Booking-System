@@ -206,7 +206,7 @@ namespace GUIEmployee
         private void UpdResBtn_Click(object sender, EventArgs e)
         {
             gridReservation.Rows.Clear();
-            if (custFNameTxt.Text.Equals("") || custLNameTxt.Text.Equals("") || sessionIdTxt.Text.Equals("") || noOfSeatsTxt.Text.Equals("") || priceTxt.Text.Equals("") || statusTxt.Text.Equals(""))
+            if (custFNameTxt.Text.Equals("") || custLNameTxt.Text.Equals("") || sessionIdTxt.Text.Equals("") || noOfSeatsTxt.Text.Equals("") || priceTxt.Text.Equals("") || statusTxt.Text.Equals("") || dateTxt.Text.Equals("") || rezervationIdTxt.Text.Equals(""))
             {
                 MessageBox.Show("More Information Required!");
                 loadReservationGrid();
@@ -214,7 +214,8 @@ namespace GUIEmployee
             else
             {
                 int result = -1;
-                result = rzvService.updateReservation(custFNameTxt.Text.ToString(), custLNameTxt.Text.ToString(), Convert.ToInt32(sessionIdTxt.Text.ToString()), Convert.ToInt32(noOfSeatsTxt.Text.ToString()), Convert.ToInt32(priceTxt.Text.ToString()), statusTxt.Text.ToString(), Convert.ToInt32(rezervationIdTxt.Text.ToString()));
+
+                result = rzvService.updateReservation(custFNameTxt.Text.ToString(), custLNameTxt.Text.ToString(), Convert.ToInt32(sessionIdTxt.Text.ToString()), Convert.ToInt32(noOfSeatsTxt.Text.ToString()), Convert.ToDouble(priceTxt.Text.ToString()), statusTxt.Text.ToString(), Convert.ToInt32(rezervationIdTxt.Text.ToString()), dateTxt.Text.ToString());
                 gridReservation.Rows.Clear();
                 loadReservationGrid();
             }

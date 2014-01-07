@@ -28,7 +28,7 @@
         <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sessionId" type="xs:int" />
         <xs:element minOccurs="0" name="numberOfSeats" type="xs:int" />
-        <xs:element minOccurs="0" name="price" type="xs:int" />
+        <xs:element minOccurs="0" name="price" type="xs:double" />
         <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="reservationId" type="xs:int" />
         <xs:element minOccurs="0" name="data" nillable="true" type="xs:string" />
