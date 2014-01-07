@@ -64,6 +64,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getMovieByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMovieByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CinemaServiceLibrary" minOccurs="0" name="getMovieByNameResult" nillable="true" type="q2:Movie" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="getMovies">
     <xs:complexType>
       <xs:sequence />
@@ -72,7 +86,7 @@
   <xs:element name="getMoviesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CinemaServiceLibrary" minOccurs="0" name="getMoviesResult" nillable="true" type="q2:ArrayOfMovie" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CinemaServiceLibrary" minOccurs="0" name="getMoviesResult" nillable="true" type="q3:ArrayOfMovie" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

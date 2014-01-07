@@ -34,6 +34,9 @@ namespace GUIEmployee.SeatSrv {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int SeatNumberField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -96,6 +99,19 @@ namespace GUIEmployee.SeatSrv {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -120,9 +136,6 @@ namespace GUIEmployee.SeatSrv {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int RoomNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int numberField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -156,19 +169,6 @@ namespace GUIEmployee.SeatSrv {
                 if ((this.RoomNumberField.Equals(value) != true)) {
                     this.RoomNumberField = value;
                     this.RaisePropertyChanged("RoomNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int number {
-            get {
-                return this.numberField;
-            }
-            set {
-                if ((this.numberField.Equals(value) != true)) {
-                    this.numberField = value;
-                    this.RaisePropertyChanged("number");
                 }
             }
         }
