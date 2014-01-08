@@ -213,7 +213,7 @@
             // 
             // loadSeats
             // 
-            this.loadSeats.Location = new System.Drawing.Point(958, 222);
+            this.loadSeats.Location = new System.Drawing.Point(958, 300);
             this.loadSeats.Name = "loadSeats";
             this.loadSeats.Size = new System.Drawing.Size(75, 23);
             this.loadSeats.TabIndex = 3;
@@ -226,8 +226,9 @@
             this.listSession.FormattingEnabled = true;
             this.listSession.Location = new System.Drawing.Point(934, 199);
             this.listSession.Name = "listSession";
-            this.listSession.Size = new System.Drawing.Size(120, 17);
+            this.listSession.Size = new System.Drawing.Size(120, 95);
             this.listSession.TabIndex = 2;
+            this.listSession.SelectedIndexChanged += new System.EventHandler(this.listSession_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -243,6 +244,7 @@
             this.listMovie.Name = "listMovie";
             this.listMovie.Size = new System.Drawing.Size(120, 108);
             this.listMovie.TabIndex = 1;
+            this.listMovie.SelectedIndexChanged += new System.EventHandler(this.listMovie_SelectedIndexChanged);
             // 
             // setSes
             // 

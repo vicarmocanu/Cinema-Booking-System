@@ -26,10 +26,11 @@ namespace GUIClient
         private static SeatSrv.ISeatService seatService = new SeatSrv.SeatServiceClient();
         private static ReservationSrv.IReservationService reservationService = new ReservationSrv.ReservationServiceClient();
 
-        private int sessionId=-1;
-
+        private int sessionId= -1;
+        private int sessionId2 = -1;
         private string movieName;
         private string customerFName;
+        private string movieName2;
 
         public string CustomerFName
         {
@@ -207,38 +208,102 @@ namespace GUIClient
         private void loadListSession(int movieId)
         {
             SessionSrv.Session[] returnList = sessionService.getMovieSessions(movieId);
-            int showString;
-            List<int> showList = new List<int>();
+
             foreach (SessionSrv.Session ses in returnList)
             {
-                showString = ses.SessionId;
-                showList.Add(showString);
+                int id = ses.SessionId;
+                string showString = id.ToString();
+                listSession.Items.Add(showString);
             }
-            listSession.DataSource = showList;
         }
 
         private void setSes_Click(object sender, EventArgs e)
         {
+            listSession.Items.Clear();
             MovieSrv.Movie mov = new MovieSrv.Movie();
-            mov = movService.getMovieByName(movieName);
+
+            mov = movService.getMovieByName(movieName2);
             int movieId = mov.MovieId;
             loadListSession(movieId);           
         }
 
-        private void loadSeats_Click(object sender, EventArgs e)
+        private void listMovie_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            movieName2 = listMovie.SelectedItem.ToString();
         }
 
-        private void drawSeat()
+        private void loadSeats_Click(object sender, EventArgs e)
         {
+            if (sessionId2 == -1)
+            {
+                MessageBox.Show("Pls select a suitable ses!");
+            }
+            else
+            {
+                drawSeat(sessionId2);
+            }
+        }
+        private void drawSeat(int sessionId)
+        {
+            int rows = 0;
+            int columns = 0;
+            
+            SessionSrv.Seat[] returnList = sessionService.getSessionSeats(sessionId);
+
+            rows = returnList[returnList.Length - 1].RowNumber;
+            columns = returnList.Length / rows;
+            Pen pn1 = new Pen(Color.Green);
+            Pen pn2 = new Pen(Color.Red);
+        
             SolidBrush sb = new SolidBrush(Color.Green);
             SolidBrush sb2 = new SolidBrush(Color.Red);
+
             Graphics g = panel1.CreateGraphics();
-            
+            foreach (SessionSrv.Seat seat in returnList)
+            {
+                if (seat.Status.Equals("E"))
+                {
+                    if (seat.SeatNumber % columns == 0)
+                    {
+                        g.DrawRectangle(pn1, 50 * (columns), 50 * (seat.RowNumber), 30, 30);
+                        g.FillRectangle(sb, 50 * (columns), 50 * (seat.RowNumber), 30, 30);
+
+                    }
+                    else
+                    {
+                        g.DrawRectangle(pn1, 50 * (seat.SeatNumber % columns), 50 * (seat.RowNumber), 30, 30);
+                        g.FillRectangle(sb, 50 * (seat.SeatNumber % columns), 50 * (seat.RowNumber), 30, 30);
+                    }
+                }
+
+                if (seat.Status.Equals("O"))
+                {
+                    if (seat.SeatNumber % columns == 0)
+                    {
+                        g.DrawRectangle(pn2, 50 * (columns), 50 * (seat.RowNumber), 30, 30);
+                        g.FillRectangle(sb2, 50 * (columns), 50 * (seat.RowNumber), 30, 30);
+                    }
+                    else
+                    {
+                        g.DrawRectangle(pn2, 50 * (seat.SeatNumber % columns), 50 * (seat.RowNumber), 30, 30);
+                        g.FillRectangle(sb2, 50 * (seat.SeatNumber % columns), 50 * (seat.RowNumber), 30, 30);
+                    }
+                }
+            }
            
         }
 
-
+        private void listSession_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                sessionId2 = Convert.ToInt32(listSession.SelectedItem.ToString());
+            }
+            catch(NullReferenceException)
+            { 
+              
+            }
+            
+        }
     }
 }
