@@ -43,9 +43,11 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.viewSeatsTab = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.loadSeats = new System.Windows.Forms.Button();
+            this.listSession = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.listMovie = new System.Windows.Forms.ListBox();
+            this.setSes = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeats)).BeginInit();
@@ -197,9 +199,11 @@
             // 
             // viewSeatsTab
             // 
+            this.viewSeatsTab.Controls.Add(this.loadSeats);
+            this.viewSeatsTab.Controls.Add(this.listSession);
             this.viewSeatsTab.Controls.Add(this.panel1);
-            this.viewSeatsTab.Controls.Add(this.listBox2);
-            this.viewSeatsTab.Controls.Add(this.button1);
+            this.viewSeatsTab.Controls.Add(this.listMovie);
+            this.viewSeatsTab.Controls.Add(this.setSes);
             this.viewSeatsTab.Location = new System.Drawing.Point(4, 22);
             this.viewSeatsTab.Name = "viewSeatsTab";
             this.viewSeatsTab.Size = new System.Drawing.Size(1093, 493);
@@ -207,22 +211,23 @@
             this.viewSeatsTab.Text = "View Seats";
             this.viewSeatsTab.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // loadSeats
             // 
-            this.button1.Location = new System.Drawing.Point(949, 130);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.loadSeats.Location = new System.Drawing.Point(958, 222);
+            this.loadSeats.Name = "loadSeats";
+            this.loadSeats.Size = new System.Drawing.Size(75, 23);
+            this.loadSeats.TabIndex = 3;
+            this.loadSeats.Text = "Load";
+            this.loadSeats.UseVisualStyleBackColor = true;
+            this.loadSeats.Click += new System.EventHandler(this.loadSeats_Click);
             // 
-            // listBox2
+            // listSession
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(924, 16);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(120, 108);
-            this.listBox2.TabIndex = 1;
+            this.listSession.FormattingEnabled = true;
+            this.listSession.Location = new System.Drawing.Point(934, 199);
+            this.listSession.Name = "listSession";
+            this.listSession.Size = new System.Drawing.Size(120, 17);
+            this.listSession.TabIndex = 2;
             // 
             // panel1
             // 
@@ -230,6 +235,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 474);
             this.panel1.TabIndex = 1;
+            // 
+            // listMovie
+            // 
+            this.listMovie.FormattingEnabled = true;
+            this.listMovie.Location = new System.Drawing.Point(934, 45);
+            this.listMovie.Name = "listMovie";
+            this.listMovie.Size = new System.Drawing.Size(120, 108);
+            this.listMovie.TabIndex = 1;
+            // 
+            // setSes
+            // 
+            this.setSes.Location = new System.Drawing.Point(958, 159);
+            this.setSes.Name = "setSes";
+            this.setSes.Size = new System.Drawing.Size(75, 23);
+            this.setSes.TabIndex = 0;
+            this.setSes.Text = "Set";
+            this.setSes.UseVisualStyleBackColor = true;
+            this.setSes.Click += new System.EventHandler(this.setSes_Click);
             // 
             // CustomerClient
             // 
@@ -267,8 +290,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblLogOut;
         private System.Windows.Forms.TabPage viewSeatsTab;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox listMovie;
+        private System.Windows.Forms.Button setSes;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button loadSeats;
+        private System.Windows.Forms.ListBox listSession;
     }
 }
