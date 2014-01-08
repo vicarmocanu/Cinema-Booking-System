@@ -11,98 +11,168 @@ namespace CinemaServiceLibrary
 {    
     public class MovieService : IMovieService
     {
-        private System.Object lockThis = new System.Object();
+        private System.Object obj1 = new System.Object();
+        private System.Object obj2 = new System.Object();
+        private System.Object obj3 = new System.Object();
+        private System.Object obj4 = new System.Object();
+        private System.Object obj5 = new System.Object();
+        private System.Object obj6 = new System.Object();
+
         private static MovieCtr movieCtr = MovieCtr.getInstance();
 
+        //1
         public int insertMovie(string name, string genre, int ageLimit, int length)
         {
-            lock (lockThis)
-            {
-                return movieCtr.insertMovie(name, genre, ageLimit, length);
-            }
-        }
+            int result = -1;
 
-        public int updateMovie(int movieId, string name, string genre, int ageLimit, int length)
-        {
-            lock (lockThis)
+            if (System.Threading.Monitor.TryEnter(obj1, 45000))
             {
-                return movieCtr.updateMovie(movieId, name, genre, ageLimit, length);
-            }
-        }
-
-        public int deleteMovie(int movieId)
-        {
-            lock (lockThis)
-            {
-                return movieCtr.deleteMovie(movieId);
-            }
-        }
-
-        public Movie getMovieById(int movieId)
-        {
-            lock (lockThis)
-            {
-                Movie serviceMovie = new Movie();
-
-                Cinema.ModelLayer.Movie hostMovie = new Cinema.ModelLayer.Movie();
-                hostMovie = movieCtr.getMovieById(movieId);
                 try
                 {
-                    serviceMovie.MovieId = hostMovie.MovieId;
-                    serviceMovie.Name = hostMovie.Name;
-                    serviceMovie.Genre = hostMovie.Genre;
-                    serviceMovie.AgeLimit = hostMovie.AgeLimit;
-                    serviceMovie.Length = hostMovie.Length;
+                    result = movieCtr.insertMovie(name, genre, ageLimit, length);
                 }
-                catch (NullReferenceException) { }
-
-                return serviceMovie;
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj1);
+                }
             }
+
+            return result;
         }
 
-        public Movie getMovieByName(String name)
+        //2
+        public int updateMovie(int movieId, string name, string genre, int ageLimit, int length)
+        {
+            int result = -1;
+
+            if (System.Threading.Monitor.TryEnter(obj2, 45000))
+            {
+                try
+                {
+                    result = movieCtr.updateMovie(movieId, name, genre, ageLimit, length);
+                }
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj2);
+                }
+            }
+
+            return result;
+        }
+
+        //3
+        public int deleteMovie(int movieId)
+        {
+            int result = -1;
+
+            if (System.Threading.Monitor.TryEnter(obj3, 45000))
+            {
+                try
+                {
+                    result = movieCtr.deleteMovie(movieId);
+                }
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj3);
+                }
+            }
+
+            return result;
+        }
+
+        //4
+        public Movie getMovieById(int movieId)
         {
             Movie serviceMovie = new Movie();
 
-            Cinema.ModelLayer.Movie hostMovie = new Cinema.ModelLayer.Movie();
-            hostMovie = movieCtr.getMovieByName(name);
-            try
+            if (System.Threading.Monitor.TryEnter(obj4, 45000))
             {
-                serviceMovie.MovieId = hostMovie.MovieId;
-                serviceMovie.Name = hostMovie.Name;
-                serviceMovie.Genre = hostMovie.Genre;
-                serviceMovie.AgeLimit = hostMovie.AgeLimit;
-                serviceMovie.Length = hostMovie.Length;
+                try
+                {
+                    Cinema.ModelLayer.Movie hostMovie = new Cinema.ModelLayer.Movie();
+                    hostMovie = movieCtr.getMovieById(movieId);
+                    try
+                    {
+                        serviceMovie.MovieId = hostMovie.MovieId;
+                        serviceMovie.Name = hostMovie.Name;
+                        serviceMovie.Genre = hostMovie.Genre;
+                        serviceMovie.AgeLimit = hostMovie.AgeLimit;
+                        serviceMovie.Length = hostMovie.Length;
+                    }
+                    catch (NullReferenceException) { }
+                }
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj4);
+                }
             }
-            catch (NullReferenceException) { }
 
             return serviceMovie;
         }
 
+        //5
+        public Movie getMovieByName(String name)
+        {
+            Movie serviceMovie = new Movie();
+
+            if (System.Threading.Monitor.TryEnter(obj5, 45000))
+            {
+                try
+                {
+                    Cinema.ModelLayer.Movie hostMovie = new Cinema.ModelLayer.Movie();
+                    hostMovie = movieCtr.getMovieByName(name);
+                    try
+                    {
+                        serviceMovie.MovieId = hostMovie.MovieId;
+                        serviceMovie.Name = hostMovie.Name;
+                        serviceMovie.Genre = hostMovie.Genre;
+                        serviceMovie.AgeLimit = hostMovie.AgeLimit;
+                        serviceMovie.Length = hostMovie.Length;
+                    }
+                    catch (NullReferenceException) { }
+                }
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj5);
+                }
+            }
+
+            return serviceMovie;
+        }
+
+        //6
         public List<Movie> getMovies()
         {
-            lock (lockThis)
+            List<Movie> movieList = new List<Movie>();
+
+            if (System.Threading.Monitor.TryEnter(obj6, 45000))
             {
-                List<Movie> movieList = new List<Movie>();
-
-                List<Cinema.ModelLayer.Movie> returnList = movieCtr.getMovies();
-                if (returnList.Count != 0)
+                try
                 {
-                    foreach (Cinema.ModelLayer.Movie cinemaMovie in returnList)
+                    List<Cinema.ModelLayer.Movie> returnList = movieCtr.getMovies();
+                    if (returnList.Count != 0)
                     {
-                        Movie serviceMovie = new Movie();
+                        foreach (Cinema.ModelLayer.Movie cinemaMovie in returnList)
+                        {
+                            Movie serviceMovie = new Movie();
 
-                        serviceMovie.MovieId = cinemaMovie.MovieId;
-                        serviceMovie.Name = cinemaMovie.Name;
-                        serviceMovie.Genre = cinemaMovie.Genre;
-                        serviceMovie.AgeLimit = cinemaMovie.AgeLimit;
-                        serviceMovie.Length = cinemaMovie.Length;
+                            serviceMovie.MovieId = cinemaMovie.MovieId;
+                            serviceMovie.Name = cinemaMovie.Name;
+                            serviceMovie.Genre = cinemaMovie.Genre;
+                            serviceMovie.AgeLimit = cinemaMovie.AgeLimit;
+                            serviceMovie.Length = cinemaMovie.Length;
 
-                        movieList.Add(serviceMovie);
+                            movieList.Add(serviceMovie);
+                        }
                     }
                 }
-                return movieList;
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj6);
+                }
             }
+
+            return movieList;
         }
     }    
 }

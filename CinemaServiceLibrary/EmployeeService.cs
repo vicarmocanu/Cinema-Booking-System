@@ -10,78 +10,135 @@ namespace CinemaServiceLibrary
 {
     public class EmployeeService : IEmployeeService
     {
-        private System.Object lockThis = new System.Object();
+        private System.Object obj1 = new System.Object();
+        private System.Object obj2 = new System.Object();
+        private System.Object obj3 = new System.Object();
+        private System.Object obj4 = new System.Object();
+        private System.Object obj5 = new System.Object();
+
         private static EmployeeCtr employeeCtr = EmployeeCtr.getInstance();
 
+        //1
         public int insertEmployee(string fName, string lName, string username, string password)
         {
-            lock (lockThis)
-            {
-                return employeeCtr.insertEmployee(fName, lName, username, password);
-            }
-        }
+            int result = -1;
 
-        public int updateEmployee(String fName, String lName, String username, String password)
-        {
-            lock (lockThis)
+            if (System.Threading.Monitor.TryEnter(obj1, 45000))
             {
-                return employeeCtr.updateEmployee(fName, lName, username, password);
-            }
-        }
-
-        public int deleteEmployeeByUserName(String username)
-        {
-            lock (lockThis)
-            {
-                return employeeCtr.deleteEmployeeByUserName(username);
-            }
-        }
-
-        public Employee getEmployeeByUserName(String username)
-        {
-            lock (lockThis)
-            {
-                Employee serviceEmployee = new Employee();
-
-                Cinema.ModelLayer.Employee hostEmployee = new Cinema.ModelLayer.Employee();
-                hostEmployee = employeeCtr.getEmployeeByUserName(username);
                 try
                 {
-                    serviceEmployee.FName = hostEmployee.FName;
-                    serviceEmployee.LName = hostEmployee.LName;
-                    serviceEmployee.Username = hostEmployee.Username;
-                    serviceEmployee.Password = hostEmployee.Password;
+                    result = employeeCtr.insertEmployee(fName, lName, username, password);
                 }
-                catch (NullReferenceException) { }
-
-                return serviceEmployee;
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj1);
+                }
             }
+
+            return result;
         }
 
-        public List<Employee> getEmployees()
+        //2
+        public int updateEmployee(String fName, String lName, String username, String password)
         {
-            lock (lockThis)
+            int result = -1;
+
+            if (System.Threading.Monitor.TryEnter(obj2, 45000))
             {
-                List<Employee> employeeList = new List<Employee>();
-
-                List<Cinema.ModelLayer.Employee> returnList = employeeCtr.getEmployees();
-                if (returnList.Count != 0)
+                try
                 {
-                    foreach (Cinema.ModelLayer.Employee hostEmployee in returnList)
-                    {
-                        Employee serviceEmployee = new Employee();
+                    result = employeeCtr.updateEmployee(fName, lName, username, password);
+                }
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj2);
+                }
+            }
 
+            return result;
+        }
+
+        //3
+        public int deleteEmployeeByUserName(String username)
+        {
+            int result = -1;
+
+            if (System.Threading.Monitor.TryEnter(obj3, 45000))
+            {
+                try
+                {
+                    result = employeeCtr.deleteEmployeeByUserName(username);
+                }
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj3);
+                }
+            }
+
+            return result;
+        }
+
+        //4
+        public Employee getEmployeeByUserName(String username)
+        {
+            Employee serviceEmployee = new Employee();
+
+            if (System.Threading.Monitor.TryEnter(obj4, 45000))
+            {
+                try
+                {
+                    Cinema.ModelLayer.Employee hostEmployee = new Cinema.ModelLayer.Employee();
+                    hostEmployee = employeeCtr.getEmployeeByUserName(username);
+                    try
+                    {
                         serviceEmployee.FName = hostEmployee.FName;
                         serviceEmployee.LName = hostEmployee.LName;
                         serviceEmployee.Username = hostEmployee.Username;
                         serviceEmployee.Password = hostEmployee.Password;
+                    }
+                    catch (NullReferenceException) { }
+                }
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj4);
+                }
+            }
 
-                        employeeList.Add(serviceEmployee);
+            return serviceEmployee;
+        }
+
+        //5
+        public List<Employee> getEmployees()
+        {
+            List<Employee> employeeList = new List<Employee>();
+
+            if (System.Threading.Monitor.TryEnter(obj5, 45000))
+            {
+                try
+                {
+                    List<Cinema.ModelLayer.Employee> returnList = employeeCtr.getEmployees();
+                    if (returnList.Count != 0)
+                    {
+                        foreach (Cinema.ModelLayer.Employee hostEmployee in returnList)
+                        {
+                            Employee serviceEmployee = new Employee();
+
+                            serviceEmployee.FName = hostEmployee.FName;
+                            serviceEmployee.LName = hostEmployee.LName;
+                            serviceEmployee.Username = hostEmployee.Username;
+                            serviceEmployee.Password = hostEmployee.Password;
+
+                            employeeList.Add(serviceEmployee);
+                        }
                     }
                 }
-
-                return employeeList;
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj5);
+                }
             }
+
+            return employeeList;
         }
     }
 }
