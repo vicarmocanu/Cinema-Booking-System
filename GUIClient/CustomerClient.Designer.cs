@@ -42,15 +42,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.viewSeatsTab = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSession)).BeginInit();
+            this.viewSeatsTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.viewSeatsTab);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -76,7 +82,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1093, 493);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Number Seats";
+            this.tabPage1.Text = "Reservation";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // lblLogOut
@@ -189,6 +195,42 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Movie";
             // 
+            // viewSeatsTab
+            // 
+            this.viewSeatsTab.Controls.Add(this.panel1);
+            this.viewSeatsTab.Controls.Add(this.listBox2);
+            this.viewSeatsTab.Controls.Add(this.button1);
+            this.viewSeatsTab.Location = new System.Drawing.Point(4, 22);
+            this.viewSeatsTab.Name = "viewSeatsTab";
+            this.viewSeatsTab.Size = new System.Drawing.Size(1093, 493);
+            this.viewSeatsTab.TabIndex = 1;
+            this.viewSeatsTab.Text = "View Seats";
+            this.viewSeatsTab.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(949, 130);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(924, 16);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(120, 108);
+            this.listBox2.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(8, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(891, 474);
+            this.panel1.TabIndex = 1;
+            // 
             // CustomerClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +245,7 @@
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSession)).EndInit();
+            this.viewSeatsTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -223,5 +266,9 @@
         private System.Windows.Forms.Label lblNrSeats;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblLogOut;
+        private System.Windows.Forms.TabPage viewSeatsTab;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
