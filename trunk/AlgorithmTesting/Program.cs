@@ -16,8 +16,6 @@ namespace AlgorithmTesting
         static Boolean liniarFound = false;
         static volatile Boolean parallelFound = false;
 
-
-
         static void Main(string[] args)
         {
             int[][] receivedSeats = new int[5][];

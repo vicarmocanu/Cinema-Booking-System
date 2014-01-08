@@ -232,8 +232,10 @@ namespace GUIEmployee
             }
             else
             {
-                int result = -1;
-                result = rzvService.deleteReservation(Convert.ToInt32(rezervationIdTxt.Text.ToString()));
+                int result1 = -1;
+                int result2 = -1;
+                result1 = rzvService.deleteSeatsFromReservation(Convert.ToInt32(rezervationIdTxt.Text.ToString()));
+                result2 = rzvService.deleteReservation(Convert.ToInt32(rezervationIdTxt.Text.ToString()));
                 gridReservation.Rows.Clear();
                 loadReservationGrid();
             }
@@ -387,8 +389,10 @@ namespace GUIEmployee
             }
             else
             {
-                int result = -1;
-                result = sesService.deleteSession(Convert.ToInt32(txtSesId.Text.ToString()));
+                int result1 = -1;
+                int result2 = -1;
+                result1 = sesService.deleteSeatsFromSession(Convert.ToInt32(txtSesId.Text.ToString()));
+                result2 = sesService.deleteSession(Convert.ToInt32(txtSesId.Text.ToString()));
                 gridSession.Rows.Clear();
                 loadSessionGrid();
             }
