@@ -26,7 +26,5 @@ namespace Cinema.ControlLayer
         {
             return Algorithm3.getSeatsToReserve(receivedSeats, noOfWantedSeats);
         }
-
-
     }
 }

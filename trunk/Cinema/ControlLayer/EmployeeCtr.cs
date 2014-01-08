@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cinema.ModelLayer;
-using System.Data;
-using System.Data.SqlClient;
 using Cinema.DBLayer;
 
 

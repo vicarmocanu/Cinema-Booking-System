@@ -11,141 +11,247 @@ namespace CinemaServiceLibrary
     
     public class SeatService : ISeatService
     {
-        private System.Object lockThis = new System.Object();
+        private System.Object obj1 = new System.Object();
+        private System.Object obj2 = new System.Object();
+        private System.Object obj3 = new System.Object();
+        private System.Object obj4 = new System.Object();
+        private System.Object obj5 = new System.Object();
+        private System.Object obj6 = new System.Object();
+        private System.Object obj7 = new System.Object();
+        private System.Object obj8 = new System.Object();
+        private System.Object obj9 = new System.Object();
+
         private static SeatCtr seatCtr = SeatCtr.getInstance();
         private static SessionCtr sessionCtr = SessionCtr.getInstance();
         
+        //1
         public int insertSeat(int seatNumber, int rowNumber, int roomNumber)           
         {
-            lock (lockThis)
-            {
-                return seatCtr.insertSeat(seatNumber, rowNumber, roomNumber);
-            }
-        }
+            int result = -1;
 
-        public int updateSeat(int seatID, int seatNumber, int rowNumber, int roomNumber)
-        {
-            lock (lockThis)
+            if (System.Threading.Monitor.TryEnter(obj1, 45000))
             {
-                return seatCtr.updateSeat(seatID, seatNumber, rowNumber, roomNumber);
-            }
-        }
-
-        public int deleteSeat(int id)
-        {
-            lock (lockThis)
-            {
-                return seatCtr.deleteSeatById(id);
-            }
-        }
-
-        public int deleteRoomSeats(int roomNumber)
-        {
-            lock (lockThis)
-            {
-                return seatCtr.deleteRoomSeats(roomNumber);
-            }
-        }
-
-        public List<int> insertSeatMatrix(int rows, int columns, int roomNumber)
-        {
-            lock (lockThis)
-            {
-                return seatCtr.insertSeatMatrix(rows, columns, roomNumber);
-            }
-        }
-
-        public int deleteSeatById(int id)
-        {
-            lock (lockThis)
-            {
-                return seatCtr.deleteSeatById(id);
-            }
-        }
-
-        public Seat getSeat(int id)
-        {
-            lock (lockThis)
-            {
-                Seat serviceSeat = new Seat();
-                Cinema.ModelLayer.Seat hostSeat = new Cinema.ModelLayer.Seat();
-                hostSeat = seatCtr.getSeatById(id);
-
                 try
                 {
-                    Room serviceRoom = new Room();
-                    serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
-
-                    serviceSeat.SeatId = hostSeat.SeatId;
-                    serviceSeat.SeatNumber = hostSeat.SeatNumber;
-                    serviceSeat.RowNumber = hostSeat.RowNumber;
-                    serviceSeat.Status = hostSeat.Status;
-                    serviceSeat.Room = serviceRoom;
+                    result = seatCtr.insertSeat(seatNumber, rowNumber, roomNumber);
                 }
-                catch (NullReferenceException) { }
-
-                return serviceSeat;
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj1);
+                }
             }
+
+            return result;
         }
 
+        //2
+        public int updateSeat(int seatID, int seatNumber, int rowNumber, int roomNumber)
+        {
+            int result = -1;
+
+            if (System.Threading.Monitor.TryEnter(obj2, 45000))
+            {
+                try
+                {
+                    result = seatCtr.updateSeat(seatID, seatNumber, rowNumber, roomNumber);
+                }
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj2);
+                }
+            }
+
+            return result;
+        }
+
+        //3
+        public int deleteSeat(int id)
+        {
+            int result = -1;
+
+            if (System.Threading.Monitor.TryEnter(obj3, 45000))
+            {
+                try
+                {
+                    result = seatCtr.deleteSeatById(id);
+                }
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj3);
+                }
+            }
+
+            return result;
+        }
+
+        //4
+        public int deleteRoomSeats(int roomNumber)
+        {
+            int result = -1;
+
+            if (System.Threading.Monitor.TryEnter(obj4, 45000))
+            {
+                try
+                {
+                    result = seatCtr.deleteRoomSeats(roomNumber);
+                }
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj4);
+                }
+            }
+
+            return result;
+        }
+
+        //5
+        public List<int> insertSeatMatrix(int rows, int columns, int roomNumber)
+        {
+            List<int> results = new List<int>();
+
+            if (System.Threading.Monitor.TryEnter(obj5, 45000))
+            {
+                try
+                {
+                    results = seatCtr.insertSeatMatrix(rows, columns, roomNumber);
+                }
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj5);
+                }
+            }
+
+            return results;
+        }
+
+        //6
+        public int deleteSeatById(int id)
+        {
+            int result = -1;
+
+            if (System.Threading.Monitor.TryEnter(obj6, 45000))
+            {
+                try
+                {
+                    result = seatCtr.deleteSeatById(id);
+                }
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj6);
+                }
+            }
+
+            return result;
+        }
+
+        //7
+        public Seat getSeat(int id)
+        {
+            Seat serviceSeat = new Seat();
+
+            if (System.Threading.Monitor.TryEnter(obj7, 45000))
+            {
+                try
+                {
+                    Cinema.ModelLayer.Seat hostSeat = new Cinema.ModelLayer.Seat();
+                    hostSeat = seatCtr.getSeatById(id);
+
+                    try
+                    {
+                        Room serviceRoom = new Room();
+                        serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
+
+                        serviceSeat.SeatId = hostSeat.SeatId;
+                        serviceSeat.SeatNumber = hostSeat.SeatNumber;
+                        serviceSeat.RowNumber = hostSeat.RowNumber;
+                        serviceSeat.Status = hostSeat.Status;
+                        serviceSeat.Room = serviceRoom;
+                    }
+                    catch (NullReferenceException) { }
+                }
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj7);
+                }
+            }
+
+            return serviceSeat;
+        }
+
+        //8
         public List<Seat> getSeats()
         {
-            lock (lockThis)
+            List<Seat> seatList = new List<Seat>();
+
+            if (System.Threading.Monitor.TryEnter(obj8, 45000))
             {
-                List<Seat> seatList = new List<Seat>();
-
-                List<Cinema.ModelLayer.Seat> returnList = seatCtr.getSeats();
-                if (returnList.Count != 0)
+                try
                 {
-                    foreach (Cinema.ModelLayer.Seat hostSeat in returnList)
+                    List<Cinema.ModelLayer.Seat> returnList = seatCtr.getSeats();
+                    if (returnList.Count != 0)
                     {
-                        Seat serviceSeat = new Seat();
-                        Room serviceRoom = new Room();
+                        foreach (Cinema.ModelLayer.Seat hostSeat in returnList)
+                        {
+                            Seat serviceSeat = new Seat();
+                            Room serviceRoom = new Room();
 
-                        serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
+                            serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
 
-                        serviceSeat.SeatId = hostSeat.SeatId;
-                        serviceSeat.SeatNumber = hostSeat.SeatNumber;
-                        serviceSeat.RowNumber = hostSeat.RowNumber;
-                        serviceSeat.Status = hostSeat.Status;
-                        serviceSeat.Room = serviceRoom;
+                            serviceSeat.SeatId = hostSeat.SeatId;
+                            serviceSeat.SeatNumber = hostSeat.SeatNumber;
+                            serviceSeat.RowNumber = hostSeat.RowNumber;
+                            serviceSeat.Status = hostSeat.Status;
+                            serviceSeat.Room = serviceRoom;
 
-                        seatList.Add(serviceSeat);
+                            seatList.Add(serviceSeat);
+                        }
                     }
                 }
-
-                return seatList;
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj8);
+                }
             }
+
+            return seatList;
         }
 
+        //9
         public List<Seat> getRoomSeats(int roomNumber)
         {
-            lock (lockThis)
+            List<Seat> seatList = new List<Seat>();
+
+            if (System.Threading.Monitor.TryEnter(obj9, 45000))
             {
-                List<Seat> seatList = new List<Seat>();
-
-                List<Cinema.ModelLayer.Seat> returnList = seatCtr.getRoomSeats(roomNumber);
-                if (returnList.Count != 0)
+                try
                 {
-                    foreach (Cinema.ModelLayer.Seat hostSeat in returnList)
+                    List<Cinema.ModelLayer.Seat> returnList = seatCtr.getRoomSeats(roomNumber);
+                    if (returnList.Count != 0)
                     {
-                        Seat serviceSeat = new Seat();
-                        Room serviceRoom = new Room();
+                        foreach (Cinema.ModelLayer.Seat hostSeat in returnList)
+                        {
+                            Seat serviceSeat = new Seat();
+                            Room serviceRoom = new Room();
 
-                        serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
+                            serviceRoom.RoomNumber = hostSeat.Room.RoomNumber;
 
-                        serviceSeat.SeatId = hostSeat.SeatId;
-                        serviceSeat.SeatNumber = hostSeat.SeatNumber;
-                        serviceSeat.RowNumber = hostSeat.RowNumber;
-                        serviceSeat.Status = hostSeat.Status;
-                        serviceSeat.Room = serviceRoom;
+                            serviceSeat.SeatId = hostSeat.SeatId;
+                            serviceSeat.SeatNumber = hostSeat.SeatNumber;
+                            serviceSeat.RowNumber = hostSeat.RowNumber;
+                            serviceSeat.Status = hostSeat.Status;
+                            serviceSeat.Room = serviceRoom;
 
-                        seatList.Add(serviceSeat);
+                            seatList.Add(serviceSeat);
+                        }
                     }
                 }
-
-                return seatList;
+                finally
+                {
+                    System.Threading.Monitor.Exit(obj9);
+                }
             }
-        }       
-    }
+
+            return seatList;
+        }
+    }       
 }

@@ -129,8 +129,6 @@ namespace Cinema.ModelLayer
             String currentDateString = currentDate.ToString("yyyy-MM-dd");
 
             return currentDateString;
-        }
-
-        
+        }        
     }
 }

@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using Cinema.ModelLayer;
-using Cinema.DBLayer;
-using System.Security.Cryptography;
 
 namespace Cinema.DBLayer
 {
