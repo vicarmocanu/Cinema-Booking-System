@@ -56,7 +56,6 @@ namespace Cinema.ControlLayer
             ses.EnterTime = EnterTime;
             ses.ExitTime = ExitTime;
             ses.Date = Date;
-
             ses.Price = Price;
 
             return _dbSession.insertSession(ses);

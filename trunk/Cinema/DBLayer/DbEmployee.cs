@@ -45,7 +45,6 @@ namespace Cinema.DBLayer
             
             paramLName.Value = employee.LName;
             dbCmd.Parameters.Add(paramLName);
-
             
             paramUserName.Value = employee.Username;
             dbCmd.Parameters.Add(paramUserName);
