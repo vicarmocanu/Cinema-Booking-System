@@ -27,14 +27,18 @@ namespace GUIClient
 
         private void VerifyFields()
         {
-            string regEmail = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
-            string regUserName = @"/^[a-z0-9_-]{3,16}$/";
-            string regPassword = @"/^[a-z0-9_-]{6,18}$/";
+            string regEmail = @"^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$";
+            string regUserName = @"^[a-z0-9_-]{3,16}$";
+            string regPassword = @"^[a-z0-9_-]{6,18}$";
             Regex reg1 = new Regex(regEmail);
             Regex reg2 = new Regex(regUserName);
             Regex reg3 = new Regex(regPassword);
 
             if (fNameTxt.Text.Equals("") || lNameTxt.Text.Equals("") || cityTxt.Text.Equals("") || addressTxt.Text.Equals("") || phoneTxt.Text.Equals("") || emailTxt.Text.Equals("") || userNameTxt.Text.Equals("") || passwordTxt.Text.Equals(""))
+            {
+                MessageBox.Show("You have not provided all the info!");
+            }
+            else
             {
                 if (!reg1.IsMatch(emailTxt.Text))
                 {
