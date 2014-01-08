@@ -92,6 +92,14 @@ namespace GUIClient
             }
         }
 
+        private void lblRegister_Click(object sender, EventArgs e)
+        {
+            Register register = new Register();
+            this.Hide();
+            register.ShowDialog();
+            this.Close();
+        }
+
 
     }
 }

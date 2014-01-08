@@ -35,6 +35,7 @@
             this.passTxt = new System.Windows.Forms.TextBox();
             this.chkPass = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblRegister = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // logInBtn
@@ -50,7 +51,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 40);
+            this.label1.Location = new System.Drawing.Point(8, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 1;
@@ -59,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 66);
+            this.label2.Location = new System.Drawing.Point(12, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 2;
@@ -67,14 +68,14 @@
             // 
             // userNameTxt
             // 
-            this.userNameTxt.Location = new System.Drawing.Point(93, 37);
+            this.userNameTxt.Location = new System.Drawing.Point(71, 22);
             this.userNameTxt.Name = "userNameTxt";
             this.userNameTxt.Size = new System.Drawing.Size(100, 20);
             this.userNameTxt.TabIndex = 3;
             // 
             // passTxt
             // 
-            this.passTxt.Location = new System.Drawing.Point(93, 63);
+            this.passTxt.Location = new System.Drawing.Point(71, 48);
             this.passTxt.Name = "passTxt";
             this.passTxt.Size = new System.Drawing.Size(100, 20);
             this.passTxt.TabIndex = 4;
@@ -83,7 +84,7 @@
             // chkPass
             // 
             this.chkPass.AutoSize = true;
-            this.chkPass.Location = new System.Drawing.Point(93, 89);
+            this.chkPass.Location = new System.Drawing.Point(71, 74);
             this.chkPass.Name = "chkPass";
             this.chkPass.Size = new System.Drawing.Size(99, 17);
             this.chkPass.TabIndex = 5;
@@ -100,11 +101,22 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Customer Zone";
             // 
+            // lblRegister
+            // 
+            this.lblRegister.AutoSize = true;
+            this.lblRegister.Location = new System.Drawing.Point(12, 139);
+            this.lblRegister.Name = "lblRegister";
+            this.lblRegister.Size = new System.Drawing.Size(46, 13);
+            this.lblRegister.TabIndex = 7;
+            this.lblRegister.Text = "Register";
+            this.lblRegister.Click += new System.EventHandler(this.lblRegister_Click);
+            // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(246, 164);
+            this.Controls.Add(this.lblRegister);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.chkPass);
             this.Controls.Add(this.passTxt);
@@ -128,5 +140,6 @@
         private System.Windows.Forms.TextBox passTxt;
         private System.Windows.Forms.CheckBox chkPass;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblRegister;
     }
 }

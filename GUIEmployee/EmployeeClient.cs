@@ -362,6 +362,7 @@ namespace GUIEmployee
 
         private void brnUpdSes_Click(object sender, EventArgs e)
         {
+            gridSession.Rows.Clear();
             if(txtSesId.Text.Equals("") || txtSesMovId.Text.Equals("")  || txtEnterTime.Text.Equals("") || txtExitTime.Text.Equals("") || txtSesDate.Text.Equals("") || txtSesPrice.Text.Equals(""))
             {
                 MessageBox.Show("More Information Required!");
@@ -378,6 +379,7 @@ namespace GUIEmployee
 
         private void btnDelSes_Click(object sender, EventArgs e)
         {
+            gridSession.Rows.Clear();
             if(txtSesId.Text.Equals(""))
             {
                 MessageBox.Show("Must provide Session Id!");
