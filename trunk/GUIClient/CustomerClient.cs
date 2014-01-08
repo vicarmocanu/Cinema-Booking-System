@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace GUIClient
 {
@@ -16,6 +17,7 @@ namespace GUIClient
         {
             InitializeComponent();
             loadList();
+            loadListMovie();
         }
 
         private static MovieSrv.IMovieService movService = new MovieSrv.MovieServiceClient();
@@ -188,5 +190,55 @@ namespace GUIClient
             this.Close();
             LogIn.getInstance().ShowDialog();
         }
+
+        private void loadListMovie()
+        {
+            MovieSrv.Movie[] returnList = movService.getMovies();
+            String showString = "default";
+            List<string> showList = new List<string>();
+            foreach (MovieSrv.Movie movie in returnList)
+            {
+                showString = movie.Name;
+                showList.Add(showString);
+            }
+            listMovie.DataSource = showList;
+        }
+
+        private void loadListSession(int movieId)
+        {
+            SessionSrv.Session[] returnList = sessionService.getMovieSessions(movieId);
+            int showString;
+            List<int> showList = new List<int>();
+            foreach (SessionSrv.Session ses in returnList)
+            {
+                showString = ses.SessionId;
+                showList.Add(showString);
+            }
+            listSession.DataSource = showList;
+        }
+
+        private void setSes_Click(object sender, EventArgs e)
+        {
+            MovieSrv.Movie mov = new MovieSrv.Movie();
+            mov = movService.getMovieByName(movieName);
+            int movieId = mov.MovieId;
+            loadListSession(movieId);           
+        }
+
+        private void loadSeats_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void drawSeat()
+        {
+            SolidBrush sb = new SolidBrush(Color.Green);
+            SolidBrush sb2 = new SolidBrush(Color.Red);
+            Graphics g = panel1.CreateGraphics();
+            
+           
+        }
+
+
     }
 }
