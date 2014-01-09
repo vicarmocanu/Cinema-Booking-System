@@ -400,12 +400,13 @@ namespace CinemaServiceLibrary
                 }
                 else
                 {
-                    reservationCtr.trustedInsertReservedSeats(returnList);
                     foreach (Cinema.ModelLayer.Seat hostSeat in returnList)
                     {
                         sessionCtr.updateSeatSchedule(sessionId, hostSeat.SeatId, "O");
                         results.Add(hostSeat.SeatNumber);
                     }
+                    reservationCtr.trustedInsertReservedSeats(returnList);
+                    
                 }
 
                 int j = 0;
