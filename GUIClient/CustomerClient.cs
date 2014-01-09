@@ -44,25 +44,9 @@ namespace GUIClient
             set { customerLName = value; }
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            movieName = listBox1.SelectedItem.ToString();
-        }
-
         private void CustomerClient_Load(object sender, EventArgs e)
         {
             label3.Text = "Logged IN AS " + CustomerFName + " " + CustomerLName; 
-        }
-
-        private void OkMovBtn_Click(object sender, EventArgs e)
-        {
-            gridSession.Rows.Clear();
-            MovieSrv.Movie mov = new MovieSrv.Movie();
-            mov = movService.getMovieByName(movieName);
-
-            int movieId = mov.MovieId;
-
-            loadSessionGrid(movieId);
         }
 
         private void loadList()
@@ -77,7 +61,6 @@ namespace GUIClient
             }
             listBox1.DataSource = showList;
         }
-
         private void loadSessionGrid(int movieId)
         {
             gridSession.ColumnCount = 6;
@@ -102,7 +85,6 @@ namespace GUIClient
 
             }
         }
-
         private void loadSeatGrid(int sessionId)
         {
 
@@ -123,36 +105,38 @@ namespace GUIClient
             }
             
         }
-
-        private void OkSesBtn_Click(object sender, EventArgs e)
+        private void loadListMovie()
         {
-            gridSeats.Rows.Clear();
-            try
+            MovieSrv.Movie[] returnList = movService.getMovies();
+            String showString = "default";
+            List<string> showList = new List<string>();
+            foreach (MovieSrv.Movie movie in returnList)
             {
-                string data = gridSession.SelectedRows[0].Cells[0].Value.ToString();
-
-                sessionId = Convert.ToInt32(data);
-                loadSeatGrid(sessionId);
+                showString = movie.Name;
+                showList.Add(showString);
             }
-            catch (NullReferenceException)
-            {
-                MessageBox.Show("You have selected a no seat session.");
-            }
-           
+            listMovie.DataSource = showList;
         }
-
-        private void gridSession_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void loadListSession(int movieId)
         {
-            gridSeats.Rows.Clear();
-            try
-            {
-                string data = gridSession.SelectedRows[0].Cells[0].Value.ToString();
+            SessionSrv.Session[] returnList = sessionService.getMovieSessions(movieId);
 
-                sessionId = Convert.ToInt32(data);
-            }
-            catch(NullReferenceException)
+            foreach (SessionSrv.Session ses in returnList)
             {
-                MessageBox.Show("Empty space selected");
+                int id = ses.SessionId;
+                string showString = id.ToString();
+                listSession.Items.Add(showString);
+            }
+        }
+        private void loadSeats_Click(object sender, EventArgs e)
+        {
+            if (sessionId2 == -1)
+            {
+                MessageBox.Show("Pls select a suitable ses!");
+            }
+            else
+            {
+                drawSeat(sessionId2);
             }
         }
 
@@ -177,12 +161,46 @@ namespace GUIClient
                     lineResults = lineResults + results[i] + " ";
                 }
 
-                MessageBox.Show("Seat(s) " + lineResults + "!" );
+                MessageBox.Show("Seat(s) " + lineResults + "!");
                 gridSeats.Rows.Clear();
                 loadSeatGrid(sessionId);
             }
         }
+        private void OkMovBtn_Click(object sender, EventArgs e)
+        {
+            gridSession.Rows.Clear();
+            MovieSrv.Movie mov = new MovieSrv.Movie();
+            mov = movService.getMovieByName(movieName);
 
+            int movieId = mov.MovieId;
+
+            loadSessionGrid(movieId);
+        }
+        private void setSes_Click(object sender, EventArgs e)
+        {
+            listSession.Items.Clear();
+            MovieSrv.Movie mov = new MovieSrv.Movie();
+
+            mov = movService.getMovieByName(movieName2);
+            int movieId = mov.MovieId;
+            loadListSession(movieId);
+        }
+        private void OkSesBtn_Click(object sender, EventArgs e)
+        {
+            gridSeats.Rows.Clear();
+            try
+            {
+                string stringData = gridSession.SelectedRows[0].Cells[0].Value.ToString();
+                sessionId = Convert.ToInt32(stringData);
+                loadSeatGrid(sessionId);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("You have selected a no seat session.");
+            }
+            
+
+        }
         private void lblLogOut_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -191,69 +209,54 @@ namespace GUIClient
             LogIn.getInstance().ShowDialog();
         }
 
-        private void loadListMovie()
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MovieSrv.Movie[] returnList = movService.getMovies();
-            String showString = "default";
-            List<string> showList = new List<string>();
-            foreach (MovieSrv.Movie movie in returnList)
+            movieName = listBox1.SelectedItem.ToString();
+        }
+        private void listSession_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
             {
-                showString = movie.Name;
-                showList.Add(showString);
+                sessionId2 = Convert.ToInt32(listSession.SelectedItem.ToString());
             }
-            listMovie.DataSource = showList;
-        }
-
-        private void loadListSession(int movieId)
-        {
-            SessionSrv.Session[] returnList = sessionService.getMovieSessions(movieId);
-
-            foreach (SessionSrv.Session ses in returnList)
-            {
-                int id = ses.SessionId;
-                string showString = id.ToString();
-                listSession.Items.Add(showString);
+            catch(NullReferenceException)
+            { 
+              
             }
+            
         }
-
-        private void setSes_Click(object sender, EventArgs e)
-        {
-            listSession.Items.Clear();
-            MovieSrv.Movie mov = new MovieSrv.Movie();
-
-            mov = movService.getMovieByName(movieName2);
-            int movieId = mov.MovieId;
-            loadListSession(movieId);           
-        }
-
         private void listMovie_SelectedIndexChanged(object sender, EventArgs e)
         {
             movieName2 = listMovie.SelectedItem.ToString();
         }
 
-        private void loadSeats_Click(object sender, EventArgs e)
+        private void gridSession_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (sessionId2 == -1)
+            gridSeats.Rows.Clear();
+            try
             {
-                MessageBox.Show("Pls select a suitable ses!");
+                string data = gridSession.SelectedRows[0].Cells[0].Value.ToString();
+
+                sessionId = Convert.ToInt32(data);
             }
-            else
+            catch (NullReferenceException)
             {
-                drawSeat(sessionId2);
+                MessageBox.Show("Empty space selected");
             }
         }
+
         private void drawSeat(int sessionId)
         {
             int rows = 0;
             int columns = 0;
-            
+
             SessionSrv.Seat[] returnList = sessionService.getSessionSeats(sessionId);
 
             rows = returnList[returnList.Length - 1].RowNumber;
             columns = returnList.Length / rows;
             Pen pn1 = new Pen(Color.Green);
             Pen pn2 = new Pen(Color.Red);
-        
+
             SolidBrush sb = new SolidBrush(Color.Green);
             SolidBrush sb2 = new SolidBrush(Color.Red);
 
@@ -289,20 +292,7 @@ namespace GUIClient
                     }
                 }
             }
-           
-        }
 
-        private void listSession_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                sessionId2 = Convert.ToInt32(listSession.SelectedItem.ToString());
-            }
-            catch(NullReferenceException)
-            { 
-              
-            }
-            
         }
     }
 }
