@@ -9,6 +9,7 @@ namespace Cinema.DBLayer
     public class AccessDbSQLClient
     {
         //private static String connectionString = @"Data Source=balder.ucn.dk; Initial Catalog=dmae0912_7; User id=dmae0912_7; Password=IsAllowed; Integrated Security=False";
+        //change here to own SQL Serve
         private static String connectionString = @"Data Source= THERAK\SQLEXPRESS; Initial Catalog= Cinema; Integrated Security=SSPI";
         private static SqlConnection dbConnection = new SqlConnection(connectionString);
         private static SqlCommand dbCommand = new SqlCommand(null, dbConnection);
