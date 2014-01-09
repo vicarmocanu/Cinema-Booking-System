@@ -506,6 +506,7 @@ namespace Cinema.DBLayer
                 {
                     result = dbCmd.ExecuteNonQuery();
                     dbCmd.Parameters.Clear();
+                    dbCmd.Dispose();
                     AccessDbSQLClient.Close();
                     results.Add(result);
                 }
