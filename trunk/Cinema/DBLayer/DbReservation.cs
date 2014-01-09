@@ -504,13 +504,14 @@ namespace Cinema.DBLayer
 
                 try
                 {
-                    result = dbCmd.ExecuteNonQuery();
-                    dbCmd.Parameters.Clear();
-                    dbCmd.Dispose();
-                    AccessDbSQLClient.Close();
+                    result = dbCmd.ExecuteNonQuery();                    
                     results.Add(result);
                 }
                 catch (SqlException) { }
+
+                dbCmd.Parameters.Clear();
+                dbCmd.Dispose();
+                AccessDbSQLClient.Close();
             }
 
             return results;
