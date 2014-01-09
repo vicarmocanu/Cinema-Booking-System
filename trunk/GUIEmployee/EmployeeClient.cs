@@ -397,8 +397,5 @@ namespace GUIEmployee
                 loadSessionGrid();
             }
         }
-
-
-
     }
 }
