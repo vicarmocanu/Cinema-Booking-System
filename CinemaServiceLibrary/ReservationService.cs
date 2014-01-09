@@ -9,6 +9,7 @@ using System.Threading;
 
 namespace CinemaServiceLibrary
 {   
+    [ServiceBehavior(ConcurrencyMode=ConcurrencyMode.Single)]
     public class ReservationService : IReservationService
     {
         private static readonly System.Object obj1 = new System.Object();
