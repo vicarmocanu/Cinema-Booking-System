@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using Cinema.ControlLayer;
+using System.Threading;
 
 namespace CinemaServiceLibrary
 {   
@@ -405,8 +406,14 @@ namespace CinemaServiceLibrary
                         results.Add(hostSeat.SeatNumber);
                     }
                 }
-                return results;
 
+                int j = 0;
+                while (j < 10000)
+                {
+                    j++;
+                }
+
+                return results;
             }
 
             /*
