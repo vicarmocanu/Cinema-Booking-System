@@ -385,7 +385,7 @@ namespace CinemaServiceLibrary
         {
             List<int> results = new List<int>();
 
-            if (System.Threading.Monitor.TryEnter(obj13, 45000))
+            if (System.Threading.Monitor.TryEnter(obj13, 25000))
             {
                 try
                 {
