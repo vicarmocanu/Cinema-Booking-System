@@ -14,6 +14,7 @@ namespace ConsoleTesting
         static RoomServiceReference.IRoomService roomService = new RoomServiceReference.RoomServiceClient();
         static SeatServiceReference.ISeatService seatService = new SeatServiceReference.SeatServiceClient();
         static CustomerServiceReference.ICustomerService customerService = new CustomerServiceReference.CustomerServiceClient();
+        static SessionServiceReference.ISessionService sessionService = new SessionServiceReference.SessionServiceClient();
 
         static void Main(string[] args)
         {
@@ -80,6 +81,19 @@ namespace ConsoleTesting
             for (int i = 1; i < results.Length; i++)
             {
                 Console.WriteLine(results[i]);
+            }
+            Console.ReadLine();
+
+            System.Console.WriteLine("Prepare for room seat schedule insertion.");
+            Console.ReadLine();
+            Console.WriteLine("sessionId= ");
+            int sessionId = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("roomNumber= ");
+            int selectedRoomNumber = Convert.ToInt32(Console.ReadLine());
+            int[] results2 = sessionService.insertSeatSchedule(sessionId, selectedRoomNumber);
+            for (int i = 1; i < results2.Length; i++)
+            {
+                Console.WriteLine(results2[i]);
             }
             Console.ReadLine();
         }
