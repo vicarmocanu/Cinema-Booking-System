@@ -305,6 +305,7 @@ namespace Cinema
                         Boolean midFound = false;
                         int count = noOfWantedSeats;
 						
+						//a line is empty and I can put all seats on that line
                         while (rowCounter > -1 && midFound!=true)
                         {
                             Seat[] innerSeatArray = seats[rowCounter];
@@ -318,8 +319,7 @@ namespace Cinema
                             {
                                 halfColumns = columnNumber / 2 + 1;
                             }
-
-                            //a line is empty and I can put all seats on that line
+                            
                             if ((getNrOfSeatsOnLine(innerSeatArray) > noOfWantedSeats || getNrOfSeatsOnLine(innerSeatArray) == noOfWantedSeats) && getNrOfSeatsOnLine(innerSeatArray) == columnNumber)
                             {
                                 int midCount = count;
@@ -361,14 +361,15 @@ namespace Cinema
                                 rowCounter--;
                             }
                         }
-                        //no possibility to put on mid - so we will try to fill whatever empty seats there are
+                        
+						//unable to put all on one row
                         //two cases - left and right
                         if (midFound == false)
                         {
                             Boolean found = false;
                             rowCounter = halfRows - 1;
 							
-                            while (rowCounter >= 0 && found != true)
+                            while (rowCounter > -1 && found != true)
                             {
                                 Seat[] innerSeatArray = seats[rowCounter];
                                 int columnNumber = innerSeatArray.Length;
@@ -387,12 +388,12 @@ namespace Cinema
                                 int leftFree = getNrOfFreeSeatsOnLineLeft(innerSeatArray);
                                 int rightFree = getNrOfFreeSeatsOnLineRight(innerSeatArray);
 
-                                //case 1 - seats available on left
-                                if (leftFree >= rightFree && leftFree >= noOfWantedSeats)
+                                //case 1 - seats available on left-priority
+                                if ((leftFree > rightFree || leftFree == rightFree) && (leftFree > noOfWantedSeats || leftFree == noOfWantedSeats))
                                 {
                                     Seat seat = new Seat();
 									
-                                    while (a > 0 & count > 0)
+                                    while (a > -1 && count > 0)
                                     {
                                         seat = seats[rowCounter][a];
                                         if (seat.Status.Equals("E") == true)
@@ -421,7 +422,7 @@ namespace Cinema
                                 else
                                 {
                                     //case 2 - seats available on right
-                                    if (leftFree < rightFree && rightFree >= noOfWantedSeats)
+                                    if (leftFree < rightFree && (rightFree >noOfWantedSeats || rightFree == noOfWantedSeats))
                                     {
                                         Seat seat = new Seat();
 										
