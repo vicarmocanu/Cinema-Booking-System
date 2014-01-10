@@ -118,7 +118,7 @@ namespace GUIEmployee
 
         private void gridReservation_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
                 DataGridViewRow row = this.gridReservation.Rows[e.RowIndex];
 
@@ -131,11 +131,16 @@ namespace GUIEmployee
                 statusTxt.Text = row.Cells[6].Value.ToString();
                 dateTxt.Text = row.Cells[7].Value.ToString();
             }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Empty space selected");
+               
+            }
         }
 
         private void gridCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
                 DataGridViewRow row = this.gridCustomer.Rows[e.RowIndex];
 
@@ -148,11 +153,15 @@ namespace GUIEmployee
                 emailTxt.Text = row.Cells[6].Value.ToString();
                 phoneNoTxt.Text = row.Cells[7].Value.ToString();
             }
+            catch(NullReferenceException)
+            {
+                MessageBox.Show("Empty space selected");
+            }
         }
 
         private void gridMovie_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
                 DataGridViewRow row = this.gridMovie.Rows[e.RowIndex];
 
@@ -162,11 +171,15 @@ namespace GUIEmployee
                 movieIdTxt.Text = row.Cells[3].Value.ToString();
                 nameTxt.Text = row.Cells[4].Value.ToString();
             }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Empty space selected");
+            }
         }
 
         private void gridSession_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
                 DataGridViewRow row = this.gridSession.Rows[e.RowIndex];
 
@@ -176,6 +189,10 @@ namespace GUIEmployee
                 txtExitTime.Text = row.Cells[3].Value.ToString();
                 txtSesDate.Text = row.Cells[4].Value.ToString();
                 txtSesPrice.Text = row.Cells[5].Value.ToString();
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Empty space selected");
             }
         }
 
