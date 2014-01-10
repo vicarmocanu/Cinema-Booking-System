@@ -13,7 +13,7 @@ namespace Cinema.ModelLayer
         private static int leftAvailableSeats = -1;
         private static int rightAvailableSeats = -1;
         private static int generalCount = -1;        
-        static volatile Boolean parallelFound = false;
+        private static volatile Boolean parallelFound = false;
         private static List<Seat> returnList;
         private static Seat[][] seats;
         private static int parallelNoOfSeats = -1;
@@ -344,7 +344,7 @@ namespace Cinema.ModelLayer
             return returnList;
         }
 
-        private static void partialAddition(Object obj)
+        private void partialAddition(Object obj)
         {
             int a = Convert.ToInt32(obj);            
             if (a % 2 == 0)
