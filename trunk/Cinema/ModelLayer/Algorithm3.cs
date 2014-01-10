@@ -134,7 +134,6 @@ namespace Cinema.ModelLayer
                 }
 
                 //between 2 and 4 - special case, left&right
-                /*
                 if (noOfWantedSeats > 1 && noOfWantedSeats < 5)
                 {
                     for (int a = 0; a < rowNo; a++)
@@ -316,11 +315,10 @@ namespace Cinema.ModelLayer
                         }
                     }
                 }
-                */
 
                 //general case - left&right
                 //if(noOfWantedSeats > 4)
-                if (noOfWantedSeats > 1)
+                if (noOfWantedSeats > 4)
                 {
                     parallelFound = false;
                     generalCount = noOfWantedSeats;
