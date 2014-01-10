@@ -490,6 +490,10 @@ namespace Cinema.DBLayer
 
                 dbCmd = new SqlCommand();
                 string sqlQuery = "INSERT INTO ReservedSeats VALUES " +
+                    "('" + wantedId + "','" + seat.SeatId + "', 'O')";
+
+                /*
+
                     "(@reservationId, @seatId, @status)";
                 dbCmd = AccessDbSQLClient.GetDbCommand(sqlQuery);
 
@@ -501,6 +505,8 @@ namespace Cinema.DBLayer
 
                 paramStatus.Value = "O";
                 dbCmd.Parameters.Add(paramStatus);
+                
+                */
 
                 try
                 {
