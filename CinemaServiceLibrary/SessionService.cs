@@ -52,7 +52,7 @@ namespace CinemaServiceLibrary
             {
                 try
                 {
-                    result = sessionCtr.updateSession(MovieId, Date, ExitTime, ExitTime, Price, SessionId);
+                    result = sessionCtr.updateSession(MovieId, Date, EnterTime, ExitTime, Price, SessionId);
                 }
                 finally
                 {

@@ -165,11 +165,11 @@ namespace GUIEmployee
             {
                 DataGridViewRow row = this.gridMovie.Rows[e.RowIndex];
 
-                ageLimitTxt.Text = row.Cells[0].Value.ToString();
-                genreTxt.Text = row.Cells[1].Value.ToString();
-                lenghtTxt.Text = row.Cells[2].Value.ToString();
-                movieIdTxt.Text = row.Cells[3].Value.ToString();
-                nameTxt.Text = row.Cells[4].Value.ToString();
+                ageLimitTxt.Text = row.Cells[3].Value.ToString();
+                genreTxt.Text = row.Cells[2].Value.ToString();
+                lenghtTxt.Text = row.Cells[4].Value.ToString();
+                movieIdTxt.Text = row.Cells[0].Value.ToString();
+                nameTxt.Text = row.Cells[1].Value.ToString();
             }
             catch (NullReferenceException)
             {
@@ -313,7 +313,7 @@ namespace GUIEmployee
         private void crtMovieBtn_Click(object sender, EventArgs e)
         {
             gridMovie.Rows.Clear();
-            if (ageLimitTxt.Text.Equals("") || genreTxt.Text.Equals("") || lenghtTxt.Text.Equals("") || movieIdTxt.Text.Equals("") || nameTxt.Text.Equals(""))
+            if (ageLimitTxt.Text.Equals("") || genreTxt.Text.Equals("") || lenghtTxt.Text.Equals("") || nameTxt.Text.Equals(""))
             {
                 MessageBox.Show("More Information Required!");
                 loadMovieGrid();

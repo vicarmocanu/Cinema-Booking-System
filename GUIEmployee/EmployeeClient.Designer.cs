@@ -590,35 +590,35 @@
             // 
             // nameTxt
             // 
-            this.nameTxt.Location = new System.Drawing.Point(150, 130);
+            this.nameTxt.Location = new System.Drawing.Point(256, 48);
             this.nameTxt.Name = "nameTxt";
             this.nameTxt.Size = new System.Drawing.Size(100, 20);
             this.nameTxt.TabIndex = 8;
             // 
             // movieIdTxt
             // 
-            this.movieIdTxt.Location = new System.Drawing.Point(150, 104);
+            this.movieIdTxt.Location = new System.Drawing.Point(256, 22);
             this.movieIdTxt.Name = "movieIdTxt";
             this.movieIdTxt.Size = new System.Drawing.Size(100, 20);
             this.movieIdTxt.TabIndex = 7;
             // 
             // lenghtTxt
             // 
-            this.lenghtTxt.Location = new System.Drawing.Point(150, 78);
+            this.lenghtTxt.Location = new System.Drawing.Point(256, 130);
             this.lenghtTxt.Name = "lenghtTxt";
             this.lenghtTxt.Size = new System.Drawing.Size(100, 20);
             this.lenghtTxt.TabIndex = 6;
             // 
             // genreTxt
             // 
-            this.genreTxt.Location = new System.Drawing.Point(150, 52);
+            this.genreTxt.Location = new System.Drawing.Point(256, 74);
             this.genreTxt.Name = "genreTxt";
             this.genreTxt.Size = new System.Drawing.Size(100, 20);
             this.genreTxt.TabIndex = 5;
             // 
             // ageLimitTxt
             // 
-            this.ageLimitTxt.Location = new System.Drawing.Point(150, 26);
+            this.ageLimitTxt.Location = new System.Drawing.Point(256, 104);
             this.ageLimitTxt.Name = "ageLimitTxt";
             this.ageLimitTxt.Size = new System.Drawing.Size(100, 20);
             this.ageLimitTxt.TabIndex = 4;
