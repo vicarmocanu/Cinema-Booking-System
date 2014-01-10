@@ -10,16 +10,16 @@ namespace CinemaServiceLibrary
 {    
     public class SessionService : ISessionService
     {
-        private System.Object obj1 = new System.Object();
-        private System.Object obj2 = new System.Object();
-        private System.Object obj3 = new System.Object();
-        private System.Object obj4 = new System.Object();
-        private System.Object obj5 = new System.Object();
-        private System.Object obj6 = new System.Object();
-        private System.Object obj7 = new System.Object();
-        private System.Object obj8 = new System.Object();
-        private System.Object obj9 = new System.Object();
-        private System.Object obj10 = new System.Object();
+        private static readonly System.Object obj1 = new System.Object();
+        private static readonly System.Object obj2 = new System.Object();
+        private static readonly System.Object obj3 = new System.Object();
+        private static readonly System.Object obj4 = new System.Object();
+        private static readonly System.Object obj5 = new System.Object();
+        private static readonly System.Object obj6 = new System.Object();
+        private static readonly System.Object obj7 = new System.Object();
+        private static readonly System.Object obj8 = new System.Object();
+        private static readonly System.Object obj9 = new System.Object();
+        private static readonly System.Object obj10 = new System.Object();
 
         private static SessionCtr sessionCtr = SessionCtr.getInstance();
 

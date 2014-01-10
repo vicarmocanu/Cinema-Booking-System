@@ -508,7 +508,6 @@ namespace Cinema.DBLayer
                 dbCmd.Parameters.Add(paramStatus);
                 */
                 
-
                 try
                 {
                     result = dbCmd.ExecuteNonQuery();                    

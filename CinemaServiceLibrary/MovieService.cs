@@ -11,12 +11,12 @@ namespace CinemaServiceLibrary
 {    
     public class MovieService : IMovieService
     {
-        private System.Object obj1 = new System.Object();
-        private System.Object obj2 = new System.Object();
-        private System.Object obj3 = new System.Object();
-        private System.Object obj4 = new System.Object();
-        private System.Object obj5 = new System.Object();
-        private System.Object obj6 = new System.Object();
+        private static readonly System.Object obj1 = new System.Object();
+        private static readonly System.Object obj2 = new System.Object();
+        private static readonly System.Object obj3 = new System.Object();
+        private static readonly System.Object obj4 = new System.Object();
+        private static readonly System.Object obj5 = new System.Object();
+        private static readonly System.Object obj6 = new System.Object();
 
         private static MovieCtr movieCtr = MovieCtr.getInstance();
 
