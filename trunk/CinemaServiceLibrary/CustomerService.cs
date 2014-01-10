@@ -11,13 +11,13 @@ namespace CinemaServiceLibrary
 {
     public class CustomerService : ICustomerService
     {
-        private System.Object obj1 = new System.Object();
-        private System.Object obj2 = new System.Object();
-        private System.Object obj3 = new System.Object();
-        private System.Object obj4 = new System.Object();
-        private System.Object obj5 = new System.Object();
-        private System.Object obj6 = new System.Object();
-        private System.Object obj7 = new System.Object();
+        private static readonly System.Object obj1 = new System.Object();
+        private static readonly System.Object obj2 = new System.Object();
+        private static readonly System.Object obj3 = new System.Object();
+        private static readonly System.Object obj4 = new System.Object();
+        private static readonly System.Object obj5 = new System.Object();
+        private static readonly System.Object obj6 = new System.Object();
+        private static readonly System.Object obj7 = new System.Object();
 
         private static CustomerCtr customerCtr = CustomerCtr.getInstance();
 

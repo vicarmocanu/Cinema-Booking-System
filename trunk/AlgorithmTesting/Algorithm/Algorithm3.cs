@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using Cinema.ModelLayer;
 
-namespace Cinema.ModelLayer
+namespace AlgorithmTesting
 {
     public class Algorithm3
     {
