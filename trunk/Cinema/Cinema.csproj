@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlLayer\AlgorithmCtr.cs" />
+    <Compile Include="ModelLayer\Algorithm2.cs" />
     <Compile Include="ModelLayer\Algorithm3.cs" />
     <Compile Include="ControlLayer\CustomerCtr.cs" />
     <Compile Include="ControlLayer\EmployeeCtr.cs" />

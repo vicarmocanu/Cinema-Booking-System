@@ -333,6 +333,10 @@ namespace Cinema.ModelLayer
                         while (h < 1000000000)
                         {
                             h++;
+                            if (parallelFound == true)
+                            {
+                                break;
+                            }
                         }
                         if (parallelFound == true)
                         {
@@ -344,7 +348,7 @@ namespace Cinema.ModelLayer
             return returnList;
         }
 
-        private void partialAddition(Object obj)
+        private static void partialAddition(Object obj)
         {
             int a = Convert.ToInt32(obj);            
             if (a % 2 == 0)

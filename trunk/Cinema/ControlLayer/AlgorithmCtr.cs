@@ -24,7 +24,7 @@ namespace Cinema.ControlLayer
 
         public List<Seat> getAdjancentSeats(Seat[][] receivedSeats, int noOfWantedSeats)
         {
-            return Algorithm3.getSeatsToReserve(receivedSeats, noOfWantedSeats);
+            return Algorithm2.getSeatsToReserve(receivedSeats, noOfWantedSeats);
         }
     }
 }
