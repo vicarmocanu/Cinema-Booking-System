@@ -27,7 +27,7 @@ namespace Cinema.DBLayer
             {
                 if (dbReader["maxim"].ToString().Equals("") == true)
                 {
-                    maxim = 1;
+                    maxim = 0;
                 }
                 else
                 {
