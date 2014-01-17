@@ -23,9 +23,16 @@ namespace Cinema.DBLayer
             dbReader = dbCmd.ExecuteReader();
 
             int maxim = 0;
-            if(dbReader.Read())
+            if (dbReader.Read())
             {
-                maxim = Convert.ToInt32(dbReader["maxim"].ToString());
+                if (dbReader["maxim"].ToString().Equals("") == true)
+                {
+                    maxim = 1;
+                }
+                else
+                {
+                    maxim = Convert.ToInt32(dbReader["maxim"].ToString());
+                }
             }
             AccessDbSQLClient.Close();
             return maxim;

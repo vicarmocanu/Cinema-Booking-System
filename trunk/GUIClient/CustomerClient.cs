@@ -154,16 +154,23 @@ namespace GUIClient
                 int noOfWantedSeats = Convert.ToInt32(noOfSeatsTxt.Text);
                 string status = "Made";
                 int[] results = reservationService.trustedInsertReservedSeats(customerFName, customerLName, sessionId, noOfWantedSeats, sessionPrice, status);
-                string lineResults = "";
-                for (int i = 0; i < results.Length; i++)
+                if (results.Length == 0)
                 {
-
-                    lineResults = lineResults + results[i] + " ";
+                    MessageBox.Show("Seat(s) -1!");
+                    gridSeats.Rows.Clear();
+                    loadSeatGrid(sessionId);
                 }
-
-                MessageBox.Show("Seat(s) " + lineResults + "!");
-                gridSeats.Rows.Clear();
-                loadSeatGrid(sessionId);
+                else
+                {
+                    string lineResults = "";
+                    for (int i = 0; i < results.Length; i++)
+                    {
+                        lineResults = lineResults + results[i] + " ";
+                    }
+                    MessageBox.Show("Seat(s) " + lineResults + "!");
+                    gridSeats.Rows.Clear();
+                    loadSeatGrid(sessionId);
+                }
             }
         }
         private void OkMovBtn_Click(object sender, EventArgs e)
