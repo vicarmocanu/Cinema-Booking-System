@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using Cinema.ModelLayer;
 
-namespace Cinema.ModelLayer
+namespace Cinema
 {
     public class Algorithm3
     {
@@ -327,9 +328,9 @@ namespace Cinema.ModelLayer
                     Thread[] threads = new Thread[noOfThreads];
                     for (int i = 0; i < noOfThreads; i++)
                     {
-                       
                         threads[i] = new Thread(partialAddition);
                         threads[i].Start(i);
+                        
                         int h = 0;
                         while (h < 1000000000)
                         {
@@ -339,6 +340,7 @@ namespace Cinema.ModelLayer
                                 break;
                             }
                         }
+                        
                         if (parallelFound == true)
                         {
                             break;

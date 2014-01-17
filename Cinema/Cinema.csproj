@@ -65,6 +65,7 @@
     <Compile Include="DBLayer\IRoom.cs" />
     <Compile Include="DBLayer\ISeat.cs" />
     <Compile Include="DBLayer\ISession.cs" />
+    <Compile Include="ModelLayer\Algorithm3.cs" />
     <Compile Include="ModelLayer\Customer.cs" />
     <Compile Include="ModelLayer\Employee.cs" />
     <Compile Include="ModelLayer\Movie.cs" />
